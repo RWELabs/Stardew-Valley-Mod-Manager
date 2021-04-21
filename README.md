@@ -3,3 +3,6 @@ This is the official Stardew Valley modpack for The Potato Farm's modded Stardew
 
 ## Instructions
 - Installing the modpack on Windows
+
+## Downloads
+- Installation Utility for Windows (.exe)
