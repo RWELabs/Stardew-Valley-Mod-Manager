@@ -1,0 +1,15 @@
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\bin\Release\Stardew Valley (The Potato Farm) [Modded Framework].exe.config
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\bin\Release\Stardew Valley (The Potato Farm) [Modded Framework].exe
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\bin\Release\Stardew Valley (The Potato Farm) [Modded Framework].pdb
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew Valley (The Potato Farm) [Modded Framework].csprojAssemblyReference.cache
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Interop.IWshRuntimeLibrary.dll
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew Valley (The Potato Farm) [Modded Framework].csproj.ResolveComReference.cache
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew_Valley__The_Potato_Farm___Modded_Framework_.Form1.resources
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew_Valley__The_Potato_Farm___Modded_Framework_.Properties.Resources.resources
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew_Valley__The_Potato_Farm___Modded_Framework_.Step2.resources
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew_Valley__The_Potato_Farm___Modded_Framework_.Step3.resources
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew Valley (The Potato Farm) [Modded Framework].csproj.GenerateResource.cache
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew Valley (The Potato Farm) [Modded Framework].csproj.CoreCompileInputs.cache
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew Valley (The Potato Farm) [Modded Framework].exe
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew Valley (The Potato Farm) [Modded Framework].pdb
+C:\Users\ryanw\source\repos\Stardew Valley (The Potato Farm) [Modded Framework]\Stardew Valley (The Potato Farm) [Modded Framework]\obj\Release\Stardew_Valley__The_Potato_Farm___Modded_Framework_.Finish.resources
