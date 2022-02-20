@@ -5,4 +5,4 @@ This is the official Stardew Valley modpack for The Potato Farm's modded Stardew
 - Installing the modpack on Windows           |     [View Instructions](https://youtu.be/ymkOxp0Lk7c)
 
 ## Downloads
-- Installation Utility for Windows (.exe)     |     [View Releases](https://github.com/RyanWalpoleEnterprises/Stardew-Valley/releases)
+- Installation Utility for Windows (.exe)     |     [View Releases](https://github.com/RyanWalpoleEnterprises/Stardew-Valley/releases) | [Download Latest](https://github.com/RyanWalpoleEnterprises/Stardew-Valley/releases/download/v220201/stardewmodded220201.exe)
