@@ -292,5 +292,10 @@ namespace Stardew_Mod_Manager
                 }
             }
         }
+
+        private void PackInstall_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

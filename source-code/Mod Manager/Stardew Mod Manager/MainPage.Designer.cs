@@ -44,11 +44,11 @@ namespace Stardew_Mod_Manager
             this.PackInstall = new System.Windows.Forms.Button();
             this.DeleteMod = new System.Windows.Forms.Button();
             this.SMAPIWarning = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SMAPIDownload = new System.Windows.Forms.LinkLabel();
             this.SMAPIVer = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -167,6 +167,7 @@ namespace Stardew_Mod_Manager
             this.PackInstall.TabIndex = 12;
             this.PackInstall.Text = "Install Modpack";
             this.PackInstall.UseVisualStyleBackColor = true;
+            this.PackInstall.Click += new System.EventHandler(this.PackInstall_Click);
             // 
             // DeleteMod
             // 
@@ -190,26 +191,6 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.Size = new System.Drawing.Size(490, 52);
             this.SMAPIWarning.TabIndex = 14;
             this.SMAPIWarning.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.icon_attention;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 42);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvbg1;
-            this.pictureBox1.Location = new System.Drawing.Point(-6, -63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(570, 242);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -246,6 +227,26 @@ namespace Stardew_Mod_Manager
             this.SMAPIVer.Text = "SMAPI 0.0.0";
             this.SMAPIVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SMAPIVer.Click += new System.EventHandler(this.SMAPIVer_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.icon_attention;
+            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(62, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvbg1;
+            this.pictureBox1.Location = new System.Drawing.Point(-6, -63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(570, 242);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // MainPage
             // 
