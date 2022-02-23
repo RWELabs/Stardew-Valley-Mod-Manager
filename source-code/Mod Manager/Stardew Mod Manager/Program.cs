@@ -19,7 +19,8 @@ namespace Stardew_Mod_Manager
 
             if(Properties.Settings.Default.SetupComplete == "TRUE")
             {
-                Application.Run(new MainPage());
+                //Application.Run(new MainPage());
+                Application.Run(new FirstRunSetup());
             }
             else
             {

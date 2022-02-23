@@ -73,6 +73,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_attention {
+            get {
+                object obj = ResourceManager.GetObject("icon_attention", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdvbg {
             get {
                 object obj = ResourceManager.GetObject("sdvbg", resourceCulture);
@@ -87,6 +97,18 @@ namespace Stardew_Mod_Manager.Properties {
             get {
                 object obj = ResourceManager.GetObject("sdvbg1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ConsoleCommands
+        ///ErrorHandler
+        ///SaveBackup
+        ///.
+        /// </summary>
+        internal static string SMAPI_Default {
+            get {
+                return ResourceManager.GetString("SMAPI_Default", resourceCulture);
             }
         }
     }

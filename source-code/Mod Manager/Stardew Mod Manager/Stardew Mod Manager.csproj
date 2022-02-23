@@ -41,6 +41,8 @@
     <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -109,6 +111,8 @@
     <None Include="Resources\sdvbg.png" />
     <None Include="Resources\sdvbg.jpg" />
     <None Include="Resources\GameDirExample.gif" />
+    <None Include="Resources\icon_attention.png" />
+    <None Include="Resources\SMAPI Default.txt" />
     <Content Include="sdvicon.ico" />
     <Content Include="Stardew-Mod-Manager-x64.ico" />
   </ItemGroup>
