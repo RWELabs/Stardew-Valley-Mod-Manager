@@ -42,11 +42,15 @@ namespace Stardew_Mod_Manager.Properties
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.ModsTimer = new System.Windows.Forms.Timer(this.components);
             this.ExtractTimer = new System.Windows.Forms.Timer(this.components);
+            this.verSMAPI = new System.Windows.Forms.TextBox();
+            this.verSMAPIReq = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Browse
             // 
-            this.Browse.Location = new System.Drawing.Point(279, 190);
+            this.Browse.Location = new System.Drawing.Point(355, 197);
             this.Browse.Name = "Browse";
             this.Browse.Size = new System.Drawing.Size(75, 23);
             this.Browse.TabIndex = 0;
@@ -57,9 +61,9 @@ namespace Stardew_Mod_Manager.Properties
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.label2.Location = new System.Drawing.Point(12, 59);
+            this.label2.Location = new System.Drawing.Point(14, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(423, 82);
+            this.label2.Size = new System.Drawing.Size(348, 91);
             this.label2.TabIndex = 6;
             this.label2.Text = resources.GetString("label2.Text");
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -69,7 +73,7 @@ namespace Stardew_Mod_Manager.Properties
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(446, 25);
+            this.label1.Size = new System.Drawing.Size(350, 35);
             this.label1.TabIndex = 5;
             this.label1.Text = "Install Modpack";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -78,7 +82,7 @@ namespace Stardew_Mod_Manager.Properties
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.25F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(12, 164);
+            this.label3.Location = new System.Drawing.Point(12, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(446, 22);
             this.label3.TabIndex = 7;
@@ -87,10 +91,10 @@ namespace Stardew_Mod_Manager.Properties
             // 
             // SDVMPFilePath
             // 
-            this.SDVMPFilePath.Location = new System.Drawing.Point(15, 192);
+            this.SDVMPFilePath.Location = new System.Drawing.Point(15, 199);
             this.SDVMPFilePath.Name = "SDVMPFilePath";
             this.SDVMPFilePath.ReadOnly = true;
-            this.SDVMPFilePath.Size = new System.Drawing.Size(258, 20);
+            this.SDVMPFilePath.Size = new System.Drawing.Size(334, 20);
             this.SDVMPFilePath.TabIndex = 8;
             // 
             // OuputConsole
@@ -102,14 +106,14 @@ namespace Stardew_Mod_Manager.Properties
             this.OuputConsole.Location = new System.Drawing.Point(15, 240);
             this.OuputConsole.Name = "OuputConsole";
             this.OuputConsole.ReadOnly = true;
-            this.OuputConsole.Size = new System.Drawing.Size(420, 281);
+            this.OuputConsole.Size = new System.Drawing.Size(492, 303);
             this.OuputConsole.TabIndex = 9;
             this.OuputConsole.Text = "Installer Ready";
             // 
             // Install
             // 
             this.Install.Enabled = false;
-            this.Install.Location = new System.Drawing.Point(360, 190);
+            this.Install.Location = new System.Drawing.Point(432, 197);
             this.Install.Name = "Install";
             this.Install.Size = new System.Drawing.Size(75, 23);
             this.Install.TabIndex = 10;
@@ -128,9 +132,9 @@ namespace Stardew_Mod_Manager.Properties
             // 
             // ProgressBar
             // 
-            this.ProgressBar.Location = new System.Drawing.Point(15, 533);
+            this.ProgressBar.Location = new System.Drawing.Point(15, 558);
             this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(420, 20);
+            this.ProgressBar.Size = new System.Drawing.Size(492, 20);
             this.ProgressBar.TabIndex = 12;
             // 
             // ModsTimer
@@ -143,13 +147,39 @@ namespace Stardew_Mod_Manager.Properties
             this.ExtractTimer.Interval = 3000;
             this.ExtractTimer.Tick += new System.EventHandler(this.ExtractTimer_Tick);
             // 
+            // verSMAPI
+            // 
+            this.verSMAPI.Location = new System.Drawing.Point(67, 21);
+            this.verSMAPI.Name = "verSMAPI";
+            this.verSMAPI.Size = new System.Drawing.Size(100, 20);
+            this.verSMAPI.TabIndex = 13;
+            this.verSMAPI.Visible = false;
+            // 
+            // verSMAPIReq
+            // 
+            this.verSMAPIReq.Location = new System.Drawing.Point(173, 21);
+            this.verSMAPIReq.Name = "verSMAPIReq";
+            this.verSMAPIReq.Size = new System.Drawing.Size(100, 20);
+            this.verSMAPIReq.TabIndex = 14;
+            this.verSMAPIReq.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.Stardew_Mod_Manager;
+            this.pictureBox1.Location = new System.Drawing.Point(355, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(152, 147);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // PackInstaller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 565);
+            this.ClientSize = new System.Drawing.Size(519, 590);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ProgressBar);
-            this.Controls.Add(this.ConfigFile);
             this.Controls.Add(this.Install);
             this.Controls.Add(this.OuputConsole);
             this.Controls.Add(this.SDVMPFilePath);
@@ -157,10 +187,17 @@ namespace Stardew_Mod_Manager.Properties
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Browse);
+            this.Controls.Add(this.verSMAPIReq);
+            this.Controls.Add(this.verSMAPI);
+            this.Controls.Add(this.ConfigFile);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(535, 629);
+            this.MinimumSize = new System.Drawing.Size(535, 629);
             this.Name = "PackInstaller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Install Modpack | Stardew Valley Modded Framework";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +216,8 @@ namespace Stardew_Mod_Manager.Properties
         private System.Windows.Forms.ProgressBar ProgressBar;
         private System.Windows.Forms.Timer ModsTimer;
         private System.Windows.Forms.Timer ExtractTimer;
+        private System.Windows.Forms.TextBox verSMAPI;
+        private System.Windows.Forms.TextBox verSMAPIReq;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

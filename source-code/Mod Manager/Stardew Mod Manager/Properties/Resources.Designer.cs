@@ -111,5 +111,15 @@ namespace Stardew_Mod_Manager.Properties {
                 return ResourceManager.GetString("SMAPI_Default", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stardew_Mod_Manager {
+            get {
+                object obj = ResourceManager.GetObject("Stardew Mod Manager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

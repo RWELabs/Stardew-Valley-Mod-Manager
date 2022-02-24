@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -54,6 +55,34 @@ namespace Stardew_Mod_Manager.Properties
 
                     SDVMPFilePath.Text = ofd.FileName;
                     OuputConsole.AppendText(Environment.NewLine + "[INFO] Modpack Found: " + ofd.FileName);
+
+                    verSMAPIReq.Text = Properties.Settings.Default.TMP_SMAPIVer;
+                    
+                    var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
+                    verSMAPI.Text = SMAPIVersion.FileVersion;
+
+                    int SmapiVersionInstalled;
+                    int SmapiVersionRequired;
+
+                    Int32.TryParse(verSMAPI.Text.Replace(".",null), out SmapiVersionInstalled);
+                    Int32.TryParse(verSMAPIReq.Text.Replace(".", null), out SmapiVersionRequired);
+
+                    if(SmapiVersionInstalled < SmapiVersionRequired)
+                    {
+                        MessageBox.Show("This modpack is declaring a requirement for a version of SMAPI higher than the version you have installed. To use the mods in this modpack after you have installed them, you can use the link in the console to update SMAPI now - or do it later.","Warning", MessageBoxButtons.OK ,MessageBoxIcon.Warning);
+                        OuputConsole.AppendText(Environment.NewLine + "[WARN] Modpack requires SMAPI: " + SmapiVersionRequired);
+                        OuputConsole.AppendText(Environment.NewLine + "[WARN] Your SMAPI is not up to date enough to play with this modpack. Consider updating.");
+                        OuputConsole.AppendText(Environment.NewLine + "[INFO] Download SMAPI updates: https://smapi.io/");
+                    }
+                    else if (SmapiVersionInstalled > SmapiVersionRequired)
+                    {
+                        //MessageBox.Show("Sufficient SMAPI Version");
+                    }
+                    else if (SmapiVersionInstalled == SmapiVersionRequired)
+                    {
+                        //MessageBox.Show("Sufficient SMAPI Version");
+                    }
+
                     Install.Enabled = true;
                 }
                 catch (Exception ex)
@@ -68,31 +97,6 @@ namespace Stardew_Mod_Manager.Properties
             Install.Enabled = false;
             Browse.Enabled = false;
 
-            string host = "https://www.github.com/";
-            Ping p = new Ping();
-            try
-            {
-                PingReply reply = p.Send(host, 3000);
-                if (reply.Status == IPStatus.Success)
-                {
-                    Properties.Settings.Default.IsNetworkConnected = "True";
-                    OuputConsole.AppendText(Environment.NewLine + "[INFO] Established a network connection.");
-                    DownloadModpack();
-                }
-                else
-                {
-                    OuputConsole.AppendText(Environment.NewLine + "[WARN] Could not establish a network connection.");
-                    OuputConsole.AppendText(Environment.NewLine + "[INFO] Modpack Install aborted. Network connection required.");
-                    Install.Enabled = true;
-                    Browse.Enabled = true;
-                }
-            }
-            catch { }
-
-        }
-
-        private void DownloadModpack()
-        {
             try
             {
                 using (WebClient wc = new WebClient())
@@ -123,42 +127,6 @@ namespace Stardew_Mod_Manager.Properties
             long FileSize = e.TotalBytesToReceive / 1024;
             //DLPercentText.Text = e.ProgressPercentage.ToString() + "% of " + FileSize.ToString() + " kb";
 
-            if (ProgressBar.Value == 10)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 10% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 20)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 20% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 30)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 30% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 40)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 40% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 50)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 50% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 60)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 60% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 70)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 70% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 80)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 80% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 90)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 90% of " + FileSize.ToString() + " kb");
-            }
             if (ProgressBar.Value == 100)
             {
                 this.BringToFront();
@@ -208,42 +176,6 @@ namespace Stardew_Mod_Manager.Properties
             long FileSize = e.TotalBytesToReceive / 1024;
             //DLPercentText.Text = e.ProgressPercentage.ToString() + "% of " + FileSize.ToString() + " kb";
 
-            if (ProgressBar.Value == 10)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 10% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 20)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 20% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 30)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 30% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 40)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 40% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 50)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 50% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 60)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 60% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 70)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 70% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 80)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 80% of " + FileSize.ToString() + " kb");
-            }
-            if (ProgressBar.Value == 90)
-            {
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 90% of " + FileSize.ToString() + " kb");
-            }
             if (ProgressBar.Value == 100)
             {
                 this.BringToFront();
@@ -268,10 +200,18 @@ namespace Stardew_Mod_Manager.Properties
             string presetdir = Properties.Settings.Default.PresetsDir;
 
             OuputConsole.AppendText(Environment.NewLine + "[INFO] Extracting Configruation Files...");
-            File.Move(updatelocation, presetdir + Properties.Settings.Default.TMP_Name + ".txt");
+            
+            if(File.Exists(presetdir + Properties.Settings.Default.TMP_Name + ".txt"))
+            {
+                File.Delete(presetdir + Properties.Settings.Default.TMP_Name + ".txt");
+                File.Move(updatelocation, presetdir + Properties.Settings.Default.TMP_Name + ".txt");
+            }
+
             OuputConsole.AppendText(Environment.NewLine + "[INFO] Modpack Installed Successfully.");
             Install.Enabled = false;
             Browse.Enabled = true;
+            ProgressBar.Style = ProgressBarStyle.Blocks;
+            ProgressBar.Value = 0;
             SDVMPFilePath.Clear();
         }
 
@@ -288,31 +228,32 @@ namespace Stardew_Mod_Manager.Properties
 
                 ZipFile.ExtractToDirectory(updatelocation, tempdir);
 
-                string[] files = Directory.GetDirectories(tempdir);
-
-                foreach(string file in files)
+                foreach (string folder in Directory.GetDirectories(tempdir))
                 {
-                    try
+                    string FolderName = Path.GetFileName(folder);
+                    if(Directory.Exists(extractdir + FolderName))
                     {
-                        if (Directory.Exists(Path.Combine(extractdir, file)))
-                        {
-                            OuputConsole.AppendText(Environment.NewLine + "[INFO]" + file + " was replaced with the version from this modpack.");
-                            Directory.Delete(Path.Combine(extractdir, file));
-                            Directory.Move(file, extractdir);
-                        }
-                        else
-                        {
-                            Directory.Move(file, extractdir);
-                            OuputConsole.AppendText(Environment.NewLine + "[INFO]" + file + " was installed.");
-                        }
+                        Directory.Delete(extractdir + FolderName, true);
+                        OuputConsole.AppendText(Environment.NewLine + "[WARN]" + FolderName + " already exists in your mods folder.");
+                        OuputConsole.AppendText(Environment.NewLine + "[INFO]" + FolderName + " will be replaced with the version included in the modpack.");
                     }
-                    catch
+                }
+
+                foreach (string folder in Directory.GetDirectories(tempdir))
+                {
+                    string FolderName = Path.GetFileName(folder);
+
+                    if (!Directory.Exists(extractdir + FolderName))
                     {
-                        OuputConsole.AppendText(Environment.NewLine + "[ERROR]" + file + " is already within your Mods folder.");
+                        Directory.Move(folder, extractdir + FolderName);
+                        OuputConsole.AppendText(Environment.NewLine + "[INFO]" + FolderName + " has been installed.");
                     }
                 }
 
                 Directory.Delete(tempdir, true);
+                File.Delete(updatelocation);
+
+                OuputConsole.AppendText(Environment.NewLine + "[INFO] Cleaning up temporary files...");
                 MoveConfig();
             }
             catch(Exception ex)
