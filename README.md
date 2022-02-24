@@ -1,5 +1,5 @@
 <img 
-  height="80%"
+  height="50%"
   src="https://github.com/RyanWalpoleEnterprises/Stardew-Valley/blob/220203/web/SDVML_Logo.png?raw=true">
 
 # Stardew Valley Mod Loader
