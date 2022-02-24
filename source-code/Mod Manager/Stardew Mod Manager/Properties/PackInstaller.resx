@@ -120,6 +120,12 @@
   <data name="label2.Text" xml:space="preserve">
     <value>You can install a Stardew Valley Modpack (.sdvmp). This will not only install all of the mods within the pack, but it will also install a preset for you so you can easily enable and disable all of the mods all at once. If you've been given a SDVMP file, you can install it here.</value>
   </data>
+  <metadata name="ModsTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="ExtractTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>130, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

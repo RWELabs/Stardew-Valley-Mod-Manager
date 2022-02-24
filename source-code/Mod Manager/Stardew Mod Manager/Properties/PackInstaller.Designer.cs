@@ -29,6 +29,7 @@ namespace Stardew_Mod_Manager.Properties
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackInstaller));
             this.Browse = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +39,9 @@ namespace Stardew_Mod_Manager.Properties
             this.OuputConsole = new System.Windows.Forms.RichTextBox();
             this.Install = new System.Windows.Forms.Button();
             this.ConfigFile = new System.Windows.Forms.RichTextBox();
+            this.ProgressBar = new System.Windows.Forms.ProgressBar();
+            this.ModsTimer = new System.Windows.Forms.Timer(this.components);
+            this.ExtractTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Browse
@@ -98,7 +102,7 @@ namespace Stardew_Mod_Manager.Properties
             this.OuputConsole.Location = new System.Drawing.Point(15, 240);
             this.OuputConsole.Name = "OuputConsole";
             this.OuputConsole.ReadOnly = true;
-            this.OuputConsole.Size = new System.Drawing.Size(420, 302);
+            this.OuputConsole.Size = new System.Drawing.Size(420, 281);
             this.OuputConsole.TabIndex = 9;
             this.OuputConsole.Text = "Installer Ready";
             // 
@@ -111,20 +115,40 @@ namespace Stardew_Mod_Manager.Properties
             this.Install.TabIndex = 10;
             this.Install.Text = "Install";
             this.Install.UseVisualStyleBackColor = true;
+            this.Install.Click += new System.EventHandler(this.Install_Click);
             // 
             // ConfigFile
             // 
             this.ConfigFile.Location = new System.Drawing.Point(279, 21);
             this.ConfigFile.Name = "ConfigFile";
-            this.ConfigFile.Size = new System.Drawing.Size(156, 150);
+            this.ConfigFile.Size = new System.Drawing.Size(156, 25);
             this.ConfigFile.TabIndex = 11;
             this.ConfigFile.Text = "";
+            this.ConfigFile.Visible = false;
+            // 
+            // ProgressBar
+            // 
+            this.ProgressBar.Location = new System.Drawing.Point(15, 533);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(420, 20);
+            this.ProgressBar.TabIndex = 12;
+            // 
+            // ModsTimer
+            // 
+            this.ModsTimer.Interval = 3000;
+            this.ModsTimer.Tick += new System.EventHandler(this.ModsTimer_Tick);
+            // 
+            // ExtractTimer
+            // 
+            this.ExtractTimer.Interval = 3000;
+            this.ExtractTimer.Tick += new System.EventHandler(this.ExtractTimer_Tick);
             // 
             // PackInstaller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 563);
+            this.ClientSize = new System.Drawing.Size(451, 565);
+            this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.ConfigFile);
             this.Controls.Add(this.Install);
             this.Controls.Add(this.OuputConsole);
@@ -152,5 +176,8 @@ namespace Stardew_Mod_Manager.Properties
         private System.Windows.Forms.RichTextBox OuputConsole;
         private System.Windows.Forms.Button Install;
         private System.Windows.Forms.RichTextBox ConfigFile;
+        private System.Windows.Forms.ProgressBar ProgressBar;
+        private System.Windows.Forms.Timer ModsTimer;
+        private System.Windows.Forms.Timer ExtractTimer;
     }
 }

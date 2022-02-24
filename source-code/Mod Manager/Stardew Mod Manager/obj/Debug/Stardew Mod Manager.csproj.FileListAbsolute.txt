@@ -10,3 +10,4 @@ C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod 
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Debug\Stardew_Mod_Manager.MainPage.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Debug\Stardew_Mod_Manager.FirstRunSetup.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Debug\Stardew_Mod_Manager.FirstRunSetup_Complete.resources
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Debug\Stardew_Mod_Manager.Properties.PackInstaller.resources

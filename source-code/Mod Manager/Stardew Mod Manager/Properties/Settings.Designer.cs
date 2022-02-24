@@ -82,5 +82,65 @@ namespace Stardew_Mod_Manager.Properties {
                 this["PresetsDir"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TMP_ModsURL {
+            get {
+                return ((string)(this["TMP_ModsURL"]));
+            }
+            set {
+                this["TMP_ModsURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TMP_SMAPIVer {
+            get {
+                return ((string)(this["TMP_SMAPIVer"]));
+            }
+            set {
+                this["TMP_SMAPIVer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TMP_Name {
+            get {
+                return ((string)(this["TMP_Name"]));
+            }
+            set {
+                this["TMP_Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TMP_PresetURL {
+            get {
+                return ((string)(this["TMP_PresetURL"]));
+            }
+            set {
+                this["TMP_PresetURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string IsNetworkConnected {
+            get {
+                return ((string)(this["IsNetworkConnected"]));
+            }
+            set {
+                this["IsNetworkConnected"] = value;
+            }
+        }
     }
 }

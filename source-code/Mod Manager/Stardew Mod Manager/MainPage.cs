@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.IO.Compression;
+using Stardew_Mod_Manager.Properties;
 
 namespace Stardew_Mod_Manager
 {
@@ -295,7 +296,8 @@ namespace Stardew_Mod_Manager
 
         private void PackInstall_Click(object sender, EventArgs e)
         {
-
+            PackInstaller pkg = new PackInstaller();
+            pkg.ShowDialog();
         }
     }
 }
