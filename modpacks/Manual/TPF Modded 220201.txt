@@ -1,0 +1,18 @@
+Chest Displays
+ConsoleCommands
+ContentPatcher
+CustomNPCExclusions
+ErrorHandler
+ExpandedPreconditionsUtility
+ExtraMapLayers
+FarmTypeManager
+Immersive Farm 2 Remastered
+JsonAssets
+SAAT
+SaveBackup
+ShopTileFramework
+SpaceCore
+Stardew Valley Expanded
+TimeSpeed
+UIInfoSuite2
+VisibleFish
