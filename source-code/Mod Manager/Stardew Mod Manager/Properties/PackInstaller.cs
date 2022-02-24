@@ -209,8 +209,9 @@ namespace Stardew_Mod_Manager.Properties
             if(File.Exists(presetdir + Properties.Settings.Default.TMP_Name + ".txt"))
             {
                 File.Delete(presetdir + Properties.Settings.Default.TMP_Name + ".txt");
-                File.Move(updatelocation, presetdir + Properties.Settings.Default.TMP_Name + ".txt");
             }
+
+            File.Move(updatelocation, presetdir + Properties.Settings.Default.TMP_Name + ".txt");
 
             OuputConsole.AppendText(Environment.NewLine + "[INFO] Modpack Installed Successfully.");
             Install.Enabled = false;
