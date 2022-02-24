@@ -108,7 +108,8 @@ namespace Stardew_Mod_Manager.Properties
             this.OuputConsole.ReadOnly = true;
             this.OuputConsole.Size = new System.Drawing.Size(492, 303);
             this.OuputConsole.TabIndex = 9;
-            this.OuputConsole.Text = "Installer Ready";
+            this.OuputConsole.Text = "Stardew Valley Modded Framework\n(C) Copyright 2022 - Ryan Walpole Enterprises, Cr" +
+    "utionix Media Group\nModpack Installation Utility\n\n[INFO] Installer Ready.";
             // 
             // Install
             // 

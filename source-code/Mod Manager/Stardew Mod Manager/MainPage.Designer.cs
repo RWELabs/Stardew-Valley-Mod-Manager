@@ -44,14 +44,18 @@ namespace Stardew_Mod_Manager
             this.PackInstall = new System.Windows.Forms.Button();
             this.DeleteMod = new System.Windows.Forms.Button();
             this.SMAPIWarning = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.SMAPIDownload = new System.Windows.Forms.LinkLabel();
-            this.SMAPIVer = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.SMAPIVer = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.RefreshPanel = new System.Windows.Forms.Panel();
+            this.CloseRefreshPanel = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.RefreshPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // InstalledModsList
@@ -192,17 +196,6 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.TabIndex = 14;
             this.SMAPIWarning.Visible = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(72, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(399, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "SMAPI was not found on your system. SMAPI is required in order to play with Mods." +
-    "";
-            // 
             // SMAPIDownload
             // 
             this.SMAPIDownload.ActiveLinkColor = System.Drawing.Color.White;
@@ -217,16 +210,16 @@ namespace Stardew_Mod_Manager
             this.SMAPIDownload.VisitedLinkColor = System.Drawing.Color.White;
             this.SMAPIDownload.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SMAPIDownload_LinkClicked);
             // 
-            // SMAPIVer
+            // label3
             // 
-            this.SMAPIVer.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.SMAPIVer.Location = new System.Drawing.Point(320, 498);
-            this.SMAPIVer.Name = "SMAPIVer";
-            this.SMAPIVer.Size = new System.Drawing.Size(222, 23);
-            this.SMAPIVer.TabIndex = 15;
-            this.SMAPIVer.Text = "SMAPI 0.0.0";
-            this.SMAPIVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SMAPIVer.Click += new System.EventHandler(this.SMAPIVer_Click);
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(72, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(399, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "SMAPI was not found on your system. SMAPI is required in order to play with Mods." +
+    "";
             // 
             // pictureBox2
             // 
@@ -238,6 +231,17 @@ namespace Stardew_Mod_Manager
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // SMAPIVer
+            // 
+            this.SMAPIVer.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.SMAPIVer.Location = new System.Drawing.Point(320, 498);
+            this.SMAPIVer.Name = "SMAPIVer";
+            this.SMAPIVer.Size = new System.Drawing.Size(222, 23);
+            this.SMAPIVer.TabIndex = 15;
+            this.SMAPIVer.Text = "SMAPI 0.0.0";
+            this.SMAPIVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SMAPIVer.Click += new System.EventHandler(this.SMAPIVer_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvbg1;
@@ -247,6 +251,40 @@ namespace Stardew_Mod_Manager
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // RefreshPanel
+            // 
+            this.RefreshPanel.AllowDrop = true;
+            this.RefreshPanel.Controls.Add(this.CloseRefreshPanel);
+            this.RefreshPanel.Controls.Add(this.label4);
+            this.RefreshPanel.Enabled = false;
+            this.RefreshPanel.Location = new System.Drawing.Point(25, 203);
+            this.RefreshPanel.Name = "RefreshPanel";
+            this.RefreshPanel.Size = new System.Drawing.Size(490, 284);
+            this.RefreshPanel.TabIndex = 16;
+            this.RefreshPanel.Visible = false;
+            // 
+            // CloseRefreshPanel
+            // 
+            this.CloseRefreshPanel.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvrefresh;
+            this.CloseRefreshPanel.Location = new System.Drawing.Point(180, 121);
+            this.CloseRefreshPanel.Name = "CloseRefreshPanel";
+            this.CloseRefreshPanel.Size = new System.Drawing.Size(127, 103);
+            this.CloseRefreshPanel.TabIndex = 18;
+            this.CloseRefreshPanel.Text = "Refresh";
+            this.CloseRefreshPanel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CloseRefreshPanel.UseVisualStyleBackColor = true;
+            this.CloseRefreshPanel.Click += new System.EventHandler(this.CloseRefreshPanel_Click);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(4, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(483, 154);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Finished Installing Mods?";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainPage
             // 
@@ -269,6 +307,7 @@ namespace Stardew_Mod_Manager
             this.Controls.Add(this.InstalledModsList);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.AvailableModsList);
+            this.Controls.Add(this.RefreshPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(562, 561);
@@ -282,6 +321,7 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.RefreshPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +348,8 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.LinkLabel SMAPIDownload;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label SMAPIVer;
+        private System.Windows.Forms.Panel RefreshPanel;
+        private System.Windows.Forms.Button CloseRefreshPanel;
+        private System.Windows.Forms.Label label4;
     }
 }

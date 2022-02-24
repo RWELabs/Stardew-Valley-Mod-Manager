@@ -59,7 +59,7 @@ namespace Stardew_Mod_Manager.Properties
                     verSMAPIReq.Text = Properties.Settings.Default.TMP_SMAPIVer;
                     
                     var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
-                    verSMAPI.Text = SMAPIVersion.FileVersion;
+                    verSMAPI.Text = SMAPIVersion.ProductVersion;
 
                     int SmapiVersionInstalled;
                     int SmapiVersionRequired;
@@ -69,9 +69,14 @@ namespace Stardew_Mod_Manager.Properties
 
                     if(SmapiVersionInstalled < SmapiVersionRequired)
                     {
-                        MessageBox.Show("This modpack is declaring a requirement for a version of SMAPI higher than the version you have installed. To use the mods in this modpack after you have installed them, you can use the link in the console to update SMAPI now - or do it later.","Warning", MessageBoxButtons.OK ,MessageBoxIcon.Warning);
+                        DialogResult dr = MessageBox.Show("This modpack is declaring a requirement for a version of SMAPI higher than the version you have installed. Would you like to download the version of SMAPI associated with this modpack?","Update SMAPI", MessageBoxButtons.YesNo ,MessageBoxIcon.Information);
+                        if(dr == DialogResult.Yes)
+                        {
+                            Process.Start("https://github.com/Pathoschild/SMAPI/releases/download/" + Properties.Settings.Default.TMP_SMAPIVer + @"/SMAPI-" + Properties.Settings.Default.TMP_SMAPIVer +"-installer.zip");
+                        }
+
                         OuputConsole.AppendText(Environment.NewLine + "[WARN] Modpack requires SMAPI: " + SmapiVersionRequired);
-                        OuputConsole.AppendText(Environment.NewLine + "[WARN] Your SMAPI is not up to date enough to play with this modpack. Consider updating.");
+                        OuputConsole.AppendText(Environment.NewLine + "[WARN] Your SMAPI is not up to date enough to play with this modpack.");
                         OuputConsole.AppendText(Environment.NewLine + "[INFO] Download SMAPI updates: https://smapi.io/");
                     }
                     else if (SmapiVersionInstalled > SmapiVersionRequired)

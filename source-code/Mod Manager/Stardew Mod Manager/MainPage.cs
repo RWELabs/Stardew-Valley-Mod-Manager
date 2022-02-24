@@ -296,8 +296,17 @@ namespace Stardew_Mod_Manager
 
         private void PackInstall_Click(object sender, EventArgs e)
         {
+            RefreshPanel.Visible = true;
+            RefreshPanel.Enabled = true;
             PackInstaller pkg = new PackInstaller();
             pkg.ShowDialog();
+        }
+
+        private void CloseRefreshPanel_Click(object sender, EventArgs e)
+        {
+            RefreshPanel.Visible = false;
+            RefreshPanel.Enabled = false;
+            RefreshObjects();
         }
     }
 }
