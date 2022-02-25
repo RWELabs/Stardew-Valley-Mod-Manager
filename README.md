@@ -18,8 +18,10 @@ Install entire modpacks with just a single file. Simply install the .sdvmp file 
 
 ## How To
 Access a series of helpful articles and how-to guides for how to download, install and use the Stardew Valley Mod Manager.
+  
 [Visit our Wiki](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki)
 
 ## Download
 Download the most recent version of Stardew Valley Mod Manager by visiting our releases page.
-[View Releases](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases)
+  
+[View Latest Release](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/latest)   |   [View All Releases](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases)
