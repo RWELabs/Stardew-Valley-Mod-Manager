@@ -127,6 +127,7 @@
     <None Include="Resources\SMAPI Default.txt" />
     <None Include="Resources\Stardew Mod Manager.png" />
     <None Include="Resources\sdvrefresh.png" />
+    <Content Include="Resources\defaultsdvicon.ico" />
     <Content Include="sdvicon.ico" />
     <Content Include="Stardew-Mod-Manager-x64.ico" />
   </ItemGroup>
