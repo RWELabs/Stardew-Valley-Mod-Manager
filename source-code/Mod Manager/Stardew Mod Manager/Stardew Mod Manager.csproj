@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationIcon>defaultsdvicon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Stardew_Mod_Manager.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.Compatibility" />
@@ -122,6 +125,8 @@
     <None Include="Resources\GameDirExample.gif" />
     <None Include="Resources\icon_attention.png" />
     <None Include="Resources\SMAPI Default.txt" />
+    <None Include="Resources\Stardew Mod Manager.png" />
+    <None Include="Resources\sdvrefresh.png" />
     <Content Include="sdvicon.ico" />
     <Content Include="Stardew-Mod-Manager-x64.ico" />
   </ItemGroup>

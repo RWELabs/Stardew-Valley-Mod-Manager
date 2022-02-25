@@ -101,6 +101,16 @@ namespace Stardew_Mod_Manager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sdvrefresh {
+            get {
+                object obj = ResourceManager.GetObject("sdvrefresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ConsoleCommands
         ///ErrorHandler
         ///SaveBackup
@@ -109,6 +119,16 @@ namespace Stardew_Mod_Manager.Properties {
         internal static string SMAPI_Default {
             get {
                 return ResourceManager.GetString("SMAPI_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stardew_Mod_Manager {
+            get {
+                object obj = ResourceManager.GetObject("Stardew Mod Manager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

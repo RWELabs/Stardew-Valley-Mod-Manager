@@ -298,6 +298,16 @@ namespace Stardew_Mod_Manager
         {
             PackInstaller pkg = new PackInstaller();
             pkg.ShowDialog();
+
+            RefreshPanel.Visible = true;
+            RefreshPanel.Enabled = true;
+        }
+
+        private void CloseRefreshPanel_Click(object sender, EventArgs e)
+        {
+            RefreshPanel.Visible = false;
+            RefreshPanel.Enabled = false;
+            RefreshObjects();
         }
     }
 }
