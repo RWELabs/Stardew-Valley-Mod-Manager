@@ -229,10 +229,14 @@ namespace Stardew_Mod_Manager.Properties
             {
                 string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
                 string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.TMP_Name + "_mods.zip");
-                string tempdir = Path.Combine(dataPath, Properties.Settings.Default.TMP_Name);
+                
                 string extractdir = Properties.Settings.Default.InactiveModsDir;
+                string zipcopydir = Properties.Settings.Default.StardewDir + @"\" + Properties.Settings.Default.TMP_Name + "_mods.zip";
+                string tempdir = Path.Combine(extractdir, Properties.Settings.Default.TMP_Name + "_mods");
 
-                ZipFile.ExtractToDirectory(updatelocation, tempdir);
+                File.Copy(updatelocation, zipcopydir);
+
+                ZipFile.ExtractToDirectory(zipcopydir, tempdir);
 
                 foreach (string folder in Directory.GetDirectories(tempdir))
                 {
@@ -251,6 +255,7 @@ namespace Stardew_Mod_Manager.Properties
 
                     if (!Directory.Exists(extractdir + FolderName))
                     {
+                        
                         Directory.Move(folder, extractdir + FolderName);
                         OuputConsole.AppendText(Environment.NewLine + "[INFO]" + FolderName + " has been installed.");
                     }
@@ -258,6 +263,7 @@ namespace Stardew_Mod_Manager.Properties
 
                 Directory.Delete(tempdir, true);
                 File.Delete(updatelocation);
+                File.Delete(zipcopydir);
 
                 OuputConsole.AppendText(Environment.NewLine + "[INFO] Cleaning up temporary files...");
                 MoveConfig();
