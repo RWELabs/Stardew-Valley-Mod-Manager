@@ -5,7 +5,7 @@
 #define MyAppVersion "220202"
 #define MyAppPublisher "RWE Softworks, Ryan Walpole Enterprises"
 #define MyAppURL "https://www.ryanwalpole.com/"
-#define MyAppExeName "Stardew Valley (The Potato Farm) [Modded Framework].exe"
+#define MyAppExeName "Stardew Mod Manager.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -18,13 +18,13 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName=C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Loader\
+DefaultDirName=C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\
 DisableDirPage=yes
 DefaultGroupName=SDVModdedSetup
 DisableProgramGroupPage=yes
-OutputDir=C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\version\
+OutputDir=C:\Users\ryanw\Documents\GitHub\SDV\version
 OutputBaseFilename=StardewModManagerSetup
-SetupIconFile=C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
+SetupIconFile=C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -33,8 +33,8 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
