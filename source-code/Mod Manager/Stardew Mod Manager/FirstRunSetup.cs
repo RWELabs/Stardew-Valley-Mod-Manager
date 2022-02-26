@@ -53,7 +53,8 @@ namespace Stardew_Mod_Manager
                         MessageBox.Show("You don't seem to have SMAPI installed. We'll run you through the install process now. Once you have completed the installation of SMAPI, come back to this window and click 'Continue'. If SMAPI asks for your game path, we've copied it to your clipboard - but it's the same path you just entered.");
                         try
                         {
-                            Process.Start(@"C:\Program Files (x86)\RWE\Crutionix\stardewmodded\smapi.bat");
+                            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                            Process.Start(appPath + @"\smapi.bat");
                         }
                         catch
                         {
