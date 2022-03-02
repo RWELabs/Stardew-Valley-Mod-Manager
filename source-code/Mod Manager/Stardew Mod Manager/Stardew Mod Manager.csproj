@@ -57,42 +57,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstRunSetup-Complete.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup-Complete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstRunSetup-Complete.Designer.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup-Complete.Designer.cs">
       <DependentUpon>FirstRunSetup-Complete.cs</DependentUpon>
     </Compile>
-    <Compile Include="FirstRunSetup.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstRunSetup.Designer.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup.Designer.cs">
       <DependentUpon>FirstRunSetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.cs">
+    <Compile Include="Forms\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainPage.Designer.cs">
+    <Compile Include="Forms\MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs">
+    <Compile Include="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
+    <Compile Include="Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FirstRunSetup-Complete.resx">
+    <EmbeddedResource Include="Forms\First Run\FirstRunSetup-Complete.resx">
       <DependentUpon>FirstRunSetup-Complete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FirstRunSetup.resx">
+    <EmbeddedResource Include="Forms\First Run\FirstRunSetup.resx">
       <DependentUpon>FirstRunSetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainPage.resx">
+    <EmbeddedResource Include="Forms\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PackInstaller.resx">
+    <EmbeddedResource Include="Forms\PackInstaller.resx">
       <DependentUpon>PackInstaller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -100,10 +100,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="PackInstaller.cs">
+    <Compile Include="Forms\PackInstaller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PackInstaller.Designer.cs">
+    <Compile Include="Forms\PackInstaller.Designer.cs">
       <DependentUpon>PackInstaller.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -111,7 +111,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Settings.resx">
+    <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
