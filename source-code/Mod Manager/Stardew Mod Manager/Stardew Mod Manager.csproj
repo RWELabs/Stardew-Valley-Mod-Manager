@@ -92,7 +92,7 @@
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\PackInstaller.resx">
+    <EmbeddedResource Include="PackInstaller.resx">
       <DependentUpon>PackInstaller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -100,10 +100,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\PackInstaller.cs">
+    <Compile Include="PackInstaller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Properties\PackInstaller.Designer.cs">
+    <Compile Include="PackInstaller.Designer.cs">
       <DependentUpon>PackInstaller.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
