@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.IO.Compression;
 using Stardew_Mod_Manager.Properties;
+using System.Xml;
 
 namespace Stardew_Mod_Manager
 {
@@ -20,6 +21,8 @@ namespace Stardew_Mod_Manager
         public MainPage()
         {
             InitializeComponent();
+
+            SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
             try
             {
@@ -36,7 +39,7 @@ namespace Stardew_Mod_Manager
             {
                 SMAPIVer.Text = "SMAPI Not Installed";
                 SMAPIWarning.Visible = true;
-                //SMAPIVer.Visible = false;
+                SMAPIVer.Visible = true;
             }
         }
 
@@ -46,12 +49,17 @@ namespace Stardew_Mod_Manager
             string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
             string ModPresets = Properties.Settings.Default.StardewDir + @"\mod-presets\";
 
-            if(File.Exists(Properties.Settings.Default.StardewDir + "StardewModdingAPI.exe"))
+            if(File.Exists(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe"))
+            {
+                SMAPIWarning.Visible = false;
+                SMAPIVer.Visible = true;
+                //MessageBox.Show(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
+            }
+            else if (!File.Exists(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe"))
             {
                 SMAPIWarning.Visible = true;
-                SMAPIVer.Visible = false;
+                SMAPIVer.Visible = true;
             }
-
 
             foreach (string folder in Directory.GetDirectories(EnabledModList))
             {
@@ -308,6 +316,63 @@ namespace Stardew_Mod_Manager
             RefreshPanel.Visible = false;
             RefreshPanel.Enabled = false;
             RefreshObjects();
+        }
+
+        private void UpdateCheckLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string CurrentUpdateVersion = "https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/main/web/uc.xml";
+            string LatestRelease = "https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/latest";
+
+            //Change label text to "Checking for Updates"
+            UpdateCheckLabel.Text = "Checking for updates...";
+            UpdateCheckLabel.Enabled = false;
+
+            //Check for updates
+            try
+            {
+                //View current stable version number
+                XmlDocument document = new XmlDocument();
+                document.Load(CurrentUpdateVersion);
+                string CVER = document.InnerText;
+
+                //Compare current stable version against installed version
+                if (CVER.Contains(Properties.Settings.Default.Version))
+                {
+                    //No updates available - install version matches stable version
+                    UpdateCheckLabel.Text = "Up to date! Check again?";
+                    UpdateCheckLabel.Enabled = true;
+                }
+                else
+                {
+                    //Alert to available update
+                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to view the latest release?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    //User clicks yes
+                    if (dr == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            Process.Start(LatestRelease);
+                        }
+                        catch
+                        {
+                            //
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //Error fetching update information.
+                MessageBox.Show("There was an issue checking for updates:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "An Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UpdateCheckLabel.Text = "Connection Error";
+            }
+        }
+
+        private void SettingsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Settings set = new Settings();
+            set.Show();
         }
     }
 }
