@@ -275,7 +275,7 @@ namespace Stardew_Mod_Manager
             // CloseRefreshPanel
             // 
             this.CloseRefreshPanel.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvrefresh;
-            this.CloseRefreshPanel.Location = new System.Drawing.Point(180, 121);
+            this.CloseRefreshPanel.Location = new System.Drawing.Point(180, 109);
             this.CloseRefreshPanel.Name = "CloseRefreshPanel";
             this.CloseRefreshPanel.Size = new System.Drawing.Size(127, 103);
             this.CloseRefreshPanel.TabIndex = 18;
@@ -287,9 +287,9 @@ namespace Stardew_Mod_Manager
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(4, 10);
+            this.label4.Location = new System.Drawing.Point(20, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(483, 154);
+            this.label4.Size = new System.Drawing.Size(448, 60);
             this.label4.TabIndex = 17;
             this.label4.Text = "Finished Installing Mods?";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
