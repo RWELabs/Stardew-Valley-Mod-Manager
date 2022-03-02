@@ -186,9 +186,31 @@ namespace Stardew_Mod_Manager.Properties
                 this.BringToFront();
                 OuputConsole.AppendText(Environment.NewLine + "[INFO] Download Completion: 100% of " + FileSize.ToString() + " kb");
                 OuputConsole.AppendText(Environment.NewLine + "[INFO] Downloaded Configuration Files Successfully...");
-                OuputConsole.AppendText(Environment.NewLine + "[INFO] Extracting Files...");
-                ProgressBar.Value = 100;
-                ExtractTimer.Start();
+
+                try
+                {
+                    DriveInfo driveInfo = new DriveInfo(Properties.Settings.Default.StardewDir);
+                    long Freespace = driveInfo.AvailableFreeSpace / 1024;
+
+                    if(FileSize > Freespace)
+                    {
+                        OuputConsole.AppendText(Environment.NewLine + "[WARN] There is only " + Freespace + "kb of available space on the destination drive.");
+                        OuputConsole.AppendText(Environment.NewLine + "[WARN] The modpack requires a minimum of " + FileSize + "kb of available space.");
+                        OuputConsole.AppendText(Environment.NewLine + "[INFO] Modpack was not installed successfully.");
+                    }
+                    else
+                    {
+                        OuputConsole.AppendText(Environment.NewLine + "[INFO] Extracting Files...");
+                        ProgressBar.Value = 100;
+                        ExtractTimer.Start();
+                    }
+                }
+                catch
+                {
+                    OuputConsole.AppendText(Environment.NewLine + "[INFO] Extracting Files...");
+                    ProgressBar.Value = 100;
+                    ExtractTimer.Start();
+                }
             }
         }
 
@@ -244,8 +266,8 @@ namespace Stardew_Mod_Manager.Properties
                     if(Directory.Exists(extractdir + FolderName))
                     {
                         Directory.Delete(extractdir + FolderName, true);
-                        OuputConsole.AppendText(Environment.NewLine + "[WARN]" + FolderName + " already exists in your mods folder.");
-                        OuputConsole.AppendText(Environment.NewLine + "[INFO]" + FolderName + " will be replaced with the version included in the modpack.");
+                        OuputConsole.AppendText(Environment.NewLine + "[WARN] " + FolderName + " already exists in your mods folder.");
+                        OuputConsole.AppendText(Environment.NewLine + "[INFO] " + FolderName + " will be replaced with the version included in the modpack.");
                     }
                 }
 
@@ -257,7 +279,7 @@ namespace Stardew_Mod_Manager.Properties
                     {
                         
                         Directory.Move(folder, extractdir + FolderName);
-                        OuputConsole.AppendText(Environment.NewLine + "[INFO]" + FolderName + " has been installed.");
+                        OuputConsole.AppendText(Environment.NewLine + "[INFO] " + FolderName + " has been installed.");
                     }
                 }
 
