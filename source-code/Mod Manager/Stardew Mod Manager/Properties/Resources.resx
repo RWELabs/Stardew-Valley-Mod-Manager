@@ -133,10 +133,19 @@
   <data name="icon_attention" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_attention.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sdvsettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvsettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GameDirExample" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GameDirExample.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvrefresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvrefresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sdvError" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvError.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sdvvalidated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvvalidated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
