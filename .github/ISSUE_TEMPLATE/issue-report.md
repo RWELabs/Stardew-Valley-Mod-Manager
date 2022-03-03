@@ -3,7 +3,7 @@ name: Issue Report
 about: Create a report for any issues you've found, to help us improve the application
   with future updates.
 title: "[Issue] Issue title"
-labels: 'status: needs triage, type: bug'
+labels: 'status: needs triage'
 assignees: ''
 
 ---
