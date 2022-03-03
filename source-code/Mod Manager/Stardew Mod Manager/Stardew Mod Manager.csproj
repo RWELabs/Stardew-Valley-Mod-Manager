@@ -57,36 +57,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstRunSetup-Complete.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup-Complete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstRunSetup-Complete.Designer.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup-Complete.Designer.cs">
       <DependentUpon>FirstRunSetup-Complete.cs</DependentUpon>
     </Compile>
-    <Compile Include="FirstRunSetup.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstRunSetup.Designer.cs">
+    <Compile Include="Forms\First Run\FirstRunSetup.Designer.cs">
       <DependentUpon>FirstRunSetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.cs">
+    <Compile Include="Forms\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainPage.Designer.cs">
+    <Compile Include="Forms\MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FirstRunSetup-Complete.resx">
+    <Compile Include="Forms\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\First Run\FirstRunSetup-Complete.resx">
       <DependentUpon>FirstRunSetup-Complete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FirstRunSetup.resx">
+    <EmbeddedResource Include="Forms\First Run\FirstRunSetup.resx">
       <DependentUpon>FirstRunSetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainPage.resx">
+    <EmbeddedResource Include="Forms\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\PackInstaller.resx">
+    <EmbeddedResource Include="Forms\PackInstaller.resx">
       <DependentUpon>PackInstaller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -94,10 +100,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\PackInstaller.cs">
+    <Compile Include="Forms\PackInstaller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Properties\PackInstaller.Designer.cs">
+    <Compile Include="Forms\PackInstaller.Designer.cs">
       <DependentUpon>PackInstaller.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -105,6 +111,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Forms\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,6 +137,9 @@
     <None Include="Resources\Stardew Mod Manager.png" />
     <None Include="Resources\sdvrefresh.png" />
     <Content Include="Resources\defaultsdvicon.ico" />
+    <None Include="Resources\sdvsettings.png" />
+    <None Include="Resources\sdvError.png" />
+    <None Include="Resources\sdvvalidated.png" />
     <Content Include="sdvicon.ico" />
     <Content Include="Stardew-Mod-Manager-x64.ico" />
   </ItemGroup>

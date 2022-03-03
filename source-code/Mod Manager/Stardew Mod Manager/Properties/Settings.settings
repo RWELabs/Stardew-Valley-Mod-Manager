@@ -32,5 +32,8 @@
     <Setting Name="IsNetworkConnected" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">220301</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
