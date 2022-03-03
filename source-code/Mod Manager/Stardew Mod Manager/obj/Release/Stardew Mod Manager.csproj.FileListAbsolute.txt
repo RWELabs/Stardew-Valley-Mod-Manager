@@ -1,7 +1,6 @@
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe.config
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.pdb
-C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csprojAssemblyReference.cache
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.FirstRunSetup_Complete.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.FirstRunSetup.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.MainPage.resources
@@ -25,3 +24,4 @@ C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\
 C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.exe
 C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.pdb
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Settings.resources
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.AssemblyReference.cache
