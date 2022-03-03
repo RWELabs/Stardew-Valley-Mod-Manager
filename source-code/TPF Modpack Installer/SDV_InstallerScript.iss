@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Stardew Valley Mod Manager"
-#define MyAppVersion "220202"
+#define MyAppVersion "220301"
 #define MyAppPublisher "RWE Softworks, Ryan Walpole Enterprises"
 #define MyAppURL "https://www.ryanwalpole.com/"
 #define MyAppExeName "Stardew Mod Manager.exe"
@@ -22,9 +22,9 @@ DefaultDirName=C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\
 DisableDirPage=yes
 DefaultGroupName=SDVModdedSetup
 DisableProgramGroupPage=yes
-OutputDir=C:\Users\ryanw\Documents\GitHub\SDV\version
+OutputDir=C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\version
 OutputBaseFilename=StardewModManagerSetup
-SetupIconFile=C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
+SetupIconFile=C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -33,8 +33,8 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

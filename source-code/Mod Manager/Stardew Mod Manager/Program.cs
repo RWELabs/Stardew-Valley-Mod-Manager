@@ -25,7 +25,14 @@ namespace Stardew_Mod_Manager
             else
             {
                 //First Run Setup hasn't been completed.
-                Application.Run(new FirstRunSetup());
+                if (Properties.Settings.Default.StardewDir == string.Empty)
+                {
+                    Application.Run(new FirstRunSetup());
+                }
+                else
+                {
+                    Application.Run(new MainPage());
+                }
             }
         }
     }
