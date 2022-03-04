@@ -269,7 +269,7 @@ namespace Stardew_Mod_Manager
             this.RefreshPanel.Enabled = false;
             this.RefreshPanel.Location = new System.Drawing.Point(25, 194);
             this.RefreshPanel.Name = "RefreshPanel";
-            this.RefreshPanel.Size = new System.Drawing.Size(33, 284);
+            this.RefreshPanel.Size = new System.Drawing.Size(497, 284);
             this.RefreshPanel.TabIndex = 16;
             this.RefreshPanel.Visible = false;
             // 

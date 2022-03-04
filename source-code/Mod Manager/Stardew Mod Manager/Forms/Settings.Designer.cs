@@ -62,7 +62,7 @@ namespace Stardew_Mod_Manager
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(75, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(416, 23);
+            this.label4.Size = new System.Drawing.Size(318, 23);
             this.label4.TabIndex = 18;
             this.label4.Text = "Settings";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,7 +177,8 @@ namespace Stardew_Mod_Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 298);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(414, 298);
             this.Controls.Add(this.SettingsReset);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -185,8 +186,8 @@ namespace Stardew_Mod_Manager
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(421, 1000);
-            this.MinimumSize = new System.Drawing.Size(421, 266);
+            this.MaximumSize = new System.Drawing.Size(430, 1000);
+            this.MinimumSize = new System.Drawing.Size(430, 266);
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings | Stardew Valley Modded Framework";
