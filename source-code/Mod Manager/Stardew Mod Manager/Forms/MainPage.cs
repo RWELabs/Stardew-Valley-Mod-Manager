@@ -135,18 +135,37 @@ namespace Stardew_Mod_Manager
 
         private void InstalledModsList_Click(object sender, EventArgs e)
         {
-            AvailableModsList.SelectedItem = null;
-            DeleteMod.Enabled = false;
-            EnableMod.Enabled = false;
-            DisableMod.Enabled = true;
+            if(InstalledModsList.SelectedIndex < 0)
+            {
+                //AvailableModsList.SelectedItem = null;
+                //AvailableModsList.SelectedIndex = -1;
+            }
+            else
+            {
+                AvailableModsList.SelectedItem = null;
+                AvailableModsList.SelectedIndex = -1;
+                DeleteMod.Enabled = false;
+                EnableMod.Enabled = false;
+                DisableMod.Enabled = true;
+            }
         }
 
         private void AvailableModsList_Click(object sender, EventArgs e)
         {
-            InstalledModsList.SelectedItem = null;
-            DeleteMod.Enabled = true;
-            EnableMod.Enabled = true;
-            DisableMod.Enabled = false;
+            if (AvailableModsList.SelectedIndex < 0)
+            {
+                //InstalledModsList.SelectedItem = null;
+                //InstalledModsList.SelectedIndex = -1;
+            }
+            else
+            {
+                InstalledModsList.SelectedItem = null;
+                InstalledModsList.SelectedIndex = -1;
+                DeleteMod.Enabled = true;
+                EnableMod.Enabled = true;
+                DisableMod.Enabled = false;
+            }
+
         }
 
         private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
@@ -373,6 +392,11 @@ namespace Stardew_Mod_Manager
         {
             Settings set = new Settings();
             set.Show();
+        }
+
+        private void AvailableModsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(this.AvailableModsList.SelectedIndex.ToString());
         }
     }
 }

@@ -80,6 +80,7 @@ namespace Stardew_Mod_Manager
             this.AvailableModsList.Size = new System.Drawing.Size(200, 212);
             this.AvailableModsList.TabIndex = 1;
             this.AvailableModsList.Click += new System.EventHandler(this.AvailableModsList_Click);
+            this.AvailableModsList.SelectedIndexChanged += new System.EventHandler(this.AvailableModsList_SelectedIndexChanged);
             // 
             // DisableMod
             // 
@@ -268,7 +269,7 @@ namespace Stardew_Mod_Manager
             this.RefreshPanel.Enabled = false;
             this.RefreshPanel.Location = new System.Drawing.Point(25, 194);
             this.RefreshPanel.Name = "RefreshPanel";
-            this.RefreshPanel.Size = new System.Drawing.Size(490, 284);
+            this.RefreshPanel.Size = new System.Drawing.Size(33, 284);
             this.RefreshPanel.TabIndex = 16;
             this.RefreshPanel.Visible = false;
             // 
