@@ -140,6 +140,8 @@
     <None Include="Resources\sdvsettings.png" />
     <None Include="Resources\sdvError.png" />
     <None Include="Resources\sdvvalidated.png" />
+    <None Include="Resources\sdvBackups.png" />
+    <None Include="Resources\sdvEdit.png" />
     <Content Include="sdvicon.ico" />
     <Content Include="Stardew-Mod-Manager-x64.ico" />
   </ItemGroup>
