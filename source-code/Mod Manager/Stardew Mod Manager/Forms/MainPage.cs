@@ -69,6 +69,19 @@ namespace Stardew_Mod_Manager
             {
                 AvailableModsList.Items.Add(Path.GetFileName(folder));
             }
+
+            PopulateGameSaveTab();
+        }
+
+        private void PopulateGameSaveTab()
+        {
+            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string sdvsaves = appdata + @"\StardewValley\Saves\";
+
+            foreach (string folder in Directory.GetDirectories(sdvsaves))
+            {
+                GameSavesList.Items.Add(Path.GetFileName(folder));
+            }
         }
 
         private void DisableMod_Click(object sender, EventArgs e)
@@ -119,6 +132,7 @@ namespace Stardew_Mod_Manager
         {
             InstalledModsList.Items.Clear();
             AvailableModsList.Items.Clear();
+            GameSavesList.Items.Clear();
 
             string EnabledModList = Properties.Settings.Default.ModsDir;
             string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
@@ -130,6 +144,14 @@ namespace Stardew_Mod_Manager
             foreach (string folder in Directory.GetDirectories(DisabledModsList))
             {
                 AvailableModsList.Items.Add(Path.GetFileName(folder));
+            }
+
+            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string sdvsaves = appdata + @"\StardewValley\Saves\";
+
+            foreach (string folder in Directory.GetDirectories(sdvsaves))
+            {
+                GameSavesList.Items.Add(Path.GetFileName(folder));
             }
         }
 
@@ -397,6 +419,98 @@ namespace Stardew_Mod_Manager
         private void AvailableModsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(this.AvailableModsList.SelectedIndex.ToString());
+        }
+
+        private void MakeBackupButton_Click(object sender, EventArgs e)
+        {
+            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string sdvsaves = appdata + @"\StardewValley\Saves\";
+            string backupsdir = Properties.Settings.Default.StardewDir + @"\savebackups\";
+
+            if (GameSavesList.SelectedIndex >= 0)
+            {
+                try
+                {
+                    string TargetSave = sdvsaves + GameSavesList.SelectedItem.ToString();
+
+                    if (!Directory.Exists(backupsdir))
+                    {
+                        Directory.CreateDirectory(backupsdir);
+                    }
+
+                    int intnum = 0;
+
+                    Random rn = new Random();
+                    intnum = rn.Next(1,98547);
+
+                    ZipFile.CreateFromDirectory(TargetSave, backupsdir + GameSavesList.SelectedItem.ToString() + "_" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "_" + intnum + ".zip");
+                    MessageBox.Show("A backup of your game save: " + GameSavesList.SelectedItem.ToString() + " has been made.","Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an issue backing up this save file:" + Environment.NewLine + Environment.NewLine + ex.Message);
+                }
+            }
+        }
+
+        private void GameSavesList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(GameSavesList.SelectedIndex >= 0)
+            {
+                MakeBackupButton.Enabled = true;
+                DeleteFarmButton.Enabled = true;
+            }
+            else
+            {
+                MakeBackupButton.Enabled = false;
+                DeleteFarmButton.Enabled = false;
+            }
+        }
+
+        private void ViewBackupsButton_Click(object sender, EventArgs e)
+        {
+            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string sdvsaves = appdata + @"\StardewValley\Saves\";
+            string backupsdir = Properties.Settings.Default.StardewDir + @"\savebackups\";
+
+            if (!Directory.Exists(backupsdir))
+            {
+                Directory.CreateDirectory(backupsdir);
+            }
+
+            Process.Start(backupsdir);
+        }
+
+        private void DeleteFarmButton_Click(object sender, EventArgs e)
+        {
+            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string sdvsaves = appdata + @"\StardewValley\Saves\";
+            string backupsdir = Properties.Settings.Default.StardewDir + @"\savebackups\";
+
+            DialogResult dr = MessageBox.Show("Are you sure you want to delete the game save: " + GameSavesList.SelectedItem.ToString() + "?" + Environment.NewLine + "This cannot be undone.", "Save Deletion Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            
+            if(dr == DialogResult.Yes)
+            {
+                try
+                {
+                    Directory.Delete(sdvsaves + GameSavesList.SelectedItem.ToString());
+                    MessageBox.Show("This save file has been deleted.");
+                    RefreshObjects();
+                }
+                catch
+                {
+                    //do not delete.
+                }
+            }
+        }
+
+        private void OpenSavesButton_Click(object sender, EventArgs e)
+        {
+            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string sdvsaves = appdata + @"\StardewValley\Saves\";
+            string backupsdir = Properties.Settings.Default.StardewDir + @"\savebackups\";
+
+            Process.Start(sdvsaves);
         }
     }
 }
