@@ -69,7 +69,7 @@ namespace Stardew_Mod_Manager.Properties
 
                     if(SmapiVersionInstalled < SmapiVersionRequired)
                     {
-                        DialogResult dr = MessageBox.Show("This modpack is declaring a requirement for a version of SMAPI higher than the version you have installed. Would you like to download the version of SMAPI associated with this modpack?","Update SMAPI", MessageBoxButtons.YesNo ,MessageBoxIcon.Information);
+                        DialogResult dr = MessageBox.Show("This modpack is declaring a requirement for a version of SMAPI higher than the version you have installed. Would you like to download the version of SMAPI associated with this modpack?", "Update SMAPI | Stardew Valley Modded Framework", MessageBoxButtons.YesNo ,MessageBoxIcon.Information);
                         if(dr == DialogResult.Yes)
                         {
                             Process.Start("https://github.com/Pathoschild/SMAPI/releases/download/" + Properties.Settings.Default.TMP_SMAPIVer + @"/SMAPI-" + Properties.Settings.Default.TMP_SMAPIVer +"-installer.zip");
@@ -92,7 +92,7 @@ namespace Stardew_Mod_Manager.Properties
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("There was an issue opening this file:" + Environment.NewLine + ex.Message);
+                    MessageBox.Show("There was an issue opening this file:" + Environment.NewLine + ex.Message, "Modpack Installer | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace Stardew_Mod_Manager.Properties
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Modpack Installer | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -171,7 +171,7 @@ namespace Stardew_Mod_Manager.Properties
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message,"",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Modpack Installer | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -292,7 +292,7 @@ namespace Stardew_Mod_Manager.Properties
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Modpack Installer | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
