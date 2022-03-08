@@ -16,6 +16,9 @@ Create mod presets so you can quickly mass enable and disable groups of mods dep
 4. <b>Quick Modpack Install</b>
 Install entire modpacks with just a single file. Simply install the .sdvmp file and let the Mod Manager find the mods, make sure you're running the minimum SMAPI version or above and even let the program create you a preset with the mods defined for the modpack. It's never been easier to install a collection of mods.
 
+5. <b>Backup and Manage Game Saves</b>
+Create backups and delete any of your farms with built in Game Save Management tools.
+
 ## How To
 Access a series of helpful articles and how-to guides for how to download, install and use the Stardew Valley Mod Manager.
   
@@ -23,5 +26,6 @@ Access a series of helpful articles and how-to guides for how to download, insta
 
 ## Download
 Download the most recent version of Stardew Valley Mod Manager by visiting our releases page.
+Once you've downloaded and installed the application for the first time, you'll be able to check (and download) new updates directly from the program!
   
 [View Latest Release](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/latest)   |   [View All Releases](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases)
