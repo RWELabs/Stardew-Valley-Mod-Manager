@@ -101,7 +101,7 @@ namespace Stardew_Mod_Manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an issue disabling this mod:" + Environment.NewLine + ex.Message);
+                MessageBox.Show("There was an issue disabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -123,7 +123,7 @@ namespace Stardew_Mod_Manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an issue enabling this mod:" + Environment.NewLine + ex.Message);
+                MessageBox.Show("There was an issue enabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -256,7 +256,7 @@ namespace Stardew_Mod_Manager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -269,7 +269,7 @@ namespace Stardew_Mod_Manager
                 string DisabledModFolderName = AvailableModsList.SelectedItem.ToString();
                 string DisabledModsDir = Properties.Settings.Default.InactiveModsDir;
 
-                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + DisabledModFolderName + " from your mods folder? If you want to continue using this mod in the future, consider just disabling it instead.", "Mod Deletion Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + DisabledModFolderName + " from your mods folder? If you want to continue using this mod in the future, consider just disabling it instead.", "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if(dr == DialogResult.Yes)
                 {
@@ -292,7 +292,7 @@ namespace Stardew_Mod_Manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show("If you're attempting to delete a mod, please make sure to disable it before attempting to delete it." + Environment.NewLine + ex.Message);
+                MessageBox.Show("If you're attempting to delete a mod, please make sure to disable it before attempting to delete it." + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -300,7 +300,7 @@ namespace Stardew_Mod_Manager
         {
             Process.Start("https://smapi.io/");
             Process.Start("https://stardewvalleywiki.com/Modding:Installing_SMAPI_on_Windows");
-            MessageBox.Show("We're opening a link to the SMAPI download page and also a link to the installation instructions. Please download SMAPI, follow the instructions to install it and then restart the mod loader. If you're prompted to supply an install directory, we've copied it to your clipboard for you.");
+            MessageBox.Show("We're opening a link to the SMAPI download page and also a link to the installation instructions. Please download SMAPI, follow the instructions to install it and then restart the mod loader. If you're prompted to supply an install directory, we've copied it to your clipboard for you.", "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
             string Dir = Properties.Settings.Default.StardewDir;
             Clipboard.SetText(Dir);    
         }
@@ -308,7 +308,7 @@ namespace Stardew_Mod_Manager
         private void SMAPIVer_Click(object sender, EventArgs e)
         {
             var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
-            MessageBox.Show("You are running SMAPI version " + SMAPIVersion.FileVersion +". Make sure that any mods you are installing are compatible with this version of SMAPI. Alternatively, update or downgrade to a different version of SMAPI by going to https://smapi.io/");
+            MessageBox.Show("You are running SMAPI version " + SMAPIVersion.FileVersion +". Make sure that any mods you are installing are compatible with this version of SMAPI. Alternatively, update or downgrade to a different version of SMAPI by going to https://smapi.io/","Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ZipInstall_Click(object sender, EventArgs e)
@@ -330,7 +330,7 @@ namespace Stardew_Mod_Manager
                     string extractpath = extractdir + ofd.SafeFileName;
 
                     ZipFile.ExtractToDirectory(FilePath, extractdir);
-                    DialogResult dr = MessageBox.Show(ofd.SafeFileName + " was successfully installed. To use this mod in game, you must enable it within the Mod Loader.","",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult dr = MessageBox.Show(ofd.SafeFileName + " was successfully installed. To use this mod in game, you must enable it within the Mod Loader.","Mod Manager | Stardew Valley Modded Framework",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if(dr == DialogResult.OK)
                     {
                         RefreshObjects();
@@ -338,7 +338,7 @@ namespace Stardew_Mod_Manager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("There was a problem installing your mod: " + Environment.NewLine + ex.Message);
+                    MessageBox.Show("There was a problem installing your mod: " + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -405,7 +405,7 @@ namespace Stardew_Mod_Manager
             catch (Exception ex)
             {
                 //Error fetching update information.
-                MessageBox.Show("There was an issue checking for updates:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "An Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There was an issue checking for updates:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UpdateCheckLabel.Text = "Connection Error";
             }
         }
@@ -448,7 +448,7 @@ namespace Stardew_Mod_Manager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("There was an issue backing up this save file:" + Environment.NewLine + Environment.NewLine + ex.Message);
+                    MessageBox.Show("There was an issue backing up this save file:" + Environment.NewLine + Environment.NewLine + ex.Message, "Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -487,14 +487,14 @@ namespace Stardew_Mod_Manager
             string sdvsaves = appdata + @"\StardewValley\Saves\";
             string backupsdir = Properties.Settings.Default.StardewDir + @"\savebackups\";
 
-            DialogResult dr = MessageBox.Show("Are you sure you want to delete the game save: " + GameSavesList.SelectedItem.ToString() + "?" + Environment.NewLine + "This cannot be undone.", "Save Deletion Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show("Are you sure you want to delete the game save: " + GameSavesList.SelectedItem.ToString() + "?" + Environment.NewLine + "This cannot be undone.", "Game Save Management | Stardew Valley Modded Framework",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
             
             if(dr == DialogResult.Yes)
             {
                 try
                 {
                     Directory.Delete(sdvsaves + GameSavesList.SelectedItem.ToString());
-                    MessageBox.Show("This save file has been deleted.");
+                    MessageBox.Show("This save file has been deleted.", "Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshObjects();
                 }
                 catch
