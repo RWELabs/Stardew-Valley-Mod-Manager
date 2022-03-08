@@ -20,6 +20,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName=C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\
 DisableDirPage=yes
+LicenseFile=C:\Users\ryanw\Documents\GitHub\SDV\license.rtf
 DefaultGroupName=SDVModdedSetup
 DisableProgramGroupPage=yes
 OutputDir=C:\Users\ryanw\Documents\GitHub\SDV\version

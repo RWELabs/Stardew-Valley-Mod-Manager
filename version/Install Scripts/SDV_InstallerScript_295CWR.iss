@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Stardew Valley Mod Manager"
-#define MyAppVersion "220301"
+#define MyAppVersion "220302"
 #define MyAppPublisher "RWE Softworks, Ryan Walpole Enterprises"
 #define MyAppURL "https://www.ryanwalpole.com/"
 #define MyAppExeName "Stardew Mod Manager.exe"
@@ -20,6 +20,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName=C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\
 DisableDirPage=yes
+LicenseFile=C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\license.rtf
 DefaultGroupName=SDVModdedSetup
 DisableProgramGroupPage=yes
 OutputDir=C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\version
