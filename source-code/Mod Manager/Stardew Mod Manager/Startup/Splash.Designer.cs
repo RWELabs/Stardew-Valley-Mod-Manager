@@ -60,9 +60,9 @@ namespace Stardew_Mod_Manager.Startup
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.RWE_Labs_White;
-            this.pictureBox1.Location = new System.Drawing.Point(393, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(393, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 77);
+            this.pictureBox1.Size = new System.Drawing.Size(70, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -85,7 +85,7 @@ namespace Stardew_Mod_Manager.Startup
             this.Version.AutoSize = true;
             this.Version.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
             this.Version.ForeColor = System.Drawing.Color.White;
-            this.Version.Location = new System.Drawing.Point(346, 52);
+            this.Version.Location = new System.Drawing.Point(346, 54);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(41, 12);
             this.Version.TabIndex = 4;
