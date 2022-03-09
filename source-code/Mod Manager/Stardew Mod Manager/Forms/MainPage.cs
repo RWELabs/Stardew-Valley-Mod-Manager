@@ -394,11 +394,18 @@ namespace Stardew_Mod_Manager
                         try
                         {
                             Process.Start(LatestRelease);
+                            UpdateCheckLabel.Enabled = true;
+                            UpdateCheckLabel.Text = "Updates available";
                         }
                         catch
                         {
                             //
                         }
+                    }
+                    else
+                    {
+                        UpdateCheckLabel.Enabled = true;
+                        UpdateCheckLabel.Text = "Updates available";
                     }
                 }
             }
