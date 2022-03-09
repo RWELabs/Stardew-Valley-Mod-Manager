@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stardew_Mod_Manager.Startup;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,8 +45,13 @@ namespace Stardew_Mod_Manager
             Properties.Settings.Default.Save();
 
             this.Hide();
-            MainPage Complete = new MainPage();
-            Complete.ShowDialog();
+            Splash Complete = new Splash();
+            Complete.Show();
+        }
+
+        private void FirstRunSetup_Complete_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
