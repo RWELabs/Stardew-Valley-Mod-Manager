@@ -94,6 +94,7 @@ namespace Stardew_Mod_Manager
             this.Name = "FirstRunSetup_Complete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Complete Setup - Setup | Stardew Valley Modded Framework";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FirstRunSetup_Complete_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
