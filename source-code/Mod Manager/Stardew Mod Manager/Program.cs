@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stardew_Mod_Manager.Startup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Stardew_Mod_Manager
 
             if(Properties.Settings.Default.SetupComplete == "TRUE")
             {
-                Application.Run(new MainPage());
+                Application.Run(new Splash());
                 //Application.Run(new FirstRunSetup());
             }
             else
@@ -31,7 +32,7 @@ namespace Stardew_Mod_Manager
                 }
                 else
                 {
-                    Application.Run(new MainPage());
+                    Application.Run(new Splash());
                 }
             }
         }
