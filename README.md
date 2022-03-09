@@ -1,4 +1,4 @@
-<a href="#"><img height=50% src="https://github.com/RyanWalpoleEnterprises/Stardew-Valley/blob/release-stable/web/SDVMM_Logo.png?raw=true">
+<a href="#"><img height=50% src="https://github.com/RyanWalpoleEnterprises/Stardew-Valley/raw/release-stable/web/SDVMM_Logo.png?raw=true">
 
 
 # Stardew Valley Mod Manager
@@ -21,6 +21,12 @@ Create backups and delete any of your farms with built in Game Save Management t
 
 ## How To
 Access a series of helpful articles and how-to guides for how to download, install and use the Stardew Valley Mod Manager.
+  
+[Visit our Wiki](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki)
+
+## License
+It's your responsibility to read the license agreement when installing the software if you intend on using it as much as it's our responsibility to do our best to show it to you.
+If you're modifying and/or downloading the source code, however, your responsibility to understand what you are and are not permitted to do become even more of a big deal - and it's your responsibility. Please familiarise yourself with our [license agreement](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/development/LICENSE.md) before even downloading a copy of the source code.
   
 [Visit our Wiki](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki)
 
