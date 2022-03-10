@@ -7,10 +7,11 @@ td, th {
 </style>
 
 # Stardew Valley Mod Manager
-
+<div align="center">
 | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-stable.png) | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-alpha.png) | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-development.png) |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | [v220302](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/release-stable)                                                                                                                             | [v220302](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/release-alpha)                                                                                                                            | [v220303](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/development)                                                                                                                                  |
+</div>
 
 The Stardew Valley Mod Manager and Modded Framework is an extension to SMAPI, the open-source modding framework API for Stardew Valley that lets players play the game with mods. Much alike SMAPI, The Stardew Valley Mod Manager does not edit or change any of the core game files and is installed as a completely separate executable to both the main game and the SMAPI launcher. The Stardew Valley Mod Manager was designed and built with the following functions in mind:
 
