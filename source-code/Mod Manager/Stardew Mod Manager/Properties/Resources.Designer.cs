@@ -83,6 +83,36 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RWE_Labs {
+            get {
+                object obj = ResourceManager.GetObject("RWE_Labs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RWE_Labs_BG {
+            get {
+                object obj = ResourceManager.GetObject("RWE_Labs_BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RWE_Labs_White {
+            get {
+                object obj = ResourceManager.GetObject("RWE_Labs_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdvBackups {
             get {
                 object obj = ResourceManager.GetObject("sdvBackups", resourceCulture);
@@ -126,6 +156,26 @@ namespace Stardew_Mod_Manager.Properties {
         internal static System.Drawing.Bitmap sdvError {
             get {
                 object obj = ResourceManager.GetObject("sdvError", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sdvicon {
+            get {
+                object obj = ResourceManager.GetObject("sdvicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SDVMM_LogoNoImage {
+            get {
+                object obj = ResourceManager.GetObject("SDVMM_LogoNoImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
