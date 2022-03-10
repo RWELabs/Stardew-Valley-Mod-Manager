@@ -1,5 +1,10 @@
 <a href="#"><img height=50% src="https://github.com/RyanWalpoleEnterprises/Stardew-Valley/raw/release-stable/web/SDVMM_Logo.png?raw=true">
 
+<style>
+td, th {
+   border: none!important;
+}
+</style>
 
 # Stardew Valley Mod Manager
 
