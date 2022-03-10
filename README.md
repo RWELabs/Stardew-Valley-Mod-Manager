@@ -1,11 +1,5 @@
 <a href="#"><img height=50% src="https://github.com/RyanWalpoleEnterprises/Stardew-Valley/raw/release-stable/web/SDVMM_Logo.png?raw=true">
 
-<style>
-td, th {
-   border: none!important;
-}
-</style>
-
 # Stardew Valley Mod Manager
 
 | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-stable.png) | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-alpha.png) | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-development.png) |
