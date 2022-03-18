@@ -34,9 +34,14 @@ namespace Stardew_Mod_Manager
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SDVDirPath = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.IsStardewValidText = new System.Windows.Forms.Label();
             this.Continue = new System.Windows.Forms.Button();
+            this.IsStardewValidIcon = new System.Windows.Forms.PictureBox();
+            this.IsSMAPIValidIcon = new System.Windows.Forms.PictureBox();
+            this.IsSMAPIValidText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsStardewValidIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsSMAPIValidIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -71,26 +76,26 @@ namespace Stardew_Mod_Manager
             // SDVDirPath
             // 
             this.SDVDirPath.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SDVDirPath.Location = new System.Drawing.Point(17, 507);
+            this.SDVDirPath.Location = new System.Drawing.Point(17, 506);
             this.SDVDirPath.Name = "SDVDirPath";
             this.SDVDirPath.Size = new System.Drawing.Size(430, 23);
             this.SDVDirPath.TabIndex = 3;
+            this.SDVDirPath.TextChanged += new System.EventHandler(this.SDVDirPath_TextChanged);
             // 
-            // label3
+            // IsStardewValidText
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(19, 544);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(429, 35);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "If you get the file path wrong, we\'ll let you know and you\'ll have the opportunit" +
-    "y to re-read the instructions and try again.";
+            this.IsStardewValidText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsStardewValidText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.IsStardewValidText.Location = new System.Drawing.Point(40, 540);
+            this.IsStardewValidText.Name = "IsStardewValidText";
+            this.IsStardewValidText.Size = new System.Drawing.Size(431, 21);
+            this.IsStardewValidText.TabIndex = 4;
+            this.IsStardewValidText.Text = "There is not a valid Stardew Valley installation at this directory.";
             // 
             // Continue
             // 
             this.Continue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Continue.Location = new System.Drawing.Point(454, 505);
+            this.Continue.Location = new System.Drawing.Point(453, 505);
             this.Continue.Name = "Continue";
             this.Continue.Size = new System.Drawing.Size(106, 25);
             this.Continue.TabIndex = 5;
@@ -98,13 +103,46 @@ namespace Stardew_Mod_Manager
             this.Continue.UseVisualStyleBackColor = true;
             this.Continue.Click += new System.EventHandler(this.Continue_Click);
             // 
+            // IsStardewValidIcon
+            // 
+            this.IsStardewValidIcon.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvError;
+            this.IsStardewValidIcon.Location = new System.Drawing.Point(17, 535);
+            this.IsStardewValidIcon.Name = "IsStardewValidIcon";
+            this.IsStardewValidIcon.Size = new System.Drawing.Size(21, 23);
+            this.IsStardewValidIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IsStardewValidIcon.TabIndex = 6;
+            this.IsStardewValidIcon.TabStop = false;
+            // 
+            // IsSMAPIValidIcon
+            // 
+            this.IsSMAPIValidIcon.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvError;
+            this.IsSMAPIValidIcon.Location = new System.Drawing.Point(17, 556);
+            this.IsSMAPIValidIcon.Name = "IsSMAPIValidIcon";
+            this.IsSMAPIValidIcon.Size = new System.Drawing.Size(21, 23);
+            this.IsSMAPIValidIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IsSMAPIValidIcon.TabIndex = 8;
+            this.IsSMAPIValidIcon.TabStop = false;
+            // 
+            // IsSMAPIValidText
+            // 
+            this.IsSMAPIValidText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsSMAPIValidText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.IsSMAPIValidText.Location = new System.Drawing.Point(40, 560);
+            this.IsSMAPIValidText.Name = "IsSMAPIValidText";
+            this.IsSMAPIValidText.Size = new System.Drawing.Size(431, 21);
+            this.IsSMAPIValidText.TabIndex = 7;
+            this.IsSMAPIValidText.Text = "There is not a valid SMAPI installation at this directory.";
+            // 
             // FirstRunSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 600);
+            this.Controls.Add(this.IsStardewValidIcon);
+            this.Controls.Add(this.IsSMAPIValidIcon);
+            this.Controls.Add(this.IsSMAPIValidText);
             this.Controls.Add(this.Continue);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.IsStardewValidText);
             this.Controls.Add(this.SDVDirPath);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -118,6 +156,8 @@ namespace Stardew_Mod_Manager
             this.Text = "Get Started - Setup | Stardew Valley Modded Framework";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FirstRunSetup_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsStardewValidIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IsSMAPIValidIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,7 +169,10 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox SDVDirPath;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label IsStardewValidText;
         private System.Windows.Forms.Button Continue;
+        private System.Windows.Forms.PictureBox IsStardewValidIcon;
+        private System.Windows.Forms.PictureBox IsSMAPIValidIcon;
+        private System.Windows.Forms.Label IsSMAPIValidText;
     }
 }
