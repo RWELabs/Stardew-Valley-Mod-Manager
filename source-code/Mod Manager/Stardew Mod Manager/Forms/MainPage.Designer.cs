@@ -60,6 +60,7 @@ namespace Stardew_Mod_Manager
             this.Tab_ModManagement = new System.Windows.Forms.TabPage();
             this.Tab_SaveFileManagement = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.OpenSavesButton = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.DeleteFarmButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@ namespace Stardew_Mod_Manager
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.ViewBackupsButton = new System.Windows.Forms.Button();
             this.MakeBackupButton = new System.Windows.Forms.Button();
-            this.OpenSavesButton = new System.Windows.Forms.Button();
+            this.ViewSMAPIBackups = new System.Windows.Forms.Button();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -319,7 +320,7 @@ namespace Stardew_Mod_Manager
             // 
             this.SoftVer.AutoSize = true;
             this.SoftVer.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.SoftVer.Location = new System.Drawing.Point(80, 15);
+            this.SoftVer.Location = new System.Drawing.Point(80, 13);
             this.SoftVer.Name = "SoftVer";
             this.SoftVer.Size = new System.Drawing.Size(49, 13);
             this.SoftVer.TabIndex = 17;
@@ -330,7 +331,7 @@ namespace Stardew_Mod_Manager
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.AutoSize = true;
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(135, 15);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(135, 13);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
             this.UpdateCheckLabel.Size = new System.Drawing.Size(96, 13);
             this.UpdateCheckLabel.TabIndex = 18;
@@ -370,7 +371,7 @@ namespace Stardew_Mod_Manager
             // 
             this.TabControl.Controls.Add(this.Tab_ModManagement);
             this.TabControl.Controls.Add(this.Tab_SaveFileManagement);
-            this.TabControl.Location = new System.Drawing.Point(0, 173);
+            this.TabControl.Location = new System.Drawing.Point(-1, 173);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(555, 331);
@@ -417,12 +418,22 @@ namespace Stardew_Mod_Manager
             this.groupBox3.Controls.Add(this.OpenSavesButton);
             this.groupBox3.Controls.Add(this.pictureBox4);
             this.groupBox3.Controls.Add(this.DeleteFarmButton);
-            this.groupBox3.Location = new System.Drawing.Point(246, 182);
+            this.groupBox3.Location = new System.Drawing.Point(246, 190);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(265, 100);
+            this.groupBox3.Size = new System.Drawing.Size(265, 92);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Management";
+            // 
+            // OpenSavesButton
+            // 
+            this.OpenSavesButton.Location = new System.Drawing.Point(14, 53);
+            this.OpenSavesButton.Name = "OpenSavesButton";
+            this.OpenSavesButton.Size = new System.Drawing.Size(146, 23);
+            this.OpenSavesButton.TabIndex = 13;
+            this.OpenSavesButton.Text = "Open Saves Folder";
+            this.OpenSavesButton.UseVisualStyleBackColor = true;
+            this.OpenSavesButton.Click += new System.EventHandler(this.OpenSavesButton_Click);
             // 
             // pictureBox4
             // 
@@ -466,12 +477,13 @@ namespace Stardew_Mod_Manager
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ViewSMAPIBackups);
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.ViewBackupsButton);
             this.groupBox2.Controls.Add(this.MakeBackupButton);
             this.groupBox2.Location = new System.Drawing.Point(246, 44);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(265, 106);
+            this.groupBox2.Size = new System.Drawing.Size(265, 132);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Backups";
@@ -479,9 +491,9 @@ namespace Stardew_Mod_Manager
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvBackups;
-            this.pictureBox3.Location = new System.Drawing.Point(182, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(182, 29);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(69, 67);
+            this.pictureBox3.Size = new System.Drawing.Size(69, 81);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
@@ -507,15 +519,15 @@ namespace Stardew_Mod_Manager
             this.MakeBackupButton.UseVisualStyleBackColor = true;
             this.MakeBackupButton.Click += new System.EventHandler(this.MakeBackupButton_Click);
             // 
-            // OpenSavesButton
+            // ViewSMAPIBackups
             // 
-            this.OpenSavesButton.Location = new System.Drawing.Point(14, 53);
-            this.OpenSavesButton.Name = "OpenSavesButton";
-            this.OpenSavesButton.Size = new System.Drawing.Size(146, 23);
-            this.OpenSavesButton.TabIndex = 13;
-            this.OpenSavesButton.Text = "Open Saves Folder";
-            this.OpenSavesButton.UseVisualStyleBackColor = true;
-            this.OpenSavesButton.Click += new System.EventHandler(this.OpenSavesButton_Click);
+            this.ViewSMAPIBackups.Location = new System.Drawing.Point(14, 87);
+            this.ViewSMAPIBackups.Name = "ViewSMAPIBackups";
+            this.ViewSMAPIBackups.Size = new System.Drawing.Size(146, 23);
+            this.ViewSMAPIBackups.TabIndex = 12;
+            this.ViewSMAPIBackups.Text = "View SMAPI Backups";
+            this.ViewSMAPIBackups.UseVisualStyleBackColor = true;
+            this.ViewSMAPIBackups.Click += new System.EventHandler(this.ViewSMAPIBackups_Click);
             // 
             // MainPage
             // 
@@ -597,5 +609,6 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button DeleteFarmButton;
         private System.Windows.Forms.Button OpenSavesButton;
+        private System.Windows.Forms.Button ViewSMAPIBackups;
     }
 }

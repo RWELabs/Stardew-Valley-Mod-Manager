@@ -519,5 +519,25 @@ namespace Stardew_Mod_Manager
 
             Process.Start(sdvsaves);
         }
+
+        private void ViewSMAPIBackups_Click(object sender, EventArgs e)
+        {
+            string InstallDir = Properties.Settings.Default.StardewDir;
+            string SMAPIBackups = InstallDir + @"\save-backups";
+
+            DialogResult dr = MessageBox.Show("SMAPI comes with a save backup mod that backs up all of your farms every time you play. SMAPI will usually keep 10 snapshots of your saves if you have this mod enabled. Would you like to view your SMAPI backups?", "Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+        
+            if(dr == DialogResult.Yes)
+            {
+                try
+                {
+                    Process.Start(SMAPIBackups);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("The SMAPI Game Backups Folder does not exist. Are you sure you've played Stardew Valley with default SMAPI mods enabled?", "Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
