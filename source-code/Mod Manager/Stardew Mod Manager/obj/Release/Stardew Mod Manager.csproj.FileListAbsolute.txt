@@ -27,3 +27,4 @@ C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod 
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.AssemblyReference.cache
 C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Settings.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Startup.Splash.resources
+C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Startup.Splash.resources
