@@ -13,6 +13,7 @@ using Microsoft.VisualBasic;
 using System.IO.Compression;
 using Stardew_Mod_Manager.Properties;
 using System.Xml;
+using Stardew_Mod_Manager.Forms;
 
 namespace Stardew_Mod_Manager
 {
@@ -538,6 +539,12 @@ namespace Stardew_Mod_Manager
                     MessageBox.Show("The SMAPI Game Backups Folder does not exist. Are you sure you've played Stardew Valley with default SMAPI mods enabled?", "Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void CheckModUpdates_Click(object sender, EventArgs e)
+        {
+            ModUpdateCheck updatemods = new ModUpdateCheck();
+            updatemods.ShowDialog();
         }
     }
 }
