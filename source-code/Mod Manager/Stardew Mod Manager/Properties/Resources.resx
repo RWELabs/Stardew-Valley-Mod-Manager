@@ -118,23 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RWE_Labs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RWE_Labs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Stardew Mod Manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stardew Mod Manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RWE_Labs_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RWE_Labs_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sdvicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sdvicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RWE_Labs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RWE_Labs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SMAPI_Default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SMAPI Default.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SDVMM_LogoNoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SDVMM_LogoNoImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RWE_Labs_BG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RWE_Labs_BG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,14 +151,17 @@
   <data name="sdvvalidated" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvvalidated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sdv_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdv_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sdvBackups" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvBackups.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sdvError" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sdvError.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sdvicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvbg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +169,10 @@
   <data name="sdvrefresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvrefresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SDVMM_LogoNoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SDVMM_LogoNoImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sdvError" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvError.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sdv_updatecheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdv_updatecheck.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

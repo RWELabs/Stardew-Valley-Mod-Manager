@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stardew_Mod_Manager.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,6 +74,31 @@ namespace Stardew_Mod_Manager
         private void FirstRunSetup_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void SDVDirPath_TextChanged(object sender, EventArgs e)
+        {
+            if(!File.Exists(SDVDirPath.Text + @"\Stardew Valley.exe"))
+            {
+                IsStardewValidIcon.Image = Resources.sdvError;
+                IsStardewValidText.Text = "There is not a valid Stardew Valley installation at this directory.";
+            }
+            else if (File.Exists(SDVDirPath.Text + @"\Stardew Valley.exe"))
+            {
+                IsStardewValidIcon.Image = Resources.sdvvalidated;
+                IsStardewValidText.Text = "There is a valid Stardew Valley installation at this directory.";
+            }
+
+            if (!File.Exists(SDVDirPath.Text + @"\StardewModdingAPI.exe"))
+            {
+                IsSMAPIValidIcon.Image = Resources.sdvError;
+                IsSMAPIValidText.Text = "There is not a valid SMAPI installation at this directory.";
+            }
+            else if (File.Exists(SDVDirPath.Text + @"\StardewModdingAPI.exe"))
+            {
+                IsSMAPIValidIcon.Image = Resources.sdvvalidated;
+                IsSMAPIValidText.Text = "There is a valid SMAPI installation at this directory.";
+            }
         }
     }
 }
