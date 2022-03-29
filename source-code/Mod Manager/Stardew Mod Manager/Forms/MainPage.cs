@@ -22,6 +22,7 @@ namespace Stardew_Mod_Manager
         public MainPage()
         {
             InitializeComponent();
+            TabControl.TabPages.Remove(SettingsTab);
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
@@ -420,8 +421,9 @@ namespace Stardew_Mod_Manager
 
         private void SettingsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Settings set = new Settings();
-            set.Show();
+            SettingsLink.Enabled = false;
+            TabControl.TabPages.Add(SettingsTab);
+            TabControl.SelectedTab = SettingsTab;
         }
 
         private void AvailableModsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -545,6 +547,111 @@ namespace Stardew_Mod_Manager
         {
             ModUpdateCheck updatemods = new ModUpdateCheck();
             updatemods.ShowDialog();
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(TabControl.SelectedTab != SettingsTab)
+            {
+                TabControl.TabPages.Remove(SettingsTab);
+                SettingsLink.Enabled = true;
+            }
+
+            if (TabControl.SelectedTab == SettingsTab)
+            {
+                SettingsLink.Enabled = false;
+                SDVDir.Text = Properties.Settings.Default.StardewDir;
+
+                if (Properties.Settings.Default.CheckUpdateOnStartup == "TRUE")
+                {
+                    CheckForUpdatesOnStartup.Checked = true;
+                }
+                else if (Properties.Settings.Default.CheckUpdateOnStartup == "FALSE")
+                {
+                    CheckForUpdatesOnStartup.Checked = false;
+                }
+
+            }
+        }
+
+        private void SDVDir_TextChanged(object sender, EventArgs e)
+        {
+            if (File.Exists(SDVDir.Text + @"\Stardew Valley.exe"))
+            {
+                ValidDirectory.Image = Resources.sdvvalidated;
+                UpdateSDVDir.Enabled = true;
+                Tooltip.Text = "This directory contains a Stardew Valley installation.";
+            }
+            else
+            {
+                ValidDirectory.Image = Resources.sdvError;
+                UpdateSDVDir.Enabled = false;
+                Tooltip.Text = "Could not find a valid Stardew Valley installation at this file path.";
+            }
+        }
+
+        private void UpdateSDVDir_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(SDVDir.Text + @"\Stardew Valley.exe"))
+            {
+                Properties.Settings.Default.StardewDir = SDVDir.Text;
+                Properties.Settings.Default.Save();
+                UpdateSDVDir.Text = "Updated!";
+                UpdateSDVDir.Enabled = false;
+            }
+        }
+
+        private void CopyPath_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(SDVDir.Text);
+        }
+
+        private void FileExplorerOpen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(SDVDir.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an issue performing this action:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "Settings | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void SettingsReset_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to reset your application settings? You will be prompted to set up Stardew Valley Mod Manager again the next time you launch it. This will not:" + Environment.NewLine + Environment.NewLine + "- Delete your mods and presets" + Environment.NewLine + "- Uninstall SMAPI" + Environment.NewLine + "- Uninstall Mod Manager", "Settings Confirmation | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dr == DialogResult.Yes)
+            {
+                Properties.Settings.Default.Reset();
+                Application.Exit();
+            }
+            else
+            {
+                //do nothing.
+            }
+        }
+
+        private void CheckForUpdatesOnStartup_CheckStateChanged(object sender, EventArgs e)
+        {
+            if(CheckForUpdatesOnStartup.Checked == true)
+            {
+                Properties.Settings.Default.CheckUpdateOnStartup = "TRUE";
+                Properties.Settings.Default.Save();
+            }
+            if (CheckForUpdatesOnStartup.Checked == false)
+            {
+                Properties.Settings.Default.CheckUpdateOnStartup = "FALSE";
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void LegacySettings_Click(object sender, EventArgs e)
+        {
+            Settings set = new Settings();
+            set.Show();
         }
     }
 }
