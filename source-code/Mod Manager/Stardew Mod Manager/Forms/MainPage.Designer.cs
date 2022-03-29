@@ -400,6 +400,7 @@ namespace Stardew_Mod_Manager
             // 
             // Tab_ModManagement
             // 
+            this.Tab_ModManagement.BackColor = System.Drawing.Color.White;
             this.Tab_ModManagement.Controls.Add(this.ModManageToolstrip);
             this.Tab_ModManagement.Controls.Add(this.RefreshPanel);
             this.Tab_ModManagement.Controls.Add(this.AvailableModsList);
@@ -417,7 +418,6 @@ namespace Stardew_Mod_Manager
             this.Tab_ModManagement.Size = new System.Drawing.Size(547, 367);
             this.Tab_ModManagement.TabIndex = 0;
             this.Tab_ModManagement.Text = "   Mod Management   ";
-            this.Tab_ModManagement.UseVisualStyleBackColor = true;
             // 
             // ModManageToolstrip
             // 
@@ -473,6 +473,7 @@ namespace Stardew_Mod_Manager
             // 
             // Tab_SaveFileManagement
             // 
+            this.Tab_SaveFileManagement.BackColor = System.Drawing.Color.White;
             this.Tab_SaveFileManagement.Controls.Add(this.groupBox3);
             this.Tab_SaveFileManagement.Controls.Add(this.label5);
             this.Tab_SaveFileManagement.Controls.Add(this.GameSavesList);
@@ -480,10 +481,9 @@ namespace Stardew_Mod_Manager
             this.Tab_SaveFileManagement.Location = new System.Drawing.Point(4, 34);
             this.Tab_SaveFileManagement.Name = "Tab_SaveFileManagement";
             this.Tab_SaveFileManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_SaveFileManagement.Size = new System.Drawing.Size(547, 364);
+            this.Tab_SaveFileManagement.Size = new System.Drawing.Size(547, 367);
             this.Tab_SaveFileManagement.TabIndex = 1;
             this.Tab_SaveFileManagement.Text = "   Game Save Management   ";
-            this.Tab_SaveFileManagement.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -612,6 +612,7 @@ namespace Stardew_Mod_Manager
             // 
             // SettingsTab
             // 
+            this.SettingsTab.BackColor = System.Drawing.Color.White;
             this.SettingsTab.Controls.Add(this.LegacySettings);
             this.SettingsTab.Controls.Add(this.groupBox5);
             this.SettingsTab.Controls.Add(this.SettingsReset);
@@ -625,7 +626,6 @@ namespace Stardew_Mod_Manager
             this.SettingsTab.Size = new System.Drawing.Size(547, 367);
             this.SettingsTab.TabIndex = 2;
             this.SettingsTab.Text = "   Settings   ";
-            this.SettingsTab.UseVisualStyleBackColor = true;
             // 
             // LegacySettings
             // 
@@ -804,8 +804,8 @@ namespace Stardew_Mod_Manager
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(562, 1000);
-            this.MinimumSize = new System.Drawing.Size(562, 100);
+            this.MaximumSize = new System.Drawing.Size(562, 620);
+            this.MinimumSize = new System.Drawing.Size(562, 620);
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mod Manager | Stardew Valley Modded Framework";
