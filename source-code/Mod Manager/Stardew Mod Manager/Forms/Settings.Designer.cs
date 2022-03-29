@@ -60,11 +60,11 @@ namespace Stardew_Mod_Manager
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(75, 22);
+            this.label4.Location = new System.Drawing.Point(75, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(318, 23);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Settings";
+            this.label4.Text = "Settings (Deprecated)";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
@@ -72,19 +72,20 @@ namespace Stardew_Mod_Manager
             this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvsettings;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.Size = new System.Drawing.Size(58, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 41);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.75F);
+            this.label2.Location = new System.Drawing.Point(76, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(306, 35);
+            this.label2.Size = new System.Drawing.Size(303, 54);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Settings for Stardew Valley Mod Manager and the Stardew Valley Modded Framework.";
+            this.label2.Text = "This settings window is no longer updated as of v220401. This window may not have" +
+    " all settings available, as they have been moved to the Settings tab.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ValidDirectory
@@ -149,7 +150,7 @@ namespace Stardew_Mod_Manager
             // 
             // SettingsReset
             // 
-            this.SettingsReset.Location = new System.Drawing.Point(273, 257);
+            this.SettingsReset.Location = new System.Drawing.Point(273, 274);
             this.SettingsReset.Name = "SettingsReset";
             this.SettingsReset.Size = new System.Drawing.Size(120, 23);
             this.SettingsReset.TabIndex = 27;
@@ -166,7 +167,7 @@ namespace Stardew_Mod_Manager
             this.groupBox1.Controls.Add(this.ValidDirectory);
             this.groupBox1.Controls.Add(this.Tooltip);
             this.groupBox1.Controls.Add(this.UpdateSDVDir);
-            this.groupBox1.Location = new System.Drawing.Point(12, 98);
+            this.groupBox1.Location = new System.Drawing.Point(12, 115);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(381, 143);
             this.groupBox1.TabIndex = 28;
@@ -178,7 +179,7 @@ namespace Stardew_Mod_Manager
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(414, 298);
+            this.ClientSize = new System.Drawing.Size(414, 317);
             this.Controls.Add(this.SettingsReset);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -197,7 +198,6 @@ namespace Stardew_Mod_Manager
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
