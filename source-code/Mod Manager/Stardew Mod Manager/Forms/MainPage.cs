@@ -194,6 +194,14 @@ namespace Stardew_Mod_Manager
 
         private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
+            string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            string updatelocation = Path.Combine(dataPath, "SDVMMlatest.exe");
+
+            if (File.Exists(updatelocation))
+            {
+                File.Delete(updatelocation);
+            }
+
             Application.Exit();
         }
 
@@ -395,7 +403,10 @@ namespace Stardew_Mod_Manager
                     {
                         try
                         {
-                            Process.Start(LatestRelease);
+                            //Process.Start(LatestRelease);
+                            UpdateDownload download = new UpdateDownload();
+                            download.ShowDialog();
+
                             UpdateCheckLabel.Enabled = true;
                             UpdateCheckLabel.Text = "Updates available";
                         }
