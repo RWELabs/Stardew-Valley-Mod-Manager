@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Stardew_Mod_Manager.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Stardew_Mod_Manager.Startup
 {
@@ -83,9 +87,106 @@ namespace Stardew_Mod_Manager.Startup
 
         private void LaunchApplication_Tick(object sender, EventArgs e)
         {
-            Status.Text = "Launching Mod Manager...";
-            LaunchApplication.Stop();
-            Cleanup.Start();
+            if(Properties.Settings.Default.CheckUpdateOnStartup == "TRUE")
+            {
+                Status.Text = "Contacting Update Server...";
+                LaunchApplication.Stop();
+
+                PingNetwork();
+            }
+            else
+            {
+                Status.Text = "Launching Mod Manager...";
+                LaunchApplication.Stop();
+                Cleanup.Start();
+            }
+        }
+
+        private void PingNetwork()
+        {
+            string host = "www.github.com";
+
+            Ping p = new Ping();
+            try
+            {
+                PingReply reply = p.Send(host, 7000);
+                if (reply.Status == IPStatus.Success)
+                {
+                    CheckForUpdate();
+                }
+                else
+                {
+                    Status.Text = "Launching Mod Manager...";
+                    LaunchApplication.Stop();
+                    Cleanup.Start();
+                }
+            }
+            catch
+            {
+                Status.Text = "Launching Mod Manager...";
+                LaunchApplication.Stop();
+                Cleanup.Start();
+            }
+        }
+
+        private void CheckForUpdate()
+        {
+            string CurrentUpdateVersion = "https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/main/web/uc.xml";
+            string LatestRelease = "https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/latest";
+
+            Status.Text = "Checking for updates...";
+            //MessageBox.Show("Checking for updates...");
+
+            //Check for updates
+            try
+            {
+                //View current stable version number
+                XmlDocument document = new XmlDocument();
+                document.Load(CurrentUpdateVersion);
+                string CVER = document.InnerText;
+
+                //Compare current stable version against installed version
+                if (CVER.Contains(Properties.Settings.Default.Version))
+                {
+                    //No updates available - install version matches stable version
+                    Status.Text = "Launching Mod Manager...";
+                    //MessageBox.Show("No updates found.");
+                    Cleanup.Start();
+                }
+                else
+                {
+                    //Alert to available update
+                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to view the latest release?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    //User clicks yes
+                    if (dr == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            //Process.Start(LatestRelease);
+                            UpdateDownload download = new UpdateDownload();
+                            download.ShowDialog();
+                            Status.Text = "Launching Mod Manager...";
+                            Cleanup.Start();
+                        }
+                        catch
+                        {
+                            Status.Text = "Issue updating. Launching Mod Manager...";
+                            Cleanup.Start();
+                        }
+                    }
+                    else
+                    {
+                        Status.Text = "Launching Mod Manager...";
+                        Cleanup.Start();
+                    }
+                }
+            }
+            catch
+            {
+                Status.Text = "Launching Mod Manager...";
+                Cleanup.Start();
+            }
         }
 
         private void Cleanup_Tick(object sender, EventArgs e)
