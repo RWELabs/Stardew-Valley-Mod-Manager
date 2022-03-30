@@ -14,6 +14,8 @@ using System.IO.Compression;
 using Stardew_Mod_Manager.Properties;
 using System.Xml;
 using Stardew_Mod_Manager.Forms;
+using System.Net.NetworkInformation;
+using System.Net;
 
 namespace Stardew_Mod_Manager
 {
@@ -43,6 +45,94 @@ namespace Stardew_Mod_Manager
                 SMAPIWarning.Visible = true;
                 SMAPIVer.Visible = true;
             }
+
+
+        }
+
+        private void CheckSMAPICurrentVersion()
+        {
+            string URL = "https://www.nexusmods.com/stardewvalley/mods/2400/";
+
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Stream receiveStream = response.GetResponseStream();
+                    StreamReader readStream = null;
+
+                    if (response.CharacterSet == null)
+                    {
+                        readStream = new StreamReader(receiveStream);
+                    }
+                    else
+                    {
+                        readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+                    }
+
+                    string data = readStream.ReadToEnd();
+
+                    WebData.Text = data;
+
+                    doIdentifyVersion();
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void doIdentifyVersion()
+        {
+            string regex = "<div class=\"stat\">";
+
+            string selectstart = "<li class=\"stat-version\">";
+            string selectend = "</li>";
+
+
+            WebData.SelectionStart = WebData.Find(selectstart);
+            WebData.SelectionLength = 289;
+
+            WebData.Copy();
+            WebDataParsed.Paste();
+
+            foreach (string line in WebDataParsed.Lines)
+            {
+                if (line.Contains(regex))
+                {
+                    string ver = line.Replace(regex, null).Replace("<", null).Replace("/", null).Replace("div", null).Replace(">", null).Trim();
+
+                    string SMAPICurrentVersionNumber = ver;
+                    SMAPIUpdateVer.Text = ver;
+                    CompareVersions();
+                }
+            }
+        }
+
+        private void CompareVersions()
+        {
+            int VersionInstalled;
+            int VersionUpdated;
+
+            Int32.TryParse(SMAPIUpdateVer.Text.Replace(".", null), out VersionInstalled);
+            Int32.TryParse(SMAPIVer.Text.Replace(".", null).Replace("SMAPI", null).Trim(), out VersionUpdated);
+
+            if (VersionInstalled < VersionUpdated)
+            {
+                SMAPIVer.Text = SMAPIVer.Text + " (Updates Available)";
+            }
+            if (VersionInstalled > VersionUpdated)
+            {
+
+            }
+            if (VersionInstalled == VersionUpdated)
+            {
+
+            }
+
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -51,7 +141,7 @@ namespace Stardew_Mod_Manager
             string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
             string ModPresets = Properties.Settings.Default.StardewDir + @"\mod-presets\";
 
-            if(File.Exists(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe"))
+            if (File.Exists(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe"))
             {
                 SMAPIWarning.Visible = false;
                 SMAPIVer.Visible = true;
@@ -73,6 +163,38 @@ namespace Stardew_Mod_Manager
             }
 
             PopulateGameSaveTab();
+            //DoSMAPICheck();
+        }
+
+        private void DoSMAPICheck()
+        {
+            try
+            {
+                string host = "www.nexusmods.com";
+
+                Ping p = new Ping();
+                try
+                {
+                    PingReply reply = p.Send(host, 7000);
+                    if (reply.Status == IPStatus.Success)
+                    {
+                        CheckSMAPICurrentVersion();
+                    }
+                    else
+                    {
+
+                    }
+                }
+                catch
+                {
+                    //
+                }
+            }
+            catch
+            {
+                //
+
+            }
         }
 
         private void PopulateGameSaveTab()

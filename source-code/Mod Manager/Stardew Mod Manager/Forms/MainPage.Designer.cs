@@ -89,6 +89,9 @@ namespace Stardew_Mod_Manager
             this.ValidDirectory = new System.Windows.Forms.PictureBox();
             this.Tooltip = new System.Windows.Forms.Label();
             this.UpdateSDVDir = new System.Windows.Forms.Button();
+            this.WebData = new System.Windows.Forms.RichTextBox();
+            this.WebDataParsed = new System.Windows.Forms.RichTextBox();
+            this.SMAPIUpdateVer = new System.Windows.Forms.TextBox();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -793,17 +796,46 @@ namespace Stardew_Mod_Manager
             this.UpdateSDVDir.UseVisualStyleBackColor = true;
             this.UpdateSDVDir.Click += new System.EventHandler(this.UpdateSDVDir_Click);
             // 
+            // WebData
+            // 
+            this.WebData.Location = new System.Drawing.Point(354, 38);
+            this.WebData.Name = "WebData";
+            this.WebData.Size = new System.Drawing.Size(100, 96);
+            this.WebData.TabIndex = 21;
+            this.WebData.Text = "";
+            this.WebData.Visible = false;
+            // 
+            // WebDataParsed
+            // 
+            this.WebDataParsed.Location = new System.Drawing.Point(364, 10);
+            this.WebDataParsed.Name = "WebDataParsed";
+            this.WebDataParsed.Size = new System.Drawing.Size(100, 96);
+            this.WebDataParsed.TabIndex = 22;
+            this.WebDataParsed.Text = "";
+            this.WebDataParsed.Visible = false;
+            // 
+            // SMAPIUpdateVer
+            // 
+            this.SMAPIUpdateVer.Location = new System.Drawing.Point(231, 12);
+            this.SMAPIUpdateVer.Name = "SMAPIUpdateVer";
+            this.SMAPIUpdateVer.Size = new System.Drawing.Size(100, 20);
+            this.SMAPIUpdateVer.TabIndex = 23;
+            this.SMAPIUpdateVer.Visible = false;
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 581);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SMAPIWarning);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.ModFolderPath);
             this.Controls.Add(this.TabControl);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.SMAPIUpdateVer);
+            this.Controls.Add(this.WebDataParsed);
+            this.Controls.Add(this.WebData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(562, 620);
@@ -904,5 +936,8 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.CheckBox CheckForUpdatesOnStartup;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button LegacySettings;
+        private System.Windows.Forms.RichTextBox WebData;
+        private System.Windows.Forms.RichTextBox WebDataParsed;
+        private System.Windows.Forms.TextBox SMAPIUpdateVer;
     }
 }
