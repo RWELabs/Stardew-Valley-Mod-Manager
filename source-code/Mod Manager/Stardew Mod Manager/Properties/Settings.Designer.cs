@@ -157,13 +157,25 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("FALSE")]
+        [global::System.Configuration.DefaultSettingValueAttribute("TRUE")]
         public string CheckUpdateOnStartup {
             get {
                 return ((string)(this["CheckUpdateOnStartup"]));
             }
             set {
                 this["CheckUpdateOnStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CancelDownload {
+            get {
+                return ((bool)(this["CancelDownload"]));
+            }
+            set {
+                this["CancelDownload"] = value;
             }
         }
     }
