@@ -455,14 +455,14 @@ namespace Stardew_Mod_Manager
             // addNewModzipToolStripMenuItem
             // 
             this.addNewModzipToolStripMenuItem.Name = "addNewModzipToolStripMenuItem";
-            this.addNewModzipToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.addNewModzipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewModzipToolStripMenuItem.Text = "Add New Mod (.zip)";
             this.addNewModzipToolStripMenuItem.Click += new System.EventHandler(this.ZipInstall_Click);
             // 
             // installModpackToolStripMenuItem
             // 
             this.installModpackToolStripMenuItem.Name = "installModpackToolStripMenuItem";
-            this.installModpackToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.installModpackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.installModpackToolStripMenuItem.Text = "Install Modpack";
             this.installModpackToolStripMenuItem.Click += new System.EventHandler(this.PackInstall_Click);
             // 
@@ -648,7 +648,7 @@ namespace Stardew_Mod_Manager
             this.groupBox5.Controls.Add(this.CheckForUpdatesOnStartup);
             this.groupBox5.Location = new System.Drawing.Point(23, 246);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(496, 56);
+            this.groupBox5.Size = new System.Drawing.Size(496, 62);
             this.groupBox5.TabIndex = 35;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Application Settings";
@@ -659,9 +659,9 @@ namespace Stardew_Mod_Manager
             this.CheckForUpdatesOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.CheckForUpdatesOnStartup.Location = new System.Drawing.Point(11, 28);
             this.CheckForUpdatesOnStartup.Name = "CheckForUpdatesOnStartup";
-            this.CheckForUpdatesOnStartup.Size = new System.Drawing.Size(227, 17);
+            this.CheckForUpdatesOnStartup.Size = new System.Drawing.Size(281, 17);
             this.CheckForUpdatesOnStartup.TabIndex = 34;
-            this.CheckForUpdatesOnStartup.Text = "Check for updates automatically on startup";
+            this.CheckForUpdatesOnStartup.Text = "Check for application updates automatically on startup";
             this.CheckForUpdatesOnStartup.UseVisualStyleBackColor = true;
             this.CheckForUpdatesOnStartup.CheckStateChanged += new System.EventHandler(this.CheckForUpdatesOnStartup_CheckStateChanged);
             // 
