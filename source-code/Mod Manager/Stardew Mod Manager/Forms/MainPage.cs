@@ -786,5 +786,10 @@ namespace Stardew_Mod_Manager
             Settings set = new Settings();
             set.Show();
         }
+
+        private void ChangelogLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/tag/v" + Properties.Settings.Default.Version);
+        }
     }
 }

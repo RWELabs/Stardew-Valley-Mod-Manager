@@ -92,6 +92,7 @@ namespace Stardew_Mod_Manager
             this.WebData = new System.Windows.Forms.RichTextBox();
             this.WebDataParsed = new System.Windows.Forms.RichTextBox();
             this.SMAPIUpdateVer = new System.Windows.Forms.TextBox();
+            this.ChangelogLink = new System.Windows.Forms.LinkLabel();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -280,9 +281,9 @@ namespace Stardew_Mod_Manager
             // SMAPIVer
             // 
             this.SMAPIVer.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.SMAPIVer.Location = new System.Drawing.Point(333, 16);
+            this.SMAPIVer.Location = new System.Drawing.Point(377, 16);
             this.SMAPIVer.Name = "SMAPIVer";
-            this.SMAPIVer.Size = new System.Drawing.Size(222, 13);
+            this.SMAPIVer.Size = new System.Drawing.Size(178, 13);
             this.SMAPIVer.TabIndex = 15;
             this.SMAPIVer.Text = "SMAPI 0.0.0";
             this.SMAPIVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -351,7 +352,7 @@ namespace Stardew_Mod_Manager
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.AutoSize = true;
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(135, 16);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(234, 16);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
             this.UpdateCheckLabel.Size = new System.Drawing.Size(96, 13);
             this.UpdateCheckLabel.TabIndex = 18;
@@ -362,6 +363,7 @@ namespace Stardew_Mod_Manager
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ChangelogLink);
             this.groupBox1.Controls.Add(this.SettingsLink);
             this.groupBox1.Controls.Add(this.UpdateCheckLabel);
             this.groupBox1.Controls.Add(this.SMAPIVer);
@@ -822,6 +824,20 @@ namespace Stardew_Mod_Manager
             this.SMAPIUpdateVer.TabIndex = 23;
             this.SMAPIUpdateVer.Visible = false;
             // 
+            // ChangelogLink
+            // 
+            this.ChangelogLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.ChangelogLink.AutoSize = true;
+            this.ChangelogLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.ChangelogLink.Location = new System.Drawing.Point(135, 16);
+            this.ChangelogLink.Name = "ChangelogLink";
+            this.ChangelogLink.Size = new System.Drawing.Size(92, 13);
+            this.ChangelogLink.TabIndex = 20;
+            this.ChangelogLink.TabStop = true;
+            this.ChangelogLink.Text = "Read Changelogs";
+            this.ChangelogLink.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.ChangelogLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChangelogLink_LinkClicked);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -939,5 +955,6 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.RichTextBox WebData;
         private System.Windows.Forms.RichTextBox WebDataParsed;
         private System.Windows.Forms.TextBox SMAPIUpdateVer;
+        private System.Windows.Forms.LinkLabel ChangelogLink;
     }
 }
