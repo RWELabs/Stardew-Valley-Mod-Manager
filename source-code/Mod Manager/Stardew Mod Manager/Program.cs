@@ -18,6 +18,8 @@ namespace Stardew_Mod_Manager
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjAyMjgyQDMxMzkyZTM0MmUzMGxmc1dVMjg5L3VsV1c0ekEyckJXQm9kN1g3bzVZYmw3cGhUdkcwMVB0NWc9");
 
+            Properties.Settings.Default.CancelDownload = false;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

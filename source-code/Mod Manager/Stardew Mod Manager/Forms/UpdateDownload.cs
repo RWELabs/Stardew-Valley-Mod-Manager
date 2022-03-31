@@ -110,15 +110,34 @@ namespace Stardew_Mod_Manager.Forms
 
             StartExecute.Stop();
 
+            this.Focus();
+            this.BringToFront();
+            this.TopMost = true;
+
             try
             {
-                Process.Start(updatelocation);
-                Application.Exit();
+                DialogResult dr = MessageBox.Show("The update has been downloaded, the application will now close as the installer will launch.", "Update Software | RWE Labs", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dr == DialogResult.OK)
+                {
+                    this.Close();
+                    Properties.Settings.Default.CancelDownload = false;
+                    Process.Start(updatelocation);
+                    Application.Exit();
+                }
+                else
+                {
+                    this.Close();
+                    Properties.Settings.Default.CancelDownload = false;
+                    Process.Start(updatelocation);
+                    Application.Exit();
+                }
             }
             catch(Exception ex)
             {
-                MessageBox.Show("There was an issue launching the update package. Do you have administrative priviliges on this user account?" + Environment.NewLine + ex.Message, "RWE Labs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Properties.Settings.Default.CancelDownload = false;
+                //MessageBox.Show("There was an issue launching the update package. Do you have administrative priviliges on this user account?" + Environment.NewLine + ex.Message, "RWE Labs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
+                Application.Exit();
             }
         }
 
