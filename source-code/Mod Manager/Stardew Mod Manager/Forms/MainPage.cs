@@ -527,7 +527,8 @@ namespace Stardew_Mod_Manager
                         {
                             //Process.Start(LatestRelease);
                             UpdateDownload download = new UpdateDownload();
-                            download.ShowDialog();
+                            download.Show();
+                            this.Hide();
 
                             UpdateCheckLabel.Enabled = true;
                             UpdateCheckLabel.Text = "Updates available";
