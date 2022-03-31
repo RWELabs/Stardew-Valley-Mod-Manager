@@ -137,5 +137,10 @@ namespace Stardew_Mod_Manager.Forms
 
             this.Close();
         }
+
+        private void UpdateDownload_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.CancelDownload = false;
+        }
     }
 }
