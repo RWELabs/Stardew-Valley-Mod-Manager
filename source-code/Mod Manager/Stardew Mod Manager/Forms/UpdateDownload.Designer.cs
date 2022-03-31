@@ -143,6 +143,7 @@ namespace Stardew_Mod_Manager.Forms
             this.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
             this.Text = "Update Software | RWE Labs";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateDownload_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
