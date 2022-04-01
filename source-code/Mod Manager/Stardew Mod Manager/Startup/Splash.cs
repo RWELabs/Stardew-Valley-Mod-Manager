@@ -1,4 +1,5 @@
-﻿using Stardew_Mod_Manager.Forms;
+﻿using IWshRuntimeLibrary;
+using Stardew_Mod_Manager.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,6 +84,27 @@ namespace Stardew_Mod_Manager.Startup
             {
                 Directory.CreateDirectory(backupsdir);
             }
+
+        }
+
+        private void CreateShortcut()
+        {
+            string appdatacommon = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            string StartMenu = appdatacommon + @"\Microsoft\Windows\Start Menu\Programs\";
+            string StartupDirectoryLegacy = StartMenu + @"SDVModdedSetup";
+            string NewStartupDirectory = StartMenu + @"Stardew Valley Mod Manager";
+            string IconPath = Path.GetDirectoryName(Application.ExecutablePath);
+
+            MessageBox.Show(NewStartupDirectory);
+
+            string ShortcutLocation = NewStartupDirectory + @"\Stardew Valley Mod Manager.lnk";
+
+            WshShell shell = new WshShell();
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(ShortcutLocation);
+            shortcut.Description = "Launch Stardew Valley Mod Manager from the Windows Start Menu";
+            shortcut.IconLocation = IconPath + @"\sdvicon.ico";
+            shortcut.TargetPath = IconPath + @"\Stardew Mod Manager.exe";
+            shortcut.Save();
         }
 
         private void LaunchApplication_Tick(object sender, EventArgs e)
