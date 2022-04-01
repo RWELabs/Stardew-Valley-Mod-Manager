@@ -224,11 +224,13 @@ namespace Stardew_Mod_Manager.Forms
             {
                 Ouput.AppendText(Environment.NewLine + "[INFO] There are no updates available ");
                 Ouput.AppendText(Environment.NewLine + "[INFO] This mod is up to date. " + Environment.NewLine + Environment.NewLine);
+                Check.Enabled = true;
             }
             if (VersionInstalled == VersionUpdated)
             {
                 Ouput.AppendText(Environment.NewLine + "[INFO] There are no updates available ");
                 Ouput.AppendText(Environment.NewLine + "[INFO] This mod is up to date. " + Environment.NewLine + Environment.NewLine);
+                Check.Enabled = true;
             }
 
         }

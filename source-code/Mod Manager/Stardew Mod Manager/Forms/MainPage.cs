@@ -14,6 +14,8 @@ using System.IO.Compression;
 using Stardew_Mod_Manager.Properties;
 using System.Xml;
 using Stardew_Mod_Manager.Forms;
+using System.Net.NetworkInformation;
+using System.Net;
 
 namespace Stardew_Mod_Manager
 {
@@ -22,6 +24,7 @@ namespace Stardew_Mod_Manager
         public MainPage()
         {
             InitializeComponent();
+            TabControl.TabPages.Remove(SettingsTab);
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
@@ -42,6 +45,94 @@ namespace Stardew_Mod_Manager
                 SMAPIWarning.Visible = true;
                 SMAPIVer.Visible = true;
             }
+
+
+        }
+
+        private void CheckSMAPICurrentVersion()
+        {
+            string URL = "https://www.nexusmods.com/stardewvalley/mods/2400/";
+
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Stream receiveStream = response.GetResponseStream();
+                    StreamReader readStream = null;
+
+                    if (response.CharacterSet == null)
+                    {
+                        readStream = new StreamReader(receiveStream);
+                    }
+                    else
+                    {
+                        readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+                    }
+
+                    string data = readStream.ReadToEnd();
+
+                    WebData.Text = data;
+
+                    doIdentifyVersion();
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void doIdentifyVersion()
+        {
+            string regex = "<div class=\"stat\">";
+
+            string selectstart = "<li class=\"stat-version\">";
+            string selectend = "</li>";
+
+
+            WebData.SelectionStart = WebData.Find(selectstart);
+            WebData.SelectionLength = 289;
+
+            WebData.Copy();
+            WebDataParsed.Paste();
+
+            foreach (string line in WebDataParsed.Lines)
+            {
+                if (line.Contains(regex))
+                {
+                    string ver = line.Replace(regex, null).Replace("<", null).Replace("/", null).Replace("div", null).Replace(">", null).Trim();
+
+                    string SMAPICurrentVersionNumber = ver;
+                    SMAPIUpdateVer.Text = ver;
+                    CompareVersions();
+                }
+            }
+        }
+
+        private void CompareVersions()
+        {
+            int VersionInstalled;
+            int VersionUpdated;
+
+            Int32.TryParse(SMAPIUpdateVer.Text.Replace(".", null), out VersionInstalled);
+            Int32.TryParse(SMAPIVer.Text.Replace(".", null).Replace("SMAPI", null).Trim(), out VersionUpdated);
+
+            if (VersionInstalled < VersionUpdated)
+            {
+                SMAPIVer.Text = SMAPIVer.Text + " (Updates Available)";
+            }
+            if (VersionInstalled > VersionUpdated)
+            {
+
+            }
+            if (VersionInstalled == VersionUpdated)
+            {
+
+            }
+
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -50,7 +141,7 @@ namespace Stardew_Mod_Manager
             string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
             string ModPresets = Properties.Settings.Default.StardewDir + @"\mod-presets\";
 
-            if(File.Exists(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe"))
+            if (File.Exists(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe"))
             {
                 SMAPIWarning.Visible = false;
                 SMAPIVer.Visible = true;
@@ -72,6 +163,38 @@ namespace Stardew_Mod_Manager
             }
 
             PopulateGameSaveTab();
+            //DoSMAPICheck();
+        }
+
+        private void DoSMAPICheck()
+        {
+            try
+            {
+                string host = "www.nexusmods.com";
+
+                Ping p = new Ping();
+                try
+                {
+                    PingReply reply = p.Send(host, 7000);
+                    if (reply.Status == IPStatus.Success)
+                    {
+                        CheckSMAPICurrentVersion();
+                    }
+                    else
+                    {
+
+                    }
+                }
+                catch
+                {
+                    //
+                }
+            }
+            catch
+            {
+                //
+
+            }
         }
 
         private void PopulateGameSaveTab()
@@ -193,6 +316,14 @@ namespace Stardew_Mod_Manager
 
         private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
+            string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            string updatelocation = Path.Combine(dataPath, "SDVMMlatest.exe");
+
+            if (File.Exists(updatelocation))
+            {
+                File.Delete(updatelocation);
+            }
+
             Application.Exit();
         }
 
@@ -394,7 +525,11 @@ namespace Stardew_Mod_Manager
                     {
                         try
                         {
-                            Process.Start(LatestRelease);
+                            //Process.Start(LatestRelease);
+                            UpdateDownload download = new UpdateDownload();
+                            download.Show();
+                            this.Hide();
+
                             UpdateCheckLabel.Enabled = true;
                             UpdateCheckLabel.Text = "Updates available";
                         }
@@ -420,8 +555,9 @@ namespace Stardew_Mod_Manager
 
         private void SettingsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Settings set = new Settings();
-            set.Show();
+            SettingsLink.Enabled = false;
+            TabControl.TabPages.Add(SettingsTab);
+            TabControl.SelectedTab = SettingsTab;
         }
 
         private void AvailableModsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -545,6 +681,116 @@ namespace Stardew_Mod_Manager
         {
             ModUpdateCheck updatemods = new ModUpdateCheck();
             updatemods.ShowDialog();
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(TabControl.SelectedTab != SettingsTab)
+            {
+                TabControl.TabPages.Remove(SettingsTab);
+                SettingsLink.Enabled = true;
+            }
+
+            if (TabControl.SelectedTab == SettingsTab)
+            {
+                SettingsLink.Enabled = false;
+                SDVDir.Text = Properties.Settings.Default.StardewDir;
+
+                if (Properties.Settings.Default.CheckUpdateOnStartup == "TRUE")
+                {
+                    CheckForUpdatesOnStartup.Checked = true;
+                }
+                else if (Properties.Settings.Default.CheckUpdateOnStartup == "FALSE")
+                {
+                    CheckForUpdatesOnStartup.Checked = false;
+                }
+
+            }
+        }
+
+        private void SDVDir_TextChanged(object sender, EventArgs e)
+        {
+            if (File.Exists(SDVDir.Text + @"\Stardew Valley.exe"))
+            {
+                ValidDirectory.Image = Resources.sdvvalidated;
+                UpdateSDVDir.Enabled = true;
+                Tooltip.Text = "This directory contains a Stardew Valley installation.";
+            }
+            else
+            {
+                ValidDirectory.Image = Resources.sdvError;
+                UpdateSDVDir.Enabled = false;
+                Tooltip.Text = "Could not find a valid Stardew Valley installation at this file path.";
+            }
+        }
+
+        private void UpdateSDVDir_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(SDVDir.Text + @"\Stardew Valley.exe"))
+            {
+                Properties.Settings.Default.StardewDir = SDVDir.Text;
+                Properties.Settings.Default.Save();
+                UpdateSDVDir.Text = "Updated!";
+                UpdateSDVDir.Enabled = false;
+            }
+        }
+
+        private void CopyPath_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(SDVDir.Text);
+        }
+
+        private void FileExplorerOpen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(SDVDir.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an issue performing this action:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "Settings | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void SettingsReset_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to reset your application settings? You will be prompted to set up Stardew Valley Mod Manager again the next time you launch it. This will not:" + Environment.NewLine + Environment.NewLine + "- Delete your mods and presets" + Environment.NewLine + "- Uninstall SMAPI" + Environment.NewLine + "- Uninstall Mod Manager", "Settings Confirmation | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dr == DialogResult.Yes)
+            {
+                Properties.Settings.Default.Reset();
+                Application.Exit();
+            }
+            else
+            {
+                //do nothing.
+            }
+        }
+
+        private void CheckForUpdatesOnStartup_CheckStateChanged(object sender, EventArgs e)
+        {
+            if(CheckForUpdatesOnStartup.Checked == true)
+            {
+                Properties.Settings.Default.CheckUpdateOnStartup = "TRUE";
+                Properties.Settings.Default.Save();
+            }
+            if (CheckForUpdatesOnStartup.Checked == false)
+            {
+                Properties.Settings.Default.CheckUpdateOnStartup = "FALSE";
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void LegacySettings_Click(object sender, EventArgs e)
+        {
+            Settings set = new Settings();
+            set.Show();
+        }
+
+        private void ChangelogLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/tag/v" + Properties.Settings.Default.Version);
         }
     }
 }
