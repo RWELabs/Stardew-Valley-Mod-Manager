@@ -4,7 +4,7 @@
 
 | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-stable.png) | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-alpha.png) | ![image](https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-development.png) |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| <b>Latest Stable:</b><br>[v220304](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/release-stable)                                                                                                                             | <b>Latest Test Build:</b><br>[v220401](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/release-alpha)                                                                                                                            | <b>Latest Developer Build:</b><br>[v220401](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/development)                                                                                                                                  |
+| <b>Latest Stable:</b><br>[v220401](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/release-stable)                                                                                                                             | <b>Latest Test Build:</b><br>[v220401](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/release-alpha)                                                                                                                            | <b>Latest Developer Build:</b><br>[v220401](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/development)                                                                                                                                  |
 
 
 The Stardew Valley Mod Manager and Modded Framework is an extension to SMAPI, the open-source modding framework API for Stardew Valley that lets players play the game with mods. Much alike SMAPI, The Stardew Valley Mod Manager does not edit or change any of the core game files and is installed as a completely separate executable to both the main game and the SMAPI launcher. The Stardew Valley Mod Manager was designed and built with the following functions in mind:
@@ -23,6 +23,11 @@ Install entire modpacks with just a single file. Simply install the .sdvmp file 
 
 5. <b>Backup and Manage Game Saves</b>
 Create backups and delete any of your farms with built in Game Save Management tools.
+
+6. <b>Check Mod Updates (Beta)</b>
+Check compatible mods to see if you have the latest version installed*
+
+* For more information on mod update check compatibility, [click here](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Check-a-Mod-for-Updates-(Beta))
 
 ## How To
 Access a series of helpful articles and how-to guides for how to download, install and use the Stardew Valley Mod Manager.
