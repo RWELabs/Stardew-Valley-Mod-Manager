@@ -27,7 +27,7 @@ Create backups and delete any of your farms with built in Game Save Management t
 6. <b>Check Mod Updates (Beta)</b>
 Check compatible mods to see if you have the latest version installed*
 
-* For more information on mod update check compatibility, [click here](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Check-a-Mod-for-Updates-(Beta))
+*For more information on mod update check compatibility, [click here](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Check-a-Mod-for-Updates-(Beta))
 
 ## How To
 Access a series of helpful articles and how-to guides for how to download, install and use the Stardew Valley Mod Manager.
