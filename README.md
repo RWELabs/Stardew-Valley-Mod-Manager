@@ -1,4 +1,4 @@
-<a href="#"><img height=50% src="https://github.com/RyanWalpoleEnterprises/Stardew-Valley/raw/release-stable/web/SDVMM_Logo.png?raw=true">
+<img height=50% src="https://github.com/RyanWalpoleEnterprises/Stardew-Valley/raw/release-stable/web/SDVMM_Logo.png?raw=true">
 
 # Stardew Valley Mod Manager
 
