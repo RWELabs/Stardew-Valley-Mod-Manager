@@ -53,6 +53,7 @@ namespace Stardew_Mod_Manager
             this.SoftVer = new System.Windows.Forms.Label();
             this.UpdateCheckLabel = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ChangelogLink = new System.Windows.Forms.LinkLabel();
             this.SettingsLink = new System.Windows.Forms.LinkLabel();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.Tab_ModManagement = new System.Windows.Forms.TabPage();
@@ -92,7 +93,7 @@ namespace Stardew_Mod_Manager
             this.WebData = new System.Windows.Forms.RichTextBox();
             this.WebDataParsed = new System.Windows.Forms.RichTextBox();
             this.SMAPIUpdateVer = new System.Windows.Forms.TextBox();
-            this.ChangelogLink = new System.Windows.Forms.LinkLabel();
+            this.ModsToMove = new System.Windows.Forms.RichTextBox();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -120,6 +121,7 @@ namespace Stardew_Mod_Manager
             this.InstalledModsList.ItemHeight = 15;
             this.InstalledModsList.Location = new System.Drawing.Point(17, 70);
             this.InstalledModsList.Name = "InstalledModsList";
+            this.InstalledModsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.InstalledModsList.Size = new System.Drawing.Size(200, 274);
             this.InstalledModsList.TabIndex = 0;
             this.InstalledModsList.Click += new System.EventHandler(this.InstalledModsList_Click);
@@ -131,6 +133,7 @@ namespace Stardew_Mod_Manager
             this.AvailableModsList.ItemHeight = 15;
             this.AvailableModsList.Location = new System.Drawing.Point(325, 70);
             this.AvailableModsList.Name = "AvailableModsList";
+            this.AvailableModsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.AvailableModsList.Size = new System.Drawing.Size(200, 274);
             this.AvailableModsList.TabIndex = 1;
             this.AvailableModsList.Click += new System.EventHandler(this.AvailableModsList_Click);
@@ -375,6 +378,20 @@ namespace Stardew_Mod_Manager
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // ChangelogLink
+            // 
+            this.ChangelogLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.ChangelogLink.AutoSize = true;
+            this.ChangelogLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.ChangelogLink.Location = new System.Drawing.Point(135, 16);
+            this.ChangelogLink.Name = "ChangelogLink";
+            this.ChangelogLink.Size = new System.Drawing.Size(92, 13);
+            this.ChangelogLink.TabIndex = 20;
+            this.ChangelogLink.TabStop = true;
+            this.ChangelogLink.Text = "Read Changelogs";
+            this.ChangelogLink.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.ChangelogLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChangelogLink_LinkClicked);
+            // 
             // SettingsLink
             // 
             this.SettingsLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
@@ -457,14 +474,14 @@ namespace Stardew_Mod_Manager
             // addNewModzipToolStripMenuItem
             // 
             this.addNewModzipToolStripMenuItem.Name = "addNewModzipToolStripMenuItem";
-            this.addNewModzipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewModzipToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.addNewModzipToolStripMenuItem.Text = "Add New Mod (.zip)";
             this.addNewModzipToolStripMenuItem.Click += new System.EventHandler(this.ZipInstall_Click);
             // 
             // installModpackToolStripMenuItem
             // 
             this.installModpackToolStripMenuItem.Name = "installModpackToolStripMenuItem";
-            this.installModpackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.installModpackToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.installModpackToolStripMenuItem.Text = "Install Modpack";
             this.installModpackToolStripMenuItem.Click += new System.EventHandler(this.PackInstall_Click);
             // 
@@ -824,19 +841,14 @@ namespace Stardew_Mod_Manager
             this.SMAPIUpdateVer.TabIndex = 23;
             this.SMAPIUpdateVer.Visible = false;
             // 
-            // ChangelogLink
+            // ModsToMove
             // 
-            this.ChangelogLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-            this.ChangelogLink.AutoSize = true;
-            this.ChangelogLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.ChangelogLink.Location = new System.Drawing.Point(135, 16);
-            this.ChangelogLink.Name = "ChangelogLink";
-            this.ChangelogLink.Size = new System.Drawing.Size(92, 13);
-            this.ChangelogLink.TabIndex = 20;
-            this.ChangelogLink.TabStop = true;
-            this.ChangelogLink.Text = "Read Changelogs";
-            this.ChangelogLink.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.ChangelogLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChangelogLink_LinkClicked);
+            this.ModsToMove.Location = new System.Drawing.Point(100, 12);
+            this.ModsToMove.Name = "ModsToMove";
+            this.ModsToMove.Size = new System.Drawing.Size(274, 96);
+            this.ModsToMove.TabIndex = 19;
+            this.ModsToMove.Text = "";
+            this.ModsToMove.Visible = false;
             // 
             // MainPage
             // 
@@ -852,6 +864,7 @@ namespace Stardew_Mod_Manager
             this.Controls.Add(this.SMAPIUpdateVer);
             this.Controls.Add(this.WebDataParsed);
             this.Controls.Add(this.WebData);
+            this.Controls.Add(this.ModsToMove);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(562, 620);
@@ -956,5 +969,6 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.RichTextBox WebDataParsed;
         private System.Windows.Forms.TextBox SMAPIUpdateVer;
         private System.Windows.Forms.LinkLabel ChangelogLink;
+        private System.Windows.Forms.RichTextBox ModsToMove;
     }
 }
