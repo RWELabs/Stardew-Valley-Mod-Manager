@@ -324,6 +324,8 @@ namespace Stardew_Mod_Manager
                 File.Delete(updatelocation);
             }
 
+            Properties.Settings.Default.IsUpdateModInactive = false;
+
             Application.Exit();
         }
 
