@@ -178,5 +178,17 @@ namespace Stardew_Mod_Manager.Properties {
                 this["CancelDownload"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsUpdateModInactive {
+            get {
+                return ((bool)(this["IsUpdateModInactive"]));
+            }
+            set {
+                this["IsUpdateModInactive"] = value;
+            }
+        }
     }
 }
