@@ -16,6 +16,7 @@ using System.Xml;
 using Stardew_Mod_Manager.Forms;
 using System.Net.NetworkInformation;
 using System.Net;
+using System.Web.UI.WebControls;
 
 namespace Stardew_Mod_Manager
 {
@@ -216,18 +217,54 @@ namespace Stardew_Mod_Manager
                 string InstalledModFolderName = InstalledModsList.SelectedItem.ToString();
                 string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
 
+                foreach(string item in InstalledModsList.SelectedItems)
+                {
+                    ModsToMove.AppendText(item.ToString() + Environment.NewLine);
+                }
+
+                DoDisableMods();
                 //Mod Folder To Move
-                string MovementOperation = ModList + @"\" + InstalledModFolderName;
+                //string MovementOperation = ModList + @"\" + InstalledModFolderName;
+                //Directory.Move(MovementOperation, DisabledModsList + InstalledModFolderName);
+                //RefreshObjects();//RefreshObjects();
 
-                Directory.Move(MovementOperation, DisabledModsList + InstalledModFolderName);
-
-                RefreshObjects();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an issue disabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(ex.Message.Contains("Cannot create a file when that file already exists."))
+                {
+                    RefreshObjects();
+                    ModsToMove.Clear();
+                    DisableMod.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("There was an issue disabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             
+        }
+
+        private void DoDisableMods()
+        {
+            string ModList = Properties.Settings.Default.ModsDir;
+            string InstalledModFolderName = InstalledModsList.SelectedItem.ToString();
+            string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
+
+            foreach (string line in ModsToMove.Lines)
+            {
+                if(line == null)
+                {
+                    //
+                }
+                else
+                {
+                    Directory.Move(ModList + @"\" + line + @"\", DisabledModsList + line + @"\");
+                    //RefreshObjects();
+                }
+            }
+
+            //RefreshObjects();
         }
 
         private void EnableMod_Click(object sender, EventArgs e)
@@ -238,18 +275,49 @@ namespace Stardew_Mod_Manager
                 string DisabledModName = AvailableModsList.SelectedItem.ToString();
                 string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
 
-                //Mod Folder To Move
-                string MovementOperation = DisabledModsList + @"\" + DisabledModName;
+                foreach (string item in AvailableModsList.SelectedItems)
+                {
+                    ModsToMove.AppendText(item.ToString() + Environment.NewLine);
+                }
 
-                Directory.Move(MovementOperation, ModList + DisabledModName);
-
-                RefreshObjects();
+                DoEnableMods();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an issue enabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message.Contains("Cannot create a file when that file already exists."))
+                {
+                    RefreshObjects();
+                    ModsToMove.Clear();
+                    EnableMod.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("There was an issue enabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             
+        }
+         
+        private void DoEnableMods()
+        {
+            string ModList = Properties.Settings.Default.ModsDir;
+            //string InstalledModFolderName = InstalledModsList.SelectedItem.ToString();
+            string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
+
+            foreach (string line in ModsToMove.Lines)
+            {
+                if (line == null)
+                {
+                    //
+                }
+                else
+                {
+                    Directory.Move(DisabledModsList + @"\" + line + @"\", ModList + line + @"\");
+                    //RefreshObjects();
+                }
+            }
+
+            //RefreshObjects();
         }
 
         private void RefreshObjects()
