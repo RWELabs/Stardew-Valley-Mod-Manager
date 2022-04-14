@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Stardew Mod Manager and Modded Framework")]
 [assembly: AssemblyDescription("Manage your mods and install modpacks with just a few clicks using Stardew Mod Manager and Modded Framework.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Ryan Walpole Enterprises, Crutionix Media Group")]
+[assembly: AssemblyCompany("RWE Labs, Ryan Walpole Enterprises")]
 [assembly: AssemblyProduct("Stardew Mod Manager")]
-[assembly: AssemblyCopyright("Copyright © Ryan Walpole Enterprises, Crutionix Media Group - 2022")]
+[assembly: AssemblyCopyright("Copyright © Ryan Walpole Enterprises, RWE Labs - 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
