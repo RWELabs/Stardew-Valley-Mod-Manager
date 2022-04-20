@@ -145,7 +145,7 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("220401")]
+        [global::System.Configuration.DefaultSettingValueAttribute("220402")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -176,6 +176,18 @@ namespace Stardew_Mod_Manager.Properties {
             }
             set {
                 this["CancelDownload"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsUpdateModInactive {
+            get {
+                return ((bool)(this["IsUpdateModInactive"]));
+            }
+            set {
+                this["IsUpdateModInactive"] = value;
             }
         }
     }

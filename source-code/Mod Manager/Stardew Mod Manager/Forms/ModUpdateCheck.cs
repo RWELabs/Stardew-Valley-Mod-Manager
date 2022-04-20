@@ -19,6 +19,8 @@ namespace Stardew_Mod_Manager.Forms
     {
         public ModUpdateCheck()
         {
+            Properties.Settings.Default.IsUpdateModInactive = false;
+
             InitializeComponent();
 
             doModListPopulate();
@@ -31,7 +33,7 @@ namespace Stardew_Mod_Manager.Forms
 
             foreach (string folder in Directory.GetDirectories(EnabledModList))
             {
-                //Mods.Items.Add(Path.GetFileName(folder));
+                Mods.Items.Add(Path.GetFileName(folder));
             }
             foreach (string folder in Directory.GetDirectories(DisabledModsList))
             {
@@ -43,10 +45,33 @@ namespace Stardew_Mod_Manager.Forms
         {
             Check.Enabled = false;
 
+            if(File.Exists(Properties.Settings.Default.InactiveModsDir + @"\" + Mods.SelectedItem.ToString() + @"\manifest.json"))
+            {
+                Properties.Settings.Default.IsUpdateModInactive = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.IsUpdateModInactive = false;
+                Properties.Settings.Default.Save();
+            }
+
             try
             {
                 string ModManifest = Properties.Settings.Default.InactiveModsDir + @"\" + Mods.SelectedItem.ToString() + @"\manifest.json";
-                Manifest.LoadFile(ModManifest, RichTextBoxStreamType.PlainText);
+                string ModManifestActive = Properties.Settings.Default.ModsDir + @"\" + Mods.SelectedItem.ToString() + @"\manifest.json";
+
+                if (Properties.Settings.Default.IsUpdateModInactive == false)
+                {
+                    Manifest.LoadFile(ModManifestActive, RichTextBoxStreamType.PlainText);
+                    //MessageBox.Show(ModManifestActive);
+                }
+                else
+                {
+                    Manifest.LoadFile(ModManifest, RichTextBoxStreamType.PlainText);
+                    //MessageBox.Show(ModManifest);
+                }
+                
 
                 string regex = "\"UpdateKeys\":";
                 string regex2 = "\"Version\":";

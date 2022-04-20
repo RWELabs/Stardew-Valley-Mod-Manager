@@ -1,0 +1,10 @@
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\SDVMP Generator.exe.config
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\SDVMP Generator.exe
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\SDVMP Generator.pdb
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Debug\SDVMP Generator.csproj.AssemblyReference.cache
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Debug\SDVMP_Generator.Form1.resources
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Debug\SDVMP_Generator.Properties.Resources.resources
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Debug\SDVMP Generator.csproj.GenerateResource.cache
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Debug\SDVMP Generator.csproj.CoreCompileInputs.cache
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Debug\SDVMP Generator.exe
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Debug\SDVMP Generator.pdb

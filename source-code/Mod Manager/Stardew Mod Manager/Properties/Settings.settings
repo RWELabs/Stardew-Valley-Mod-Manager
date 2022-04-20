@@ -33,12 +33,15 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">220401</Value>
+      <Value Profile="(Default)">220402</Value>
     </Setting>
     <Setting Name="CheckUpdateOnStartup" Type="System.String" Scope="User">
       <Value Profile="(Default)">TRUE</Value>
     </Setting>
     <Setting Name="CancelDownload" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="IsUpdateModInactive" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
