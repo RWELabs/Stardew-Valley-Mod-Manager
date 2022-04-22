@@ -94,6 +94,7 @@ namespace Stardew_Mod_Manager
             this.WebDataParsed = new System.Windows.Forms.RichTextBox();
             this.SMAPIUpdateVer = new System.Windows.Forms.TextBox();
             this.ModsToMove = new System.Windows.Forms.RichTextBox();
+            this.FileWrite = new System.Windows.Forms.RichTextBox();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -850,6 +851,14 @@ namespace Stardew_Mod_Manager
             this.ModsToMove.Text = "";
             this.ModsToMove.Visible = false;
             // 
+            // FileWrite
+            // 
+            this.FileWrite.Location = new System.Drawing.Point(25, 107);
+            this.FileWrite.Name = "FileWrite";
+            this.FileWrite.Size = new System.Drawing.Size(305, 41);
+            this.FileWrite.TabIndex = 38;
+            this.FileWrite.Text = "";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -865,6 +874,7 @@ namespace Stardew_Mod_Manager
             this.Controls.Add(this.WebDataParsed);
             this.Controls.Add(this.WebData);
             this.Controls.Add(this.ModsToMove);
+            this.Controls.Add(this.FileWrite);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(562, 620);
@@ -970,5 +980,6 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.TextBox SMAPIUpdateVer;
         private System.Windows.Forms.LinkLabel ChangelogLink;
         private System.Windows.Forms.RichTextBox ModsToMove;
+        private System.Windows.Forms.RichTextBox FileWrite;
     }
 }

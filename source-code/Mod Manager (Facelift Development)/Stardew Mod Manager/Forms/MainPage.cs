@@ -394,6 +394,24 @@ namespace Stardew_Mod_Manager
 
             Properties.Settings.Default.IsUpdateModInactive = false;
 
+            DoApplicationSettingSave();
+            //Application.Exit();
+        }
+
+        private void DoApplicationSettingSave()
+        {
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+            string SettingsINI = SDVAppData + @"settings.ini";
+
+            FileWrite.AppendText("$StardewDir=" + Properties.Settings.Default.StardewDir + Environment.NewLine);
+            FileWrite.AppendText("$ModsDir=" + Properties.Settings.Default.ModsDir + Environment.NewLine);
+            FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
+            FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
+            FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
+            FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
+            FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
+
             Application.Exit();
         }
 
@@ -830,6 +848,10 @@ namespace Stardew_Mod_Manager
             if (dr == DialogResult.Yes)
             {
                 Properties.Settings.Default.Reset();
+
+                Properties.Settings.Default.IsManuallyReset = "TRUE";
+                Properties.Settings.Default.Save();
+
                 Application.Exit();
             }
             else
