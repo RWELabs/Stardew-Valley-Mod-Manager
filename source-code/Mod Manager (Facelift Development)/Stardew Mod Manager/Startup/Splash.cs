@@ -35,6 +35,31 @@ namespace Stardew_Mod_Manager.Startup
         {
             StartupTimer.Stop();
             CheckDirectory.Start();
+            MigrationSettings();
+        }
+
+        private void MigrationSettings()
+        {
+            string AppData =  Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+            string SettingsINI = SDVAppData + @"settings.ini";
+
+            if (System.IO.File.Exists(SettingsINI))
+            {
+                
+            }
+            else if (!System.IO.File.Exists(SettingsINI))
+            {
+                Directory.CreateDirectory(SDVAppData);
+
+                FileWrite.AppendText("$StardewDir=" + Properties.Settings.Default.StardewDir + Environment.NewLine);
+                FileWrite.AppendText("$ModsDir=" + Properties.Settings.Default.ModsDir + Environment.NewLine);
+                FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
+                FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
+                FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
+                FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
+                FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
+            }
         }
 
         private void CheckDirectory_Tick(object sender, EventArgs e)
@@ -85,26 +110,6 @@ namespace Stardew_Mod_Manager.Startup
                 Directory.CreateDirectory(backupsdir);
             }
 
-        }
-
-        private void CreateShortcut()
-        {
-            string appdatacommon = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            string StartMenu = appdatacommon + @"\Microsoft\Windows\Start Menu\Programs\";
-            string StartupDirectoryLegacy = StartMenu + @"SDVModdedSetup";
-            string NewStartupDirectory = StartMenu + @"Stardew Valley Mod Manager";
-            string IconPath = Path.GetDirectoryName(Application.ExecutablePath);
-
-            MessageBox.Show(NewStartupDirectory);
-
-            string ShortcutLocation = NewStartupDirectory + @"\Stardew Valley Mod Manager.lnk";
-
-            WshShell shell = new WshShell();
-            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(ShortcutLocation);
-            shortcut.Description = "Launch Stardew Valley Mod Manager from the Windows Start Menu";
-            shortcut.IconLocation = IconPath + @"\sdvicon.ico";
-            shortcut.TargetPath = IconPath + @"\Stardew Mod Manager.exe";
-            shortcut.Save();
         }
 
         private void LaunchApplication_Tick(object sender, EventArgs e)
@@ -215,10 +220,17 @@ namespace Stardew_Mod_Manager.Startup
         {
             Cleanup.Stop();
 
-            //Show Main Dashboard and Hide Splash
-            this.Hide();
-            MainPage Dashboard = new MainPage();
-            Dashboard.Show();
+            try
+            {
+                //Show Main Dashboard and Hide Splash
+                this.Hide();
+                MainPage Dashboard = new MainPage();
+                Dashboard.Show();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

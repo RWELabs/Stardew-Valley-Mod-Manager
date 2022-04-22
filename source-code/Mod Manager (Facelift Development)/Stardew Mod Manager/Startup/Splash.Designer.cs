@@ -34,6 +34,7 @@ namespace Stardew_Mod_Manager.Startup
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Version = new System.Windows.Forms.Label();
             this.Status = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -41,9 +42,11 @@ namespace Stardew_Mod_Manager.Startup
             this.CheckDirectory = new System.Windows.Forms.Timer(this.components);
             this.LaunchApplication = new System.Windows.Forms.Timer(this.components);
             this.Cleanup = new System.Windows.Forms.Timer(this.components);
+            this.FileWrite = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +75,7 @@ namespace Stardew_Mod_Manager.Startup
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Stardew_Mod_Manager.Properties.Resources.RWE_Labs_BG;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.Version);
             this.panel1.Controls.Add(this.Status);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -80,12 +84,22 @@ namespace Stardew_Mod_Manager.Startup
             this.panel1.Size = new System.Drawing.Size(472, 73);
             this.panel1.TabIndex = 4;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Stardew_Mod_Manager.Properties.Resources.progress_white;
+            this.pictureBox4.Location = new System.Drawing.Point(346, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(34, 73);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
             // Version
             // 
             this.Version.AutoSize = true;
             this.Version.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
             this.Version.ForeColor = System.Drawing.Color.White;
-            this.Version.Location = new System.Drawing.Point(346, 54);
+            this.Version.Location = new System.Drawing.Point(12, 37);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(41, 12);
             this.Version.TabIndex = 4;
@@ -131,6 +145,15 @@ namespace Stardew_Mod_Manager.Startup
             this.Cleanup.Interval = 1000;
             this.Cleanup.Tick += new System.EventHandler(this.Cleanup_Tick);
             // 
+            // FileWrite
+            // 
+            this.FileWrite.Location = new System.Drawing.Point(392, 12);
+            this.FileWrite.Name = "FileWrite";
+            this.FileWrite.Size = new System.Drawing.Size(60, 25);
+            this.FileWrite.TabIndex = 6;
+            this.FileWrite.Text = "";
+            this.FileWrite.Visible = false;
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +162,7 @@ namespace Stardew_Mod_Manager.Startup
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(464, 248);
             this.ControlBox = false;
+            this.Controls.Add(this.FileWrite);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -153,6 +177,7 @@ namespace Stardew_Mod_Manager.Startup
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,5 +195,7 @@ namespace Stardew_Mod_Manager.Startup
         private System.Windows.Forms.Timer CheckDirectory;
         private System.Windows.Forms.Timer LaunchApplication;
         private System.Windows.Forms.Timer Cleanup;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.RichTextBox FileWrite;
     }
 }
