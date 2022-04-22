@@ -44,5 +44,8 @@
     <Setting Name="IsUpdateModInactive" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="IsManuallyReset" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FALSE</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
