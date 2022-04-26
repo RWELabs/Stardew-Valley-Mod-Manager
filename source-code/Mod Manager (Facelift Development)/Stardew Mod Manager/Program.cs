@@ -1,6 +1,8 @@
-﻿using Stardew_Mod_Manager.Startup;
+﻿using Stardew_Mod_Manager.Forms.First_Run;
+using Stardew_Mod_Manager.Startup;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,7 +35,18 @@ namespace Stardew_Mod_Manager
                 //First Run Setup hasn't been completed.
                 if (Properties.Settings.Default.StardewDir == string.Empty)
                 {
-                    Application.Run(new FirstRunSetup());
+                    string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                    string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+                    string SettingsINI = SDVAppData + @"settings.ini";
+
+                    if (File.Exists(SettingsINI))
+                    {
+                        Application.Run(new UpdateVersion());
+                    }
+                    else if(!File.Exists(SettingsINI))
+                    {
+                        Application.Run(new FirstRunSetup());
+                    } 
                 }
                 else
                 {
