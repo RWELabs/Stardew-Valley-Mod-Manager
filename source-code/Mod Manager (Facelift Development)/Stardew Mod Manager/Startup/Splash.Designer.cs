@@ -53,7 +53,7 @@ namespace Stardew_Mod_Manager.Startup
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvicon;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(10, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -81,7 +81,7 @@ namespace Stardew_Mod_Manager.Startup
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-1, 175);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(472, 73);
+            this.panel1.Size = new System.Drawing.Size(481, 73);
             this.panel1.TabIndex = 4;
             // 
             // pictureBox4
@@ -158,9 +158,8 @@ namespace Stardew_Mod_Manager.Startup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(464, 248);
+            this.ClientSize = new System.Drawing.Size(462, 248);
             this.ControlBox = false;
             this.Controls.Add(this.FileWrite);
             this.Controls.Add(this.pictureBox3);
@@ -170,7 +169,12 @@ namespace Stardew_Mod_Manager.Startup
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Splash";
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
+            this.Style.TitleBar.BackColor = System.Drawing.Color.White;
+            this.Style.TitleBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Text = "Stardew Valley Modded Framework";
             this.Load += new System.EventHandler(this.Splash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

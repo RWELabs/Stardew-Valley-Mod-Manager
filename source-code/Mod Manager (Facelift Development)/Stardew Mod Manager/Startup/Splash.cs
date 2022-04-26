@@ -1,5 +1,6 @@
 ﻿using IWshRuntimeLibrary;
 using Stardew_Mod_Manager.Forms;
+using Syncfusion.WinForms.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,22 @@ using System.Xml;
 
 namespace Stardew_Mod_Manager.Startup
 {
-    public partial class Splash : Form
+    public partial class Splash : SfForm
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
+
         public Splash()
         {
             InitializeComponent();
+
             Version.Text = "v" + Properties.Settings.Default.Version;
             Status.Text = "Please Wait...";
             StartupTimer.Start();
