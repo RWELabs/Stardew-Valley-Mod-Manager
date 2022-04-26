@@ -17,6 +17,16 @@ namespace Stardew_Mod_Manager.Properties
 {
     public partial class PackInstaller : Form
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
+
         public PackInstaller()
         {
             InitializeComponent();
