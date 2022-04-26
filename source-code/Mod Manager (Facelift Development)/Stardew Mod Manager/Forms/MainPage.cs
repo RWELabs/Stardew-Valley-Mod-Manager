@@ -17,15 +17,30 @@ using Stardew_Mod_Manager.Forms;
 using System.Net.NetworkInformation;
 using System.Net;
 using System.Web.UI.WebControls;
+using Syncfusion.Windows.Forms.Tools;
+using static Syncfusion.Windows.Forms.Tools.RibbonForm;
+using Syncfusion.WinForms.Controls;
 
 namespace Stardew_Mod_Manager
 {
-    public partial class MainPage : Form
+    public partial class MainPage : SfForm
     {
+        //protected override CreateParams CreateParams
+        //{
+            //get
+            //{
+                //CreateParams handleParam = base.CreateParams;
+                //handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                //return handleParam;
+            //}
+        //}
+
         public MainPage()
         {
             InitializeComponent();
-            TabControl.TabPages.Remove(SettingsTab);
+
+            MainTabs.TabPanelBackColor = System.Drawing.Color.White;
+            MainTabs.TabPages.Remove(Tab_Settings);
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
@@ -235,7 +250,7 @@ namespace Stardew_Mod_Manager
                 {
                     RefreshObjects();
                     ModsToMove.Clear();
-                    DisableMod.Enabled = false;
+                    DisableModButton.Enabled = false;
                 }
                 else
                 {
@@ -288,7 +303,7 @@ namespace Stardew_Mod_Manager
                 {
                     RefreshObjects();
                     ModsToMove.Clear();
-                    EnableMod.Enabled = false;
+                    EnableModButton.Enabled = false;
                 }
                 else
                 {
@@ -359,8 +374,8 @@ namespace Stardew_Mod_Manager
                 AvailableModsList.SelectedItem = null;
                 AvailableModsList.SelectedIndex = -1;
                 DeleteMod.Enabled = false;
-                EnableMod.Enabled = false;
-                DisableMod.Enabled = true;
+                EnableModButton.Enabled = false;
+                DisableModButton.Enabled = true;
             }
         }
 
@@ -376,8 +391,8 @@ namespace Stardew_Mod_Manager
                 InstalledModsList.SelectedItem = null;
                 InstalledModsList.SelectedIndex = -1;
                 DeleteMod.Enabled = true;
-                EnableMod.Enabled = true;
-                DisableMod.Enabled = false;
+                EnableModButton.Enabled = true;
+                DisableModButton.Enabled = false;
             }
 
         }
@@ -440,7 +455,7 @@ namespace Stardew_Mod_Manager
                 FileName = "",
                 Filter = "Preset Configuration Files (*.txt)|*.txt",
                 Title = "Select a Preset",
-                InitialDirectory = Properties.Settings.Default.PresetsDir
+                InitialDirectory = Properties.Settings.Default.PresetsDir.ToString()
             };
 
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -644,8 +659,8 @@ namespace Stardew_Mod_Manager
         private void SettingsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SettingsLink.Enabled = false;
-            TabControl.TabPages.Add(SettingsTab);
-            TabControl.SelectedTab = SettingsTab;
+            MainTabs.TabPages.Add(Tab_Settings);
+            MainTabs.SelectedTab = Tab_Settings;
         }
 
         private void AvailableModsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -689,13 +704,13 @@ namespace Stardew_Mod_Manager
         {
             if(GameSavesList.SelectedIndex >= 0)
             {
-                MakeBackupButton.Enabled = true;
-                DeleteFarmButton.Enabled = true;
+                BackupSelectedFarm.Enabled = true;
+                DeleteFarm.Enabled = true;
             }
             else
             {
-                MakeBackupButton.Enabled = false;
-                DeleteFarmButton.Enabled = false;
+                BackupSelectedFarm.Enabled = false;
+                DeleteFarm.Enabled = false;
             }
         }
 
@@ -773,13 +788,13 @@ namespace Stardew_Mod_Manager
 
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(TabControl.SelectedTab != SettingsTab)
+            if(MainTabs.SelectedTab != Tab_Settings)
             {
-                TabControl.TabPages.Remove(SettingsTab);
+                MainTabs.TabPages.Remove(Tab_Settings);
                 SettingsLink.Enabled = true;
             }
 
-            if (TabControl.SelectedTab == SettingsTab)
+            if (MainTabs.SelectedTab == Tab_Settings)
             {
                 SettingsLink.Enabled = false;
                 SDVDir.Text = Properties.Settings.Default.StardewDir;
