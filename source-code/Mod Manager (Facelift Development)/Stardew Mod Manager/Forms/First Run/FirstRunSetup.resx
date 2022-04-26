@@ -117,10 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label2.Text" xml:space="preserve">
-    <value>In order to use the Stardew Valley Modded Framework and Mod Manager, we need to know where your Stardew Valley game is installed. Please provide us with a file path to your game folder. To do this, refer to the GIF at the top of the window.
+  <data name="SubHeading.Text" xml:space="preserve">
+    <value>Congratulations for downloading and installing the Stardew Valley Mod Manager and Modded Framework. For that alone you deserve an iridium quality star! That being said, we need to do a few more things to get you set up and using the Stardew Valley Mod Manager.
 
-In Steam, right click on Stardew Valley. Click "Manage" then "Browse Local Files". Then copy the path to the folder and paste it in the field below:</value>
+If you have Stardew Valley installed somewhere unusual or if you don't have the game through steam, you may be required to manually do some stuff for us - but we promise we'll do our best to guide you through it. When you're ready, click "Continue".</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>If we're able to find your Stardew Valley Directory, we'll automatically fill the textbox below with the correct directory. If you installed Stardew Valley to a unique location or if you bought Stardew Valley through means other than Steam, you'll need to do this manually.
+
+If you have a non standard install through Steam, right click on Stardew Valley. Click "Manage" then "Browse Local Files". Then copy the path to the folder and paste it in the field below:</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>We've successfully located a valid Stardew Valley installation. Once you finish the installation, we'll create the necessary folders and files for you to get started. If you already have mods installed manually, don't worry - we won't touch them. In fact, they'll show up in the Mod Manager straight away.
+
+You can now complete the setup process and enjoy your new modding experience.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -1,4 +1,6 @@
 ﻿using Stardew_Mod_Manager.Properties;
+using Stardew_Mod_Manager.Startup;
+using Syncfusion.WinForms.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +15,30 @@ using System.Windows.Forms;
 
 namespace Stardew_Mod_Manager
 {
-    public partial class FirstRunSetup : Form
+    public partial class FirstRunSetup : SfForm
     {
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
+
         public FirstRunSetup()
         {
             InitializeComponent();
+
+            if (File.Exists(@"C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Stardew Valley.exe")) { SDVDirPath.Text = @"C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\"; }
+            if (File.Exists(@"D:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Stardew Valley.exe")) { SDVDirPath.Text = @"D:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\"; }
         }
 
         private void Continue_Click(object sender, EventArgs e)
         {
+            
             string AttemptedPath = SDVDirPath.Text;
 
             try
@@ -42,9 +59,7 @@ namespace Stardew_Mod_Manager
                     if(File.Exists(AttemptedPath + @"\StardewModdingAPI.exe"))
                     {
                         //Show Setup Step 2
-                        this.Hide();
-                        FirstRunSetup_Complete Complete = new FirstRunSetup_Complete();
-                        Complete.ShowDialog();
+                        Step.SelectedTab = StepThree;
                     }
                     else if(!File.Exists(AttemptedPath + @"\StardewModdingAPI.exe"))
                     {
@@ -99,6 +114,46 @@ namespace Stardew_Mod_Manager
                 IsSMAPIValidIcon.Image = Resources.sdvvalidated;
                 IsSMAPIValidText.Text = "There is a valid SMAPI installation at this directory.";
             }
+        }
+
+        private void StepOneContinue_Click(object sender, EventArgs e)
+        {
+            Step.SelectedTab = StepTwo;
+        }
+
+        private void FinishSetup_Click(object sender, EventArgs e)
+        {
+            string ModsFolder = Properties.Settings.Default.StardewDir + @"\Mods";
+            string InactiveModsFolder = Properties.Settings.Default.StardewDir + @"\inactive-mods\";
+            string ModPresets = Properties.Settings.Default.StardewDir + @"\mod-presets\";
+
+            if (!Directory.Exists(ModsFolder))
+            {
+                Directory.CreateDirectory(ModsFolder);
+            }
+            if (!Directory.Exists(InactiveModsFolder))
+            {
+                Directory.CreateDirectory(InactiveModsFolder);
+            }
+            if (!Directory.Exists(ModPresets))
+            {
+                Directory.CreateDirectory(ModPresets);
+            }
+
+            Properties.Settings.Default.SetupComplete = "TRUE";
+            Properties.Settings.Default.ModsDir = Properties.Settings.Default.StardewDir.ToString() + @"\Mods\";
+            Properties.Settings.Default.InactiveModsDir = Properties.Settings.Default.StardewDir + @"\inactive-mods\";
+            Properties.Settings.Default.PresetsDir = ModPresets;
+            Properties.Settings.Default.Save();
+
+            this.Hide();
+            Splash Complete = new Splash();
+            Complete.Show();
+        }
+
+        private void WhatsNew_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/RWELabs/Stardew-Valley-Mod-Manager/releases/tag/v" + Properties.Settings.Default.Version);
         }
     }
 }
