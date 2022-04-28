@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>You can install a Stardew Valley Modpack (.sdvmp). This will not only install all of the mods within the pack, but it will also install a preset for you so you can easily enable and disable all of the mods all at once. If you've been given a SDVMP file, you can install it here.</value>
+    <value>Stardew Valley Mod Manager supports the installation of multiple pre-defined mods in the form of a SDVMP file. If you've been given an SDVMP file to install a modpack, simply browse for it below and follow the prompts.</value>
   </data>
   <metadata name="ModsTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
