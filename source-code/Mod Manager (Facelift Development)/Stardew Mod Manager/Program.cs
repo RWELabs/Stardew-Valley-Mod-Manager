@@ -25,10 +25,20 @@ namespace Stardew_Mod_Manager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if(Properties.Settings.Default.SetupComplete == "TRUE")
+            if (Properties.Settings.Default.StardewDir != string.Empty)
             {
-                Application.Run(new Splash());
-                //Application.Run(new FirstRunSetup());
+                string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+                string SettingsINI = SDVAppData + @"settings.ini";
+
+                if (File.Exists(SettingsINI))
+                {
+                    Application.Run(new Splash());
+                }
+                else if (!File.Exists(SettingsINI))
+                {
+                    Application.Run(new FirstRunSetup());
+                }
             }
             else
             {
