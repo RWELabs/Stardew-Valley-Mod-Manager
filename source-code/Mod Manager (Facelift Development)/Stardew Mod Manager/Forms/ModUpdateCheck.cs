@@ -12,11 +12,13 @@ using System.Text.RegularExpressions;
 using System.Net.NetworkInformation;
 using System.Net;
 using System.Diagnostics;
+using Syncfusion.WinForms.Controls;
 
 namespace Stardew_Mod_Manager.Forms
 {
-    public partial class ModUpdateCheck : Form
+    public partial class ModUpdateCheck : SfForm
     {
+
         public ModUpdateCheck()
         {
             Properties.Settings.Default.IsUpdateModInactive = false;
@@ -278,7 +280,12 @@ namespace Stardew_Mod_Manager.Forms
 
         private void ModUpdateCheck_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Please note: You can only check mods that are currently not inabled. If a mod does not appear in the list that you are expecting, make sure it is not enabled.", "Mod Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Please note: You can only check mods that are currently not enabled. If a mod does not appear in the list that you are expecting, make sure it is not enabled.", "Mod Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Mods_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Check.Enabled = true;
         }
     }
 }
