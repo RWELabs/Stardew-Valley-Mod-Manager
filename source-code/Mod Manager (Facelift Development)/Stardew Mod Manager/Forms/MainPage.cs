@@ -20,27 +20,34 @@ using System.Web.UI.WebControls;
 using Syncfusion.Windows.Forms.Tools;
 using static Syncfusion.Windows.Forms.Tools.RibbonForm;
 using Syncfusion.WinForms.Controls;
+using System.Runtime.InteropServices;
 
 namespace Stardew_Mod_Manager
 {
     public partial class MainPage : SfForm
     {
-        //protected override CreateParams CreateParams
-        //{
-            //get
-            //{
-                //CreateParams handleParam = base.CreateParams;
-                //handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
-                //return handleParam;
-            //}
-        //}
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
+
+
 
         public MainPage()
         {
+
             InitializeComponent();
+
+            
 
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
+            MainTabs.TabPages.Remove(Tab_InstallOptions);
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
@@ -62,6 +69,26 @@ namespace Stardew_Mod_Manager
                 SMAPIVer.Visible = true;
             }
 
+
+        }
+
+
+/// <summary>
+/// For avoid flickering Form
+/// </summary>
+
+        internal static class NativeWinAPI
+        {
+
+            internal static readonly int GWL_EXSTYLE = -20;
+
+            internal static readonly int WS_EX_COMPOSITED = 0x02000000;
+
+            [DllImport("user32")]
+            internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+            [DllImport("user32")]
+            internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
         }
 
@@ -455,7 +482,8 @@ namespace Stardew_Mod_Manager
                 FileName = "",
                 Filter = "Preset Configuration Files (*.txt)|*.txt",
                 Title = "Select a Preset",
-                InitialDirectory = Properties.Settings.Default.PresetsDir.ToString()
+                InitialDirectory = Properties.Settings.Default.PresetsDir.ToString(),
+                RestoreDirectory = true
             };
 
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -500,30 +528,35 @@ namespace Stardew_Mod_Manager
         {
             try
             {
-                string ModDirectory = Properties.Settings.Default.ModsDir;
-                string DisabledModFolderName = AvailableModsList.SelectedItem.ToString();
-                string DisabledModsDir = Properties.Settings.Default.InactiveModsDir;
-
-                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + DisabledModFolderName + " from your mods folder? If you want to continue using this mod in the future, consider just disabling it instead.", "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if(dr == DialogResult.Yes)
+                foreach (string item in AvailableModsList.SelectedItems)
                 {
-                    try
+                    string ModDirectory = Properties.Settings.Default.ModsDir;
+                    string DisabledModFolderName = AvailableModsList.SelectedItem.ToString();
+                    string DisabledModsDir = Properties.Settings.Default.InactiveModsDir;
+
+                    DialogResult dr = MessageBox.Show("Are you sure you want to delete " + item + " from your mods folder? If you want to continue using this mod in the future, consider just disabling it instead.", "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (dr == DialogResult.Yes)
                     {
-                        Directory.Delete(DisabledModsDir + DisabledModFolderName,true);
+                        try
+                        {
+                            Directory.Delete(DisabledModsDir + item, true);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    else if (dr == DialogResult.No)
+                    {
+                        //do nothing
                         RefreshObjects();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
                 }
-                else if (dr == DialogResult.No)
-                {
-                    //do nothing
-                    RefreshObjects();
-                }
-                
+
+                RefreshObjects();
+                DeleteMod.Enabled = false;
+
             }
             catch (Exception ex)
             {
@@ -561,15 +594,10 @@ namespace Stardew_Mod_Manager
 
                 try
                 {
-                    string extractdir = Properties.Settings.Default.InactiveModsDir;
-                    string extractpath = extractdir + ofd.SafeFileName;
-
-                    ZipFile.ExtractToDirectory(FilePath, extractdir);
-                    DialogResult dr = MessageBox.Show(ofd.SafeFileName + " was successfully installed. To use this mod in game, you must enable it within the Mod Loader.","Mod Manager | Stardew Valley Modded Framework",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if(dr == DialogResult.OK)
-                    {
-                        RefreshObjects();
-                    }
+                    ModZipPath.Text = ofd.FileName;
+                    InstallFromZIP.Enabled = true;
+                    Properties.Settings.Default.TMP_ModSafeName = ofd.SafeFileName;
+                    Properties.Settings.Default.Save();
                 }
                 catch (Exception ex)
                 {
@@ -807,7 +835,12 @@ namespace Stardew_Mod_Manager
                 {
                     CheckForUpdatesOnStartup.Checked = false;
                 }
+            }
 
+            if(MainTabs.SelectedTab == Tab_InstallOptions)
+            {
+                MainTabs.TabPages.Remove(Tab_Main);
+                MainTabs.TabPages.Remove(Tab_GameMan);
             }
         }
 
@@ -898,6 +931,51 @@ namespace Stardew_Mod_Manager
         private void ChangelogLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/tag/v" + Properties.Settings.Default.Version);
+        }
+
+        private void InstallMods_Click(object sender, EventArgs e)
+        {
+            MainTabs.TabPages.Add(Tab_InstallOptions);
+            MainTabs.SelectedTab = Tab_InstallOptions;
+        }
+
+        private void InstallFromZIP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string extractdir = Properties.Settings.Default.InactiveModsDir;
+                string extractpath = extractdir + @"\" + Properties.Settings.Default.TMP_ModSafeName;
+
+                //MessageBox.Show("Install " + ModZipPath.Text + " to " + extractdir);
+
+                ZipFile.ExtractToDirectory(ModZipPath.Text, extractdir);
+                DialogResult dr = MessageBox.Show(Properties.Settings.Default.TMP_ModSafeName + " was successfully installed. To use this mod in game, you must enable it within the Mod Loader.", "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dr == DialogResult.OK)
+                {
+                    MainTabs.SelectedTab = Tab_Main;
+                    InstallFromZIP.Enabled = false;
+                    ModZipPath.Clear();
+                    RefreshObjects();
+                    Tab_InstallOptions.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was a problem installing your mod: " + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Tab_InstallOptions_Closed(object sender, EventArgs e)
+        {
+            MainTabs.TabPages.Remove(Tab_InstallOptions);
+            MainTabs.TabPages.Add(Tab_Main);
+            MainTabs.TabPages.Add(Tab_GameMan);
+        }
+
+        private void CloseTab_Click(object sender, EventArgs e)
+        {
+            Tab_InstallOptions.Close();
+            RefreshObjects();
         }
     }
 }
