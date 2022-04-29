@@ -132,6 +132,14 @@ If you have a non standard install through Steam, right click on Stardew Valley.
 
 You can now complete the setup process and enjoy your new modding experience.</value>
   </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Stardew Valley supports third party modifications by utilising the SMAPI open-source modding framework. It is installed safely alongside the game's executable and doesn't change any of the game files.
+
+SMAPI is necessary to run mods. While the Stardew Valley Mod Manager will function completely fine without SMAPI, the mods you add using the Mod Manager will not be usable within your game. For this reason, we recommend strongly that you install SMAPI now.</value>
+  </data>
+  <metadata name="SetupEstablishTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>566, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

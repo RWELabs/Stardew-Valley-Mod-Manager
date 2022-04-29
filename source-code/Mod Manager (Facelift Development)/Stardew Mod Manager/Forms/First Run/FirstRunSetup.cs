@@ -8,7 +8,9 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,9 +38,71 @@ namespace Stardew_Mod_Manager
             if (File.Exists(@"D:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Stardew Valley.exe")) { SDVDirPath.Text = @"D:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\"; }
         }
 
+        private void CheckSMAPICurrentVersion()
+        {
+            string URL = "https://www.nexusmods.com/stardewvalley/mods/2400/";
+
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Stream receiveStream = response.GetResponseStream();
+                    StreamReader readStream = null;
+
+                    if (response.CharacterSet == null)
+                    {
+                        readStream = new StreamReader(receiveStream);
+                    }
+                    else
+                    {
+                        readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+                    }
+
+                    string data = readStream.ReadToEnd();
+
+                    WebData.Text = data;
+
+                    doIdentifyVersion();
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void doIdentifyVersion()
+        {
+            string regex = "<div class=\"stat\">";
+
+            string selectstart = "<li class=\"stat-version\">";
+            string selectend = "</li>";
+
+
+            WebData.SelectionStart = WebData.Find(selectstart);
+            WebData.SelectionLength = 289;
+
+            WebData.Copy();
+            WebDataParsed.Paste();
+
+            foreach (string line in WebDataParsed.Lines)
+            {
+                if (line.Contains(regex))
+                {
+                    string ver = line.Replace(regex, null).Replace("<", null).Replace("/", null).Replace("div", null).Replace(">", null).Trim();
+
+                    string SMAPICurrentVersionNumber = ver;
+                    SMAPIToDownload.Text = SMAPICurrentVersionNumber;
+                    SMAPIOpenInstall.Text = "Download SMAPI " + SMAPICurrentVersionNumber;
+                }
+            }
+        }
+
         private void Continue_Click(object sender, EventArgs e)
         {
-            
             string AttemptedPath = SDVDirPath.Text;
 
             try
@@ -66,15 +130,14 @@ namespace Stardew_Mod_Manager
                         //Show SMAPI Install Guide
                         //SDVDirPath.SelectAll();
                         SDVDirPath.Copy();
-                        MessageBox.Show("You don't seem to have SMAPI installed. We'll run you through the install process now. Once you have completed the installation of SMAPI, come back to this window and click 'Continue'. If SMAPI asks for your game path, we've copied it to your clipboard - but it's the same path you just entered.", "Setup | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("You don't seem to have SMAPI installed. We'll run you through the install process now.", "Setup | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         try
                         {
-                            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-                            Process.Start(appPath + @"\smapi.bat");
+                            Step.SelectedTab = StepSmapi;
                         }
                         catch
                         {
-                            MessageBox.Show("SMAPI Installer was unable to launch.", "Setup | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //MessageBox.Show("SMAPI Installer was unable to launch.", "Setup | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -118,7 +181,7 @@ namespace Stardew_Mod_Manager
 
         private void StepOneContinue_Click(object sender, EventArgs e)
         {
-            Step.SelectedTab = StepTwo;
+            Step.SelectedTab = LoadingStep;
         }
 
         private void FinishSetup_Click(object sender, EventArgs e)
@@ -154,6 +217,55 @@ namespace Stardew_Mod_Manager
         private void WhatsNew_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/RWELabs/Stardew-Valley-Mod-Manager/releases/tag/v" + Properties.Settings.Default.Version);
+        }
+
+        private void ContinueSMAPI_Click(object sender, EventArgs e)
+        {
+            string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            string extractionpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\SDV Mod Manager\SMAPI\";
+            string updatelocation = Path.Combine(dataPath, "latestSMAPI.zip");
+
+            Step.SelectedTab = StepThree;
+            try
+            {
+                Directory.Delete(extractionpath, true);
+                File.Delete(updatelocation);
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            SetupEstablishTimer.Stop();
+            //CheckSMAPICurrentVersion();
+            Step.SelectedTab = StepTwo;
+        }
+
+        private void Step_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(Step.SelectedTab == LoadingStep)
+            {
+                SetupEstablishTimer.Start();
+            }
+        }
+
+        private void WebData_TextChanged(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void SMAPIOpenInstall_Click(object sender, EventArgs e)
+        {
+            string extractionpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\SDV Mod Manager\SMAPI\";
+
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            Process.Start(appPath + @"\smapi.bat");
+
+            SMAPIOpenInstall.Text = "Open Installer Again";
+            ContinueSMAPI.Visible = true;
         }
     }
 }
