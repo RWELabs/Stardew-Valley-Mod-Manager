@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">220402</Value>
+      <Value Profile="(Default)">220501EX</Value>
     </Setting>
     <Setting Name="CheckUpdateOnStartup" Type="System.String" Scope="User">
       <Value Profile="(Default)">TRUE</Value>
@@ -46,6 +46,9 @@
     </Setting>
     <Setting Name="IsManuallyReset" Type="System.String" Scope="User">
       <Value Profile="(Default)">FALSE</Value>
+    </Setting>
+    <Setting Name="TMP_ModSafeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
