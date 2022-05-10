@@ -755,7 +755,7 @@ namespace Stardew_Mod_Manager
             this.PresetManagement.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.PresetManagement.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.PresetManagement.ShowLauncher = false;
-            this.PresetManagement.Size = new System.Drawing.Size(187, 65);
+            this.PresetManagement.Size = new System.Drawing.Size(173, 65);
             this.PresetManagement.TabIndex = 43;
             this.PresetManagement.Text = "Presets";
             this.PresetManagement.ThemeName = "Metro";
