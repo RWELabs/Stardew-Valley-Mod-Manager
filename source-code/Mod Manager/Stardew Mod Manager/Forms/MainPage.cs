@@ -25,6 +25,8 @@ namespace Stardew_Mod_Manager
         public MainPage()
         {
             InitializeComponent();
+
+
             TabControl.TabPages.Remove(SettingsTab);
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;

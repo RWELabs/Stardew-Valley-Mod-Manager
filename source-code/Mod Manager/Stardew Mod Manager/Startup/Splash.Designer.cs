@@ -41,6 +41,7 @@ namespace Stardew_Mod_Manager.Startup
             this.CheckDirectory = new System.Windows.Forms.Timer(this.components);
             this.LaunchApplication = new System.Windows.Forms.Timer(this.components);
             this.Cleanup = new System.Windows.Forms.Timer(this.components);
+            this.Settings = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -131,6 +132,15 @@ namespace Stardew_Mod_Manager.Startup
             this.Cleanup.Interval = 1000;
             this.Cleanup.Tick += new System.EventHandler(this.Cleanup_Tick);
             // 
+            // Settings
+            // 
+            this.Settings.Location = new System.Drawing.Point(407, 12);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(40, 147);
+            this.Settings.TabIndex = 6;
+            this.Settings.Text = "";
+            this.Settings.Visible = false;
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +149,7 @@ namespace Stardew_Mod_Manager.Startup
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(464, 248);
             this.ControlBox = false;
+            this.Controls.Add(this.Settings);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -170,5 +181,6 @@ namespace Stardew_Mod_Manager.Startup
         private System.Windows.Forms.Timer CheckDirectory;
         private System.Windows.Forms.Timer LaunchApplication;
         private System.Windows.Forms.Timer Cleanup;
+        private System.Windows.Forms.RichTextBox Settings;
     }
 }
