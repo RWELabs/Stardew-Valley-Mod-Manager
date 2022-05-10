@@ -110,10 +110,10 @@ namespace Stardew_Mod_Manager
             this.barItem3 = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.barItem4 = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.SMAPIWarning = new System.Windows.Forms.Panel();
-            this.SMAPIDownload = new System.Windows.Forms.LinkLabel();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SMAPIDownload = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -134,7 +134,7 @@ namespace Stardew_Mod_Manager
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ModFolderPath
@@ -438,6 +438,7 @@ namespace Stardew_Mod_Manager
             this.FileWrite.Size = new System.Drawing.Size(225, 10);
             this.FileWrite.TabIndex = 38;
             this.FileWrite.Text = "";
+            this.FileWrite.Visible = false;
             // 
             // toolStripButton1
             // 
@@ -613,11 +614,12 @@ namespace Stardew_Mod_Manager
             // 
             // BackupSelectedFarm
             // 
+            this.BackupSelectedFarm.Enabled = false;
             this.BackupSelectedFarm.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvBackup;
             this.BackupSelectedFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BackupSelectedFarm.Name = "BackupSelectedFarm";
             this.BackupSelectedFarm.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 63);
+            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 50);
             this.BackupSelectedFarm.Text = "Backup Selected";
             this.BackupSelectedFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BackupSelectedFarm.Click += new System.EventHandler(this.MakeBackupButton_Click);
@@ -1112,11 +1114,32 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.Controls.Add(this.SMAPIDownload);
             this.SMAPIWarning.Controls.Add(this.label3);
             this.SMAPIWarning.Controls.Add(this.pictureBox2);
-            this.SMAPIWarning.Location = new System.Drawing.Point(100, 255);
+            this.SMAPIWarning.Location = new System.Drawing.Point(91, 49);
             this.SMAPIWarning.Name = "SMAPIWarning";
             this.SMAPIWarning.Size = new System.Drawing.Size(490, 52);
             this.SMAPIWarning.TabIndex = 14;
             this.SMAPIWarning.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.icon_attention;
+            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(62, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(72, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(399, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "SMAPI was not found on your system. SMAPI is required in order to play with Mods." +
+    "";
             // 
             // SMAPIDownload
             // 
@@ -1132,36 +1155,14 @@ namespace Stardew_Mod_Manager
             this.SMAPIDownload.VisitedLinkColor = System.Drawing.Color.White;
             this.SMAPIDownload.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SMAPIDownload_LinkClicked);
             // 
-            // label3
+            // pictureBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(72, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(399, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "SMAPI was not found on your system. SMAPI is required in order to play with Mods." +
-    "";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.icon_attention;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 42);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::Stardew_Mod_Manager.Properties.Resources.SDVBGLQ;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Controls.Add(this.SMAPIWarning);
-            this.panel1.Location = new System.Drawing.Point(-23, -17);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(726, 188);
-            this.panel1.TabIndex = 40;
+            this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.SDVBGLQ;
+            this.pictureBox1.Location = new System.Drawing.Point(-16, -24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(705, 187);
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
             // 
             // MainPage
             // 
@@ -1170,8 +1171,8 @@ namespace Stardew_Mod_Manager
             this.CanApplyTheme = false;
             this.CanOverrideStyle = true;
             this.ClientSize = new System.Drawing.Size(669, 722);
+            this.Controls.Add(this.SMAPIWarning);
             this.Controls.Add(this.MainTabs);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.ModFolderPath);
             this.Controls.Add(this.SMAPIUpdateVer);
@@ -1180,6 +1181,7 @@ namespace Stardew_Mod_Manager
             this.Controls.Add(this.ModsToMove);
             this.Controls.Add(this.FileWrite);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1227,7 +1229,7 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.ResumeLayout(false);
             this.SMAPIWarning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1311,12 +1313,12 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox ModZipPath;
         private Syncfusion.WinForms.Controls.SfButton CloseTab;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Panel SMAPIWarning;
         private System.Windows.Forms.LinkLabel SMAPIDownload;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
