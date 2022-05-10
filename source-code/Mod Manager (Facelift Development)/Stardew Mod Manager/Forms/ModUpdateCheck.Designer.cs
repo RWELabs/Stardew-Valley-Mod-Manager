@@ -52,7 +52,7 @@ namespace Stardew_Mod_Manager.Forms
             this.Mods.FormattingEnabled = true;
             this.Mods.Location = new System.Drawing.Point(45, 13);
             this.Mods.Name = "Mods";
-            this.Mods.Size = new System.Drawing.Size(342, 21);
+            this.Mods.Size = new System.Drawing.Size(329, 21);
             this.Mods.TabIndex = 0;
             this.Mods.SelectedValueChanged += new System.EventHandler(this.Mods_SelectedValueChanged);
             // 
@@ -157,7 +157,7 @@ namespace Stardew_Mod_Manager.Forms
             this.Check.AccessibleName = "Button";
             this.Check.Enabled = false;
             this.Check.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.Check.Location = new System.Drawing.Point(393, 12);
+            this.Check.Location = new System.Drawing.Point(395, 12);
             this.Check.Name = "Check";
             this.Check.Size = new System.Drawing.Size(78, 22);
             this.Check.TabIndex = 7;
