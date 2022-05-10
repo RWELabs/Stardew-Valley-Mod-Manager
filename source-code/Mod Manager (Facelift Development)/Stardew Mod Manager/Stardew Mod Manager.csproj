@@ -45,11 +45,29 @@
     <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Core.WinForms.19.4.0.56\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Base.19.4.0.56\lib\net46\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Windows.19.4.0.56\lib\net46\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Licensing, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Licensing.19.4.0.56\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Shared.Base.19.4.0.56\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Windows.19.4.0.56\lib\net46\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SpellChecker.Base.19.4.0.56\lib\net46\Syncfusion.SpellChecker.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Base.19.4.0.56\lib\net46\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=19.4460.0.56, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Windows.19.4.0.56\lib\net46\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,6 +97,12 @@
     <Compile Include="Forms\First Run\FirstRunSetup.Designer.cs">
       <DependentUpon>FirstRunSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\First Run\UpdateVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\First Run\UpdateVersion.Designer.cs">
+      <DependentUpon>UpdateVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +129,7 @@
     <Compile Include="Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Startup\Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\First Run\FirstRunSetup.resx">
       <DependentUpon>FirstRunSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\First Run\UpdateVersion.resx">
+      <DependentUpon>UpdateVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
@@ -187,6 +215,24 @@
     <None Include="Resources\SDVMM_LogoNoImage.png" />
     <None Include="Resources\sdv_add.png" />
     <None Include="Resources\sdv_updatecheck.png" />
+    <None Include="Resources\progress_white.gif" />
+    <None Include="Resources\progress_colour.gif" />
+    <None Include="Resources\sdvbg1.jpg" />
+    <None Include="Resources\ZipModInstallIcon.png" />
+    <None Include="Resources\ModpackInstall.png" />
+    <None Include="Resources\enable.png" />
+    <None Include="Resources\disable.png" />
+    <None Include="Resources\sdvOpenPreset.png" />
+    <None Include="Resources\SdvSavePreset.png" />
+    <None Include="Resources\sdvBackup.png" />
+    <None Include="Resources\sdvView.png" />
+    <None Include="Resources\sdvDelete.png" />
+    <None Include="Resources\sdv_settings.png" />
+    <None Include="Resources\sdvmodupdate.png" />
+    <None Include="Resources\sdvLeftArrow.png" />
+    <None Include="Resources\SMAPILogo.png" />
+    <None Include="Resources\SMAPILogo1.png" />
+    <None Include="Resources\SDVBGLQ.png" />
     <Content Include="sdvicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
