@@ -278,7 +278,7 @@ namespace Stardew_Mod_Manager.Forms
 
         private void ModUpdateCheck_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Please note: You can only check mods that are currently not inabled. If a mod does not appear in the list that you are expecting, make sure it is not enabled.", "Mod Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Please note: You can only check mods that are currently not enabled. If a mod does not appear in the list that you are expecting, make sure it is not enabled.", "Mod Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

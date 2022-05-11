@@ -355,12 +355,12 @@ namespace Stardew_Mod_Manager
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.AutoSize = true;
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(234, 16);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(232, 16);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
-            this.UpdateCheckLabel.Size = new System.Drawing.Size(96, 13);
+            this.UpdateCheckLabel.Size = new System.Drawing.Size(48, 13);
             this.UpdateCheckLabel.TabIndex = 18;
             this.UpdateCheckLabel.TabStop = true;
-            this.UpdateCheckLabel.Text = "Check for Updates";
+            this.UpdateCheckLabel.Text = "Upgrade";
             this.UpdateCheckLabel.VisitedLinkColor = System.Drawing.Color.Blue;
             this.UpdateCheckLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UpdateCheckLabel_LinkClicked);
             // 
