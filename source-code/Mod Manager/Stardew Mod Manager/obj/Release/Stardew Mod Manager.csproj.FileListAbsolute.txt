@@ -39,3 +39,4 @@ C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod 
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\sdvicon.ico
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Interop.IWshRuntimeLibrary.dll
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.ResolveComReference.cache
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.SuggestedBindingRedirects.cache
