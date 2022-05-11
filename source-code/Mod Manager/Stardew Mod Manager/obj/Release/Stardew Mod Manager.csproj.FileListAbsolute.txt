@@ -40,3 +40,8 @@ C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod 
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Interop.IWshRuntimeLibrary.dll
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.ResolveComReference.cache
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.SuggestedBindingRedirects.cache
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Startup.FaceliftDownload.resources
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Interop.WMPLib.dll
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\bin\Release\AxInterop.WMPLib.dll
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\Interop.WMPLib.dll
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager\Stardew Mod Manager\obj\Release\AxInterop.WMPLib.dll

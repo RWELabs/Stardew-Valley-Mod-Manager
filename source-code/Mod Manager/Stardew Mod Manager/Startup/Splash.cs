@@ -85,6 +85,15 @@ namespace Stardew_Mod_Manager.Startup
                 Directory.CreateDirectory(backupsdir);
             }
 
+
+            Settings.AppendText("$StardewDir=" + Properties.Settings.Default.StardewDir + Environment.NewLine);
+            Settings.AppendText("$ModsDir=" + Properties.Settings.Default.ModsDir + Environment.NewLine);
+            Settings.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
+            Settings.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
+            Settings.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
+            Settings.AppendText("$IsManuallyReset=" + "TRUE");
+            Settings.SaveFile(appdata + @"\RWE Labs\SDV Mod Manager\settings.ini", RichTextBoxStreamType.PlainText);
+
         }
 
         private void CreateShortcut()
