@@ -51,7 +51,7 @@ namespace Stardew_Mod_Manager.Forms
                     
                     wc.DownloadFileAsync(
                         // Param1 = Link of file
-                        new System.Uri("https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/raw/release-stable/version/Latest/StardewModManagerSetup.exe"),
+                        new System.Uri("https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/raw/release-stable/version/StardewModManagerSetup.exe"),
                         // Param2 = Path to save
                         updatelocation
                     );
