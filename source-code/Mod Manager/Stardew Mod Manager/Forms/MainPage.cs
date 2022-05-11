@@ -17,6 +17,7 @@ using Stardew_Mod_Manager.Forms;
 using System.Net.NetworkInformation;
 using System.Net;
 using System.Web.UI.WebControls;
+using Stardew_Mod_Manager.Startup;
 
 namespace Stardew_Mod_Manager
 {
@@ -26,6 +27,8 @@ namespace Stardew_Mod_Manager
         {
             InitializeComponent();
 
+            FaceliftDownload fld = new FaceliftDownload();
+                fld.ShowDialog();
 
             TabControl.TabPages.Remove(SettingsTab);
 
@@ -565,64 +568,19 @@ namespace Stardew_Mod_Manager
 
         private void UpdateCheckLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string CurrentUpdateVersion = "https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/main/web/uc.xml";
-            string LatestRelease = "https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/latest";
-
-            //Change label text to "Checking for Updates"
-            UpdateCheckLabel.Text = "Checking for updates...";
-            UpdateCheckLabel.Enabled = false;
-
-            //Check for updates
-            try
+            DialogResult dr = MessageBox.Show("There is a brand new Stardew Valley Mod Manager experience available. This new Mod Manager upgrade adds new features and a fresh new design. You can continue to use this version of the Mod Manager, but you may miss out on new features. Would you like to upgrade now?", "Try the new Stardew Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            
+            if(dr == DialogResult.Yes)
             {
-                //View current stable version number
-                XmlDocument document = new XmlDocument();
-                document.Load(CurrentUpdateVersion);
-                string CVER = document.InnerText;
-
-                //Compare current stable version against installed version
-                if (CVER.Contains(Properties.Settings.Default.Version))
-                {
-                    //No updates available - install version matches stable version
-                    UpdateCheckLabel.Text = "Up to date! Check again?";
-                    UpdateCheckLabel.Enabled = true;
-                }
-                else
-                {
-                    //Alert to available update
-                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to view the latest release?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    //User clicks yes
-                    if (dr == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            //Process.Start(LatestRelease);
-                            UpdateDownload download = new UpdateDownload();
-                            download.Show();
-                            this.Hide();
-
-                            UpdateCheckLabel.Enabled = true;
-                            UpdateCheckLabel.Text = "Updates available";
-                        }
-                        catch
-                        {
-                            //
-                        }
-                    }
-                    else
-                    {
-                        UpdateCheckLabel.Enabled = true;
-                        UpdateCheckLabel.Text = "Updates available";
-                    }
-                }
+                UpdateDownload download = new UpdateDownload();
+                download.ShowDialog();
+                //this.Hide();
             }
-            catch (Exception ex)
+            else
             {
-                //Error fetching update information.
-                MessageBox.Show("There was an issue checking for updates:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                UpdateCheckLabel.Text = "Connection Error";
+                //do nothing
             }
+            
         }
 
         private void SettingsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
