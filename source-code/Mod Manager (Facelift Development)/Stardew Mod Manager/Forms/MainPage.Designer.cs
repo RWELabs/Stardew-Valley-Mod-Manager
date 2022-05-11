@@ -110,9 +110,9 @@ namespace Stardew_Mod_Manager
             this.barItem3 = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.barItem4 = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.SMAPIWarning = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.SMAPIDownload = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -179,7 +179,7 @@ namespace Stardew_Mod_Manager
             // 
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(373, 25);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(336, 25);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
             this.UpdateCheckLabel.Size = new System.Drawing.Size(199, 13);
             this.UpdateCheckLabel.TabIndex = 18;
@@ -209,7 +209,7 @@ namespace Stardew_Mod_Manager
             this.ChangelogLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.ChangelogLink.AutoSize = true;
             this.ChangelogLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.ChangelogLink.Location = new System.Drawing.Point(578, 25);
+            this.ChangelogLink.Location = new System.Drawing.Point(541, 25);
             this.ChangelogLink.Name = "ChangelogLink";
             this.ChangelogLink.Size = new System.Drawing.Size(92, 13);
             this.ChangelogLink.TabIndex = 20;
@@ -223,7 +223,7 @@ namespace Stardew_Mod_Manager
             this.SettingsLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.SettingsLink.AutoSize = true;
             this.SettingsLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.SettingsLink.Location = new System.Drawing.Point(676, 25);
+            this.SettingsLink.Location = new System.Drawing.Point(639, 25);
             this.SettingsLink.Name = "SettingsLink";
             this.SettingsLink.Size = new System.Drawing.Size(45, 13);
             this.SettingsLink.TabIndex = 19;
@@ -238,7 +238,7 @@ namespace Stardew_Mod_Manager
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.groupBox5.Location = new System.Drawing.Point(32, 333);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(616, 71);
+            this.groupBox5.Size = new System.Drawing.Size(570, 71);
             this.groupBox5.TabIndex = 35;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Application Settings";
@@ -270,7 +270,7 @@ namespace Stardew_Mod_Manager
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.75F);
             this.label7.Location = new System.Drawing.Point(150, 51);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(498, 80);
+            this.label7.Size = new System.Drawing.Size(452, 80);
             this.label7.TabIndex = 31;
             this.label7.Text = resources.GetString("label7.Text");
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -297,7 +297,7 @@ namespace Stardew_Mod_Manager
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.groupBox4.Location = new System.Drawing.Point(32, 163);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(613, 150);
+            this.groupBox4.Size = new System.Drawing.Size(570, 150);
             this.groupBox4.TabIndex = 33;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Game Directory";
@@ -306,7 +306,7 @@ namespace Stardew_Mod_Manager
             // 
             this.FileExplorerOpen.AccessibleName = "Button";
             this.FileExplorerOpen.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FileExplorerOpen.Location = new System.Drawing.Point(468, 105);
+            this.FileExplorerOpen.Location = new System.Drawing.Point(432, 104);
             this.FileExplorerOpen.Name = "FileExplorerOpen";
             this.FileExplorerOpen.Size = new System.Drawing.Size(129, 28);
             this.FileExplorerOpen.TabIndex = 41;
@@ -317,7 +317,7 @@ namespace Stardew_Mod_Manager
             // 
             this.CopyPath.AccessibleName = "Button";
             this.CopyPath.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CopyPath.Location = new System.Drawing.Point(333, 105);
+            this.CopyPath.Location = new System.Drawing.Point(297, 104);
             this.CopyPath.Name = "CopyPath";
             this.CopyPath.Size = new System.Drawing.Size(129, 28);
             this.CopyPath.TabIndex = 40;
@@ -328,7 +328,7 @@ namespace Stardew_Mod_Manager
             // 
             this.UpdateSDVDir.AccessibleName = "Button";
             this.UpdateSDVDir.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.UpdateSDVDir.Location = new System.Drawing.Point(211, 105);
+            this.UpdateSDVDir.Location = new System.Drawing.Point(175, 104);
             this.UpdateSDVDir.Name = "UpdateSDVDir";
             this.UpdateSDVDir.Size = new System.Drawing.Size(116, 28);
             this.UpdateSDVDir.TabIndex = 39;
@@ -340,7 +340,7 @@ namespace Stardew_Mod_Manager
             this.SDVDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.SDVDir.Location = new System.Drawing.Point(18, 53);
             this.SDVDir.Name = "SDVDir";
-            this.SDVDir.Size = new System.Drawing.Size(538, 20);
+            this.SDVDir.Size = new System.Drawing.Size(513, 20);
             this.SDVDir.TabIndex = 22;
             this.SDVDir.TextChanged += new System.EventHandler(this.SDVDir_TextChanged);
             // 
@@ -357,7 +357,7 @@ namespace Stardew_Mod_Manager
             // ValidDirectory
             // 
             this.ValidDirectory.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvvalidated;
-            this.ValidDirectory.Location = new System.Drawing.Point(573, 53);
+            this.ValidDirectory.Location = new System.Drawing.Point(537, 53);
             this.ValidDirectory.Name = "ValidDirectory";
             this.ValidDirectory.Size = new System.Drawing.Size(24, 20);
             this.ValidDirectory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -380,7 +380,7 @@ namespace Stardew_Mod_Manager
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(20, 107);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(651, 25);
+            this.label5.Size = new System.Drawing.Size(590, 25);
             this.label5.TabIndex = 7;
             this.label5.Text = "My Farms";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -392,7 +392,7 @@ namespace Stardew_Mod_Manager
             this.GameSavesList.ItemHeight = 17;
             this.GameSavesList.Location = new System.Drawing.Point(24, 142);
             this.GameSavesList.Name = "GameSavesList";
-            this.GameSavesList.Size = new System.Drawing.Size(628, 344);
+            this.GameSavesList.Size = new System.Drawing.Size(586, 344);
             this.GameSavesList.TabIndex = 0;
             this.GameSavesList.SelectedValueChanged += new System.EventHandler(this.GameSavesList_SelectedValueChanged);
             // 
@@ -472,7 +472,7 @@ namespace Stardew_Mod_Manager
             this.EnableModButton,
             this.DisableModButton,
             this.toolStripSeparator2});
-            this.EnableDisableMods.Location = new System.Drawing.Point(260, 15);
+            this.EnableDisableMods.Location = new System.Drawing.Point(235, 15);
             this.EnableDisableMods.Name = "EnableDisableMods";
             this.EnableDisableMods.Office12Mode = false;
             this.EnableDisableMods.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -530,7 +530,7 @@ namespace Stardew_Mod_Manager
             this.Tab_Settings.Location = new System.Drawing.Point(0, 32);
             this.Tab_Settings.Name = "Tab_Settings";
             this.Tab_Settings.ShowCloseButton = true;
-            this.Tab_Settings.Size = new System.Drawing.Size(736, 503);
+            this.Tab_Settings.Size = new System.Drawing.Size(642, 503);
             this.Tab_Settings.TabIndex = 3;
             this.Tab_Settings.Text = "Settings";
             this.Tab_Settings.ThemesEnabled = false;
@@ -539,7 +539,7 @@ namespace Stardew_Mod_Manager
             // 
             this.SettingsResetButton.AccessibleName = "Button";
             this.SettingsResetButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SettingsResetButton.Location = new System.Drawing.Point(412, 422);
+            this.SettingsResetButton.Location = new System.Drawing.Point(369, 421);
             this.SettingsResetButton.Name = "SettingsResetButton";
             this.SettingsResetButton.Size = new System.Drawing.Size(233, 28);
             this.SettingsResetButton.TabIndex = 38;
@@ -550,7 +550,7 @@ namespace Stardew_Mod_Manager
             // 
             this.LegacySettings.AccessibleName = "Button";
             this.LegacySettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LegacySettings.Location = new System.Drawing.Point(170, 422);
+            this.LegacySettings.Location = new System.Drawing.Point(127, 421);
             this.LegacySettings.Name = "LegacySettings";
             this.LegacySettings.Size = new System.Drawing.Size(236, 28);
             this.LegacySettings.TabIndex = 37;
@@ -570,7 +570,7 @@ namespace Stardew_Mod_Manager
             this.Tab_GameMan.Location = new System.Drawing.Point(0, 32);
             this.Tab_GameMan.Name = "Tab_GameMan";
             this.Tab_GameMan.ShowCloseButton = false;
-            this.Tab_GameMan.Size = new System.Drawing.Size(736, 503);
+            this.Tab_GameMan.Size = new System.Drawing.Size(642, 503);
             this.Tab_GameMan.TabIndex = 2;
             this.Tab_GameMan.Text = "Game Management";
             this.Tab_GameMan.ThemesEnabled = false;
@@ -600,7 +600,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups,
             this.DeleteFarm,
             this.OpenSaves});
-            this.SaveBackups.Location = new System.Drawing.Point(80, 15);
+            this.SaveBackups.Location = new System.Drawing.Point(62, 15);
             this.SaveBackups.Name = "SaveBackups";
             this.SaveBackups.Office12Mode = false;
             this.SaveBackups.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -630,7 +630,7 @@ namespace Stardew_Mod_Manager
             this.ViewBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ViewBackups.Name = "ViewBackups";
             this.ViewBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ViewBackups.Size = new System.Drawing.Size(88, 63);
+            this.ViewBackups.Size = new System.Drawing.Size(88, 50);
             this.ViewBackups.Text = "View Backups";
             this.ViewBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ViewBackups.Click += new System.EventHandler(this.ViewBackupsButton_Click);
@@ -641,7 +641,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSMAPIBackups.Name = "OpenSMAPIBackups";
             this.OpenSMAPIBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 63);
+            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 50);
             this.OpenSMAPIBackups.Text = "SMAPI Backups";
             this.OpenSMAPIBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSMAPIBackups.Click += new System.EventHandler(this.ViewSMAPIBackups_Click);
@@ -653,7 +653,7 @@ namespace Stardew_Mod_Manager
             this.DeleteFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteFarm.Name = "DeleteFarm";
             this.DeleteFarm.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.DeleteFarm.Size = new System.Drawing.Size(97, 63);
+            this.DeleteFarm.Size = new System.Drawing.Size(97, 50);
             this.DeleteFarm.Text = "Delete Selected";
             this.DeleteFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.DeleteFarm.Click += new System.EventHandler(this.DeleteFarmButton_Click);
@@ -664,7 +664,7 @@ namespace Stardew_Mod_Manager
             this.OpenSaves.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSaves.Name = "OpenSaves";
             this.OpenSaves.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSaves.Size = new System.Drawing.Size(114, 63);
+            this.OpenSaves.Size = new System.Drawing.Size(114, 50);
             this.OpenSaves.Text = "Open Saves Folder";
             this.OpenSaves.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSaves.Click += new System.EventHandler(this.OpenSavesButton_Click);
@@ -687,7 +687,7 @@ namespace Stardew_Mod_Manager
             this.Tab_Main.Location = new System.Drawing.Point(0, 32);
             this.Tab_Main.Name = "Tab_Main";
             this.Tab_Main.ShowCloseButton = false;
-            this.Tab_Main.Size = new System.Drawing.Size(736, 503);
+            this.Tab_Main.Size = new System.Drawing.Size(642, 503);
             this.Tab_Main.TabIndex = 1;
             this.Tab_Main.Text = "Mod Management";
             this.Tab_Main.ThemesEnabled = false;
@@ -749,7 +749,7 @@ namespace Stardew_Mod_Manager
             this.PresetManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SavePresetButton,
             this.LoadPresetButton});
-            this.PresetManagement.Location = new System.Drawing.Point(475, 15);
+            this.PresetManagement.Location = new System.Drawing.Point(455, 15);
             this.PresetManagement.Name = "PresetManagement";
             this.PresetManagement.Office12Mode = false;
             this.PresetManagement.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -800,7 +800,7 @@ namespace Stardew_Mod_Manager
             this.CheckModUpdates,
             this.DeleteMod,
             this.toolStripSeparator1});
-            this.AddRemoveMods.Location = new System.Drawing.Point(37, 15);
+            this.AddRemoveMods.Location = new System.Drawing.Point(18, 15);
             this.AddRemoveMods.Name = "AddRemoveMods";
             this.AddRemoveMods.Office12Mode = false;
             this.AddRemoveMods.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -831,8 +831,8 @@ namespace Stardew_Mod_Manager
             this.CheckModUpdates.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.CheckModUpdates.Name = "CheckModUpdates";
             this.CheckModUpdates.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.CheckModUpdates.Size = new System.Drawing.Size(95, 50);
-            this.CheckModUpdates.Text = "Check Updates";
+            this.CheckModUpdates.Size = new System.Drawing.Size(88, 50);
+            this.CheckModUpdates.Text = "Mod Updates";
             this.CheckModUpdates.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CheckModUpdates.Click += new System.EventHandler(this.CheckModUpdates_Click);
             // 
@@ -859,10 +859,10 @@ namespace Stardew_Mod_Manager
             this.AvailableModsList.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.AvailableModsList.FormattingEnabled = true;
             this.AvailableModsList.ItemHeight = 17;
-            this.AvailableModsList.Location = new System.Drawing.Point(353, 143);
+            this.AvailableModsList.Location = new System.Drawing.Point(326, 143);
             this.AvailableModsList.Name = "AvailableModsList";
             this.AvailableModsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.AvailableModsList.Size = new System.Drawing.Size(296, 344);
+            this.AvailableModsList.Size = new System.Drawing.Size(283, 344);
             this.AvailableModsList.TabIndex = 1;
             this.AvailableModsList.Click += new System.EventHandler(this.AvailableModsList_Click);
             this.AvailableModsList.SelectedIndexChanged += new System.EventHandler(this.AvailableModsList_SelectedIndexChanged);
@@ -870,9 +870,9 @@ namespace Stardew_Mod_Manager
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(353, 106);
+            this.label2.Location = new System.Drawing.Point(326, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(296, 25);
+            this.label2.Size = new System.Drawing.Size(283, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "Disabled Mods";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -882,19 +882,19 @@ namespace Stardew_Mod_Manager
             this.InstalledModsList.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.InstalledModsList.FormattingEnabled = true;
             this.InstalledModsList.ItemHeight = 17;
-            this.InstalledModsList.Location = new System.Drawing.Point(27, 143);
+            this.InstalledModsList.Location = new System.Drawing.Point(25, 143);
             this.InstalledModsList.Name = "InstalledModsList";
             this.InstalledModsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.InstalledModsList.Size = new System.Drawing.Size(307, 344);
+            this.InstalledModsList.Size = new System.Drawing.Size(283, 344);
             this.InstalledModsList.TabIndex = 0;
             this.InstalledModsList.Click += new System.EventHandler(this.InstalledModsList_Click);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(27, 106);
+            this.label1.Location = new System.Drawing.Point(21, 107);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 25);
+            this.label1.Size = new System.Drawing.Size(287, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Enabled Mods";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -919,7 +919,7 @@ namespace Stardew_Mod_Manager
             this.MainTabs.Name = "MainTabs";
             this.MainTabs.Padding = new System.Drawing.Point(25, 10);
             this.MainTabs.ShowTabCloseButton = true;
-            this.MainTabs.Size = new System.Drawing.Size(736, 535);
+            this.MainTabs.Size = new System.Drawing.Size(642, 535);
             this.MainTabs.SizeMode = Syncfusion.Windows.Forms.Tools.TabSizeMode.ShrinkToFit;
             this.MainTabs.TabIndex = 39;
             this.MainTabs.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererOffice2016Colorful);
@@ -950,7 +950,7 @@ namespace Stardew_Mod_Manager
             this.Tab_InstallOptions.Location = new System.Drawing.Point(0, 32);
             this.Tab_InstallOptions.Name = "Tab_InstallOptions";
             this.Tab_InstallOptions.ShowCloseButton = true;
-            this.Tab_InstallOptions.Size = new System.Drawing.Size(736, 503);
+            this.Tab_InstallOptions.Size = new System.Drawing.Size(642, 503);
             this.Tab_InstallOptions.TabIndex = 4;
             this.Tab_InstallOptions.Text = "Install Mods";
             this.Tab_InstallOptions.ThemesEnabled = false;
@@ -983,7 +983,7 @@ namespace Stardew_Mod_Manager
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.groupBox2.Location = new System.Drawing.Point(28, 147);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(616, 223);
+            this.groupBox2.Size = new System.Drawing.Size(574, 223);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Install from ZIP File";
@@ -993,7 +993,7 @@ namespace Stardew_Mod_Manager
             this.InstallFromZIP.AccessibleName = "Button";
             this.InstallFromZIP.Enabled = false;
             this.InstallFromZIP.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.InstallFromZIP.Location = new System.Drawing.Point(477, 168);
+            this.InstallFromZIP.Location = new System.Drawing.Point(443, 174);
             this.InstallFromZIP.Name = "InstallFromZIP";
             this.InstallFromZIP.Size = new System.Drawing.Size(120, 31);
             this.InstallFromZIP.TabIndex = 45;
@@ -1006,7 +1006,7 @@ namespace Stardew_Mod_Manager
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(13, 114);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(584, 16);
+            this.label10.Size = new System.Drawing.Size(542, 16);
             this.label10.TabIndex = 44;
             this.label10.Text = "Mod ZIP File:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1018,7 +1018,7 @@ namespace Stardew_Mod_Manager
             this.ModZipPath.Location = new System.Drawing.Point(13, 138);
             this.ModZipPath.Name = "ModZipPath";
             this.ModZipPath.ReadOnly = true;
-            this.ModZipPath.Size = new System.Drawing.Size(584, 20);
+            this.ModZipPath.Size = new System.Drawing.Size(550, 20);
             this.ModZipPath.TabIndex = 43;
             // 
             // label9
@@ -1027,7 +1027,7 @@ namespace Stardew_Mod_Manager
             this.label9.ForeColor = System.Drawing.Color.Gray;
             this.label9.Location = new System.Drawing.Point(10, 30);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(587, 64);
+            this.label9.Size = new System.Drawing.Size(545, 64);
             this.label9.TabIndex = 42;
             this.label9.Text = resources.GetString("label9.Text");
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1036,7 +1036,7 @@ namespace Stardew_Mod_Manager
             // 
             this.BrowseMod.AccessibleName = "Button";
             this.BrowseMod.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.BrowseMod.Location = new System.Drawing.Point(351, 168);
+            this.BrowseMod.Location = new System.Drawing.Point(317, 174);
             this.BrowseMod.Name = "BrowseMod";
             this.BrowseMod.Size = new System.Drawing.Size(120, 31);
             this.BrowseMod.TabIndex = 39;
@@ -1057,7 +1057,7 @@ namespace Stardew_Mod_Manager
             // 
             this.InstallViaModpack.AccessibleName = "Button";
             this.InstallViaModpack.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InstallViaModpack.Location = new System.Drawing.Point(462, 88);
+            this.InstallViaModpack.Location = new System.Drawing.Point(418, 88);
             this.InstallViaModpack.Name = "InstallViaModpack";
             this.InstallViaModpack.Size = new System.Drawing.Size(184, 33);
             this.InstallViaModpack.TabIndex = 40;
@@ -1114,32 +1114,11 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.Controls.Add(this.SMAPIDownload);
             this.SMAPIWarning.Controls.Add(this.label3);
             this.SMAPIWarning.Controls.Add(this.pictureBox2);
-            this.SMAPIWarning.Location = new System.Drawing.Point(83, 49);
+            this.SMAPIWarning.Location = new System.Drawing.Point(58, 58);
             this.SMAPIWarning.Name = "SMAPIWarning";
             this.SMAPIWarning.Size = new System.Drawing.Size(490, 52);
             this.SMAPIWarning.TabIndex = 14;
             this.SMAPIWarning.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.icon_attention;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 42);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(72, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(399, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "SMAPI was not found on your system. SMAPI is required in order to play with Mods." +
-    "";
             // 
             // SMAPIDownload
             // 
@@ -1155,10 +1134,31 @@ namespace Stardew_Mod_Manager
             this.SMAPIDownload.VisitedLinkColor = System.Drawing.Color.White;
             this.SMAPIDownload.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SMAPIDownload_LinkClicked);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(72, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(399, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "SMAPI was not found on your system. SMAPI is required in order to play with Mods." +
+    "";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.icon_attention;
+            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(62, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.SDVBGLQ;
-            this.pictureBox1.Location = new System.Drawing.Point(-16, -24);
+            this.pictureBox1.Location = new System.Drawing.Point(-70, -24);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(705, 187);
             this.pictureBox1.TabIndex = 41;
@@ -1170,7 +1170,7 @@ namespace Stardew_Mod_Manager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CanApplyTheme = false;
             this.CanOverrideStyle = true;
-            this.ClientSize = new System.Drawing.Size(650, 709);
+            this.ClientSize = new System.Drawing.Size(607, 709);
             this.Controls.Add(this.SMAPIWarning);
             this.Controls.Add(this.MainTabs);
             this.Controls.Add(this.richTextBox1);
@@ -1186,7 +1186,8 @@ namespace Stardew_Mod_Manager
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(685, 748);
+            this.MaximumSize = new System.Drawing.Size(623, 748);
+            this.MinimumSize = new System.Drawing.Size(623, 748);
             this.Name = "MainPage";
             this.Padding = new System.Windows.Forms.Padding(0);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
