@@ -166,8 +166,10 @@ namespace Stardew_Mod_Manager.Startup
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(478, 287);
+            this.MinimumSize = new System.Drawing.Size(478, 287);
             this.Name = "Splash";
             this.Padding = new System.Windows.Forms.Padding(0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
