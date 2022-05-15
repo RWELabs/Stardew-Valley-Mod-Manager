@@ -45,6 +45,8 @@ Create backups and delete any of your farms with built in Game Save Management t
 *Please note that for a mod to be compatible, it must be configured with NexusMod update keys among some other specific criteria. For more information, [click here](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Check-a-Mod-for-Updates-(Beta))
 
 ## Documentation
+Please note that as of v220501, the application received a major design update that changes the appearance of the application. Documentation may not yet reflect these updates.
+
 ### Download and Install
 Simply [download](#download) the latest release of Stardew Valley Mod Manager from this repository and follow the installation prompts. From there, you can keep your Mod Manager updated with the built in update check tools. Please note that you may have trouble with Chrome, Edge and Windows trying to block you from installing the application as it is not a commonly downloaded application.
 
