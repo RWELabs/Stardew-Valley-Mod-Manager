@@ -32,10 +32,7 @@ namespace Stardew_Mod_Manager
 
         public MainPage()
         {
-
             InitializeComponent();
-
-            
 
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
@@ -60,8 +57,6 @@ namespace Stardew_Mod_Manager
                 SMAPIWarning.Visible = true;
                 SMAPIVer.Visible = true;
             }
-
-
         }
 
 
@@ -968,6 +963,12 @@ namespace Stardew_Mod_Manager
         {
             Tab_InstallOptions.Close();
             RefreshObjects();
+        }
+
+        private void MainPage_Shown(object sender, EventArgs e)
+        {
+            this.Text = "Mod Manager | Stardew Valley Modded Framework";
+            //this.TopMost = false;
         }
     }
 }

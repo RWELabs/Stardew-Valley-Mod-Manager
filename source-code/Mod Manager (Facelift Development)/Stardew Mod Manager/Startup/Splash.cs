@@ -238,6 +238,7 @@ namespace Stardew_Mod_Manager.Startup
                 this.Hide();
                 MainPage Dashboard = new MainPage();
                 Dashboard.Show();
+                Dashboard.Activate();
             }
             catch(Exception ex)
             {
