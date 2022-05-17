@@ -214,5 +214,17 @@ namespace Stardew_Mod_Manager.Properties {
                 this["TMP_ModSafeName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LaunchArguments {
+            get {
+                return ((string)(this["LaunchArguments"]));
+            }
+            set {
+                this["LaunchArguments"] = value;
+            }
+        }
     }
 }
