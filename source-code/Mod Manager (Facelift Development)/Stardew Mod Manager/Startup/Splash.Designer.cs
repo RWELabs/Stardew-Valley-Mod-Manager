@@ -43,6 +43,7 @@ namespace Stardew_Mod_Manager.Startup
             this.LaunchApplication = new System.Windows.Forms.Timer(this.components);
             this.Cleanup = new System.Windows.Forms.Timer(this.components);
             this.FileWrite = new System.Windows.Forms.RichTextBox();
+            this.ModpackStarter = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -154,6 +155,11 @@ namespace Stardew_Mod_Manager.Startup
             this.FileWrite.Text = "";
             this.FileWrite.Visible = false;
             // 
+            // ModpackStarter
+            // 
+            this.ModpackStarter.Interval = 2500;
+            this.ModpackStarter.Tick += new System.EventHandler(this.ModpackStarter_Tick);
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,5 +209,6 @@ namespace Stardew_Mod_Manager.Startup
         private System.Windows.Forms.Timer Cleanup;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.RichTextBox FileWrite;
+        private System.Windows.Forms.Timer ModpackStarter;
     }
 }
