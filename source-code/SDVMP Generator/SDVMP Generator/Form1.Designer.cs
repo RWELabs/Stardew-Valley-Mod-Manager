@@ -179,7 +179,7 @@ namespace SDVMP_Generator
             // 
             this.ProgressWorker.Location = new System.Drawing.Point(17, 371);
             this.ProgressWorker.Name = "ProgressWorker";
-            this.ProgressWorker.Size = new System.Drawing.Size(387, 30);
+            this.ProgressWorker.Size = new System.Drawing.Size(385, 30);
             this.ProgressWorker.Step = 50;
             this.ProgressWorker.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.ProgressWorker.TabIndex = 20;
