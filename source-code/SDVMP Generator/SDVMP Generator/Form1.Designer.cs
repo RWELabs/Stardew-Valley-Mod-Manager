@@ -39,19 +39,21 @@ namespace SDVMP_Generator
             this.Cancelquit = new System.Windows.Forms.Button();
             this.folderlist = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.AddMod = new System.Windows.Forms.ToolStripButton();
-            this.RemoveMod = new System.Windows.Forms.ToolStripButton();
             this.Operation1 = new System.ComponentModel.BackgroundWorker();
             this.Operation2 = new System.ComponentModel.BackgroundWorker();
             this.ProgressWorker = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.AddMod = new System.Windows.Forms.ToolStripButton();
+            this.RemoveMod = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Location = new System.Drawing.Point(13, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 21);
             this.label1.TabIndex = 0;
@@ -60,16 +62,16 @@ namespace SDVMP_Generator
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.75F);
-            this.label2.Location = new System.Drawing.Point(14, 52);
+            this.label2.Location = new System.Drawing.Point(14, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(390, 51);
+            this.label2.Size = new System.Drawing.Size(303, 52);
             this.label2.TabIndex = 1;
             this.label2.Text = "Use this tool to generate a Stardew Valley Modpack that can be distributed and in" +
-    "stalled with just a few clicks using the Stardew Valley Mod Manager";
+    "stalled with just a few clicks using the Stardew Valley Mod Manager.";
             // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(291, 371);
+            this.Create.Location = new System.Drawing.Point(291, 367);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(111, 30);
             this.Create.TabIndex = 6;
@@ -81,7 +83,7 @@ namespace SDVMP_Generator
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(13, 121);
+            this.label10.Location = new System.Drawing.Point(13, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 21);
             this.label10.TabIndex = 15;
@@ -93,7 +95,7 @@ namespace SDVMP_Generator
             this.LearnMoreLink.AutoSize = true;
             this.LearnMoreLink.Font = new System.Drawing.Font("Segoe UI", 8.75F);
             this.LearnMoreLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.LearnMoreLink.Location = new System.Drawing.Point(96, 83);
+            this.LearnMoreLink.Location = new System.Drawing.Point(227, 77);
             this.LearnMoreLink.Name = "LearnMoreLink";
             this.LearnMoreLink.Size = new System.Drawing.Size(67, 15);
             this.LearnMoreLink.TabIndex = 16;
@@ -105,7 +107,7 @@ namespace SDVMP_Generator
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.Location = new System.Drawing.Point(14, 380);
+            this.label11.Location = new System.Drawing.Point(14, 376);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 13);
             this.label11.TabIndex = 17;
@@ -114,7 +116,7 @@ namespace SDVMP_Generator
             // Cancelquit
             // 
             this.Cancelquit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancelquit.Location = new System.Drawing.Point(174, 371);
+            this.Cancelquit.Location = new System.Drawing.Point(174, 367);
             this.Cancelquit.Name = "Cancelquit";
             this.Cancelquit.Size = new System.Drawing.Size(111, 30);
             this.Cancelquit.TabIndex = 5;
@@ -125,7 +127,7 @@ namespace SDVMP_Generator
             // folderlist
             // 
             this.folderlist.FormattingEnabled = true;
-            this.folderlist.Location = new System.Drawing.Point(17, 188);
+            this.folderlist.Location = new System.Drawing.Point(17, 183);
             this.folderlist.Name = "folderlist";
             this.folderlist.Size = new System.Drawing.Size(385, 173);
             this.folderlist.TabIndex = 18;
@@ -139,12 +141,43 @@ namespace SDVMP_Generator
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddMod,
             this.RemoveMod});
-            this.toolStrip1.Location = new System.Drawing.Point(17, 151);
+            this.toolStrip1.Location = new System.Drawing.Point(17, 146);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(385, 26);
             this.toolStrip1.TabIndex = 19;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // Operation1
+            // 
+            this.Operation1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Operation1_DoWork);
+            this.Operation1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Operation1_RunWorkerCompleted);
+            // 
+            // Operation2
+            // 
+            this.Operation2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Operation2_DoWork);
+            this.Operation2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Operation2_RunWorkerCompleted);
+            // 
+            // ProgressWorker
+            // 
+            this.ProgressWorker.Location = new System.Drawing.Point(17, 311);
+            this.ProgressWorker.Name = "ProgressWorker";
+            this.ProgressWorker.Size = new System.Drawing.Size(385, 10);
+            this.ProgressWorker.Step = 50;
+            this.ProgressWorker.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.ProgressWorker.TabIndex = 20;
+            this.ProgressWorker.Value = 50;
+            this.ProgressWorker.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SDVMP_Generator.Properties.Resources.SDVMPIcon;
+            this.pictureBox1.Location = new System.Drawing.Point(329, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 84);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
             // 
             // AddMod
             // 
@@ -165,27 +198,6 @@ namespace SDVMP_Generator
             this.RemoveMod.Text = "Remove from List";
             this.RemoveMod.Click += new System.EventHandler(this.RemoveMod_Click);
             // 
-            // Operation1
-            // 
-            this.Operation1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Operation1_DoWork);
-            this.Operation1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Operation1_RunWorkerCompleted);
-            // 
-            // Operation2
-            // 
-            this.Operation2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Operation2_DoWork);
-            this.Operation2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Operation2_RunWorkerCompleted);
-            // 
-            // ProgressWorker
-            // 
-            this.ProgressWorker.Location = new System.Drawing.Point(17, 371);
-            this.ProgressWorker.Name = "ProgressWorker";
-            this.ProgressWorker.Size = new System.Drawing.Size(385, 30);
-            this.ProgressWorker.Step = 50;
-            this.ProgressWorker.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.ProgressWorker.TabIndex = 20;
-            this.ProgressWorker.Value = 50;
-            this.ProgressWorker.Visible = false;
-            // 
             // Form1
             // 
             this.AcceptButton = this.Create;
@@ -193,8 +205,9 @@ namespace SDVMP_Generator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.Cancelquit;
-            this.ClientSize = new System.Drawing.Size(419, 416);
+            this.ClientSize = new System.Drawing.Size(419, 408);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.folderlist);
             this.Controls.Add(this.ProgressWorker);
             this.Controls.Add(this.toolStrip1);
@@ -206,14 +219,15 @@ namespace SDVMP_Generator
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(435, 455);
-            this.MinimumSize = new System.Drawing.Size(435, 455);
+            this.MaximumSize = new System.Drawing.Size(435, 447);
+            this.MinimumSize = new System.Drawing.Size(435, 447);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modpack Compiler | Stardew Valley Modded Framework";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,6 +249,7 @@ namespace SDVMP_Generator
         private System.ComponentModel.BackgroundWorker Operation1;
         private System.ComponentModel.BackgroundWorker Operation2;
         private System.Windows.Forms.ProgressBar ProgressWorker;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
