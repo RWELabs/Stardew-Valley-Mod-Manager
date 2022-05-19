@@ -90,8 +90,15 @@ namespace SDVMP_Generator
                 Directory.CreateDirectory(tmp);
             }
 
-            Operation1.RunWorkerAsync();
-            ProgressWorker.Visible = true;
+            if(folderlist.Items.Count < 2)
+            {
+                MessageBox.Show("Please add at least two mods to create a modpack.", "SDVMP Generator", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(folderlist.Items.Count >= 2)
+            {
+                Operation1.RunWorkerAsync();
+                ProgressWorker.Visible = true;
+            }
         }
 
         private void folderlist_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,11 +145,16 @@ namespace SDVMP_Generator
             ProgressWorker.Visible = true;
 
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "Stardew Valley Modpack (.sdvmp)|*sdvmp";
+            dialog.Filter = "Stardew Valley Modpack|*sdvmp";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 Properties.Settings.Default.tmpFN = dialog.FileName + ".sdvmp";
                 Operation2.RunWorkerAsync();
+            }
+            else
+            {
+                Properties.Settings.Default.tmpFN = null;
+                ProgressWorker.Visible = false;
             }
         }
 
