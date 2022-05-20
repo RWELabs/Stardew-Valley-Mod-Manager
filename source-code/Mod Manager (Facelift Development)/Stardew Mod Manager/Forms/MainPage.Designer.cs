@@ -197,7 +197,7 @@ namespace Stardew_Mod_Manager
             this.groupBox1.Controls.Add(this.UpdateCheckLabel);
             this.groupBox1.Controls.Add(this.SMAPIVer);
             this.groupBox1.Controls.Add(this.SoftVer);
-            this.groupBox1.Location = new System.Drawing.Point(-77, 654);
+            this.groupBox1.Location = new System.Drawing.Point(-77, 655);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(775, 53);
             this.groupBox1.TabIndex = 19;
