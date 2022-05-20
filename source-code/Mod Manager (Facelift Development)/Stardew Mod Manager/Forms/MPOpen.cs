@@ -40,7 +40,7 @@ namespace Stardew_Mod_Manager.Forms
                 var drivegb = drivemb / 1024;
 
                 var filekb = fInfo.Length / 1024;
-                var filemb = filekb / 1024;
+                var filemb = filekb / 1024 + 100;
                 var filegb = filemb / 1024;
 
                 var ddrivekb = destDrive.AvailableFreeSpace / 1024;
