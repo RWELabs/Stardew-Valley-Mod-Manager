@@ -145,7 +145,7 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("220501")]
+        [global::System.Configuration.DefaultSettingValueAttribute("220502")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -212,6 +212,18 @@ namespace Stardew_Mod_Manager.Properties {
             }
             set {
                 this["TMP_ModSafeName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LaunchArguments {
+            get {
+                return ((string)(this["LaunchArguments"]));
+            }
+            set {
+                this["LaunchArguments"] = value;
             }
         }
     }

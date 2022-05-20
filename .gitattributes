@@ -2,3 +2,4 @@
 .zip filter=lfs diff=lfs merge=lfs -text
 .exe filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+*.sdvmp filter=lfs diff=lfs merge=lfs -text

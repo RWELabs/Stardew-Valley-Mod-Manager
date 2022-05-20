@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">220501</Value>
+      <Value Profile="(Default)">220502</Value>
     </Setting>
     <Setting Name="CheckUpdateOnStartup" Type="System.String" Scope="User">
       <Value Profile="(Default)">TRUE</Value>
@@ -48,6 +48,9 @@
       <Value Profile="(Default)">FALSE</Value>
     </Setting>
     <Setting Name="TMP_ModSafeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LaunchArguments" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

@@ -1,4 +1,5 @@
-﻿using Stardew_Mod_Manager.Forms.First_Run;
+﻿using Stardew_Mod_Manager.Forms;
+using Stardew_Mod_Manager.Forms.First_Run;
 using Stardew_Mod_Manager.Startup;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Stardew_Mod_Manager
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjAyMjgyQDMxMzkyZTM0MmUzMGxmc1dVMjg5L3VsV1c0ekEyckJXQm9kN1g3bzVZYmw3cGhUdkcwMVB0NWc9");
@@ -24,6 +25,21 @@ namespace Stardew_Mod_Manager
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Create Launch Arguments
+            for (int i = 0; i < args.Length; i++)
+            {
+                Console.WriteLine("args[{0}] == {1}", i, args[i]);
+                
+                if(args.Length > 0)
+                {
+                    Properties.Settings.Default.LaunchArguments = args[i];
+                }
+                else
+                {
+                    Properties.Settings.Default.LaunchArguments = null;
+                }    
+            }
 
             if (Properties.Settings.Default.StardewDir != string.Empty)
             {
@@ -53,10 +69,10 @@ namespace Stardew_Mod_Manager
                     {
                         Application.Run(new UpdateVersion());
                     }
-                    else if(!File.Exists(SettingsINI))
+                    else if (!File.Exists(SettingsINI))
                     {
                         Application.Run(new FirstRunSetup());
-                    } 
+                    }
                 }
                 else
                 {
