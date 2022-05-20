@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 
 namespace Stardew_Mod_Manager
 {
-    public partial class MainPage : SfForm
+    public partial class MainPage : Form
     {
 
 
