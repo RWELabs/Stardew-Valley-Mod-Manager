@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 
 namespace Stardew_Mod_Manager
 {
-    public partial class MainPage : SfForm
+    public partial class MainPage : Form
     {
 
 
@@ -32,10 +32,7 @@ namespace Stardew_Mod_Manager
 
         public MainPage()
         {
-
             InitializeComponent();
-
-            
 
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
@@ -60,8 +57,6 @@ namespace Stardew_Mod_Manager
                 SMAPIWarning.Visible = true;
                 SMAPIVer.Visible = true;
             }
-
-
         }
 
 
@@ -469,20 +464,27 @@ namespace Stardew_Mod_Manager
 
         private void LoadPreset_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog()
+            string PresetsDir = Properties.Settings.Default.PresetsDir;
+
+            OpenFileDialog ofd2 = new OpenFileDialog()
             {
                 FileName = "",
                 Filter = "Preset Configuration Files (*.txt)|*.txt",
                 Title = "Select a Preset",
-                InitialDirectory = Properties.Settings.Default.PresetsDir.ToString(),
+                InitialDirectory = Path.GetFullPath(PresetsDir),
                 RestoreDirectory = true
             };
 
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (!Directory.Exists(Properties.Settings.Default.PresetsDir))
+            {
+                ofd2.InitialDirectory = @"C:\";
+            }
+
+            if (ofd2.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    var FilePath = ofd.FileName;
+                    var FilePath = ofd2.FileName;
                     string EnabledModList = Properties.Settings.Default.ModsDir;
                     string DisabledModsList = Properties.Settings.Default.InactiveModsDir;
 
@@ -600,11 +602,19 @@ namespace Stardew_Mod_Manager
 
         private void PackInstall_Click(object sender, EventArgs e)
         {
-            PackInstaller pkg = new PackInstaller();
-            pkg.ShowDialog();
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Stardew Valley Modpack|*.sdvmp";
+            ofd.Title = "Browse for a Modpack";
 
-            RefreshPanel.Visible = true;
-            RefreshPanel.Enabled = true;
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                Properties.Settings.Default.LaunchArguments = ofd.FileName;
+
+                MPOpen modpack = new MPOpen();
+                modpack.Show();
+                modpack.Activate();
+                this.Hide();
+            }
         }
 
         private void CloseRefreshPanel_Click(object sender, EventArgs e)
@@ -968,6 +978,12 @@ namespace Stardew_Mod_Manager
         {
             Tab_InstallOptions.Close();
             RefreshObjects();
+        }
+
+        private void MainPage_Shown(object sender, EventArgs e)
+        {
+            this.Text = "Mod Manager | Stardew Valley Modded Framework";
+            //this.TopMost = false;
         }
     }
 }

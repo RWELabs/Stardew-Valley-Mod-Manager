@@ -17,7 +17,7 @@ using System.Xml;
 
 namespace Stardew_Mod_Manager.Startup
 {
-    public partial class Splash : SfForm
+    public partial class Splash : Form
     {
         protected override CreateParams CreateParams
         {
@@ -32,10 +32,19 @@ namespace Stardew_Mod_Manager.Startup
         public Splash()
         {
             InitializeComponent();
-
             Version.Text = "v" + Properties.Settings.Default.Version;
             Status.Text = "Please Wait...";
-            StartupTimer.Start();
+
+            if (Properties.Settings.Default.LaunchArguments == String.Empty)
+            {
+                StartupTimer.Start();
+            }
+            else
+            {
+                //MessageBox.Show(Properties.Settings.Default.LaunchArguments);
+                Status.Text = "Doing Fun Things...";
+                ModpackStarter.Start();
+            }
         }
 
         private void Splash_Load(object sender, EventArgs e)
@@ -238,11 +247,21 @@ namespace Stardew_Mod_Manager.Startup
                 this.Hide();
                 MainPage Dashboard = new MainPage();
                 Dashboard.Show();
+                Dashboard.Activate();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ModpackStarter_Tick(object sender, EventArgs e)
+        {
+            ModpackStarter.Stop();
+            this.Hide();
+            MPOpen ModpackFile = new MPOpen();
+            ModpackFile.Show();
+            ModpackFile.Activate();
         }
     }
 }

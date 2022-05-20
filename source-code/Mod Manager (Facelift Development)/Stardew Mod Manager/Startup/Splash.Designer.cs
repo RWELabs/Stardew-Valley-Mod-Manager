@@ -43,6 +43,7 @@ namespace Stardew_Mod_Manager.Startup
             this.LaunchApplication = new System.Windows.Forms.Timer(this.components);
             this.Cleanup = new System.Windows.Forms.Timer(this.components);
             this.FileWrite = new System.Windows.Forms.RichTextBox();
+            this.ModpackStarter = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -154,10 +155,16 @@ namespace Stardew_Mod_Manager.Startup
             this.FileWrite.Text = "";
             this.FileWrite.Visible = false;
             // 
+            // ModpackStarter
+            // 
+            this.ModpackStarter.Interval = 2500;
+            this.ModpackStarter.Tick += new System.EventHandler(this.ModpackStarter_Tick);
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(462, 248);
             this.ControlBox = false;
@@ -166,15 +173,12 @@ namespace Stardew_Mod_Manager.Startup
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(478, 287);
+            this.MinimumSize = new System.Drawing.Size(478, 287);
             this.Name = "Splash";
-            this.Padding = new System.Windows.Forms.Padding(0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
-            this.Style.TitleBar.BackColor = System.Drawing.Color.White;
-            this.Style.TitleBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Text = "Stardew Valley Modded Framework";
             this.Load += new System.EventHandler(this.Splash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -201,5 +205,6 @@ namespace Stardew_Mod_Manager.Startup
         private System.Windows.Forms.Timer Cleanup;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.RichTextBox FileWrite;
+        private System.Windows.Forms.Timer ModpackStarter;
     }
 }

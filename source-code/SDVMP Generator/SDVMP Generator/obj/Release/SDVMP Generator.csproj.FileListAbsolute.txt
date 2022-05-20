@@ -11,3 +11,8 @@ C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod 
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Release\SDVMP Generator.csproj.AssemblyReference.cache
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Release\sdvmpgen.exe
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Release\sdvmpgen.pdb
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Release\SDVMP Generator.csproj.SuggestedBindingRedirects.cache
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\SDVMP Generator\SDVMP Generator\obj\Release\SDVMP Generator.csproj.CopyComplete
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\sdvmpgen.exe.config
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\sdvmpgen.exe
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\sdvmpgen.pdb
