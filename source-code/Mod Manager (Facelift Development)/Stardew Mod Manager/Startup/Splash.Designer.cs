@@ -164,6 +164,7 @@ namespace Stardew_Mod_Manager.Startup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(462, 248);
             this.ControlBox = false;
@@ -177,12 +178,7 @@ namespace Stardew_Mod_Manager.Startup
             this.MaximumSize = new System.Drawing.Size(478, 287);
             this.MinimumSize = new System.Drawing.Size(478, 287);
             this.Name = "Splash";
-            this.Padding = new System.Windows.Forms.Padding(0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
-            this.Style.TitleBar.BackColor = System.Drawing.Color.White;
-            this.Style.TitleBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Text = "Stardew Valley Modded Framework";
             this.Load += new System.EventHandler(this.Splash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

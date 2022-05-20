@@ -17,7 +17,7 @@ using System.Xml;
 
 namespace Stardew_Mod_Manager.Startup
 {
-    public partial class Splash : SfForm
+    public partial class Splash : Form
     {
         protected override CreateParams CreateParams
         {
