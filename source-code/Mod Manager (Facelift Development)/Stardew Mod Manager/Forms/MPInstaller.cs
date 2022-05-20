@@ -90,6 +90,10 @@ namespace Stardew_Mod_Manager.Forms
                 PresetGenerator.AppendText(item + Environment.NewLine);
             }
 
+            PresetGenerator.AppendText("ConsoleCommands"+ Environment.NewLine);
+            PresetGenerator.AppendText("ErrorHandler" + Environment.NewLine);
+            PresetGenerator.AppendText("SaveBackup" + Environment.NewLine);
+
             PresetGenerator.SaveFile(Properties.Settings.Default.PresetsDir + PresetName + ".txt", RichTextBoxStreamType.PlainText);
             
             DialogResult dr = MessageBox.Show("The modpack has been successfully installed. We've added a preset so you can easily one-click enable this modpack. The preset is called: " + PresetName + Environment.NewLine + Environment.NewLine + "Would you like to open the Stardew Valley Mod Manager now, to re-enable your mods?", "Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
