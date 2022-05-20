@@ -115,6 +115,18 @@
     <Compile Include="Forms\ModUpdateCheck.Designer.cs">
       <DependentUpon>ModUpdateCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MPInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MPInstaller.Designer.cs">
+      <DependentUpon>MPInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MPOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MPOpen.Designer.cs">
+      <DependentUpon>MPOpen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateDownload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModUpdateCheck.resx">
       <DependentUpon>ModUpdateCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MPInstaller.resx">
+      <DependentUpon>MPInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MPOpen.resx">
+      <DependentUpon>MPOpen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PackInstaller.resx">
       <DependentUpon>PackInstaller.cs</DependentUpon>
@@ -233,6 +251,7 @@
     <None Include="Resources\SMAPILogo.png" />
     <None Include="Resources\SMAPILogo1.png" />
     <None Include="Resources\SDVBGLQ.png" />
+    <None Include="Resources\SDVMPIcon.png" />
     <Content Include="sdvicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
