@@ -77,7 +77,7 @@ namespace Stardew_Mod_Manager.Forms
 
             foreach (string folder in Directory.GetDirectories(UnpackLocation))
             {
-                Directory.Move(folder, Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder));
+                Directory.Move(folder, Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder));//
             }
         }
 
