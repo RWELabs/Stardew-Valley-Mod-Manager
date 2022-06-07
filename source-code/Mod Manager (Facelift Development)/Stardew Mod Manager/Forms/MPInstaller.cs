@@ -35,14 +35,13 @@ namespace Stardew_Mod_Manager.Forms
 
             foreach (string folder in Directory.GetDirectories(UnpackLocation))
             {
-                if(Directory.Exists(Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder)))
+                if (Directory.Exists(Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder)))
                 {
                     OverwriteMods.Items.Add(Path.GetFileName(folder));
                 }
 
                 ModsToInstall.Items.Add(Path.GetFileName(folder));
             }
-
         }
 
         private void MPInstaller_FormClosed(object sender, FormClosedEventArgs e)
@@ -66,6 +65,7 @@ namespace Stardew_Mod_Manager.Forms
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+            //string ModsOld = Properties.Settings.Default.StardewDir + @"\vdsk\";
 
             foreach (string folder in Directory.GetDirectories(UnpackLocation))
             {
@@ -74,30 +74,49 @@ namespace Stardew_Mod_Manager.Forms
                     Directory.Delete(Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder), true);
                 }
             }
-
-            foreach (string folder in Directory.GetDirectories(UnpackLocation))
-            {
-                Directory.Move(folder, Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder));//
-            }
         }
 
         private void DoModInstall_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            DoMovementOperation.Start();
+        }
+
+        private void DoMovementOperation_Tick(object sender, EventArgs e)
+        {
+            DoMovementOperation.Stop();
+            DoModDelete.RunWorkerAsync();
+        }
+
+        private void DoModDelete_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+            string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+
+            foreach (string folder in Directory.GetDirectories(Path.GetFullPath(UnpackLocation)))
+            {
+                Directory.Move(folder, Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder));
+            }
+        }
+
+        private void DoModDelete_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             string PresetName = Path.GetFileNameWithoutExtension(Properties.Settings.Default.LaunchArguments);
 
-            foreach(string item in ModsToInstall.Items)
+            foreach (string item in ModsToInstall.Items)
             {
                 PresetGenerator.AppendText(item + Environment.NewLine);
             }
 
-            PresetGenerator.AppendText("ConsoleCommands"+ Environment.NewLine);
+            PresetGenerator.AppendText("ConsoleCommands" + Environment.NewLine);
             PresetGenerator.AppendText("ErrorHandler" + Environment.NewLine);
             PresetGenerator.AppendText("SaveBackup" + Environment.NewLine);
 
             PresetGenerator.SaveFile(Properties.Settings.Default.PresetsDir + PresetName + ".txt", RichTextBoxStreamType.PlainText);
-            
+
             DialogResult dr = MessageBox.Show("The modpack has been successfully installed. We've added a preset so you can easily one-click enable this modpack. The preset is called: " + PresetName + Environment.NewLine + Environment.NewLine + "Would you like to open the Stardew Valley Mod Manager now, to re-enable your mods?", "Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(dr == DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
                 this.Hide();
 
