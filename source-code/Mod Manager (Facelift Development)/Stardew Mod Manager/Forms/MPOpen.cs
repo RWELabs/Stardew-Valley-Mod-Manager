@@ -74,6 +74,13 @@ namespace Stardew_Mod_Manager.Forms
                     IsValidSpace.Image = Properties.Resources.sdvError;
                     Continue.Enabled = false;
                 }
+
+                if(filemb > 40)
+                {
+                    WarningText.AppendText(Environment.NewLine + Environment.NewLine + "Modpacks may take a long time to install when they contain many mods. This modpack contains " + filemb + "mb of mods and may take a while to install.");
+                }
+
+                Continue.Focus();
             }
 
         }
