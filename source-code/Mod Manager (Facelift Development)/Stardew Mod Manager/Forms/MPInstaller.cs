@@ -78,7 +78,21 @@ namespace Stardew_Mod_Manager.Forms
 
         private void DoModInstall_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            DoMovementOperation.Start();
+            if (e.Cancelled == true)
+            {
+                MessageBox.Show("The operation was cancelled by the user or the system.", "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }
+            else if (e.Error != null)
+            {
+                //resultLabel.Text = "Error: " + e.Error.Message;
+                MessageBox.Show("The application experienced an issue whilst trying to install the modpack:" + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            else
+            {
+                DoMovementOperation.Start();
+            }
         }
 
         private void DoMovementOperation_Tick(object sender, EventArgs e)
@@ -89,7 +103,6 @@ namespace Stardew_Mod_Manager.Forms
 
         private void DoModDelete_DoWork(object sender, DoWorkEventArgs e)
         {
-
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string UnpackLocation = SDVAppData + @"\tmp\unpack\";
@@ -102,37 +115,61 @@ namespace Stardew_Mod_Manager.Forms
 
         private void DoModDelete_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            string PresetName = Path.GetFileNameWithoutExtension(Properties.Settings.Default.LaunchArguments);
-
-            foreach (string item in ModsToInstall.Items)
+            if (e.Cancelled == true)
             {
-                PresetGenerator.AppendText(item + Environment.NewLine);
+                MessageBox.Show("The operation was cancelled by the user or the system.", "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
             }
-
-            PresetGenerator.AppendText("ConsoleCommands" + Environment.NewLine);
-            PresetGenerator.AppendText("ErrorHandler" + Environment.NewLine);
-            PresetGenerator.AppendText("SaveBackup" + Environment.NewLine);
-
-            PresetGenerator.SaveFile(Properties.Settings.Default.PresetsDir + PresetName + ".txt", RichTextBoxStreamType.PlainText);
-
-            DialogResult dr = MessageBox.Show("The modpack has been successfully installed. We've added a preset so you can easily one-click enable this modpack. The preset is called: " + PresetName + Environment.NewLine + Environment.NewLine + "Would you like to open the Stardew Valley Mod Manager now, to re-enable your mods?", "Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            else if (e.Error != null)
             {
-                this.Hide();
-
-                Properties.Settings.Default.LaunchArguments = null;
-                Properties.Settings.Default.Save();
-
-                MainPage splash = new MainPage();
-                splash.Show();
-                splash.Activate();
+                //resultLabel.Text = "Error: " + e.Error.Message;
+                MessageBox.Show("The application experienced an issue whilst trying to install the modpack:" + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
             else
             {
-                Properties.Settings.Default.LaunchArguments = null;
-                Properties.Settings.Default.Save();
-                Application.Exit();
+                string PresetName = Path.GetFileNameWithoutExtension(Properties.Settings.Default.LaunchArguments);
+
+                foreach (string item in ModsToInstall.Items)
+                {
+                    PresetGenerator.AppendText(item + Environment.NewLine);
+                }
+
+                PresetGenerator.AppendText("ConsoleCommands" + Environment.NewLine);
+                PresetGenerator.AppendText("ErrorHandler" + Environment.NewLine);
+                PresetGenerator.AppendText("SaveBackup" + Environment.NewLine);
+
+                PresetGenerator.SaveFile(Properties.Settings.Default.PresetsDir + PresetName + ".txt", RichTextBoxStreamType.PlainText);
+
+                DialogResult dr = MessageBox.Show("The modpack has been successfully installed. We've added a preset so you can easily one-click enable this modpack. The preset is called: " + PresetName + Environment.NewLine + Environment.NewLine + "Would you like to open the Stardew Valley Mod Manager now, to re-enable your mods?", "Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    this.Hide();
+
+                    Properties.Settings.Default.LaunchArguments = null;
+                    Properties.Settings.Default.Save();
+
+                    MainPage splash = new MainPage();
+                    splash.Show();
+                    splash.Activate();
+                }
+                else
+                {
+                    Properties.Settings.Default.LaunchArguments = null;
+                    Properties.Settings.Default.Save();
+                    Application.Exit();
+                }
             }
+        }
+
+        private void DoModInstall_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            //ExtractProgress.Value = e.ProgressPercentage;
+        }
+
+        private void DoModDelete_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            //ExtractProgress.Value = e.ProgressPercentage;
         }
     }
 }
