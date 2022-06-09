@@ -157,7 +157,7 @@ namespace Stardew_Mod_Manager.Startup
             // 
             // ModpackStarter
             // 
-            this.ModpackStarter.Interval = 2500;
+            this.ModpackStarter.Interval = 7525;
             this.ModpackStarter.Tick += new System.EventHandler(this.ModpackStarter_Tick);
             // 
             // Splash
