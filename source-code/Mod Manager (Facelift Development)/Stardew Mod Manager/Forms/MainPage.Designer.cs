@@ -29,6 +29,7 @@ namespace Stardew_Mod_Manager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.ModFolderPath = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -114,6 +115,9 @@ namespace Stardew_Mod_Manager
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.HelpTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -179,7 +183,7 @@ namespace Stardew_Mod_Manager
             // 
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(304, 25);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(311, 25);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
             this.UpdateCheckLabel.Size = new System.Drawing.Size(199, 13);
             this.UpdateCheckLabel.TabIndex = 18;
@@ -209,7 +213,7 @@ namespace Stardew_Mod_Manager
             this.ChangelogLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.ChangelogLink.AutoSize = true;
             this.ChangelogLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.ChangelogLink.Location = new System.Drawing.Point(509, 25);
+            this.ChangelogLink.Location = new System.Drawing.Point(518, 25);
             this.ChangelogLink.Name = "ChangelogLink";
             this.ChangelogLink.Size = new System.Drawing.Size(92, 13);
             this.ChangelogLink.TabIndex = 20;
@@ -223,7 +227,7 @@ namespace Stardew_Mod_Manager
             this.SettingsLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.SettingsLink.AutoSize = true;
             this.SettingsLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.SettingsLink.Location = new System.Drawing.Point(607, 25);
+            this.SettingsLink.Location = new System.Drawing.Point(617, 25);
             this.SettingsLink.Name = "SettingsLink";
             this.SettingsLink.Size = new System.Drawing.Size(45, 13);
             this.SettingsLink.TabIndex = 19;
@@ -494,6 +498,7 @@ namespace Stardew_Mod_Manager
             this.EnableModButton.Size = new System.Drawing.Size(99, 45);
             this.EnableModButton.Text = "Enable Selected";
             this.EnableModButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EnableModButton.ToolTipText = "Enable the mod that is currently selected in the disabled mods list.";
             this.EnableModButton.Click += new System.EventHandler(this.EnableMod_Click);
             // 
             // DisableModButton
@@ -507,6 +512,7 @@ namespace Stardew_Mod_Manager
             this.DisableModButton.Size = new System.Drawing.Size(102, 45);
             this.DisableModButton.Text = "Disable Selected";
             this.DisableModButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.DisableModButton.ToolTipText = "Disable the mod currently selected in the enabled mods list.";
             this.DisableModButton.Click += new System.EventHandler(this.DisableMod_Click);
             // 
             // toolStripSeparator2
@@ -672,15 +678,17 @@ namespace Stardew_Mod_Manager
             // 
             this.Tab_Main.AutoSize = true;
             this.Tab_Main.BackColor = System.Drawing.Color.White;
+            this.Tab_Main.Controls.Add(this.label2);
+            this.Tab_Main.Controls.Add(this.label14);
+            this.Tab_Main.Controls.Add(this.label1);
+            this.Tab_Main.Controls.Add(this.label13);
             this.Tab_Main.Controls.Add(this.groupBox3);
             this.Tab_Main.Controls.Add(this.RefreshPanel);
             this.Tab_Main.Controls.Add(this.PresetManagement);
             this.Tab_Main.Controls.Add(this.AddRemoveMods);
             this.Tab_Main.Controls.Add(this.EnableDisableMods);
             this.Tab_Main.Controls.Add(this.AvailableModsList);
-            this.Tab_Main.Controls.Add(this.label2);
             this.Tab_Main.Controls.Add(this.InstalledModsList);
-            this.Tab_Main.Controls.Add(this.label1);
             this.Tab_Main.Image = null;
             this.Tab_Main.ImageSize = new System.Drawing.Size(16, 16);
             this.Tab_Main.Location = new System.Drawing.Point(0, 32);
@@ -769,6 +777,7 @@ namespace Stardew_Mod_Manager
             this.SavePresetButton.Size = new System.Drawing.Size(75, 45);
             this.SavePresetButton.Text = "Save Preset";
             this.SavePresetButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.SavePresetButton.ToolTipText = "Save the current enabled mods list as a preset.";
             this.SavePresetButton.Click += new System.EventHandler(this.SavePreset_Click);
             // 
             // LoadPresetButton
@@ -781,6 +790,8 @@ namespace Stardew_Mod_Manager
             this.LoadPresetButton.Size = new System.Drawing.Size(77, 45);
             this.LoadPresetButton.Text = "Load Preset";
             this.LoadPresetButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.LoadPresetButton.ToolTipText = "Load a preset of mods, disabling any mods not in the preset and enabling those in" +
+    "cluded in the preset.";
             this.LoadPresetButton.Click += new System.EventHandler(this.LoadPreset_Click);
             // 
             // AddRemoveMods
@@ -819,6 +830,7 @@ namespace Stardew_Mod_Manager
             this.InstallMods.Size = new System.Drawing.Size(49, 45);
             this.InstallMods.Text = "Install";
             this.InstallMods.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.InstallMods.ToolTipText = "Install mods individually or as part of a modpack";
             this.InstallMods.Click += new System.EventHandler(this.InstallMods_Click);
             // 
             // CheckModUpdates
@@ -831,6 +843,7 @@ namespace Stardew_Mod_Manager
             this.CheckModUpdates.Size = new System.Drawing.Size(56, 45);
             this.CheckModUpdates.Text = "Update";
             this.CheckModUpdates.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CheckModUpdates.ToolTipText = "Check mods for updates without launching SMAPI";
             this.CheckModUpdates.Click += new System.EventHandler(this.CheckModUpdates_Click);
             // 
             // DeleteMod
@@ -844,6 +857,7 @@ namespace Stardew_Mod_Manager
             this.DeleteMod.Size = new System.Drawing.Size(64, 45);
             this.DeleteMod.Text = "Uninstall";
             this.DeleteMod.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.DeleteMod.ToolTipText = "Uninstall the selected mod.";
             this.DeleteMod.Click += new System.EventHandler(this.DeleteMod_Click);
             // 
             // toolStripSeparator1
@@ -856,7 +870,7 @@ namespace Stardew_Mod_Manager
             this.AvailableModsList.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.AvailableModsList.FormattingEnabled = true;
             this.AvailableModsList.ItemHeight = 17;
-            this.AvailableModsList.Location = new System.Drawing.Point(312, 142);
+            this.AvailableModsList.Location = new System.Drawing.Point(312, 146);
             this.AvailableModsList.Name = "AvailableModsList";
             this.AvailableModsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.AvailableModsList.Size = new System.Drawing.Size(267, 327);
@@ -867,19 +881,21 @@ namespace Stardew_Mod_Manager
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(312, 103);
+            this.label2.Location = new System.Drawing.Point(312, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(267, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "Disabled Mods";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HelpTooltip.SetToolTip(this.label2, "Mods that appear in this list will not be active in your game when you start \r\nSt" +
+        "ardew Valley, but their files are still installed on your computer.\r\n");
             // 
             // InstalledModsList
             // 
             this.InstalledModsList.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.InstalledModsList.FormattingEnabled = true;
             this.InstalledModsList.ItemHeight = 17;
-            this.InstalledModsList.Location = new System.Drawing.Point(25, 142);
+            this.InstalledModsList.Location = new System.Drawing.Point(25, 146);
             this.InstalledModsList.Name = "InstalledModsList";
             this.InstalledModsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.InstalledModsList.Size = new System.Drawing.Size(267, 327);
@@ -889,12 +905,14 @@ namespace Stardew_Mod_Manager
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(25, 103);
+            this.label1.Location = new System.Drawing.Point(25, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Enabled Mods";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HelpTooltip.SetToolTip(this.label1, "Mods that appear in this list will be active in your game \r\nwhen you start Starde" +
+        "w Valley.");
             // 
             // MainTabs
             // 
@@ -1161,6 +1179,37 @@ namespace Stardew_Mod_Manager
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
             // 
+            // HelpTooltip
+            // 
+            this.HelpTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.HelpTooltip.ToolTipTitle = "Help - Stardew Valley Mod Manager";
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label13.Location = new System.Drawing.Point(25, 123);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(267, 14);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "Hover to learn more.";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HelpTooltip.SetToolTip(this.label13, "Mods that appear in this list will be active in your game \r\nwhen you start Starde" +
+        "w Valley.");
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label14.Location = new System.Drawing.Point(312, 123);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(267, 14);
+            this.label14.TabIndex = 46;
+            this.label14.Text = "Hover to learn more.";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HelpTooltip.SetToolTip(this.label14, "Mods that appear in this list will not be active in your game when you start \r\nSt" +
+        "ardew Valley, but their files are still installed on your computer.");
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1314,5 +1363,8 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip HelpTooltip;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
