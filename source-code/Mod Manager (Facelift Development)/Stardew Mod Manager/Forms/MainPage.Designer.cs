@@ -471,7 +471,7 @@ namespace Stardew_Mod_Manager
             this.EnableModButton,
             this.DisableModButton,
             this.toolStripSeparator2});
-            this.EnableDisableMods.Location = new System.Drawing.Point(201, 15);
+            this.EnableDisableMods.Location = new System.Drawing.Point(211, 15);
             this.EnableDisableMods.Name = "EnableDisableMods";
             this.EnableDisableMods.Office12Mode = false;
             this.EnableDisableMods.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -747,7 +747,7 @@ namespace Stardew_Mod_Manager
             this.PresetManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SavePresetButton,
             this.LoadPresetButton});
-            this.PresetManagement.Location = new System.Drawing.Point(415, 15);
+            this.PresetManagement.Location = new System.Drawing.Point(425, 15);
             this.PresetManagement.Name = "PresetManagement";
             this.PresetManagement.Office12Mode = false;
             this.PresetManagement.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -797,7 +797,7 @@ namespace Stardew_Mod_Manager
             this.CheckModUpdates,
             this.DeleteMod,
             this.toolStripSeparator1});
-            this.AddRemoveMods.Location = new System.Drawing.Point(16, 15);
+            this.AddRemoveMods.Location = new System.Drawing.Point(26, 15);
             this.AddRemoveMods.Name = "AddRemoveMods";
             this.AddRemoveMods.Office12Mode = false;
             this.AddRemoveMods.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -1111,7 +1111,7 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.Controls.Add(this.SMAPIDownload);
             this.SMAPIWarning.Controls.Add(this.label3);
             this.SMAPIWarning.Controls.Add(this.pictureBox2);
-            this.SMAPIWarning.Location = new System.Drawing.Point(58, 58);
+            this.SMAPIWarning.Location = new System.Drawing.Point(48, 51);
             this.SMAPIWarning.Name = "SMAPIWarning";
             this.SMAPIWarning.Size = new System.Drawing.Size(490, 52);
             this.SMAPIWarning.TabIndex = 14;
