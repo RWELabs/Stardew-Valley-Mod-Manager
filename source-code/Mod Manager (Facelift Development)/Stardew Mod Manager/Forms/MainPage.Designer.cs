@@ -118,6 +118,8 @@ namespace Stardew_Mod_Manager
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.HelpTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.SDVPlay = new Syncfusion.WinForms.Controls.SfButton();
+            this.CheckSDV = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -624,7 +626,7 @@ namespace Stardew_Mod_Manager
             this.BackupSelectedFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BackupSelectedFarm.Name = "BackupSelectedFarm";
             this.BackupSelectedFarm.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 58);
+            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 45);
             this.BackupSelectedFarm.Text = "Backup Selected";
             this.BackupSelectedFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BackupSelectedFarm.Click += new System.EventHandler(this.MakeBackupButton_Click);
@@ -635,7 +637,7 @@ namespace Stardew_Mod_Manager
             this.ViewBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ViewBackups.Name = "ViewBackups";
             this.ViewBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ViewBackups.Size = new System.Drawing.Size(88, 58);
+            this.ViewBackups.Size = new System.Drawing.Size(88, 45);
             this.ViewBackups.Text = "View Backups";
             this.ViewBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ViewBackups.Click += new System.EventHandler(this.ViewBackupsButton_Click);
@@ -646,7 +648,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSMAPIBackups.Name = "OpenSMAPIBackups";
             this.OpenSMAPIBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 58);
+            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 45);
             this.OpenSMAPIBackups.Text = "SMAPI Backups";
             this.OpenSMAPIBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSMAPIBackups.Click += new System.EventHandler(this.ViewSMAPIBackups_Click);
@@ -658,7 +660,7 @@ namespace Stardew_Mod_Manager
             this.DeleteFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteFarm.Name = "DeleteFarm";
             this.DeleteFarm.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.DeleteFarm.Size = new System.Drawing.Size(97, 58);
+            this.DeleteFarm.Size = new System.Drawing.Size(97, 45);
             this.DeleteFarm.Text = "Delete Selected";
             this.DeleteFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.DeleteFarm.Click += new System.EventHandler(this.DeleteFarmButton_Click);
@@ -669,7 +671,7 @@ namespace Stardew_Mod_Manager
             this.OpenSaves.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSaves.Name = "OpenSaves";
             this.OpenSaves.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSaves.Size = new System.Drawing.Size(114, 58);
+            this.OpenSaves.Size = new System.Drawing.Size(114, 45);
             this.OpenSaves.Text = "Open Saves Folder";
             this.OpenSaves.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSaves.Click += new System.EventHandler(this.OpenSavesButton_Click);
@@ -1155,9 +1157,9 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.Controls.Add(this.SMAPIDownload);
             this.SMAPIWarning.Controls.Add(this.label3);
             this.SMAPIWarning.Controls.Add(this.pictureBox2);
-            this.SMAPIWarning.Location = new System.Drawing.Point(48, 51);
+            this.SMAPIWarning.Location = new System.Drawing.Point(10, 51);
             this.SMAPIWarning.Name = "SMAPIWarning";
-            this.SMAPIWarning.Size = new System.Drawing.Size(490, 52);
+            this.SMAPIWarning.Size = new System.Drawing.Size(457, 52);
             this.SMAPIWarning.TabIndex = 14;
             this.SMAPIWarning.Visible = false;
             // 
@@ -1166,7 +1168,7 @@ namespace Stardew_Mod_Manager
             this.SMAPIDownload.ActiveLinkColor = System.Drawing.Color.White;
             this.SMAPIDownload.AutoSize = true;
             this.SMAPIDownload.LinkColor = System.Drawing.Color.White;
-            this.SMAPIDownload.Location = new System.Drawing.Point(326, 28);
+            this.SMAPIDownload.Location = new System.Drawing.Point(307, 28);
             this.SMAPIDownload.Name = "SMAPIDownload";
             this.SMAPIDownload.Size = new System.Drawing.Size(142, 13);
             this.SMAPIDownload.TabIndex = 2;
@@ -1179,7 +1181,7 @@ namespace Stardew_Mod_Manager
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(72, 11);
+            this.label3.Location = new System.Drawing.Point(53, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(399, 13);
             this.label3.TabIndex = 1;
@@ -1191,7 +1193,7 @@ namespace Stardew_Mod_Manager
             this.pictureBox2.Image = global::Stardew_Mod_Manager.Properties.Resources.icon_attention;
             this.pictureBox2.Location = new System.Drawing.Point(4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 42);
+            this.pictureBox2.Size = new System.Drawing.Size(44, 42);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -1210,11 +1212,31 @@ namespace Stardew_Mod_Manager
             this.HelpTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.HelpTooltip.ToolTipTitle = "Help - Stardew Valley Mod Manager";
             // 
+            // SDVPlay
+            // 
+            this.SDVPlay.AccessibleName = "Button";
+            this.SDVPlay.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.SDVPlay.Location = new System.Drawing.Point(469, 154);
+            this.SDVPlay.Name = "SDVPlay";
+            this.SDVPlay.Size = new System.Drawing.Size(119, 27);
+            this.SDVPlay.Style.BackColor = System.Drawing.Color.White;
+            this.SDVPlay.Style.DisabledBackColor = System.Drawing.Color.White;
+            this.SDVPlay.Style.Image = global::Stardew_Mod_Manager.Properties.Resources.SDVplay;
+            this.SDVPlay.TabIndex = 42;
+            this.SDVPlay.Text = "Game Running";
+            this.SDVPlay.Click += new System.EventHandler(this.SDVPlay_Click);
+            // 
+            // CheckSDV
+            // 
+            this.CheckSDV.Interval = 10000;
+            this.CheckSDV.Tick += new System.EventHandler(this.CheckSDV_Tick);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 697);
+            this.Controls.Add(this.SDVPlay);
             this.Controls.Add(this.SMAPIWarning);
             this.Controls.Add(this.MainTabs);
             this.Controls.Add(this.richTextBox1);
@@ -1366,5 +1388,7 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.ToolTip HelpTooltip;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private Syncfusion.WinForms.Controls.SfButton SDVPlay;
+        private System.Windows.Forms.Timer CheckSDV;
     }
 }
