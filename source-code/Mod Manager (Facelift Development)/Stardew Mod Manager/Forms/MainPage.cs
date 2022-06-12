@@ -27,12 +27,11 @@ namespace Stardew_Mod_Manager
     public partial class MainPage : Form
     {
 
-
-
-
         public MainPage()
         {
             InitializeComponent();
+            CheckIfGameRunning();
+            CheckSDV.Start();
 
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
@@ -59,10 +58,36 @@ namespace Stardew_Mod_Manager
             }
         }
 
+        private void CheckIfGameRunning()
+        {
+            int counter = 0;
+            foreach(Process process in Process.GetProcessesByName("Stardew Valley"))
+            {
+                counter++;
+            }
+            foreach (Process process in Process.GetProcessesByName("StardewModdingAPI"))
+            {
+                counter++;
+            }
 
-/// <summary>
-/// For avoid flickering Form
-/// </summary>
+            if (counter > 0)
+            {
+                SDVPlay.Enabled = false;
+                SDVPlay.Text = "Game Running";
+                SDVPlay.Image = null;
+            }
+            else
+            {
+                SDVPlay.Enabled = true;
+                SDVPlay.Text = "Launch Game";
+                SDVPlay.Image = Properties.Resources.SDVplay;
+            }
+        }
+
+
+        /// <summary>
+        /// For avoid flickering Form
+        /// </summary>
 
         internal static class NativeWinAPI
         {
@@ -984,6 +1009,55 @@ namespace Stardew_Mod_Manager
         {
             this.Text = "Mod Manager | Stardew Valley Modded Framework";
             //this.TopMost = false;
+        }
+
+        private void SDVPlay_Click(object sender, EventArgs e)
+        {
+            int counter = 0;
+            foreach (Process process in Process.GetProcessesByName("Stardew Valley"))
+            {
+                counter++;
+            }
+            foreach (Process process in Process.GetProcessesByName("StardewModdingAPI"))
+            {
+                counter++;
+            }
+
+            if (counter > 0)
+            {
+                SDVPlay.Enabled = false;
+                SDVPlay.Text = "Game Running";
+                SDVPlay.Image = null;
+            }
+            else
+            {
+                try
+                {
+                    string SMAPI = Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe";
+                    Process.Start(Path.GetFullPath(SMAPI));
+                }
+                catch(Exception ex)
+                {
+                    DialogResult dr = MessageBox.Show("We weren't able to find a modded version of Stardew Valley on your PC. Would you like to launch vanilla Stardew Valley?", "Stardew Valley", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            string SDV = Properties.Settings.Default.StardewDir + @"\Stardew Valley.exe";
+                            Process.Start(Path.GetFullPath(SDV));
+                        }
+                        catch(Exception ex2)
+                        {
+                            MessageBox.Show("The following error occured: " + Environment.NewLine + ex2.Message, "Stardew Valley", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CheckSDV_Tick(object sender, EventArgs e)
+        {
+            CheckIfGameRunning();
         }
     }
 }
