@@ -109,9 +109,9 @@
             this.ExtractProgress.Location = new System.Drawing.Point(11, 381);
             this.ExtractProgress.Name = "ExtractProgress";
             this.ExtractProgress.Size = new System.Drawing.Size(384, 23);
+            this.ExtractProgress.Step = 50;
             this.ExtractProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.ExtractProgress.TabIndex = 39;
-            this.ExtractProgress.Value = 15;
             this.ExtractProgress.Visible = false;
             // 
             // Cancel
@@ -136,7 +136,9 @@
             // 
             // DoModInstall
             // 
+            this.DoModInstall.WorkerReportsProgress = true;
             this.DoModInstall.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoModInstall_DoWork);
+            this.DoModInstall.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.DoModInstall_ProgressChanged);
             this.DoModInstall.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoModInstall_RunWorkerCompleted);
             // 
             // PresetGenerator
@@ -154,7 +156,9 @@
             // 
             // DoModDelete
             // 
+            this.DoModDelete.WorkerReportsProgress = true;
             this.DoModDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoModDelete_DoWork);
+            this.DoModDelete.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.DoModDelete_ProgressChanged);
             this.DoModDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoModDelete_RunWorkerCompleted);
             // 
             // MPInstaller

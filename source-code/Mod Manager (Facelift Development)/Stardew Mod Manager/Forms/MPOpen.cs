@@ -74,6 +74,13 @@ namespace Stardew_Mod_Manager.Forms
                     IsValidSpace.Image = Properties.Resources.sdvError;
                     Continue.Enabled = false;
                 }
+
+                if(filemb > 40)
+                {
+                    WarningText.AppendText(Environment.NewLine + Environment.NewLine + "Modpacks may take a long time to install when they contain many mods. This modpack contains " + filemb + "mb of mods and may take a while to install.");
+                }
+
+                Continue.Focus();
             }
 
         }
@@ -127,10 +134,24 @@ namespace Stardew_Mod_Manager.Forms
 
         private void Extract_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MPInstaller steptwo = new MPInstaller();
-            this.Hide();
-            steptwo.Show();
-            steptwo.Activate();
+
+            if (e.Cancelled == true)
+            {
+                MessageBox.Show("The operation was cancelled by the user or the system.", "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }
+            else if (e.Error != null)
+            {
+                MessageBox.Show("The application experienced an issue whilst trying to install the modpack:" + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            else
+            {
+                MPInstaller steptwo = new MPInstaller();
+                this.Hide();
+                steptwo.Show();
+                steptwo.Activate();
+            }
         }
     }
 }

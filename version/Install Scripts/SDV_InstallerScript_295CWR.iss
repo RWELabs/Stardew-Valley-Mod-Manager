@@ -2,9 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Stardew Valley Mod Manager"
-#define MyAppVersion "220502"
-#define MyAppPublisher "RWE Softworks, Ryan Walpole Enterprises"
-#define MyAppURL "https://www.ryanwalpole.com/"
+#define MyAppVersion "220601"
+#define MyAppPublisher "RWE Labs"
+#define MyAppURL "https://rwe.app/labs/sdvmm"
+#define RWELabsURL "https://rwelabs.github.io/"
+#define SDVMMDocs "https://rwe.app/labs/sdvmm/docs"
 #define MyAppExeName "Stardew Mod Manager.exe"
 #define MyAppAssocName "Stardew Valley Modpack File"
 #define MyAppAssocExt ".sdvmp"
@@ -18,8 +20,8 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL={#MyAppURL}
-AppSupportURL={#MyAppURL}
+AppPublisherURL={#RWELabsURL}
+AppSupportURL={#SDVMMDocs}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName=C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\
 ChangesAssociations=yes
@@ -33,6 +35,8 @@ SetupIconFile=C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\so
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+UninstallDisplayIcon={app}\{#MyAppExeName}
+UninstallDisplayName=Stardew Valley Mod Manager
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

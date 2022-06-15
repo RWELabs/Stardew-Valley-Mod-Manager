@@ -39,11 +39,11 @@
             this.DriveSpaceDestination = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Continue = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.Extract = new System.ComponentModel.BackgroundWorker();
             this.ExtractProgress = new System.Windows.Forms.ProgressBar();
+            this.WarningText = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IsValidSpace)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -138,7 +138,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.WarningText);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 209);
             this.groupBox1.Name = "groupBox1";
@@ -146,16 +146,6 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Warnings";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label2.Location = new System.Drawing.Point(9, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(369, 34);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "By continuing to install this modpack, we will disable all currently enabled mods" +
-    ". You will have to re-enable them later.";
             // 
             // Continue
             // 
@@ -192,6 +182,21 @@
             this.ExtractProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.ExtractProgress.TabIndex = 32;
             this.ExtractProgress.Value = 15;
+            // 
+            // WarningText
+            // 
+            this.WarningText.BackColor = System.Drawing.Color.White;
+            this.WarningText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.WarningText.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.WarningText.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarningText.Location = new System.Drawing.Point(10, 21);
+            this.WarningText.Name = "WarningText";
+            this.WarningText.ReadOnly = true;
+            this.WarningText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.WarningText.Size = new System.Drawing.Size(368, 128);
+            this.WarningText.TabIndex = 0;
+            this.WarningText.Text = "By continuing to install this modpack, we will disable all currently enabled mods" +
+    ". You will have to re-enable them later.";
             // 
             // MPOpen
             // 
@@ -240,10 +245,10 @@
         private System.Windows.Forms.Label DriveSpaceDestination;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Continue;
         private System.Windows.Forms.Button Cancel;
         private System.ComponentModel.BackgroundWorker Extract;
         private System.Windows.Forms.ProgressBar ExtractProgress;
+        private System.Windows.Forms.RichTextBox WarningText;
     }
 }

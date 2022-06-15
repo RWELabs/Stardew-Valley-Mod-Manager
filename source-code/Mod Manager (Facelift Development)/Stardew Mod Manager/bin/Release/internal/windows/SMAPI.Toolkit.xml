@@ -19,6 +19,10 @@
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModEntryModel.Errors">
             <summary>The errors that occurred while fetching update data.</summary>
         </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModEntryModel.#ctor(System.String)">
+            <summary>Construct an instance.</summary>
+            <param name="id">The mod's unique ID (if known).</param>
+        </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModEntryVersionModel">
             <summary>Metadata about a version.</summary>
         </member>
@@ -27,9 +31,6 @@
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModEntryVersionModel.Url">
             <summary>The mod page URL.</summary>
-        </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModEntryVersionModel.#ctor">
-            <summary>Construct an instance.</summary>
         </member>
         <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModEntryVersionModel.#ctor(StardewModdingAPI.ISemanticVersion,System.String)">
             <summary>Construct an instance.</summary>
@@ -138,15 +139,16 @@
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModSearchEntryModel.IsBroken">
             <summary>Whether the installed version is broken or could not be loaded.</summary>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModSearchEntryModel.#ctor">
-            <summary>Construct an empty instance.</summary>
-        </member>
         <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModSearchEntryModel.#ctor(System.String,StardewModdingAPI.ISemanticVersion,System.String[],System.Boolean)">
             <summary>Construct an instance.</summary>
             <param name="id">The unique mod ID.</param>
             <param name="installedVersion">The version installed by the local player. This is used for version mapping in some cases.</param>
             <param name="updateKeys">The namespaced mod update keys (if available).</param>
             <param name="isBroken">Whether the installed version is broken or could not be loaded.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModSearchEntryModel.AddUpdateKeys(System.String[])">
+            <summary>Add update keys for the mod.</summary>
+            <param name="updateKeys">The update keys to add.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModSearchModel">
             <summary>Specifies mods whose update-check info to fetch.</summary>
@@ -322,6 +324,10 @@
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiClient.ResponseModel.Parse">
             <summary>The parse API results.</summary>
         </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiClient.ResponseModel.#ctor(StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiClient.ResponseParseModel)">
+            <summary>Construct an instance.</summary>
+            <param name="parse">The parse API results.</param>
+        </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiClient.ResponseParseModel">
             <summary>The inner response model for the MediaWiki parse API.</summary>
         </member>
@@ -338,13 +344,21 @@
             <summary>The human-readable summary of the compatibility status or workaround, without HTML formatting.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityInfo.BrokeIn">
-            <summary>The game or SMAPI version which broke this mod (if applicable).</summary>
+            <summary>The game or SMAPI version which broke this mod, if applicable.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityInfo.UnofficialVersion">
             <summary>The version of the latest unofficial update, if applicable.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityInfo.UnofficialUrl">
             <summary>The URL to the latest unofficial update, if applicable.</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityInfo.#ctor(StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityStatus,System.String,System.String,StardewModdingAPI.ISemanticVersion,System.String)">
+            <summary>Construct an instance.</summary>
+            <param name="status">The compatibility status.</param>
+            <param name="summary">The human-readable summary of the compatibility status or workaround, without HTML formatting.</param>
+            <param name="brokeIn">The game or SMAPI version which broke this mod, if applicable.</param>
+            <param name="unofficialVersion">The version of the latest unofficial update, if applicable.</param>
+            <param name="unofficialUrl">The URL to the latest unofficial update, if applicable.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityStatus">
             <summary>The compatibility status for a mod.</summary>
@@ -395,13 +409,13 @@
             <summary>A mod entry in the wiki list.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.ID">
-            <summary>The mod's unique ID. If the mod has alternate/old IDs, they're listed in latest to newest order.</summary>
+            <summary>The mod's unique ID. If the mod has alternate/old IDs, they're listed in latest to oldest order.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.Name">
             <summary>The mod's display name. If the mod has multiple names, the first one is the most canonical name.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.Author">
-            <summary>The mod's author name.  If the author has multiple names, the first one is the most canonical name.</summary>
+            <summary>The mod's author name. If the author has multiple names, the first one is the most canonical name.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.NexusID">
             <summary>The mod ID on Nexus.</summary>
@@ -446,13 +460,35 @@
             <summary>The URL of the pull request which submits changes for an unofficial update to the author, if any.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.DevNote">
-            <summary>Special notes intended for developers who maintain unofficial updates or submit pull requests. </summary>
+            <summary>Special notes intended for developers who maintain unofficial updates or submit pull requests.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.Overrides">
             <summary>The data overrides to apply to the mod's manifest or remote mod page data, if any.</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.Anchor">
             <summary>The link anchor for the mod entry in the wiki compatibility list.</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry.#ctor(System.String[],System.String[],System.String[],System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.String,StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityInfo,StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiCompatibilityInfo,System.String[],System.String,System.String,StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiDataOverrideEntry,System.String)">
+            <summary>Construct an instance.</summary>
+            <param name="id">The mod's unique ID. If the mod has alternate/old IDs, they're listed in latest to oldest order.</param>
+            <param name="name">The mod's display name. If the mod has multiple names, the first one is the most canonical name.</param>
+            <param name="author">The mod's author name. If the author has multiple names, the first one is the most canonical name.</param>
+            <param name="nexusId">The mod ID on Nexus.</param>
+            <param name="chucklefishId">The mod ID in the Chucklefish mod repo.</param>
+            <param name="curseForgeId">The mod ID in the CurseForge mod repo.</param>
+            <param name="curseForgeKey">The mod ID in the CurseForge mod repo.</param>
+            <param name="modDropId">The mod ID in the ModDrop mod repo.</param>
+            <param name="githubRepo">The GitHub repository in the form 'owner/repo'.</param>
+            <param name="customSourceUrl">The URL to a non-GitHub source repo.</param>
+            <param name="customUrl">The custom mod page URL (if applicable).</param>
+            <param name="contentPackFor">The name of the mod which loads this content pack, if applicable.</param>
+            <param name="compatibility">The mod's compatibility with the latest stable version of the game.</param>
+            <param name="betaCompatibility">The mod's compatibility with the latest beta version of the game (if any).</param>
+            <param name="warnings">The human-readable warnings for players about this mod.</param>
+            <param name="pullRequestUrl">The URL of the pull request which submits changes for an unofficial update to the author, if any.</param>
+            <param name="devNote">Special notes intended for developers who maintain unofficial updates or submit pull requests.</param>
+            <param name="overrides">The data overrides to apply to the mod's manifest or remote mod page data, if any.</param>
+            <param name="anchor">The link anchor for the mod entry in the wiki compatibility list.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModList">
             <summary>Metadata from the wiki's mod compatibility list.</summary>
@@ -465,6 +501,12 @@
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModList.Mods">
             <summary>The mods on the wiki.</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModList.#ctor(System.String,System.String,StardewModdingAPI.Toolkit.Framework.Clients.Wiki.WikiModEntry[])">
+            <summary>Construct an instance.</summary>
+            <param name="stableVersion">The stable game version.</param>
+            <param name="betaVersion">The beta game version (if any).</param>
+            <param name="mods">The mods on the wiki.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.Constants">
             <summary>Contains the SMAPI installer's constants and assumptions.</summary>
@@ -680,6 +722,12 @@
               - The field name itself corresponds to a <see cref="T:StardewModdingAPI.Toolkit.Framework.ModData.ModDataFieldKey"/> value.
             </remarks>
         </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.ModData.ModDataModel.#ctor(System.String,System.String,StardewModdingAPI.Toolkit.Framework.ModData.ModWarning)">
+            <summary>Construct an instance.</summary>
+            <param name="id">The mod's current unique ID.</param>
+            <param name="formerIds">The former mod IDs (if any).</param>
+            <param name="suppressWarnings">The mod warnings to suppress, even if they'd normally be shown.</param>
+        </member>
         <member name="M:StardewModdingAPI.Toolkit.Framework.ModData.ModDataModel.GetFields">
             <summary>Get a parsed representation of the <see cref="P:StardewModdingAPI.Toolkit.Framework.ModData.ModDataModel.Fields"/>.</summary>
         </member>
@@ -733,11 +781,8 @@
         <member name="P:StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecordVersionedFields.DataRecord">
             <summary>The underlying data record.</summary>
         </member>
-        <member name="P:StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecordVersionedFields.DisplayName">
-            <summary>The default mod name to display when the name isn't available (e.g. during dependency checks).</summary>
-        </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecordVersionedFields.UpdateKey">
-            <summary>The update key to apply.</summary>
+            <summary>The update key to apply (if any).</summary>
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecordVersionedFields.Status">
             <summary>The predefined compatibility status.</summary>
@@ -750,6 +795,10 @@
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecordVersionedFields.StatusUpperVersion">
             <summary>The upper version for which the <see cref="P:StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecordVersionedFields.Status"/> applies (if any).</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecordVersionedFields.#ctor(StardewModdingAPI.Toolkit.Framework.ModData.ModDataRecord)">
+            <summary>Construct an instance.</summary>
+            <param name="dataRecord">The underlying data record.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.ModData.ModStatus">
             <summary>Indicates how SMAPI should treat a mod.</summary>
@@ -798,6 +847,15 @@
         </member>
         <member name="F:StardewModdingAPI.Toolkit.Framework.ModData.ModWarning.AccessesShell">
             <summary>Uses .NET APIs for shell or process access.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Framework.ModData.ModWarning.DetectedLegacyConfigurationDll">
+            <summary>References the legacy <c>System.Configuration.ConfigurationManager</c> assembly and doesn't include a copy in the mod folder, so it'll break in SMAPI 4.0.0.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Framework.ModData.ModWarning.DetectedLegacyCachingDll">
+            <summary>References the legacy <c>System.Runtime.Caching</c> assembly and doesn't include a copy in the mod folder, so it'll break in SMAPI 4.0.0.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Framework.ModData.ModWarning.DetectedLegacyPermissionsDll">
+            <summary>References the legacy <c>System.Security.Permissions</c> assembly and doesn't include a copy in the mod folder, so it'll break in SMAPI 4.0.0.</summary>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.ModScanning.ModFolder">
             <summary>The info about a mod read from its folder.</summary>
@@ -892,24 +950,28 @@
             <summary>Construct an instance.</summary>
             <param name="jsonHelper">The JSON helper with which to read manifests.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.GetModFolders(System.String)">
+        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.GetModFolders(System.String,System.Boolean)">
             <summary>Extract information about all mods in the given folder.</summary>
             <param name="rootPath">The root folder containing mods.</param>
+            <param name="useCaseInsensitiveFilePaths">Whether to match file paths case-insensitively, even on Linux.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.GetModFolders(System.String,System.String)">
+        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.GetModFolders(System.String,System.String,System.Boolean)">
             <summary>Extract information about all mods in the given folder.</summary>
             <param name="rootPath">The root folder containing mods. Only the <paramref name="modPath"/> will be searched, but this field allows it to be treated as a potential mod folder of its own.</param>
             <param name="modPath">The mod path to search.</param>
+            <param name="useCaseInsensitiveFilePaths">Whether to match file paths case-insensitively, even on Linux.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.ReadFolder(System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.ReadFolder(System.IO.DirectoryInfo,System.IO.DirectoryInfo,System.Boolean)">
             <summary>Extract information from a mod folder.</summary>
             <param name="root">The root folder containing mods.</param>
             <param name="searchFolder">The folder to search for a mod.</param>
+            <param name="useCaseInsensitiveFilePaths">Whether to match file paths case-insensitively, even on Linux.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.GetModFolders(System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.GetModFolders(System.IO.DirectoryInfo,System.IO.DirectoryInfo,System.Boolean)">
             <summary>Recursively extract information about all mods in the given folder.</summary>
             <param name="root">The root mod folder.</param>
             <param name="folder">The folder to search for mods.</param>
+            <param name="useCaseInsensitiveFilePaths">Whether to match file paths case-insensitively, even on Linux.</param>
         </member>
         <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.TryConsolidate(System.IO.DirectoryInfo,System.IO.DirectoryInfo,StardewModdingAPI.Toolkit.Framework.ModScanning.ModFolder[])">
             <summary>Consolidate adjacent folders into one mod folder, if possible.</summary>
@@ -917,9 +979,10 @@
             <param name="parentFolder">The parent folder to consolidate, if possible.</param>
             <param name="subfolders">The subfolders to consolidate, if possible.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.FindManifest(System.IO.DirectoryInfo)">
+        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.FindManifest(System.IO.DirectoryInfo,System.Boolean)">
             <summary>Find the manifest for a mod folder.</summary>
             <param name="folder">The folder to search.</param>
+            <param name="useCaseInsensitiveFilePaths">Whether to match file paths case-insensitively, even on Linux.</param>
         </member>
         <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.IsModSearchFolder(System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
             <summary>Get whether a given folder should be treated as a search folder (i.e. look for subfolders containing mods).</summary>
@@ -941,10 +1004,6 @@
         <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.IsEmptyVortexFolder(System.Collections.Generic.IEnumerable{System.IO.FileInfo})">
             <summary>Get whether a set of files looks like an XNB mod.</summary>
             <param name="files">The files in the mod.</param>
-        </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.ModScanning.ModScanner.StripNewlines(System.String)">
-            <summary>Strip newlines from a string.</summary>
-            <param name="input">The input to strip.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.ModScanning.ModType">
             <summary>A general mod type.</summary>
@@ -1106,14 +1165,16 @@
             <summary>Get SMAPI's internal mod database.</summary>
             <param name="metadataPath">The file path for the SMAPI metadata file.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.ModToolkit.GetModFolders(System.String)">
+        <member name="M:StardewModdingAPI.Toolkit.ModToolkit.GetModFolders(System.String,System.Boolean)">
             <summary>Extract information about all mods in the given folder.</summary>
             <param name="rootPath">The root folder containing mods.</param>
+            <param name="useCaseInsensitiveFilePaths">Whether to match file paths case-insensitively, even on Linux.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.ModToolkit.GetModFolders(System.String,System.String)">
+        <member name="M:StardewModdingAPI.Toolkit.ModToolkit.GetModFolders(System.String,System.String,System.Boolean)">
             <summary>Extract information about all mods in the given folder.</summary>
             <param name="rootPath">The root folder containing mods. Only the <paramref name="modPath"/> will be searched, but this field allows it to be treated as a potential mod folder of its own.</param>
             <param name="modPath">The mod path to search.</param>
+            <param name="useCaseInsensitiveFilePaths">Whether to match file paths case-insensitively, even on Linux.</param>
         </member>
         <member name="M:StardewModdingAPI.Toolkit.ModToolkit.GetUpdateUrl(System.String)">
             <summary>Get an update URL for an update key (if valid).</summary>
@@ -1343,17 +1404,17 @@
             <summary>Get whether this instance can convert the specified object type.</summary>
             <param name="objectType">The object type.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Serialization.Converters.SimpleReadOnlyConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
-            <summary>Writes the JSON representation of the object.</summary>
-            <param name="writer">The JSON writer.</param>
-            <param name="value">The value.</param>
-            <param name="serializer">The calling serializer.</param>
-        </member>
         <member name="M:StardewModdingAPI.Toolkit.Serialization.Converters.SimpleReadOnlyConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
             <summary>Reads the JSON representation of the object.</summary>
             <param name="reader">The JSON reader.</param>
             <param name="objectType">The object type.</param>
             <param name="existingValue">The object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Converters.SimpleReadOnlyConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>Writes the JSON representation of the object.</summary>
+            <param name="writer">The JSON writer.</param>
+            <param name="value">The value.</param>
             <param name="serializer">The calling serializer.</param>
         </member>
         <member name="M:StardewModdingAPI.Toolkit.Serialization.Converters.SimpleReadOnlyConverter`1.ReadObject(Newtonsoft.Json.Linq.JObject,System.String)">
@@ -1447,9 +1508,6 @@
         <member name="P:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.ExtraFields">
             <summary>Any manifest fields which didn't match a valid field.</summary>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.#ctor">
-            <summary>Construct an instance.</summary>
-        </member>
         <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.#ctor(System.String,System.String,System.String,System.String,StardewModdingAPI.ISemanticVersion,System.String)">
             <summary>Construct an instance for a transitional content pack.</summary>
             <param name="uniqueID">The unique mod ID.</param>
@@ -1459,9 +1517,26 @@
             <param name="version">The mod version.</param>
             <param name="contentPackFor">The modID which will read this as a content pack.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
-            <summary>Normalize the model after it's deserialized.</summary>
-            <param name="context">The deserialization context.</param>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.#ctor(System.String,System.String,System.String,System.String,StardewModdingAPI.ISemanticVersion,StardewModdingAPI.ISemanticVersion,System.String,StardewModdingAPI.IManifestContentPackFor,StardewModdingAPI.IManifestDependency[],System.String[])">
+            <summary>Construct an instance for a transitional content pack.</summary>
+            <param name="uniqueId">The unique mod ID.</param>
+            <param name="name">The mod name.</param>
+            <param name="author">The mod author's name.</param>
+            <param name="description">A brief description of the mod.</param>
+            <param name="version">The mod version.</param>
+            <param name="minimumApiVersion">The minimum SMAPI version required by this mod, if any.</param>
+            <param name="entryDll">The name of the DLL in the directory that has the <c>Entry</c> method. Mutually exclusive with <see cref="P:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.ContentPackFor"/>.</param>
+            <param name="contentPackFor">The modID which will read this as a content pack.</param>
+            <param name="dependencies">The other mods that must be loaded before this mod.</param>
+            <param name="updateKeys">The namespaced mod IDs to query for updates (like <c>Nexus:541</c>).</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.OverrideUpdateKeys(System.String[])">
+            <summary>Override the update keys loaded from the mod info.</summary>
+            <param name="updateKeys">The new update keys to set.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.Manifest.NormalizeWhitespace(System.String)">
+            <summary>Normalize whitespace in a raw string.</summary>
+            <param name="input">The input to strip.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Serialization.Models.ManifestContentPackFor">
             <summary>Indicates which mod can read the content pack represented by the containing manifest.</summary>
@@ -1471,6 +1546,15 @@
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Serialization.Models.ManifestContentPackFor.MinimumVersion">
             <summary>The minimum required version (if any).</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.ManifestContentPackFor.#ctor(System.String,StardewModdingAPI.ISemanticVersion)">
+            <summary>Construct an instance.</summary>
+            <param name="uniqueId">The unique ID of the mod which can read this content pack.</param>
+            <param name="minimumVersion">The minimum required version (if any).</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.ManifestContentPackFor.NormalizeWhitespace(System.String)">
+            <summary>Normalize whitespace in a raw string.</summary>
+            <param name="input">The input to strip.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Serialization.Models.ManifestDependency">
             <summary>A mod dependency listed in a mod manifest.</summary>
@@ -1489,6 +1573,16 @@
             <param name="uniqueID">The unique mod ID to require.</param>
             <param name="minimumVersion">The minimum required version (if any).</param>
             <param name="required">Whether the dependency must be installed to use the mod.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.ManifestDependency.#ctor(System.String,StardewModdingAPI.ISemanticVersion,System.Boolean)">
+            <summary>Construct an instance.</summary>
+            <param name="uniqueID">The unique mod ID to require.</param>
+            <param name="minimumVersion">The minimum required version (if any).</param>
+            <param name="required">Whether the dependency must be installed to use the mod.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.Models.ManifestDependency.NormalizeWhitespace(System.String)">
+            <summary>Normalize whitespace in a raw string.</summary>
+            <param name="input">The input to strip.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Serialization.SParseException">
             <summary>A format exception which provides a user-facing error message.</summary>
@@ -1525,6 +1619,71 @@
         <member name="M:StardewModdingAPI.Toolkit.Utilities.FileUtilities.GetFileHash(System.String)">
             <summary>Get the MD5 hash for a file.</summary>
             <param name="absolutePath">The absolute file path.</param>
+        </member>
+        <member name="T:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup">
+            <summary>An API for case-insensitive file lookups within a root directory.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.RootPath">
+            <summary>The root directory path for relative paths.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.RelativePathCache">
+            <summary>A case-insensitive lookup of file paths within the <see cref="F:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.RootPath"/>. Each path is listed in both file path and asset name format, so it's usable in both contexts without needing to re-parse paths.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.CachedRoots">
+            <summary>The case-insensitive file lookups by root path.</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.#ctor(System.String,System.IO.SearchOption)">
+            <summary>Construct an instance.</summary>
+            <param name="rootPath">The root directory path for relative paths.</param>
+            <param name="searchOption">Which directories to scan from the root.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.GetFile(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.Add(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.GetCachedFor(System.String)">
+            <summary>Get a cached dictionary of relative paths within a root path, for case-insensitive file lookups.</summary>
+            <param name="rootPath">The root path to scan.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.GetRelativePathCache(System.IO.SearchOption)">
+            <summary>Get a case-insensitive lookup of file paths (see <see cref="F:StardewModdingAPI.Toolkit.Utilities.PathLookups.CaseInsensitiveFileLookup.RelativePathCache"/>).</summary>
+            <param name="searchOption">Which directories to scan from the root.</param>
+        </member>
+        <member name="T:StardewModdingAPI.Toolkit.Utilities.PathLookups.IFileLookup">
+            <summary>An API for file lookups within a root directory.</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.IFileLookup.GetFile(System.String)">
+            <summary>Get the file for a given relative file path, if it exists.</summary>
+            <param name="relativePath">The relative path.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.IFileLookup.Add(System.String)">
+            <summary>Add a relative path that was just created by a SMAPI API.</summary>
+            <param name="relativePath">The relative path.</param>
+        </member>
+        <member name="T:StardewModdingAPI.Toolkit.Utilities.PathLookups.MinimalFileLookup">
+            <summary>An API for file lookups within a root directory with minimal preprocessing.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Utilities.PathLookups.MinimalFileLookup.CachedRoots">
+            <summary>The file lookups by root path.</summary>
+        </member>
+        <member name="F:StardewModdingAPI.Toolkit.Utilities.PathLookups.MinimalFileLookup.RootPath">
+            <summary>The root directory path for relative paths.</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.MinimalFileLookup.#ctor(System.String)">
+            <summary>Construct an instance.</summary>
+            <param name="rootPath">The root directory path for relative paths.</param>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.MinimalFileLookup.GetFile(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.MinimalFileLookup.Add(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Utilities.PathLookups.MinimalFileLookup.GetCachedFor(System.String)">
+            <summary>Get a cached dictionary of relative paths within a root path, for case-insensitive file lookups.</summary>
+            <param name="rootPath">The root path to scan.</param>
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Utilities.PathUtilities">
             <summary>Provides utilities for normalizing file paths.</summary>
