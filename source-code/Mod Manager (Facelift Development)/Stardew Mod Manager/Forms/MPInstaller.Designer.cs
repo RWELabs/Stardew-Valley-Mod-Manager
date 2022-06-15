@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MPInstaller));
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,6 +41,8 @@
             this.Continue = new System.Windows.Forms.Button();
             this.DoModInstall = new System.ComponentModel.BackgroundWorker();
             this.PresetGenerator = new System.Windows.Forms.RichTextBox();
+            this.DoMovementOperation = new System.Windows.Forms.Timer(this.components);
+            this.DoModDelete = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,9 +109,9 @@
             this.ExtractProgress.Location = new System.Drawing.Point(11, 381);
             this.ExtractProgress.Name = "ExtractProgress";
             this.ExtractProgress.Size = new System.Drawing.Size(384, 23);
+            this.ExtractProgress.Step = 50;
             this.ExtractProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.ExtractProgress.TabIndex = 39;
-            this.ExtractProgress.Value = 15;
             this.ExtractProgress.Visible = false;
             // 
             // Cancel
@@ -133,7 +136,9 @@
             // 
             // DoModInstall
             // 
+            this.DoModInstall.WorkerReportsProgress = true;
             this.DoModInstall.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoModInstall_DoWork);
+            this.DoModInstall.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.DoModInstall_ProgressChanged);
             this.DoModInstall.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoModInstall_RunWorkerCompleted);
             // 
             // PresetGenerator
@@ -143,6 +148,18 @@
             this.PresetGenerator.Size = new System.Drawing.Size(22, 11);
             this.PresetGenerator.TabIndex = 40;
             this.PresetGenerator.Text = "";
+            // 
+            // DoMovementOperation
+            // 
+            this.DoMovementOperation.Interval = 11000;
+            this.DoMovementOperation.Tick += new System.EventHandler(this.DoMovementOperation_Tick);
+            // 
+            // DoModDelete
+            // 
+            this.DoModDelete.WorkerReportsProgress = true;
+            this.DoModDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoModDelete_DoWork);
+            this.DoModDelete.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.DoModDelete_ProgressChanged);
+            this.DoModDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoModDelete_RunWorkerCompleted);
             // 
             // MPInstaller
             // 
@@ -186,5 +203,7 @@
         private System.Windows.Forms.Button Continue;
         private System.ComponentModel.BackgroundWorker DoModInstall;
         private System.Windows.Forms.RichTextBox PresetGenerator;
+        private System.Windows.Forms.Timer DoMovementOperation;
+        private System.ComponentModel.BackgroundWorker DoModDelete;
     }
 }

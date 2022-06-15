@@ -39,12 +39,12 @@ namespace SDVMP_Generator
             this.Cancelquit = new System.Windows.Forms.Button();
             this.folderlist = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.AddMod = new System.Windows.Forms.ToolStripButton();
+            this.RemoveMod = new System.Windows.Forms.ToolStripButton();
             this.Operation1 = new System.ComponentModel.BackgroundWorker();
             this.Operation2 = new System.ComponentModel.BackgroundWorker();
             this.ProgressWorker = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.AddMod = new System.Windows.Forms.ToolStripButton();
-            this.RemoveMod = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,14 +64,15 @@ namespace SDVMP_Generator
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.75F);
             this.label2.Location = new System.Drawing.Point(14, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(303, 52);
+            this.label2.Size = new System.Drawing.Size(354, 52);
             this.label2.TabIndex = 1;
             this.label2.Text = "Use this tool to generate a Stardew Valley Modpack that can be distributed and in" +
     "stalled with just a few clicks using the Stardew Valley Mod Manager.";
             // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(291, 367);
+            this.Create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Create.Location = new System.Drawing.Point(376, 406);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(111, 30);
             this.Create.TabIndex = 6;
@@ -95,7 +96,7 @@ namespace SDVMP_Generator
             this.LearnMoreLink.AutoSize = true;
             this.LearnMoreLink.Font = new System.Drawing.Font("Segoe UI", 8.75F);
             this.LearnMoreLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.LearnMoreLink.Location = new System.Drawing.Point(227, 77);
+            this.LearnMoreLink.Location = new System.Drawing.Point(130, 77);
             this.LearnMoreLink.Name = "LearnMoreLink";
             this.LearnMoreLink.Size = new System.Drawing.Size(67, 15);
             this.LearnMoreLink.TabIndex = 16;
@@ -105,18 +106,20 @@ namespace SDVMP_Generator
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.Location = new System.Drawing.Point(14, 376);
+            this.label11.Location = new System.Drawing.Point(16, 415);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 13);
             this.label11.TabIndex = 17;
-            this.label11.Text = "Version 220502 (Beta)";
+            this.label11.Text = "Version 220601 (Beta)";
             // 
             // Cancelquit
             // 
+            this.Cancelquit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancelquit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancelquit.Location = new System.Drawing.Point(174, 367);
+            this.Cancelquit.Location = new System.Drawing.Point(259, 406);
             this.Cancelquit.Name = "Cancelquit";
             this.Cancelquit.Size = new System.Drawing.Size(111, 30);
             this.Cancelquit.TabIndex = 5;
@@ -126,16 +129,22 @@ namespace SDVMP_Generator
             // 
             // folderlist
             // 
+            this.folderlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.folderlist.FormattingEnabled = true;
             this.folderlist.Location = new System.Drawing.Point(17, 183);
             this.folderlist.Name = "folderlist";
-            this.folderlist.Size = new System.Drawing.Size(385, 173);
+            this.folderlist.Size = new System.Drawing.Size(470, 212);
             this.folderlist.TabIndex = 18;
             this.folderlist.SelectedIndexChanged += new System.EventHandler(this.folderlist_SelectedIndexChanged);
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackgroundImage = global::SDVMP_Generator.Properties.Resources.progress_white;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -144,9 +153,28 @@ namespace SDVMP_Generator
             this.toolStrip1.Location = new System.Drawing.Point(17, 146);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(385, 26);
+            this.toolStrip1.Size = new System.Drawing.Size(470, 26);
             this.toolStrip1.TabIndex = 19;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // AddMod
+            // 
+            this.AddMod.Image = global::SDVMP_Generator.Properties.Resources.icons8_add_48;
+            this.AddMod.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddMod.Name = "AddMod";
+            this.AddMod.Size = new System.Drawing.Size(77, 23);
+            this.AddMod.Text = "Add Mod";
+            this.AddMod.Click += new System.EventHandler(this.AddMod_Click);
+            // 
+            // RemoveMod
+            // 
+            this.RemoveMod.Enabled = false;
+            this.RemoveMod.Image = global::SDVMP_Generator.Properties.Resources.sdvDelete;
+            this.RemoveMod.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RemoveMod.Name = "RemoveMod";
+            this.RemoveMod.Size = new System.Drawing.Size(120, 23);
+            this.RemoveMod.Text = "Remove from List";
+            this.RemoveMod.Click += new System.EventHandler(this.RemoveMod_Click);
             // 
             // Operation1
             // 
@@ -171,32 +199,14 @@ namespace SDVMP_Generator
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::SDVMP_Generator.Properties.Resources.SDVMPIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(329, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(414, 22);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(79, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
-            // 
-            // AddMod
-            // 
-            this.AddMod.Image = global::SDVMP_Generator.Properties.Resources.icons8_add_48;
-            this.AddMod.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddMod.Name = "AddMod";
-            this.AddMod.Size = new System.Drawing.Size(77, 23);
-            this.AddMod.Text = "Add Mod";
-            this.AddMod.Click += new System.EventHandler(this.AddMod_Click);
-            // 
-            // RemoveMod
-            // 
-            this.RemoveMod.Enabled = false;
-            this.RemoveMod.Image = global::SDVMP_Generator.Properties.Resources.sdvDelete;
-            this.RemoveMod.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RemoveMod.Name = "RemoveMod";
-            this.RemoveMod.Size = new System.Drawing.Size(120, 23);
-            this.RemoveMod.Text = "Remove from List";
-            this.RemoveMod.Click += new System.EventHandler(this.RemoveMod_Click);
             // 
             // Form1
             // 
@@ -205,7 +215,7 @@ namespace SDVMP_Generator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.Cancelquit;
-            this.ClientSize = new System.Drawing.Size(419, 408);
+            this.ClientSize = new System.Drawing.Size(504, 446);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.folderlist);
@@ -219,8 +229,7 @@ namespace SDVMP_Generator
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(435, 447);
-            this.MinimumSize = new System.Drawing.Size(435, 447);
+            this.MinimumSize = new System.Drawing.Size(520, 485);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
