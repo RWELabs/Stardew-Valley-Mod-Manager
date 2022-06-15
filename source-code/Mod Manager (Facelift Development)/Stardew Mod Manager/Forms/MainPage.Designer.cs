@@ -120,6 +120,8 @@ namespace Stardew_Mod_Manager
             this.HelpTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SDVPlay = new Syncfusion.WinForms.Controls.SfButton();
             this.CheckSDV = new System.Windows.Forms.Timer(this.components);
+            this.HelpLink = new System.Windows.Forms.LinkLabel();
+            this.GiveFeedbackLink = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -185,7 +187,7 @@ namespace Stardew_Mod_Manager
             // 
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(311, 25);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(193, 25);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
             this.UpdateCheckLabel.Size = new System.Drawing.Size(199, 13);
             this.UpdateCheckLabel.TabIndex = 18;
@@ -198,6 +200,8 @@ namespace Stardew_Mod_Manager
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox1.Controls.Add(this.GiveFeedbackLink);
+            this.groupBox1.Controls.Add(this.HelpLink);
             this.groupBox1.Controls.Add(this.ChangelogLink);
             this.groupBox1.Controls.Add(this.SettingsLink);
             this.groupBox1.Controls.Add(this.UpdateCheckLabel);
@@ -215,7 +219,7 @@ namespace Stardew_Mod_Manager
             this.ChangelogLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.ChangelogLink.AutoSize = true;
             this.ChangelogLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.ChangelogLink.Location = new System.Drawing.Point(518, 25);
+            this.ChangelogLink.Location = new System.Drawing.Point(484, 25);
             this.ChangelogLink.Name = "ChangelogLink";
             this.ChangelogLink.Size = new System.Drawing.Size(92, 13);
             this.ChangelogLink.TabIndex = 20;
@@ -626,7 +630,7 @@ namespace Stardew_Mod_Manager
             this.BackupSelectedFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BackupSelectedFarm.Name = "BackupSelectedFarm";
             this.BackupSelectedFarm.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 45);
+            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 58);
             this.BackupSelectedFarm.Text = "Backup Selected";
             this.BackupSelectedFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BackupSelectedFarm.Click += new System.EventHandler(this.MakeBackupButton_Click);
@@ -637,7 +641,7 @@ namespace Stardew_Mod_Manager
             this.ViewBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ViewBackups.Name = "ViewBackups";
             this.ViewBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ViewBackups.Size = new System.Drawing.Size(88, 45);
+            this.ViewBackups.Size = new System.Drawing.Size(88, 58);
             this.ViewBackups.Text = "View Backups";
             this.ViewBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ViewBackups.Click += new System.EventHandler(this.ViewBackupsButton_Click);
@@ -648,7 +652,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSMAPIBackups.Name = "OpenSMAPIBackups";
             this.OpenSMAPIBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 45);
+            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 58);
             this.OpenSMAPIBackups.Text = "SMAPI Backups";
             this.OpenSMAPIBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSMAPIBackups.Click += new System.EventHandler(this.ViewSMAPIBackups_Click);
@@ -660,7 +664,7 @@ namespace Stardew_Mod_Manager
             this.DeleteFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteFarm.Name = "DeleteFarm";
             this.DeleteFarm.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.DeleteFarm.Size = new System.Drawing.Size(97, 45);
+            this.DeleteFarm.Size = new System.Drawing.Size(97, 58);
             this.DeleteFarm.Text = "Delete Selected";
             this.DeleteFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.DeleteFarm.Click += new System.EventHandler(this.DeleteFarmButton_Click);
@@ -671,7 +675,7 @@ namespace Stardew_Mod_Manager
             this.OpenSaves.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSaves.Name = "OpenSaves";
             this.OpenSaves.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSaves.Size = new System.Drawing.Size(114, 45);
+            this.OpenSaves.Size = new System.Drawing.Size(114, 58);
             this.OpenSaves.Text = "Open Saves Folder";
             this.OpenSaves.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSaves.Click += new System.EventHandler(this.OpenSavesButton_Click);
@@ -1157,7 +1161,7 @@ namespace Stardew_Mod_Manager
             this.SMAPIWarning.Controls.Add(this.SMAPIDownload);
             this.SMAPIWarning.Controls.Add(this.label3);
             this.SMAPIWarning.Controls.Add(this.pictureBox2);
-            this.SMAPIWarning.Location = new System.Drawing.Point(10, 51);
+            this.SMAPIWarning.Location = new System.Drawing.Point(70, 51);
             this.SMAPIWarning.Name = "SMAPIWarning";
             this.SMAPIWarning.Size = new System.Drawing.Size(457, 52);
             this.SMAPIWarning.TabIndex = 14;
@@ -1230,6 +1234,34 @@ namespace Stardew_Mod_Manager
             // 
             this.CheckSDV.Interval = 10000;
             this.CheckSDV.Tick += new System.EventHandler(this.CheckSDV_Tick);
+            // 
+            // HelpLink
+            // 
+            this.HelpLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.HelpLink.AutoSize = true;
+            this.HelpLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.HelpLink.Location = new System.Drawing.Point(583, 25);
+            this.HelpLink.Name = "HelpLink";
+            this.HelpLink.Size = new System.Drawing.Size(29, 13);
+            this.HelpLink.TabIndex = 21;
+            this.HelpLink.TabStop = true;
+            this.HelpLink.Text = "Help";
+            this.HelpLink.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.HelpLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HelpLink_LinkClicked);
+            // 
+            // GiveFeedbackLink
+            // 
+            this.GiveFeedbackLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.GiveFeedbackLink.AutoSize = true;
+            this.GiveFeedbackLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.GiveFeedbackLink.Location = new System.Drawing.Point(398, 25);
+            this.GiveFeedbackLink.Name = "GiveFeedbackLink";
+            this.GiveFeedbackLink.Size = new System.Drawing.Size(80, 13);
+            this.GiveFeedbackLink.TabIndex = 22;
+            this.GiveFeedbackLink.TabStop = true;
+            this.GiveFeedbackLink.Text = "Give Feedback";
+            this.GiveFeedbackLink.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.GiveFeedbackLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GiveFeedbackLink_LinkClicked);
             // 
             // MainPage
             // 
@@ -1390,5 +1422,7 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.Label label13;
         private Syncfusion.WinForms.Controls.SfButton SDVPlay;
         private System.Windows.Forms.Timer CheckSDV;
+        private System.Windows.Forms.LinkLabel GiveFeedbackLink;
+        private System.Windows.Forms.LinkLabel HelpLink;
     }
 }
