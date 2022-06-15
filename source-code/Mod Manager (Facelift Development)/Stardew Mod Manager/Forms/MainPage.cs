@@ -1059,5 +1059,31 @@ namespace Stardew_Mod_Manager
         {
             CheckIfGameRunning();
         }
+
+        private void HelpLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                string Documentation = "https://rwe.app/labs/sdvmm/docs";
+                Process.Start(Documentation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GiveFeedbackLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try 
+            {
+                string Feedback = "https://forms.office.com/r/Uwe2984jT1";
+                Process.Start(Feedback);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
