@@ -72,7 +72,7 @@ namespace SDVMP_Generator
             // Create
             // 
             this.Create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Create.Location = new System.Drawing.Point(331, 393);
+            this.Create.Location = new System.Drawing.Point(376, 406);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(111, 30);
             this.Create.TabIndex = 6;
@@ -109,7 +109,7 @@ namespace SDVMP_Generator
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.Location = new System.Drawing.Point(14, 402);
+            this.label11.Location = new System.Drawing.Point(16, 415);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 13);
             this.label11.TabIndex = 17;
@@ -119,7 +119,7 @@ namespace SDVMP_Generator
             // 
             this.Cancelquit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancelquit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancelquit.Location = new System.Drawing.Point(214, 393);
+            this.Cancelquit.Location = new System.Drawing.Point(259, 406);
             this.Cancelquit.Name = "Cancelquit";
             this.Cancelquit.Size = new System.Drawing.Size(111, 30);
             this.Cancelquit.TabIndex = 5;
@@ -135,7 +135,7 @@ namespace SDVMP_Generator
             this.folderlist.FormattingEnabled = true;
             this.folderlist.Location = new System.Drawing.Point(17, 183);
             this.folderlist.Name = "folderlist";
-            this.folderlist.Size = new System.Drawing.Size(425, 199);
+            this.folderlist.Size = new System.Drawing.Size(470, 212);
             this.folderlist.TabIndex = 18;
             this.folderlist.SelectedIndexChanged += new System.EventHandler(this.folderlist_SelectedIndexChanged);
             // 
@@ -144,6 +144,7 @@ namespace SDVMP_Generator
             this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackgroundImage = global::SDVMP_Generator.Properties.Resources.progress_white;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -152,7 +153,7 @@ namespace SDVMP_Generator
             this.toolStrip1.Location = new System.Drawing.Point(17, 146);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(425, 26);
+            this.toolStrip1.Size = new System.Drawing.Size(470, 26);
             this.toolStrip1.TabIndex = 19;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -200,7 +201,7 @@ namespace SDVMP_Generator
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::SDVMP_Generator.Properties.Resources.SDVMPIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(369, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(414, 22);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(79, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -214,7 +215,7 @@ namespace SDVMP_Generator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.Cancelquit;
-            this.ClientSize = new System.Drawing.Size(459, 436);
+            this.ClientSize = new System.Drawing.Size(504, 446);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.folderlist);
@@ -228,7 +229,7 @@ namespace SDVMP_Generator
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(475, 475);
+            this.MinimumSize = new System.Drawing.Size(520, 485);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
