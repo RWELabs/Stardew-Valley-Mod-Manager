@@ -37,6 +37,8 @@ namespace Stardew_Mod_Manager
             this.SoftVer = new System.Windows.Forms.Label();
             this.UpdateCheckLabel = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GiveFeedbackLink = new System.Windows.Forms.LinkLabel();
+            this.HelpLink = new System.Windows.Forms.LinkLabel();
             this.ChangelogLink = new System.Windows.Forms.LinkLabel();
             this.SettingsLink = new System.Windows.Forms.LinkLabel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -120,8 +122,6 @@ namespace Stardew_Mod_Manager
             this.HelpTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SDVPlay = new Syncfusion.WinForms.Controls.SfButton();
             this.CheckSDV = new System.Windows.Forms.Timer(this.components);
-            this.HelpLink = new System.Windows.Forms.LinkLabel();
-            this.GiveFeedbackLink = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -165,9 +165,9 @@ namespace Stardew_Mod_Manager
             // SMAPIVer
             // 
             this.SMAPIVer.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.SMAPIVer.Location = new System.Drawing.Point(151, 25);
+            this.SMAPIVer.Location = new System.Drawing.Point(140, 25);
             this.SMAPIVer.Name = "SMAPIVer";
-            this.SMAPIVer.Size = new System.Drawing.Size(162, 13);
+            this.SMAPIVer.Size = new System.Drawing.Size(92, 13);
             this.SMAPIVer.TabIndex = 15;
             this.SMAPIVer.Text = "SMAPI 0.0.0";
             this.SMAPIVer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,9 +187,9 @@ namespace Stardew_Mod_Manager
             // 
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(193, 25);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(238, 25);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
-            this.UpdateCheckLabel.Size = new System.Drawing.Size(199, 13);
+            this.UpdateCheckLabel.Size = new System.Drawing.Size(154, 13);
             this.UpdateCheckLabel.TabIndex = 18;
             this.UpdateCheckLabel.TabStop = true;
             this.UpdateCheckLabel.Text = "Check for Updates";
@@ -213,6 +213,34 @@ namespace Stardew_Mod_Manager
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // GiveFeedbackLink
+            // 
+            this.GiveFeedbackLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.GiveFeedbackLink.AutoSize = true;
+            this.GiveFeedbackLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.GiveFeedbackLink.Location = new System.Drawing.Point(398, 25);
+            this.GiveFeedbackLink.Name = "GiveFeedbackLink";
+            this.GiveFeedbackLink.Size = new System.Drawing.Size(80, 13);
+            this.GiveFeedbackLink.TabIndex = 22;
+            this.GiveFeedbackLink.TabStop = true;
+            this.GiveFeedbackLink.Text = "Give Feedback";
+            this.GiveFeedbackLink.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.GiveFeedbackLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GiveFeedbackLink_LinkClicked);
+            // 
+            // HelpLink
+            // 
+            this.HelpLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+            this.HelpLink.AutoSize = true;
+            this.HelpLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.HelpLink.Location = new System.Drawing.Point(583, 25);
+            this.HelpLink.Name = "HelpLink";
+            this.HelpLink.Size = new System.Drawing.Size(29, 13);
+            this.HelpLink.TabIndex = 21;
+            this.HelpLink.TabStop = true;
+            this.HelpLink.Text = "Help";
+            this.HelpLink.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.HelpLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HelpLink_LinkClicked);
             // 
             // ChangelogLink
             // 
@@ -1220,7 +1248,7 @@ namespace Stardew_Mod_Manager
             // 
             this.SDVPlay.AccessibleName = "Button";
             this.SDVPlay.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.SDVPlay.Location = new System.Drawing.Point(469, 154);
+            this.SDVPlay.Location = new System.Drawing.Point(470, 154);
             this.SDVPlay.Name = "SDVPlay";
             this.SDVPlay.Size = new System.Drawing.Size(119, 27);
             this.SDVPlay.Style.BackColor = System.Drawing.Color.White;
@@ -1234,34 +1262,6 @@ namespace Stardew_Mod_Manager
             // 
             this.CheckSDV.Interval = 10000;
             this.CheckSDV.Tick += new System.EventHandler(this.CheckSDV_Tick);
-            // 
-            // HelpLink
-            // 
-            this.HelpLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-            this.HelpLink.AutoSize = true;
-            this.HelpLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.HelpLink.Location = new System.Drawing.Point(583, 25);
-            this.HelpLink.Name = "HelpLink";
-            this.HelpLink.Size = new System.Drawing.Size(29, 13);
-            this.HelpLink.TabIndex = 21;
-            this.HelpLink.TabStop = true;
-            this.HelpLink.Text = "Help";
-            this.HelpLink.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.HelpLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HelpLink_LinkClicked);
-            // 
-            // GiveFeedbackLink
-            // 
-            this.GiveFeedbackLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-            this.GiveFeedbackLink.AutoSize = true;
-            this.GiveFeedbackLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.GiveFeedbackLink.Location = new System.Drawing.Point(398, 25);
-            this.GiveFeedbackLink.Name = "GiveFeedbackLink";
-            this.GiveFeedbackLink.Size = new System.Drawing.Size(80, 13);
-            this.GiveFeedbackLink.TabIndex = 22;
-            this.GiveFeedbackLink.TabStop = true;
-            this.GiveFeedbackLink.Text = "Give Feedback";
-            this.GiveFeedbackLink.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.GiveFeedbackLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GiveFeedbackLink_LinkClicked);
             // 
             // MainPage
             // 
