@@ -204,7 +204,7 @@ namespace Stardew_Mod_Manager.Startup
                 else
                 {
                     //Alert to available update
-                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to view the latest release?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to download and install the latest version?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     //User clicks yes
                     if (dr == DialogResult.Yes)
