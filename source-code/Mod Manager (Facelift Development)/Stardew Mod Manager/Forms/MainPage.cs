@@ -877,11 +877,13 @@ namespace Stardew_Mod_Manager
                 MainTabs.TabPages.Remove(Tab_GameMan);
                 MainTabs.TabPages.Remove(Tab_Settings);
                 MainTabs.TabPages.Remove(Tab_InstallOptions);
+                GiveFeedbackLink.Enabled = false;
             }
             if (MainTabs.SelectedTab != Tab_Feedback)
             {
                 MainTabs.TabPages.Add(Tab_Main);
                 MainTabs.TabPages.Add(Tab_GameMan);
+                GiveFeedbackLink.Enabled = true;
             }
         }
 
@@ -1089,8 +1091,16 @@ namespace Stardew_Mod_Manager
 
         private void GiveFeedbackLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MainTabs.TabPages.Add(Tab_Feedback);
-            this.MainTabs.SelectedTab = Tab_Feedback;
+            if(MainTabs.SelectedTab == Tab_Feedback)
+            {
+                //do nothing
+            }
+            else
+            {
+                MainTabs.TabPages.Add(Tab_Feedback);
+                this.MainTabs.SelectedTab = Tab_Feedback;
+                GiveFeedbackLink.Enabled = false;
+            }
         }
 
         private void Tab_Feedback_Closed(object sender, EventArgs e)
@@ -1098,6 +1108,7 @@ namespace Stardew_Mod_Manager
             MainTabs.TabPages.Remove(Tab_Feedback);
             MainTabs.TabPages.Add(Tab_Main);
             MainTabs.TabPages.Add(Tab_GameMan);
+            GiveFeedbackLink.Enabled = true;
         }
     }
 }
