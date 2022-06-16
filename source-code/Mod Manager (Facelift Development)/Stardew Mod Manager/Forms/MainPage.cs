@@ -36,6 +36,7 @@ namespace Stardew_Mod_Manager
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
             MainTabs.TabPages.Remove(Tab_InstallOptions);
+            MainTabs.TabPages.Remove(Tab_Feedback);
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
@@ -676,7 +677,7 @@ namespace Stardew_Mod_Manager
                 else
                 {
                     //Alert to available update
-                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to view the latest release?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to download and install the latest version?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     //User clicks yes
                     if (dr == DialogResult.Yes)
@@ -868,6 +869,19 @@ namespace Stardew_Mod_Manager
             {
                 MainTabs.TabPages.Remove(Tab_Main);
                 MainTabs.TabPages.Remove(Tab_GameMan);
+            }
+
+            if (MainTabs.SelectedTab == Tab_Feedback)
+            {
+                MainTabs.TabPages.Remove(Tab_Main);
+                MainTabs.TabPages.Remove(Tab_GameMan);
+                MainTabs.TabPages.Remove(Tab_Settings);
+                MainTabs.TabPages.Remove(Tab_InstallOptions);
+            }
+            if (MainTabs.SelectedTab != Tab_Feedback)
+            {
+                MainTabs.TabPages.Add(Tab_Main);
+                MainTabs.TabPages.Add(Tab_GameMan);
             }
         }
 
@@ -1075,15 +1089,15 @@ namespace Stardew_Mod_Manager
 
         private void GiveFeedbackLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            try 
-            {
-                string Feedback = "https://forms.office.com/r/Uwe2984jT1";
-                Process.Start(Feedback);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            MainTabs.TabPages.Add(Tab_Feedback);
+            this.MainTabs.SelectedTab = Tab_Feedback;
+        }
+
+        private void Tab_Feedback_Closed(object sender, EventArgs e)
+        {
+            MainTabs.TabPages.Remove(Tab_Feedback);
+            MainTabs.TabPages.Add(Tab_Main);
+            MainTabs.TabPages.Add(Tab_GameMan);
         }
     }
 }
