@@ -283,6 +283,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sdvFeedback {
+            get {
+                object obj = ResourceManager.GetObject("sdvFeedback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdvicon {
             get {
                 object obj = ResourceManager.GetObject("sdvicon", resourceCulture);
@@ -376,6 +386,16 @@ namespace Stardew_Mod_Manager.Properties {
         internal static System.Drawing.Bitmap sdvsettings {
             get {
                 object obj = ResourceManager.GetObject("sdvsettings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sdvSettings220602 {
+            get {
+                object obj = ResourceManager.GetObject("sdvSettings220602", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
