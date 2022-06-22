@@ -10,8 +10,8 @@ The Stardew Valley Mod Manager and Modded Framework is an extension to SMAPI, th
 
 - [Features](#features)
 - [How-To/Documentation](#documentation)
-  - [Download and Install](#download-and-install)
-  - [Using the Mod Manager](#usage)
+  - [Download and Install](#setup-and-configuration)
+  - [Using the Mod Manager](#using-the-mod-manager)
 - [License](#license)
 - [Download](#download)
     - [System Requirements](#system-requirements)
@@ -47,25 +47,26 @@ Create backups and delete any of your farms with built in Game Save Management t
 ## Documentation
 <b>Important:</b> Please note that due to changes in the application's user interface with version 220501, some of the screenshots used in the documentation may be out of date and may not accurately reflect the visual experience you may be having. We believe that despite this, the instructions are still relevant - the appearance and names of labels, windows and user interface may differ but should still adhere closely enough to the written instructions.
 
-### Download and Install
+### Setup and Configuration
 Simply [download](#download) the latest release of Stardew Valley Mod Manager from this repository and follow the installation prompts. From there, you can keep your Mod Manager updated with the built in update check tools. Please note that you may have trouble with Chrome, Edge and Windows trying to block you from installing the application as it is not a commonly downloaded application.
 
-- [Minimum/Recommended Specs](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration)
+- [Getting Started: Setup and Configuration](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration)
 - [How-To: Downloading the Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration/downloading-the-application)
 - [How-To: Installing the Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration/installing-the-application)
 - [How-To: Setting up the Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration/setting-up-the-application)
 - [How-To: Updating Stardew Valley Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/updating-the-mod-manager)
+- [How-To: Navigating the Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/navigating-the-mod-manager)
 
 ### Using the Mod Manager
 To make it easy for you to access, we've established a Wiki that contains a variety of "How-to" articles that outline and explain features and processes. We've got a couple of articles you can access here, or you can click "Visit our Wiki" to see more.
 
-- [How-To: Install a Mod](https://github.com/RyanWalpoleEnterprises/Stardew-Valley/wiki/How-To:-Add-and-Remove-Mods#adding-mods)
-- [How-To: Uninstall a Mod](https://github.com/RyanWalpoleEnterprises/Stardew-Valley/wiki/How-To:-Add-and-Remove-Mods#removing-mods)
-- [How-To: Backup a Game Save](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Create-a-Game-Save-Backup)
-- [How-To: Create a Mod Preset](https://github.com/RyanWalpoleEnterprises/Stardew-Valley/wiki/How-To:-Create-Mod-Presets)
-- [How-To: Load a Mod Preset](https://github.com/RyanWalpoleEnterprises/Stardew-Valley/wiki/How-To:-Load-Mod-Presets)
+- [How-To: Installing Mods](https://rwe-labs.gitbook.io/sdvmm/mod-management/installing-mods)
+- [How-To: Enabling and Disabling Mods](https://rwe-labs.gitbook.io/sdvmm/mod-management/enabling-and-disabling-mods)
+- [How-To: Updating Mods](https://rwe-labs.gitbook.io/sdvmm/mod-management/updating-mods)
+- [How-To: Create a Mod Preset](https://rwe-labs.gitbook.io/sdvmm/mod-management/mod-presets/create-a-mod-preset)
+- [How-To: Load a Mod Preset](https://rwe-labs.gitbook.io/sdvmm/mod-management/mod-presets/load-a-mod-preset)
 
-Or for more articles and information, [Visit our Wiki](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki)
+Or for more articles and information, [Visit our Wiki](https://rwe-labs.gitbook.io/sdvmm/)
 
 ## License
 It's your responsibility to read the license agreement when installing the software if you intend on using it as much as it's our responsibility to do our best to show it to you.
