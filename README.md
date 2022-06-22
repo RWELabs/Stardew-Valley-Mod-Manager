@@ -50,9 +50,11 @@ Create backups and delete any of your farms with built in Game Save Management t
 ### Download and Install
 Simply [download](#download) the latest release of Stardew Valley Mod Manager from this repository and follow the installation prompts. From there, you can keep your Mod Manager updated with the built in update check tools. Please note that you may have trouble with Chrome, Edge and Windows trying to block you from installing the application as it is not a commonly downloaded application.
 
-- [How-To: Downloading Stardew Valley Mod Manager](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Downloading-Stardew-Valley-Mod-Manager)
-- [How-To: Setting Up Stardew Valley Mod Manager](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Setting-Up-Stardew-Valley-Mod-Manager)
-- [How-To: Updating Stardew Valley Mod Manager](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Updating-Stardew-Valley-Mod-Manager)
+- [Minimum/Recommended Specs](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration)
+- [How-To: Downloading the Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration/downloading-the-application)
+- [How-To: Installing the Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration/installing-the-application)
+- [How-To: Setting up the Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration/setting-up-the-application)
+- [How-To: Updating Stardew Valley Mod Manager](https://rwe-labs.gitbook.io/sdvmm/getting-started/updating-the-mod-manager)
 
 ### Using the Mod Manager
 To make it easy for you to access, we've established a Wiki that contains a variety of "How-to" articles that outline and explain features and processes. We've got a couple of articles you can access here, or you can click "Visit our Wiki" to see more.
