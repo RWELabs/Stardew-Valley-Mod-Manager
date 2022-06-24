@@ -126,6 +126,8 @@ namespace Stardew_Mod_Manager
             this.HelpTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SDVPlay = new Syncfusion.WinForms.Controls.SfButton();
             this.CheckSDV = new System.Windows.Forms.Timer(this.components);
+            this.FBView = new System.Windows.Forms.WebBrowser();
+            this.BugReport = new Syncfusion.WinForms.Controls.SfButton();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -1169,6 +1171,8 @@ namespace Stardew_Mod_Manager
             // Tab_Feedback
             // 
             this.Tab_Feedback.BackColor = System.Drawing.Color.White;
+            this.Tab_Feedback.Controls.Add(this.BugReport);
+            this.Tab_Feedback.Controls.Add(this.FBView);
             this.Tab_Feedback.Controls.Add(this.pictureBox3);
             this.Tab_Feedback.Controls.Add(this.label15);
             this.Tab_Feedback.Controls.Add(this.label16);
@@ -1198,7 +1202,7 @@ namespace Stardew_Mod_Manager
             this.label15.Font = new System.Drawing.Font("Segoe UI", 8.75F);
             this.label15.Location = new System.Drawing.Point(150, 54);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(394, 51);
+            this.label15.Size = new System.Drawing.Size(263, 77);
             this.label15.TabIndex = 34;
             this.label15.Text = "We\'d love to hear what you think about Stardew Valley Mod Manager and what you th" +
     "ink we should be doing differently, or what you would like to see us add to the " +
@@ -1318,6 +1322,26 @@ namespace Stardew_Mod_Manager
             // 
             this.CheckSDV.Interval = 10000;
             this.CheckSDV.Tick += new System.EventHandler(this.CheckSDV_Tick);
+            // 
+            // FBView
+            // 
+            this.FBView.Location = new System.Drawing.Point(19, 146);
+            this.FBView.MinimumSize = new System.Drawing.Size(20, 20);
+            this.FBView.Name = "FBView";
+            this.FBView.ScriptErrorsSuppressed = true;
+            this.FBView.Size = new System.Drawing.Size(567, 333);
+            this.FBView.TabIndex = 35;
+            // 
+            // BugReport
+            // 
+            this.BugReport.AccessibleName = "Button";
+            this.BugReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.BugReport.Location = new System.Drawing.Point(449, 73);
+            this.BugReport.Name = "BugReport";
+            this.BugReport.Size = new System.Drawing.Size(137, 28);
+            this.BugReport.TabIndex = 36;
+            this.BugReport.Text = "Report a Bug";
+            this.BugReport.Click += new System.EventHandler(this.BugReport_Click);
             // 
             // MainPage
             // 
@@ -1486,5 +1510,7 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.WebBrowser FBView;
+        private Syncfusion.WinForms.Controls.SfButton BugReport;
     }
 }
