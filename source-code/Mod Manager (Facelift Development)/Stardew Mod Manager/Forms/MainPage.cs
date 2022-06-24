@@ -1100,6 +1100,7 @@ namespace Stardew_Mod_Manager
                 MainTabs.TabPages.Add(Tab_Feedback);
                 this.MainTabs.SelectedTab = Tab_Feedback;
                 GiveFeedbackLink.Enabled = false;
+                FBView.Url = new Uri("https://labs.ryanwalpole.com/feedback/sdvmm/");
             }
         }
 
@@ -1109,6 +1110,19 @@ namespace Stardew_Mod_Manager
             MainTabs.TabPages.Add(Tab_Main);
             MainTabs.TabPages.Add(Tab_GameMan);
             GiveFeedbackLink.Enabled = true;
+        }
+
+        private void BugReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string BugReport = "https://rwe.app/sdvmm/report/issue";
+                Process.Start(BugReport);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
