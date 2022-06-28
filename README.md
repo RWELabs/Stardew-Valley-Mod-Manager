@@ -113,7 +113,7 @@ If you're running into any issues with downloading or installing the application
 
 Please see a list of branches for this repository: 
 
-<p align="left" style="margin-bottom: 0px !important;">
+<p align="left" style="margin-bottom: 1px !important;">
   <a href="https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/tree/release-stable">
     <img  src="https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/release-stable/web/Srelease-stable.png" alt="Stable Release" align="left">
   </a>
