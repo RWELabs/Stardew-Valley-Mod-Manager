@@ -111,6 +111,8 @@ namespace Stardew_Mod_Manager
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.Tab_Feedback = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.BugReport = new Syncfusion.WinForms.Controls.SfButton();
+            this.FBView = new System.Windows.Forms.WebBrowser();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -126,8 +128,6 @@ namespace Stardew_Mod_Manager
             this.HelpTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SDVPlay = new Syncfusion.WinForms.Controls.SfButton();
             this.CheckSDV = new System.Windows.Forms.Timer(this.components);
-            this.FBView = new System.Windows.Forms.WebBrowser();
-            this.BugReport = new Syncfusion.WinForms.Controls.SfButton();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -1187,6 +1187,26 @@ namespace Stardew_Mod_Manager
             this.Tab_Feedback.ThemesEnabled = false;
             this.Tab_Feedback.Closed += new System.EventHandler(this.Tab_Feedback_Closed);
             // 
+            // BugReport
+            // 
+            this.BugReport.AccessibleName = "Button";
+            this.BugReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.BugReport.Location = new System.Drawing.Point(449, 73);
+            this.BugReport.Name = "BugReport";
+            this.BugReport.Size = new System.Drawing.Size(137, 28);
+            this.BugReport.TabIndex = 36;
+            this.BugReport.Text = "Report a Bug";
+            this.BugReport.Click += new System.EventHandler(this.BugReport_Click);
+            // 
+            // FBView
+            // 
+            this.FBView.Location = new System.Drawing.Point(19, 146);
+            this.FBView.MinimumSize = new System.Drawing.Size(20, 20);
+            this.FBView.Name = "FBView";
+            this.FBView.ScriptErrorsSuppressed = true;
+            this.FBView.Size = new System.Drawing.Size(567, 333);
+            this.FBView.TabIndex = 35;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvFeedback;
@@ -1322,26 +1342,6 @@ namespace Stardew_Mod_Manager
             // 
             this.CheckSDV.Interval = 10000;
             this.CheckSDV.Tick += new System.EventHandler(this.CheckSDV_Tick);
-            // 
-            // FBView
-            // 
-            this.FBView.Location = new System.Drawing.Point(19, 146);
-            this.FBView.MinimumSize = new System.Drawing.Size(20, 20);
-            this.FBView.Name = "FBView";
-            this.FBView.ScriptErrorsSuppressed = true;
-            this.FBView.Size = new System.Drawing.Size(567, 333);
-            this.FBView.TabIndex = 35;
-            // 
-            // BugReport
-            // 
-            this.BugReport.AccessibleName = "Button";
-            this.BugReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.BugReport.Location = new System.Drawing.Point(449, 73);
-            this.BugReport.Name = "BugReport";
-            this.BugReport.Size = new System.Drawing.Size(137, 28);
-            this.BugReport.TabIndex = 36;
-            this.BugReport.Text = "Report a Bug";
-            this.BugReport.Click += new System.EventHandler(this.BugReport_Click);
             // 
             // MainPage
             // 
