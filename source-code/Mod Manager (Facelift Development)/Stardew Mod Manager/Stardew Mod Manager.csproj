@@ -40,6 +40,16 @@
   <PropertyGroup>
     <StartupObject>Stardew_Mod_Manager.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.Compatibility" />
@@ -255,6 +265,8 @@
     <None Include="Resources\SDVBGLQ.png" />
     <None Include="Resources\SDVMPIcon.png" />
     <None Include="Resources\SDVplay.png" />
+    <None Include="Resources\sdvSettings220602.png" />
+    <None Include="Resources\sdvFeedback.png" />
     <Content Include="sdvicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
