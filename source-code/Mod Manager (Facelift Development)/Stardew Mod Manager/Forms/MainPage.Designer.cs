@@ -110,6 +110,12 @@ namespace Stardew_Mod_Manager
             this.InstallViaModpack = new Syncfusion.WinForms.Controls.SfButton();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.Tab_Feedback = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.BugReport = new Syncfusion.WinForms.Controls.SfButton();
+            this.FBView = new System.Windows.Forms.WebBrowser();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.barItem1 = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.barItem2 = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
             this.barItem3 = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
@@ -140,6 +146,8 @@ namespace Stardew_Mod_Manager
             this.Tab_InstallOptions.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.Tab_Feedback.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SMAPIWarning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -306,9 +314,9 @@ namespace Stardew_Mod_Manager
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.75F);
-            this.label7.Location = new System.Drawing.Point(150, 51);
+            this.label7.Location = new System.Drawing.Point(150, 54);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(394, 80);
+            this.label7.Size = new System.Drawing.Size(394, 77);
             this.label7.TabIndex = 31;
             this.label7.Text = resources.GetString("label7.Text");
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -985,6 +993,7 @@ namespace Stardew_Mod_Manager
             this.MainTabs.Controls.Add(this.Tab_InstallOptions);
             this.MainTabs.Controls.Add(this.Tab_GameMan);
             this.MainTabs.Controls.Add(this.Tab_Settings);
+            this.MainTabs.Controls.Add(this.Tab_Feedback);
             this.MainTabs.EnableTouchMode = true;
             this.MainTabs.FixedSingleBorderColor = System.Drawing.Color.White;
             this.MainTabs.FocusOnTabClick = false;
@@ -1159,6 +1168,77 @@ namespace Stardew_Mod_Manager
             this.label12.Text = "Install Mods";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // Tab_Feedback
+            // 
+            this.Tab_Feedback.BackColor = System.Drawing.Color.White;
+            this.Tab_Feedback.Controls.Add(this.BugReport);
+            this.Tab_Feedback.Controls.Add(this.FBView);
+            this.Tab_Feedback.Controls.Add(this.pictureBox3);
+            this.Tab_Feedback.Controls.Add(this.label15);
+            this.Tab_Feedback.Controls.Add(this.label16);
+            this.Tab_Feedback.Image = null;
+            this.Tab_Feedback.ImageSize = new System.Drawing.Size(16, 16);
+            this.Tab_Feedback.Location = new System.Drawing.Point(0, 32);
+            this.Tab_Feedback.Name = "Tab_Feedback";
+            this.Tab_Feedback.ShowCloseButton = true;
+            this.Tab_Feedback.Size = new System.Drawing.Size(616, 492);
+            this.Tab_Feedback.TabIndex = 5;
+            this.Tab_Feedback.Text = "Feedback   ";
+            this.Tab_Feedback.ThemesEnabled = false;
+            this.Tab_Feedback.Closed += new System.EventHandler(this.Tab_Feedback_Closed);
+            // 
+            // BugReport
+            // 
+            this.BugReport.AccessibleName = "Button";
+            this.BugReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.BugReport.Location = new System.Drawing.Point(449, 73);
+            this.BugReport.Name = "BugReport";
+            this.BugReport.Size = new System.Drawing.Size(137, 28);
+            this.BugReport.TabIndex = 36;
+            this.BugReport.Text = "Report a Bug";
+            this.BugReport.Click += new System.EventHandler(this.BugReport_Click);
+            // 
+            // FBView
+            // 
+            this.FBView.Location = new System.Drawing.Point(19, 146);
+            this.FBView.MinimumSize = new System.Drawing.Size(20, 20);
+            this.FBView.Name = "FBView";
+            this.FBView.ScriptErrorsSuppressed = true;
+            this.FBView.Size = new System.Drawing.Size(567, 333);
+            this.FBView.TabIndex = 35;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvFeedback;
+            this.pictureBox3.Location = new System.Drawing.Point(32, 31);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 33;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.75F);
+            this.label15.Location = new System.Drawing.Point(150, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(263, 77);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "We\'d love to hear what you think about Stardew Valley Mod Manager and what you th" +
+    "ink we should be doing differently, or what you would like to see us add to the " +
+    "application.";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(149, 31);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(264, 23);
+            this.label16.TabIndex = 32;
+            this.label16.Text = "Feedback";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // barItem1
             // 
             this.barItem1.BarName = "barItem1";
@@ -1323,6 +1403,8 @@ namespace Stardew_Mod_Manager
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.Tab_Feedback.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.SMAPIWarning.ResumeLayout(false);
             this.SMAPIWarning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1424,5 +1506,11 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.Timer CheckSDV;
         private System.Windows.Forms.LinkLabel GiveFeedbackLink;
         private System.Windows.Forms.LinkLabel HelpLink;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv Tab_Feedback;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.WebBrowser FBView;
+        private Syncfusion.WinForms.Controls.SfButton BugReport;
     }
 }
