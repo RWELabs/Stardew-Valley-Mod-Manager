@@ -881,8 +881,6 @@ namespace Stardew_Mod_Manager
             }
             if (MainTabs.SelectedTab != Tab_Feedback)
             {
-                MainTabs.TabPages.Add(Tab_Main);
-                MainTabs.TabPages.Add(Tab_GameMan);
                 GiveFeedbackLink.Enabled = true;
             }
         }
@@ -1106,7 +1104,6 @@ namespace Stardew_Mod_Manager
 
         private void Tab_Feedback_Closed(object sender, EventArgs e)
         {
-            MainTabs.TabPages.Remove(Tab_Feedback);
             MainTabs.TabPages.Add(Tab_Main);
             MainTabs.TabPages.Add(Tab_GameMan);
             GiveFeedbackLink.Enabled = true;
