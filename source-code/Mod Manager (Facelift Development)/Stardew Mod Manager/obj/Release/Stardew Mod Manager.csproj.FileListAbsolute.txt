@@ -127,3 +127,47 @@ C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager (Facelift Developmen
 C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.CopyComplete
 C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.exe
 C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.pdb
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\sdvicon.ico
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe.config
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Stardew Mod Manager.pdb
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Core.WinForms.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Grid.Base.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Grid.Windows.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Licensing.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Shared.Base.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Shared.Windows.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.SpellChecker.Base.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Tools.Base.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Tools.Windows.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\EnvDTE.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\stdole.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Core.WinForms.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Grid.Base.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Grid.Windows.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Shared.Base.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Shared.Windows.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.SpellChecker.Base.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Tools.Base.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Syncfusion.Tools.Windows.xml
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.AssemblyReference.cache
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.SuggestedBindingRedirects.cache
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Interop.IWshRuntimeLibrary.dll
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.ResolveComReference.cache
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.FirstRunSetup_Complete.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.FirstRunSetup.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.First_Run.UpdateVersion.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.MainPage.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.ModUpdateCheck.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.MPInstaller.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.MPOpen.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Properties.PackInstaller.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.UpdateDownload.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Properties.Resources.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Settings.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Startup.Splash.resources
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.GenerateResource.cache
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.CoreCompileInputs.cache
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.CopyComplete
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.exe
+C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.pdb
