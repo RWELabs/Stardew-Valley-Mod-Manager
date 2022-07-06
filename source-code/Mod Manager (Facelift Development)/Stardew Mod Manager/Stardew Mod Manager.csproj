@@ -267,6 +267,8 @@
     <None Include="Resources\SDVplay.png" />
     <None Include="Resources\sdvSettings220602.png" />
     <None Include="Resources\sdvFeedback.png" />
+    <None Include="Resources\sdvQuestion.png" />
+    <None Include="Resources\sdvConnecting.png" />
     <Content Include="sdvicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
