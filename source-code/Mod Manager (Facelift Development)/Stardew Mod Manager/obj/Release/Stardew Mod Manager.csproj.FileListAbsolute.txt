@@ -171,3 +171,4 @@ C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manag
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.csproj.CopyComplete
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.exe
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew Mod Manager.pdb
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.SMAPI_Updater.resources
