@@ -31,7 +31,8 @@ namespace Stardew_Mod_Manager.Forms
 
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-            string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+            string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
+            string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
 
             foreach (string folder in Directory.GetDirectories(UnpackLocation))
             {
@@ -64,7 +65,8 @@ namespace Stardew_Mod_Manager.Forms
         {
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-            string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+            string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
+            string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
             //string ModsOld = Properties.Settings.Default.StardewDir + @"\vdsk\";
 
             foreach (string folder in Directory.GetDirectories(UnpackLocation))
@@ -105,7 +107,8 @@ namespace Stardew_Mod_Manager.Forms
         {
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-            string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+            string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
+            string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
 
             foreach (string folder in Directory.GetDirectories(Path.GetFullPath(UnpackLocation)))
             {

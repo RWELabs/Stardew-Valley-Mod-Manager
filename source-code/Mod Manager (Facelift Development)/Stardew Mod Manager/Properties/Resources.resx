@@ -133,6 +133,9 @@
   <data name="sdv_updatecheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdv_updatecheck.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sdvSettings220602" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvSettings220602.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sdvbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,8 +175,8 @@
   <data name="sdvsettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvsettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SMAPILogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SMAPILogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sdvFeedback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvFeedback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,8 +196,14 @@
   <data name="progress_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\progress_white.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SMAPILogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SMAPILogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SdvSavePreset" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SdvSavePreset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SDVplay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SDVplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stardew Mod Manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stardew Mod Manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -210,6 +219,9 @@
   </data>
   <data name="sdvOpenPreset" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvOpenPreset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sdvQuestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvQuestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ZipModInstallIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ZipModInstallIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,7 +244,7 @@
   <data name="sdvvalidated" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvvalidated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SDVplay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SDVplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sdvConnecting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvConnecting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

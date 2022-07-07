@@ -40,6 +40,16 @@
   <PropertyGroup>
     <StartupObject>Stardew_Mod_Manager.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.Compatibility" />
@@ -129,6 +139,12 @@
     <Compile Include="Forms\MPOpen.Designer.cs">
       <DependentUpon>MPOpen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SMAPI-Updater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SMAPI-Updater.Designer.cs">
+      <DependentUpon>SMAPI-Updater.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateDownload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PackInstaller.resx">
       <DependentUpon>PackInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SMAPI-Updater.resx">
+      <DependentUpon>SMAPI-Updater.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateDownload.resx">
       <DependentUpon>UpdateDownload.cs</DependentUpon>
@@ -255,6 +274,10 @@
     <None Include="Resources\SDVBGLQ.png" />
     <None Include="Resources\SDVMPIcon.png" />
     <None Include="Resources\SDVplay.png" />
+    <None Include="Resources\sdvSettings220602.png" />
+    <None Include="Resources\sdvFeedback.png" />
+    <None Include="Resources\sdvQuestion.png" />
+    <None Include="Resources\sdvConnecting.png" />
     <Content Include="sdvicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

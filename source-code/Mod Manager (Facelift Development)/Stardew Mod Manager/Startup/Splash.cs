@@ -19,16 +19,6 @@ namespace Stardew_Mod_Manager.Startup
 {
     public partial class Splash : Form
     {
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams handleParam = base.CreateParams;
-                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
-                return handleParam;
-            }
-        }
-
         public Splash()
         {
             InitializeComponent();
@@ -37,64 +27,30 @@ namespace Stardew_Mod_Manager.Startup
 
             if (Properties.Settings.Default.LaunchArguments == String.Empty)
             {
+                //No Startup Arguments
                 StartupTimer.Start();
             }
             else
             {
-                //MessageBox.Show(Properties.Settings.Default.LaunchArguments);
+                //Startup Arguments Found
+                //Launch Modpack Installer
+
                 Status.Text = "Doing Fun Things...";
                 ModpackStarter.Start();
             }
         }
 
-        private void Splash_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void StartupTimer_Tick(object sender, EventArgs e)
         {
             StartupTimer.Stop();
-            CheckDirectory.Start();
-            MigrationSettings();
+            ValidateDirectories.RunWorkerAsync();
         }
 
-        private void MigrationSettings()
+        private void ValidateDirectories_DoWork(object sender, DoWorkEventArgs e)
         {
-            string AppData =  Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-            string SettingsINI = SDVAppData + @"settings.ini";
-
-            if (System.IO.File.Exists(SettingsINI))
-            {
-                
-            }
-            else if (!System.IO.File.Exists(SettingsINI))
-            {
-                Directory.CreateDirectory(SDVAppData);
-
-                FileWrite.AppendText("$StardewDir=" + Properties.Settings.Default.StardewDir + Environment.NewLine);
-                FileWrite.AppendText("$ModsDir=" + Properties.Settings.Default.ModsDir + Environment.NewLine);
-                FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
-                FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
-                FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
-                FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
-                FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
-            }
-        }
-
-        private void CheckDirectory_Tick(object sender, EventArgs e)
-        {
-            CheckDirectory.Stop();
             Status.Text = "Validating Directories...";
 
-            CreateDirectories();
-
-            LaunchApplication.Start();
-        }
-
-        private void CreateDirectories()
-        {
             //Check for Mods Directory
             string ModsDirectory = Properties.Settings.Default.StardewDir + @"\Mods";
             if (!Directory.Exists(ModsDirectory))
@@ -130,117 +86,144 @@ namespace Stardew_Mod_Manager.Startup
             {
                 Directory.CreateDirectory(backupsdir);
             }
+        }
+
+        private void ValidateDirectories_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //Validated Directories
+            MigrateSettings.RunWorkerAsync();
+        }
+
+        private void MigrateSettings_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Status.Text = "Checking settings...";
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+            string SettingsINI = SDVAppData + @"settings.ini";
+
+            if (System.IO.File.Exists(SettingsINI))
+            {
+                Cleanup.Start();
+            }
+            else if (!System.IO.File.Exists(SettingsINI))
+            {
+                Directory.CreateDirectory(SDVAppData);
+                FileWrite.Invoke(new MethodInvoker(delegate
+                 {
+                     FileWrite.AppendText("$StardewDir=" + Properties.Settings.Default.StardewDir + Environment.NewLine);
+                     FileWrite.AppendText("$ModsDir=" + Properties.Settings.Default.ModsDir + Environment.NewLine);
+                     FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
+                     FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
+                     FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
+                     FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
+                     FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
+                 }));
+            }
 
         }
 
-        private void LaunchApplication_Tick(object sender, EventArgs e)
+        private void MigrateSettings_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            //Settings Migrated
+            //Check for Updates
+
             if(Properties.Settings.Default.CheckUpdateOnStartup == "TRUE")
             {
-                Status.Text = "Contacting Update Server...";
-                LaunchApplication.Stop();
-
-                PingNetwork();
+                CheckForUpdates.RunWorkerAsync();
             }
             else
             {
-                Status.Text = "Launching Mod Manager...";
-                LaunchApplication.Stop();
                 Cleanup.Start();
             }
         }
 
-        private void PingNetwork()
-        {
-            string host = "www.github.com";
-
-            Ping p = new Ping();
-            try
-            {
-                PingReply reply = p.Send(host, 7000);
-                if (reply.Status == IPStatus.Success)
-                {
-                    CheckForUpdate();
-                }
-                else
-                {
-                    Status.Text = "Launching Mod Manager...";
-                    LaunchApplication.Stop();
-                    Cleanup.Start();
-                }
-            }
-            catch
-            {
-                Status.Text = "Launching Mod Manager...";
-                LaunchApplication.Stop();
-                Cleanup.Start();
-            }
-        }
-
-        private void CheckForUpdate()
+        private void CheckForUpdates_DoWork(object sender, DoWorkEventArgs e)
         {
             string CurrentUpdateVersion = "https://raw.githubusercontent.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/main/web/uc.xml";
             string LatestRelease = "https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/latest";
 
-            Status.Text = "Checking for updates...";
-            //MessageBox.Show("Checking for updates...");
+            //View current stable version number
+            XmlDocument document = new XmlDocument();
+            document.Load(CurrentUpdateVersion);
+            string CVER = document.InnerText;
 
-            //Check for updates
-            try
+            //Compare current stable version against installed version
+            if (CVER.Contains(Properties.Settings.Default.Version))
             {
-                //View current stable version number
-                XmlDocument document = new XmlDocument();
-                document.Load(CurrentUpdateVersion);
-                string CVER = document.InnerText;
-
-                //Compare current stable version against installed version
-                if (CVER.Contains(Properties.Settings.Default.Version))
+                //No updates available - install version matches stable version
+                Status.Invoke(new MethodInvoker(delegate
                 {
-                    //No updates available - install version matches stable version
+                    Status.Text = "No updates found.";
+                }));
+            }
+            else
+            {
+                //No updates available - install version matches stable version
+                Status.Invoke(new MethodInvoker(delegate
+                {
+                    Status.Text = "Updates available.";
+                }));
+            }
+        }
+
+        private void CheckForUpdates_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                Cleanup.Start(); 
+            }
+            else if (e.Error != null)
+            {
+                Status.Text = "Could not connect to update server.";
+                Cleanup.Start();
+            }
+            else
+            {
+                //Alert to available update
+                DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to download and install the latest version?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                //User clicks yes
+                if (dr == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //Process.Start(LatestRelease);
+                        UpdateDownload download = new UpdateDownload();
+                        download.ShowDialog();
+                        Status.Text = "Launching Mod Manager...";
+                        Cleanup.Start();
+                    }
+                    catch
+                    {
+                        Status.Text = "Issue updating. Launching Mod Manager...";
+                        Cleanup.Start();
+                    }
+                }
+                else if(dr == DialogResult.No)
+                {
                     Status.Text = "Launching Mod Manager...";
-                    //MessageBox.Show("No updates found.");
                     Cleanup.Start();
                 }
                 else
                 {
-                    //Alert to available update
-                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to view the latest release?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    //User clicks yes
-                    if (dr == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            //Process.Start(LatestRelease);
-                            UpdateDownload download = new UpdateDownload();
-                            download.ShowDialog();
-                            Status.Text = "Launching Mod Manager...";
-                            Cleanup.Start();
-                        }
-                        catch
-                        {
-                            Status.Text = "Issue updating. Launching Mod Manager...";
-                            Cleanup.Start();
-                        }
-                    }
-                    else
-                    {
-                        Status.Text = "Launching Mod Manager...";
-                        Cleanup.Start();
-                    }
+                    Status.Text = "Launching Mod Manager...";
+                    Cleanup.Start();
                 }
-            }
-            catch
-            {
-                Status.Text = "Launching Mod Manager...";
-                Cleanup.Start();
             }
         }
 
-        private void Cleanup_Tick(object sender, EventArgs e)
+        private void ModpackStarter_Tick(object sender, EventArgs e)
         {
-            Cleanup.Stop();
+            //Start Modpack Installer
+            ModpackStarter.Stop();
+            this.Hide();
+            MPOpen ModpackFile = new MPOpen();
+            ModpackFile.Show();
+            ModpackFile.Activate();
+        }
 
+        private void LaunchApplicationNow()
+        {
             try
             {
                 //Show Main Dashboard and Hide Splash
@@ -249,19 +232,16 @@ namespace Stardew_Mod_Manager.Startup
                 Dashboard.Show();
                 Dashboard.Activate();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void ModpackStarter_Tick(object sender, EventArgs e)
+        private void Cleanup_Tick(object sender, EventArgs e)
         {
-            ModpackStarter.Stop();
-            this.Hide();
-            MPOpen ModpackFile = new MPOpen();
-            ModpackFile.Show();
-            ModpackFile.Activate();
+            Cleanup.Stop();
+            LaunchApplicationNow();
         }
     }
 }

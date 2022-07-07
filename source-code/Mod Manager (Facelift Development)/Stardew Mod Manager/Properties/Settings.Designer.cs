@@ -86,24 +86,24 @@ namespace Stardew_Mod_Manager.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TMP_ModsURL {
+        public string SMAPI_UpdateURL {
             get {
-                return ((string)(this["TMP_ModsURL"]));
+                return ((string)(this["SMAPI_UpdateURL"]));
             }
             set {
-                this["TMP_ModsURL"] = value;
+                this["SMAPI_UpdateURL"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TMP_SMAPIVer {
+        public string SMAPI_UpdateVersion {
             get {
-                return ((string)(this["TMP_SMAPIVer"]));
+                return ((string)(this["SMAPI_UpdateVersion"]));
             }
             set {
-                this["TMP_SMAPIVer"] = value;
+                this["SMAPI_UpdateVersion"] = value;
             }
         }
         
@@ -122,12 +122,12 @@ namespace Stardew_Mod_Manager.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TMP_PresetURL {
+        public string SMAPI_InstalledVersion {
             get {
-                return ((string)(this["TMP_PresetURL"]));
+                return ((string)(this["SMAPI_InstalledVersion"]));
             }
             set {
-                this["TMP_PresetURL"] = value;
+                this["SMAPI_InstalledVersion"] = value;
             }
         }
         
@@ -145,7 +145,7 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("220601")]
+        [global::System.Configuration.DefaultSettingValueAttribute("220701")]
         public string Version {
             get {
                 return ((string)(this["Version"]));

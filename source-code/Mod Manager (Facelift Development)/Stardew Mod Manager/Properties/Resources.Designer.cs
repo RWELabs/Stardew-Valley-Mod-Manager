@@ -253,6 +253,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sdvConnecting {
+            get {
+                object obj = ResourceManager.GetObject("sdvConnecting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdvDelete {
             get {
                 object obj = ResourceManager.GetObject("sdvDelete", resourceCulture);
@@ -276,6 +286,16 @@ namespace Stardew_Mod_Manager.Properties {
         internal static System.Drawing.Bitmap sdvError {
             get {
                 object obj = ResourceManager.GetObject("sdvError", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sdvFeedback {
+            get {
+                object obj = ResourceManager.GetObject("sdvFeedback", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,6 +373,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sdvQuestion {
+            get {
+                object obj = ResourceManager.GetObject("sdvQuestion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdvrefresh {
             get {
                 object obj = ResourceManager.GetObject("sdvrefresh", resourceCulture);
@@ -376,6 +406,16 @@ namespace Stardew_Mod_Manager.Properties {
         internal static System.Drawing.Bitmap sdvsettings {
             get {
                 object obj = ResourceManager.GetObject("sdvsettings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sdvSettings220602 {
+            get {
+                object obj = ResourceManager.GetObject("sdvSettings220602", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
