@@ -39,11 +39,12 @@ namespace Stardew_Mod_Manager.Startup
             this.Status = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.StartupTimer = new System.Windows.Forms.Timer(this.components);
-            this.CheckDirectory = new System.Windows.Forms.Timer(this.components);
-            this.LaunchApplication = new System.Windows.Forms.Timer(this.components);
             this.Cleanup = new System.Windows.Forms.Timer(this.components);
             this.FileWrite = new System.Windows.Forms.RichTextBox();
             this.ModpackStarter = new System.Windows.Forms.Timer(this.components);
+            this.ValidateDirectories = new System.ComponentModel.BackgroundWorker();
+            this.CheckForUpdates = new System.ComponentModel.BackgroundWorker();
+            this.MigrateSettings = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -128,22 +129,12 @@ namespace Stardew_Mod_Manager.Startup
             // 
             // StartupTimer
             // 
-            this.StartupTimer.Interval = 1000;
+            this.StartupTimer.Interval = 4000;
             this.StartupTimer.Tick += new System.EventHandler(this.StartupTimer_Tick);
-            // 
-            // CheckDirectory
-            // 
-            this.CheckDirectory.Interval = 3000;
-            this.CheckDirectory.Tick += new System.EventHandler(this.CheckDirectory_Tick);
-            // 
-            // LaunchApplication
-            // 
-            this.LaunchApplication.Interval = 2000;
-            this.LaunchApplication.Tick += new System.EventHandler(this.LaunchApplication_Tick);
             // 
             // Cleanup
             // 
-            this.Cleanup.Interval = 1000;
+            this.Cleanup.Interval = 4000;
             this.Cleanup.Tick += new System.EventHandler(this.Cleanup_Tick);
             // 
             // FileWrite
@@ -159,6 +150,23 @@ namespace Stardew_Mod_Manager.Startup
             // 
             this.ModpackStarter.Interval = 7525;
             this.ModpackStarter.Tick += new System.EventHandler(this.ModpackStarter_Tick);
+            // 
+            // ValidateDirectories
+            // 
+            this.ValidateDirectories.WorkerReportsProgress = true;
+            this.ValidateDirectories.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ValidateDirectories_DoWork);
+            this.ValidateDirectories.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ValidateDirectories_RunWorkerCompleted);
+            // 
+            // CheckForUpdates
+            // 
+            this.CheckForUpdates.WorkerReportsProgress = true;
+            this.CheckForUpdates.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CheckForUpdates_DoWork);
+            this.CheckForUpdates.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.CheckForUpdates_RunWorkerCompleted);
+            // 
+            // MigrateSettings
+            // 
+            this.MigrateSettings.DoWork += new System.ComponentModel.DoWorkEventHandler(this.MigrateSettings_DoWork);
+            this.MigrateSettings.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.MigrateSettings_RunWorkerCompleted);
             // 
             // Splash
             // 
@@ -180,7 +188,6 @@ namespace Stardew_Mod_Manager.Startup
             this.Name = "Splash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stardew Valley Modded Framework";
-            this.Load += new System.EventHandler(this.Splash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -200,11 +207,12 @@ namespace Stardew_Mod_Manager.Startup
         private System.Windows.Forms.Label Version;
         private System.Windows.Forms.Label Status;
         private System.Windows.Forms.Timer StartupTimer;
-        private System.Windows.Forms.Timer CheckDirectory;
-        private System.Windows.Forms.Timer LaunchApplication;
         private System.Windows.Forms.Timer Cleanup;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.RichTextBox FileWrite;
         private System.Windows.Forms.Timer ModpackStarter;
+        private System.ComponentModel.BackgroundWorker ValidateDirectories;
+        private System.ComponentModel.BackgroundWorker CheckForUpdates;
+        private System.ComponentModel.BackgroundWorker MigrateSettings;
     }
 }
