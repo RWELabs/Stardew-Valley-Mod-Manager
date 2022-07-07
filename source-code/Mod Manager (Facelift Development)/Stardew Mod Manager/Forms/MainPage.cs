@@ -38,13 +38,23 @@ namespace Stardew_Mod_Manager
             MainTabs.TabPages.Remove(Tab_InstallOptions);
             MainTabs.TabPages.Remove(Tab_Feedback);
 
+            StartSMAPIUpdateCheck.Start();
+
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
             try
             {
-                var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
-                string SMAPIVersionText = "SMAPI " + "v" + SMAPIVersion.FileVersion;
-                SMAPIVer.Text = SMAPIVersionText;
+                //if(Properties.Settings.Default.SMAPI_InstalledVersion == String.Empty)
+                //{
+                    var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
+                    string SMAPIVersionText = "SMAPI " + "v" + SMAPIVersion.ProductVersion;
+                    SMAPIVer.Text = SMAPIVersionText;
+                //}
+                // else
+                //{
+                //    string SMAPIVersionText = "SMAPI " + "v" + Properties.Settings.Default.SMAPI_InstalledVersion;
+                //    SMAPIVer.Text = SMAPIVersionText;
+                //}
 
                 if (!File.Exists(Properties.Settings.Default.PresetsDir + "SMAPI Default.txt"))
                 {
@@ -105,90 +115,52 @@ namespace Stardew_Mod_Manager
 
         }
 
-        private void CheckSMAPICurrentVersion()
+        private void CompareVersions()
         {
-            string URL = "https://www.nexusmods.com/stardewvalley/mods/2400/";
-
-            try
+            if (SMAPIUpdateVer.Text != SMAPIVer.Text.Replace("SMAPI v", null))
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                DialogResult dr = MessageBox.Show("SMAPI is out of date. Would you like to download the latest version now?", "SMAPI Updates Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvError;
+                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is out of date. Click for more information.");
+                HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is out of date. Click for more information.");
 
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (dr == DialogResult.Yes)
                 {
-                    Stream receiveStream = response.GetResponseStream();
-                    StreamReader readStream = null;
+                    string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                    string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\";
+                    string LINK = SDVAppData + @"link.txt";
 
-                    if (response.CharacterSet == null)
+                    string ExePath = Path.GetDirectoryName(Application.ExecutablePath);
+                    string SMAPIManager = ExePath + @"\smapiupdate.exe";
+
+                    if(SMAPIUpdateVer.Text == null)
                     {
-                        readStream = new StreamReader(receiveStream);
+                        Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
+                        HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                        HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
                     }
                     else
                     {
-                        readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+                        string UpdateURL = "https://github.com/Pathoschild/SMAPI/releases/download/" + SMAPIUpdateVer.Text + "/SMAPI-" + SMAPIUpdateVer.Text + "-installer.zip";
+                        Properties.Settings.Default.SMAPI_UpdateURL = UpdateURL;
+                        Properties.Settings.Default.SMAPI_UpdateVersion = SMAPIUpdateVer.Text;
+                        Properties.Settings.Default.Save();
+
+                        //this.Hide();
+                        SMAPI_Updater su = new SMAPI_Updater();
+                        su.ShowDialog();
                     }
-
-                    string data = readStream.ReadToEnd();
-
-                    WebData.Text = data;
-
-                    doIdentifyVersion();
                 }
+            
             }
-            catch
+            else
             {
-                //
-            }
-        }
-
-        private void doIdentifyVersion()
-        {
-            string regex = "<div class=\"stat\">";
-
-            string selectstart = "<li class=\"stat-version\">";
-            string selectend = "</li>";
-
-
-            WebData.SelectionStart = WebData.Find(selectstart);
-            WebData.SelectionLength = 289;
-
-            WebData.Copy();
-            WebDataParsed.Paste();
-
-            foreach (string line in WebDataParsed.Lines)
-            {
-                if (line.Contains(regex))
-                {
-                    string ver = line.Replace(regex, null).Replace("<", null).Replace("/", null).Replace("div", null).Replace(">", null).Trim();
-
-                    string SMAPICurrentVersionNumber = ver;
-                    SMAPIUpdateVer.Text = ver;
-                    CompareVersions();
-                }
-            }
-        }
-
-        private void CompareVersions()
-        {
-            int VersionInstalled;
-            int VersionUpdated;
-
-            Int32.TryParse(SMAPIUpdateVer.Text.Replace(".", null), out VersionInstalled);
-            Int32.TryParse(SMAPIVer.Text.Replace(".", null).Replace("SMAPI", null).Trim(), out VersionUpdated);
-
-            if (VersionInstalled < VersionUpdated)
-            {
-                SMAPIVer.Text = SMAPIVer.Text + " (Updates Available)";
-            }
-            if (VersionInstalled > VersionUpdated)
-            {
-
-            }
-            if (VersionInstalled == VersionUpdated)
-            {
-
+                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvvalidated;
+                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is up to date!");
+                HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is up to date!");
             }
 
+            //this.Show();
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -220,37 +192,6 @@ namespace Stardew_Mod_Manager
 
             PopulateGameSaveTab();
             //DoSMAPICheck();
-        }
-
-        private void DoSMAPICheck()
-        {
-            try
-            {
-                string host = "www.nexusmods.com";
-
-                Ping p = new Ping();
-                try
-                {
-                    PingReply reply = p.Send(host, 7000);
-                    if (reply.Status == IPStatus.Success)
-                    {
-                        CheckSMAPICurrentVersion();
-                    }
-                    else
-                    {
-
-                    }
-                }
-                catch
-                {
-                    //
-                }
-            }
-            catch
-            {
-                //
-
-            }
         }
 
         private void PopulateGameSaveTab()
@@ -596,7 +537,14 @@ namespace Stardew_Mod_Manager
         private void SMAPIVer_Click(object sender, EventArgs e)
         {
             var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
-            MessageBox.Show("You are running SMAPI version " + SMAPIVersion.FileVersion +". Make sure that any mods you are installing are compatible with this version of SMAPI. Alternatively, update or downgrade to a different version of SMAPI by going to https://smapi.io/","Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            //MessageBox.Show("You are running SMAPI version " + SMAPIVersion.FileVersion +". Make sure that any mods you are installing are compatible with this version of SMAPI. Alternatively, update or downgrade to a different version of SMAPI by going to https://smapi.io/","Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            Icon_SMAPIUpToDate.Image = Properties.Resources.sdvConnecting;
+            HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "Connecting to NexusMods...");
+            HelpTooltip.SetToolTip(SMAPIVer, "Connecting to NexusMods...");
+
+            SMAPIValidationWorker.RunWorkerAsync();
         }
 
         private void ZipInstall_Click(object sender, EventArgs e)
@@ -849,7 +797,7 @@ namespace Stardew_Mod_Manager
                 MainTabs.TabPages.Remove(Tab_Settings);
                 SettingsLink.Enabled = true;
             }
-
+            
             if (MainTabs.SelectedTab == Tab_Settings)
             {
                 SettingsLink.Enabled = false;
@@ -1120,6 +1068,134 @@ namespace Stardew_Mod_Manager
             {
                 MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void DownloadSMAPIButton_Click(object sender, EventArgs e)
+        {
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            Process.Start(appPath + @"\smapi.bat");
+
+            Application.Exit();
+        }
+
+        private void SMAPIValidationWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string URL = "https://www.nexusmods.com/stardewvalley/mods/2400/";
+
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            request.Timeout = 45000;
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Stream receiveStream = response.GetResponseStream();
+                StreamReader readStream = null;
+
+                if (response.CharacterSet == null)
+                {
+                    readStream = new StreamReader(receiveStream);
+                }
+                else
+                {
+                    readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+                }
+
+                string data = readStream.ReadToEnd();
+
+                WebData.Invoke(new MethodInvoker(delegate { WebData.Text = data; }));
+            }
+        }
+
+        private void SMAPIValidationWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
+                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                //MessageBox.Show(e.Error.Message);
+            }
+            else if (e.Error != null)
+            {
+                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
+                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                //MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                SMAPIValidationWorker2.RunWorkerAsync();
+            }
+        }
+
+        private void SMAPIValidationWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string regex = "<div class=\"stat\">";
+
+            string selectstart = "<li class=\"stat-version\">";
+            string selectend = "</li>";
+
+
+            WebData.Invoke(new MethodInvoker(delegate {
+                WebData.SelectionStart = WebData.Find(selectstart);
+                WebData.SelectionLength = 289;
+
+                WebData.Copy();
+                WebDataParsed.Paste();
+
+                foreach (string line in WebDataParsed.Lines)
+                {
+                    if (line.Contains(regex))
+                    {
+                        string ver = line.Replace(regex, null).Replace("<", null).Replace("/", null).Replace("div", null).Replace(">", null).Trim();
+
+                        SMAPIUpdateVer.Invoke(new MethodInvoker(delegate
+                        {
+                            SMAPIUpdateVer.Text = ver;
+                        }));
+                    }
+                }
+            }));
+        }
+
+        private void SMAPIValidationWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
+                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                //MessageBox.Show(e.Error.Message);
+            }
+            else if (e.Error != null)
+            {
+                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
+                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                //MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                //MessageBox.Show(SMAPIUpdateVer.Text);
+                CompareVersions();
+            }
+        }
+
+        private void Icon_SMAPIUpToDate_Click(object sender, EventArgs e)
+        {
+            Icon_SMAPIUpToDate.Image = Properties.Resources.sdvConnecting;
+            HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "Connecting to NexusMods...");
+            HelpTooltip.SetToolTip(SMAPIVer, "Connecting to NexusMods...");
+
+            SMAPIValidationWorker.RunWorkerAsync();
+        }
+
+        private void StartSMAPIUpdateCheck_Tick(object sender, EventArgs e)
+        {
+            StartSMAPIUpdateCheck.Stop();
+            SMAPIValidationWorker.RunWorkerAsync();
         }
     }
 }
