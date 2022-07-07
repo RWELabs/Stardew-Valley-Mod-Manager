@@ -37,6 +37,7 @@ namespace Stardew_Mod_Manager
             this.SoftVer = new System.Windows.Forms.Label();
             this.UpdateCheckLabel = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Icon_SMAPIUpToDate = new System.Windows.Forms.PictureBox();
             this.GiveFeedbackLink = new System.Windows.Forms.LinkLabel();
             this.HelpLink = new System.Windows.Forms.LinkLabel();
             this.ChangelogLink = new System.Windows.Forms.LinkLabel();
@@ -128,7 +129,11 @@ namespace Stardew_Mod_Manager
             this.HelpTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SDVPlay = new Syncfusion.WinForms.Controls.SfButton();
             this.CheckSDV = new System.Windows.Forms.Timer(this.components);
+            this.SMAPIValidationWorker = new System.ComponentModel.BackgroundWorker();
+            this.SMAPIValidationWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.StartSMAPIUpdateCheck = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -173,9 +178,9 @@ namespace Stardew_Mod_Manager
             // SMAPIVer
             // 
             this.SMAPIVer.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.SMAPIVer.Location = new System.Drawing.Point(140, 25);
+            this.SMAPIVer.Location = new System.Drawing.Point(173, 25);
             this.SMAPIVer.Name = "SMAPIVer";
-            this.SMAPIVer.Size = new System.Drawing.Size(92, 13);
+            this.SMAPIVer.Size = new System.Drawing.Size(122, 13);
             this.SMAPIVer.TabIndex = 15;
             this.SMAPIVer.Text = "SMAPI 0.0.0";
             this.SMAPIVer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -195,7 +200,7 @@ namespace Stardew_Mod_Manager
             // 
             this.UpdateCheckLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.UpdateCheckLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateCheckLabel.Location = new System.Drawing.Point(238, 25);
+            this.UpdateCheckLabel.Location = new System.Drawing.Point(299, 25);
             this.UpdateCheckLabel.Name = "UpdateCheckLabel";
             this.UpdateCheckLabel.Size = new System.Drawing.Size(154, 13);
             this.UpdateCheckLabel.TabIndex = 18;
@@ -208,6 +213,7 @@ namespace Stardew_Mod_Manager
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox1.Controls.Add(this.Icon_SMAPIUpToDate);
             this.groupBox1.Controls.Add(this.GiveFeedbackLink);
             this.groupBox1.Controls.Add(this.HelpLink);
             this.groupBox1.Controls.Add(this.ChangelogLink);
@@ -222,17 +228,30 @@ namespace Stardew_Mod_Manager
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // Icon_SMAPIUpToDate
+            // 
+            this.Icon_SMAPIUpToDate.ErrorImage = global::Stardew_Mod_Manager.Properties.Resources.sdvError;
+            this.Icon_SMAPIUpToDate.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvConnecting;
+            this.Icon_SMAPIUpToDate.Location = new System.Drawing.Point(157, 23);
+            this.Icon_SMAPIUpToDate.Name = "Icon_SMAPIUpToDate";
+            this.Icon_SMAPIUpToDate.Size = new System.Drawing.Size(17, 17);
+            this.Icon_SMAPIUpToDate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Icon_SMAPIUpToDate.TabIndex = 47;
+            this.Icon_SMAPIUpToDate.TabStop = false;
+            this.HelpTooltip.SetToolTip(this.Icon_SMAPIUpToDate, "Connecting to NexusMods...");
+            this.Icon_SMAPIUpToDate.Click += new System.EventHandler(this.Icon_SMAPIUpToDate_Click);
+            // 
             // GiveFeedbackLink
             // 
             this.GiveFeedbackLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.GiveFeedbackLink.AutoSize = true;
             this.GiveFeedbackLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.GiveFeedbackLink.Location = new System.Drawing.Point(398, 25);
+            this.GiveFeedbackLink.Location = new System.Drawing.Point(459, 25);
             this.GiveFeedbackLink.Name = "GiveFeedbackLink";
-            this.GiveFeedbackLink.Size = new System.Drawing.Size(80, 13);
+            this.GiveFeedbackLink.Size = new System.Drawing.Size(55, 13);
             this.GiveFeedbackLink.TabIndex = 22;
             this.GiveFeedbackLink.TabStop = true;
-            this.GiveFeedbackLink.Text = "Give Feedback";
+            this.GiveFeedbackLink.Text = "Feedback";
             this.GiveFeedbackLink.VisitedLinkColor = System.Drawing.Color.Blue;
             this.GiveFeedbackLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GiveFeedbackLink_LinkClicked);
             // 
@@ -255,12 +274,12 @@ namespace Stardew_Mod_Manager
             this.ChangelogLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.ChangelogLink.AutoSize = true;
             this.ChangelogLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.ChangelogLink.Location = new System.Drawing.Point(484, 25);
+            this.ChangelogLink.Location = new System.Drawing.Point(519, 25);
             this.ChangelogLink.Name = "ChangelogLink";
-            this.ChangelogLink.Size = new System.Drawing.Size(92, 13);
+            this.ChangelogLink.Size = new System.Drawing.Size(58, 13);
             this.ChangelogLink.TabIndex = 20;
             this.ChangelogLink.TabStop = true;
-            this.ChangelogLink.Text = "Read Changelogs";
+            this.ChangelogLink.Text = "Changelog";
             this.ChangelogLink.VisitedLinkColor = System.Drawing.Color.Blue;
             this.ChangelogLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChangelogLink_LinkClicked);
             // 
@@ -444,27 +463,27 @@ namespace Stardew_Mod_Manager
             // 
             // WebData
             // 
-            this.WebData.Location = new System.Drawing.Point(38, 69);
+            this.WebData.Location = new System.Drawing.Point(47, 156);
             this.WebData.Name = "WebData";
-            this.WebData.Size = new System.Drawing.Size(20, 26);
+            this.WebData.Size = new System.Drawing.Size(232, 30);
             this.WebData.TabIndex = 21;
             this.WebData.Text = "";
             this.WebData.Visible = false;
             // 
             // WebDataParsed
             // 
-            this.WebDataParsed.Location = new System.Drawing.Point(350, 37);
+            this.WebDataParsed.Location = new System.Drawing.Point(319, 156);
             this.WebDataParsed.Name = "WebDataParsed";
-            this.WebDataParsed.Size = new System.Drawing.Size(20, 26);
+            this.WebDataParsed.Size = new System.Drawing.Size(243, 30);
             this.WebDataParsed.TabIndex = 22;
             this.WebDataParsed.Text = "";
             this.WebDataParsed.Visible = false;
             // 
             // SMAPIUpdateVer
             // 
-            this.SMAPIUpdateVer.Location = new System.Drawing.Point(312, 44);
+            this.SMAPIUpdateVer.Location = new System.Drawing.Point(408, 166);
             this.SMAPIUpdateVer.Name = "SMAPIUpdateVer";
-            this.SMAPIUpdateVer.Size = new System.Drawing.Size(20, 20);
+            this.SMAPIUpdateVer.Size = new System.Drawing.Size(154, 20);
             this.SMAPIUpdateVer.TabIndex = 23;
             this.SMAPIUpdateVer.Visible = false;
             // 
@@ -731,6 +750,9 @@ namespace Stardew_Mod_Manager
             this.Tab_Main.Controls.Add(this.EnableDisableMods);
             this.Tab_Main.Controls.Add(this.AvailableModsList);
             this.Tab_Main.Controls.Add(this.InstalledModsList);
+            this.Tab_Main.Controls.Add(this.SMAPIUpdateVer);
+            this.Tab_Main.Controls.Add(this.WebDataParsed);
+            this.Tab_Main.Controls.Add(this.WebData);
             this.Tab_Main.Image = null;
             this.Tab_Main.ImageSize = new System.Drawing.Size(16, 16);
             this.Tab_Main.Location = new System.Drawing.Point(0, 32);
@@ -990,8 +1012,8 @@ namespace Stardew_Mod_Manager
             this.MainTabs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainTabs.CanOverrideStyle = true;
             this.MainTabs.Controls.Add(this.Tab_Main);
-            this.MainTabs.Controls.Add(this.Tab_InstallOptions);
             this.MainTabs.Controls.Add(this.Tab_GameMan);
+            this.MainTabs.Controls.Add(this.Tab_InstallOptions);
             this.MainTabs.Controls.Add(this.Tab_Settings);
             this.MainTabs.Controls.Add(this.Tab_Feedback);
             this.MainTabs.EnableTouchMode = true;
@@ -1343,6 +1365,23 @@ namespace Stardew_Mod_Manager
             this.CheckSDV.Interval = 10000;
             this.CheckSDV.Tick += new System.EventHandler(this.CheckSDV_Tick);
             // 
+            // SMAPIValidationWorker
+            // 
+            this.SMAPIValidationWorker.WorkerReportsProgress = true;
+            this.SMAPIValidationWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SMAPIValidationWorker_DoWork);
+            this.SMAPIValidationWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SMAPIValidationWorker_RunWorkerCompleted);
+            // 
+            // SMAPIValidationWorker2
+            // 
+            this.SMAPIValidationWorker2.WorkerReportsProgress = true;
+            this.SMAPIValidationWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SMAPIValidationWorker2_DoWork);
+            this.SMAPIValidationWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SMAPIValidationWorker2_RunWorkerCompleted);
+            // 
+            // StartSMAPIUpdateCheck
+            // 
+            this.StartSMAPIUpdateCheck.Interval = 4250;
+            this.StartSMAPIUpdateCheck.Tick += new System.EventHandler(this.StartSMAPIUpdateCheck_Tick);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1353,9 +1392,6 @@ namespace Stardew_Mod_Manager
             this.Controls.Add(this.MainTabs);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.ModFolderPath);
-            this.Controls.Add(this.SMAPIUpdateVer);
-            this.Controls.Add(this.WebDataParsed);
-            this.Controls.Add(this.WebData);
             this.Controls.Add(this.ModsToMove);
             this.Controls.Add(this.FileWrite);
             this.Controls.Add(this.groupBox1);
@@ -1375,6 +1411,7 @@ namespace Stardew_Mod_Manager
             this.Shown += new System.EventHandler(this.MainPage_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1512,5 +1549,9 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.WebBrowser FBView;
         private Syncfusion.WinForms.Controls.SfButton BugReport;
+        private System.ComponentModel.BackgroundWorker SMAPIValidationWorker;
+        private System.ComponentModel.BackgroundWorker SMAPIValidationWorker2;
+        private System.Windows.Forms.PictureBox Icon_SMAPIUpToDate;
+        private System.Windows.Forms.Timer StartSMAPIUpdateCheck;
     }
 }
