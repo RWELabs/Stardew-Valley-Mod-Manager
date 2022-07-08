@@ -179,36 +179,44 @@ namespace Stardew_Mod_Manager.Startup
             }
             else
             {
-                //Alert to available update
-                DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to download and install the latest version?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(Status.Text == "Updates available.")
+                {
+                    //Alert to available update
+                    DialogResult dr = MessageBox.Show("There are updates available for Stardew Mod Manager. Would you like to download and install the latest version?", "Update | Stardew Valley Mod Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                //User clicks yes
-                if (dr == DialogResult.Yes)
-                {
-                    try
+                    //User clicks yes
+                    if (dr == DialogResult.Yes)
                     {
-                        //Process.Start(LatestRelease);
-                        UpdateDownload download = new UpdateDownload();
-                        download.ShowDialog();
+                        try
+                        {
+                            //Process.Start(LatestRelease);
+                            UpdateDownload download = new UpdateDownload();
+                            download.ShowDialog();
+                            Status.Text = "Launching Mod Manager...";
+                            Cleanup.Start();
+                        }
+                        catch
+                        {
+                            Status.Text = "Issue updating. Launching Mod Manager...";
+                            Cleanup.Start();
+                        }
+                    }
+                    else if (dr == DialogResult.No)
+                    {
                         Status.Text = "Launching Mod Manager...";
-                        Cleanup.Start();
+                        LaunchApplicationNow();
                     }
-                    catch
+                    else
                     {
-                        Status.Text = "Issue updating. Launching Mod Manager...";
-                        Cleanup.Start();
+                        Status.Text = "Launching Mod Manager...";
+                        LaunchApplicationNow();
                     }
-                }
-                else if(dr == DialogResult.No)
-                {
-                    Status.Text = "Launching Mod Manager...";
-                    Cleanup.Start();
                 }
                 else
                 {
-                    Status.Text = "Launching Mod Manager...";
-                    Cleanup.Start();
+                    LaunchApplicationNow();
                 }
+                
             }
         }
 
