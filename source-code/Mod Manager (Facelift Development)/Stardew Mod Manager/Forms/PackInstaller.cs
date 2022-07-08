@@ -49,16 +49,16 @@ namespace Stardew_Mod_Manager.Properties
 
                     foreach (string line in ConfigFile.Lines)
                     {
-                        if (line.Contains(ModsZip)) { string ModsURL = line.Replace(ModsZip, null); Properties.Settings.Default.TMP_ModsURL = ModsURL; }
-                        if (line.Contains(Preset)) { string PresetURL = line.Replace(Preset, null); Properties.Settings.Default.TMP_PresetURL = PresetURL; }
+                        if (line.Contains(ModsZip)) { string ModsURL = line.Replace(ModsZip, null); Properties.Settings.Default.SMAPI_UpdateURL = ModsURL; }
+                        if (line.Contains(Preset)) { string PresetURL = line.Replace(Preset, null); Properties.Settings.Default.SMAPI_InstalledVersion = PresetURL; }
                         if (line.Contains(PackName)) { string PackNameString = line.Replace(PackName, null); Properties.Settings.Default.TMP_Name = PackNameString; }
-                        if (line.Contains(SMAPIReq)) { string SMAPIRequirement = line.Replace(SMAPIReq, null); Properties.Settings.Default.TMP_SMAPIVer = SMAPIRequirement; }
+                        if (line.Contains(SMAPIReq)) { string SMAPIRequirement = line.Replace(SMAPIReq, null); Properties.Settings.Default.SMAPI_UpdateVersion = SMAPIRequirement; }
                     }
 
                     SDVMPFilePath.Text = ofd.FileName;
                     OuputConsole.AppendText(Environment.NewLine + "[INFO] Modpack Found: " + ofd.FileName);
 
-                    verSMAPIReq.Text = Properties.Settings.Default.TMP_SMAPIVer;
+                    verSMAPIReq.Text = Properties.Settings.Default.SMAPI_UpdateVersion;
                     
                     var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
                     verSMAPI.Text = SMAPIVersion.ProductVersion;
@@ -74,7 +74,7 @@ namespace Stardew_Mod_Manager.Properties
                         DialogResult dr = MessageBox.Show("This modpack is declaring a requirement for a version of SMAPI higher than the version you have installed. Would you like to download the version of SMAPI associated with this modpack?", "Update SMAPI | Stardew Valley Modded Framework", MessageBoxButtons.YesNo ,MessageBoxIcon.Information);
                         if(dr == DialogResult.Yes)
                         {
-                            Process.Start("https://github.com/Pathoschild/SMAPI/releases/download/" + Properties.Settings.Default.TMP_SMAPIVer + @"/SMAPI-" + Properties.Settings.Default.TMP_SMAPIVer +"-installer.zip");
+                            Process.Start("https://github.com/Pathoschild/SMAPI/releases/download/" + Properties.Settings.Default.SMAPI_UpdateVersion + @"/SMAPI-" + Properties.Settings.Default.SMAPI_UpdateVersion +"-installer.zip");
                         }
 
                         OuputConsole.AppendText(Environment.NewLine + "[WARN] Modpack requires SMAPI: " + SmapiVersionRequired);
@@ -115,7 +115,7 @@ namespace Stardew_Mod_Manager.Properties
                     wc.DownloadProgressChanged += wc_DownloadProgressChanged;
                     wc.DownloadFileAsync(
                         // Param1 = Link of file
-                        new System.Uri(Properties.Settings.Default.TMP_ModsURL),
+                        new System.Uri(Properties.Settings.Default.SMAPI_UpdateURL),
                         // Param2 = Path to save
                         updatelocation
                     );
@@ -164,7 +164,7 @@ namespace Stardew_Mod_Manager.Properties
                     wc.DownloadProgressChanged += wc_DownloadProgressChanged2;
                     wc.DownloadFileAsync(
                         // Param1 = Link of file
-                        new System.Uri(Properties.Settings.Default.TMP_PresetURL),
+                        new System.Uri(Properties.Settings.Default.SMAPI_InstalledVersion),
                         // Param2 = Path to save
                         updatelocation
                     );

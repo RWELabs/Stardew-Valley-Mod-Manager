@@ -22,7 +22,7 @@ namespace Stardew_Mod_Manager.Forms
 
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-            string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+            string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
 
             if (Directory.Exists(UnpackLocation))
             {
@@ -33,7 +33,7 @@ namespace Stardew_Mod_Manager.Forms
             DriveInfo destDrive = new DriveInfo(Properties.Settings.Default.StardewDir);
             FileInfo fInfo = new FileInfo(Properties.Settings.Default.LaunchArguments);
 
-            if (cDrive.IsReady)
+            if (destDrive.IsReady)
             {
                 var drivekb = cDrive.AvailableFreeSpace / 1024;
                 var drivemb = drivekb / 1024;
@@ -48,7 +48,7 @@ namespace Stardew_Mod_Manager.Forms
                 var ddrivegb = ddrivemb / 1024;
 
                 DriveSpaceDestination.Text = ddrivemb.ToString() + " mb (on " + destDrive.Name + ")";
-                DriveSpaceAvailable.Text = drivemb.ToString() + " mb (" + drivegb + " gb) on (" + cDrive.Name + ")";
+                DriveSpaceAvailable.Text = ddrivemb.ToString() + " mb (" + ddrivegb + " gb) on (" + destDrive.Name + ")";
                 DriveSpaceRequired.Text = filemb.ToString() + " mb";
 
                 if(filemb < drivemb)
@@ -99,7 +99,8 @@ namespace Stardew_Mod_Manager.Forms
         {
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-            string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+            string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
+            string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
 
             ExtractProgress.Visible = true;
 
@@ -107,7 +108,7 @@ namespace Stardew_Mod_Manager.Forms
 
             if (Directory.Exists(UnpackLocation))
             {
-                File.Move(Properties.Settings.Default.LaunchArguments, Properties.Settings.Default.LaunchArguments.Replace(".sdvmp", ".zip"));
+                File.Move(Properties.Settings.Default.LaunchArguments, UnpackLocation + LA.Replace(".sdvmp", ".zip"));
 
                 Extract.RunWorkerAsync();
             }
@@ -117,13 +118,14 @@ namespace Stardew_Mod_Manager.Forms
         {
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-            string UnpackLocation = SDVAppData + @"\tmp\unpack\";
+            string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
+            string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
 
             try
             {
-                ZipFile.ExtractToDirectory(Properties.Settings.Default.LaunchArguments.Replace(".sdvmp", ".zip"), UnpackLocation);
+                ZipFile.ExtractToDirectory(UnpackLocation + LA.Replace(".sdvmp", ".zip"), UnpackLocation);
                 //MessageBox.Show("Done");
-                File.Move(Properties.Settings.Default.LaunchArguments.Replace(".sdvmp", ".zip"), Properties.Settings.Default.LaunchArguments);
+                File.Move(UnpackLocation + LA.Replace(".sdvmp", ".zip"), Properties.Settings.Default.LaunchArguments);
             }
             catch(Exception ex)
             {
