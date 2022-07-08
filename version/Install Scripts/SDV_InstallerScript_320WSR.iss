@@ -2,10 +2,15 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Stardew Valley Mod Manager"
-#define MyAppVersion "220302"
-#define MyAppPublisher "RWE Softworks, Ryan Walpole Enterprises"
-#define MyAppURL "https://www.ryanwalpole.com/"
+#define MyAppVersion "220702"
+#define MyAppPublisher "RWE Labs"
+#define MyAppURL "https://rwe.app/labs/sdvmm"
+#define RWELabsURL "https://rwelabs.github.io/"
+#define SDVMMDocs "https://rwe.app/labs/sdvmm/docs"
 #define MyAppExeName "Stardew Mod Manager.exe"
+#define MyAppAssocName "Stardew Valley Modpack File"
+#define MyAppAssocExt ".sdvmp"
+#define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -15,28 +20,38 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL={#MyAppURL}
-AppSupportURL={#MyAppURL}
+AppPublisherURL={#RWELabsURL}
+AppSupportURL={#SDVMMDocs}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName=C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\
+ChangesAssociations=yes
 DisableDirPage=yes
-LicenseFile=C:\Users\ryanw\Documents\GitHub\SDV\license.rtf
+LicenseFile=C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\web\license.rtf
 DefaultGroupName=Stardew Valley Mod Manager
 DisableProgramGroupPage=yes
-OutputDir=C:\Users\ryanw\Documents\GitHub\SDV\version
+OutputDir=C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\version\Latest\
 OutputBaseFilename=StardewModManagerSetup
-SetupIconFile=C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
+SetupIconFile=CC:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+UninstallDisplayIcon={app}\{#MyAppExeName}
+UninstallDisplayName=Stardew Valley Mod Manager
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\ryanw\Documents\GitHub\SDV\source-code\Mod Manager\Stardew Mod Manager\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\Stardew Mod Manager.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+[Registry]
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}"; ValueType: string; ValueName: ""; ValueData: "{#MyAppAssocName}"; Flags: uninsdeletekey
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\SDVMPFile.ico,0"
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
+Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".myp"; ValueData: ""
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
