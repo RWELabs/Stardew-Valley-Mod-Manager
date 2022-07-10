@@ -305,7 +305,7 @@ namespace Stardew_Mod_Manager
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.groupBox5.Location = new System.Drawing.Point(32, 327);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(531, 92);
+            this.groupBox5.Size = new System.Drawing.Size(541, 92);
             this.groupBox5.TabIndex = 35;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Application Settings";
@@ -376,7 +376,7 @@ namespace Stardew_Mod_Manager
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.groupBox4.Location = new System.Drawing.Point(32, 163);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(531, 150);
+            this.groupBox4.Size = new System.Drawing.Size(541, 150);
             this.groupBox4.TabIndex = 33;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Game Directory";
@@ -385,7 +385,7 @@ namespace Stardew_Mod_Manager
             // 
             this.FileExplorerOpen.AccessibleName = "Button";
             this.FileExplorerOpen.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FileExplorerOpen.Location = new System.Drawing.Point(383, 106);
+            this.FileExplorerOpen.Location = new System.Drawing.Point(396, 106);
             this.FileExplorerOpen.Name = "FileExplorerOpen";
             this.FileExplorerOpen.Size = new System.Drawing.Size(129, 28);
             this.FileExplorerOpen.TabIndex = 41;
@@ -396,7 +396,7 @@ namespace Stardew_Mod_Manager
             // 
             this.CopyPath.AccessibleName = "Button";
             this.CopyPath.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CopyPath.Location = new System.Drawing.Point(248, 106);
+            this.CopyPath.Location = new System.Drawing.Point(261, 106);
             this.CopyPath.Name = "CopyPath";
             this.CopyPath.Size = new System.Drawing.Size(129, 28);
             this.CopyPath.TabIndex = 40;
@@ -407,7 +407,7 @@ namespace Stardew_Mod_Manager
             // 
             this.UpdateSDVDir.AccessibleName = "Button";
             this.UpdateSDVDir.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.UpdateSDVDir.Location = new System.Drawing.Point(126, 106);
+            this.UpdateSDVDir.Location = new System.Drawing.Point(139, 106);
             this.UpdateSDVDir.Name = "UpdateSDVDir";
             this.UpdateSDVDir.Size = new System.Drawing.Size(116, 28);
             this.UpdateSDVDir.TabIndex = 39;
@@ -419,7 +419,7 @@ namespace Stardew_Mod_Manager
             this.SDVDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.SDVDir.Location = new System.Drawing.Point(19, 53);
             this.SDVDir.Name = "SDVDir";
-            this.SDVDir.Size = new System.Drawing.Size(463, 20);
+            this.SDVDir.Size = new System.Drawing.Size(475, 20);
             this.SDVDir.TabIndex = 22;
             this.SDVDir.TextChanged += new System.EventHandler(this.SDVDir_TextChanged);
             // 
@@ -436,7 +436,7 @@ namespace Stardew_Mod_Manager
             // ValidDirectory
             // 
             this.ValidDirectory.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvvalidated;
-            this.ValidDirectory.Location = new System.Drawing.Point(488, 53);
+            this.ValidDirectory.Location = new System.Drawing.Point(501, 53);
             this.ValidDirectory.Name = "ValidDirectory";
             this.ValidDirectory.Size = new System.Drawing.Size(24, 20);
             this.ValidDirectory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -620,7 +620,7 @@ namespace Stardew_Mod_Manager
             // 
             this.SettingsResetButton.AccessibleName = "Button";
             this.SettingsResetButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SettingsResetButton.Location = new System.Drawing.Point(330, 435);
+            this.SettingsResetButton.Location = new System.Drawing.Point(340, 437);
             this.SettingsResetButton.Name = "SettingsResetButton";
             this.SettingsResetButton.Size = new System.Drawing.Size(233, 28);
             this.SettingsResetButton.TabIndex = 38;
@@ -631,7 +631,7 @@ namespace Stardew_Mod_Manager
             // 
             this.LegacySettings.AccessibleName = "Button";
             this.LegacySettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LegacySettings.Location = new System.Drawing.Point(88, 435);
+            this.LegacySettings.Location = new System.Drawing.Point(98, 437);
             this.LegacySettings.Name = "LegacySettings";
             this.LegacySettings.Size = new System.Drawing.Size(236, 28);
             this.LegacySettings.TabIndex = 37;
