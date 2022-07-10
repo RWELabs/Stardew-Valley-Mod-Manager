@@ -51,7 +51,7 @@ namespace Stardew_Mod_Manager.Properties
                     {
                         if (line.Contains(ModsZip)) { string ModsURL = line.Replace(ModsZip, null); Properties.Settings.Default.SMAPI_UpdateURL = ModsURL; }
                         if (line.Contains(Preset)) { string PresetURL = line.Replace(Preset, null); Properties.Settings.Default.SMAPI_InstalledVersion = PresetURL; }
-                        if (line.Contains(PackName)) { string PackNameString = line.Replace(PackName, null); Properties.Settings.Default.TMP_Name = PackNameString; }
+                        if (line.Contains(PackName)) { string PackNameString = line.Replace(PackName, null); Properties.Settings.Default.CheckSMAPIUpdateOnStartup = PackNameString; }
                         if (line.Contains(SMAPIReq)) { string SMAPIRequirement = line.Replace(SMAPIReq, null); Properties.Settings.Default.SMAPI_UpdateVersion = SMAPIRequirement; }
                     }
 
@@ -109,7 +109,7 @@ namespace Stardew_Mod_Manager.Properties
                 using (WebClient wc = new WebClient())
                 {
                     string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                    string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.TMP_Name + "_mods.zip");
+                    string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.CheckSMAPIUpdateOnStartup + "_mods.zip");
                     OuputConsole.AppendText(Environment.NewLine + "[INFO] Downloading Mods...");
 
                     wc.DownloadProgressChanged += wc_DownloadProgressChanged;
@@ -158,7 +158,7 @@ namespace Stardew_Mod_Manager.Properties
                 using (WebClient wc = new WebClient())
                 {
                     string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                    string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.TMP_Name + ".txt");
+                    string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.CheckSMAPIUpdateOnStartup + ".txt");
                     OuputConsole.AppendText(Environment.NewLine + "[INFO] Downloading Configuration Files...");
 
                     wc.DownloadProgressChanged += wc_DownloadProgressChanged2;
@@ -225,17 +225,17 @@ namespace Stardew_Mod_Manager.Properties
         private void MoveConfig()
         {
             string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.TMP_Name + ".txt");
+            string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.CheckSMAPIUpdateOnStartup + ".txt");
             string presetdir = Properties.Settings.Default.PresetsDir;
 
             OuputConsole.AppendText(Environment.NewLine + "[INFO] Extracting Configruation Files...");
             
-            if(File.Exists(presetdir + Properties.Settings.Default.TMP_Name + ".txt"))
+            if(File.Exists(presetdir + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + ".txt"))
             {
-                File.Delete(presetdir + Properties.Settings.Default.TMP_Name + ".txt");
+                File.Delete(presetdir + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + ".txt");
             }
 
-            File.Move(updatelocation, presetdir + Properties.Settings.Default.TMP_Name + ".txt");
+            File.Move(updatelocation, presetdir + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + ".txt");
 
             OuputConsole.AppendText(Environment.NewLine + "[INFO] Modpack Installed Successfully.");
             Install.Enabled = false;
@@ -252,11 +252,11 @@ namespace Stardew_Mod_Manager.Properties
             try
             {
                 string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.TMP_Name + "_mods.zip");
+                string updatelocation = Path.Combine(dataPath, Properties.Settings.Default.CheckSMAPIUpdateOnStartup + "_mods.zip");
                 
                 string extractdir = Properties.Settings.Default.InactiveModsDir;
-                string zipcopydir = Properties.Settings.Default.StardewDir + @"\" + Properties.Settings.Default.TMP_Name + "_mods.zip";
-                string tempdir = Path.Combine(extractdir, Properties.Settings.Default.TMP_Name + "_mods");
+                string zipcopydir = Properties.Settings.Default.StardewDir + @"\" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + "_mods.zip";
+                string tempdir = Path.Combine(extractdir, Properties.Settings.Default.CheckSMAPIUpdateOnStartup + "_mods");
 
                 File.Copy(updatelocation, zipcopydir);
 
