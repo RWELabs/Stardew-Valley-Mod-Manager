@@ -46,13 +46,12 @@ body:
   - type: textarea
     id: logs
     attributes:
-      label: Log files
+      label: Log Files
       description:
-        Please upload a log file from a day you experienced the issue. To access
-        the log files go to the menu and select `Help` > `Show Logs`.
+        If Stardew Valley Mod Manager presented you with a log file, please paste the contents or upload it below.
       placeholder:
         You can attach log files by clicking this area to highlight it and then
-        dragging the files in.
+        dragging the files in, or simply copy and paste the log file text.
   - type: textarea
     id: screenshots
     attributes:
@@ -61,6 +60,13 @@ body:
   - type: textarea
     id: additional-context
     attributes:
-      label: Additional context
+      label: Additional Context
       description:
         Add any other context about the problem you are experiencing here.
+  - type: textarea
+    id: suggested-resolution
+    attributes:
+      label: Suggested Resolution
+      description:
+        If you're a developer and have a suggestion for resolving this issue that may help us resolve it faster,
+        please let us know here.
