@@ -161,7 +161,6 @@ C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manag
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.ModUpdateCheck.resources
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.MPInstaller.resources
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.MPOpen.resources
-C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Properties.PackInstaller.resources
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.UpdateDownload.resources
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Properties.Resources.resources
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Settings.resources
