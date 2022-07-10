@@ -1,0 +1,34 @@
+name: ⭐ Request a Feature
+description: Send us a request for a feature you'd like to see in the Stardew Valley Mod Manager.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make Stardew Valley Mod Manager a better piece of software. We're always looking for suggestions on what to do better. Let us know what features you'd like to see here.
+  - type: textarea
+    id: the-feature-request
+    attributes:
+      label: The Feature Request
+      description:
+        Describe the feature you would like to see in the Stardew Valley Mod Manager.
+        Be as detailed as possible with your description so we understand fully what
+        you'd like to see and how you'd like it implemented.
+    validations:
+      required: true
+  - type: dropdown
+    id: isBugRelated
+    attributes:
+      label: Is this related to an issue or bug?
+      description: Is this feature request related to a problem or bug that you've experienced?
+      options:
+        - 'Yes'
+        - 'No'
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description:
+        Please include any other context, like screenshots or mockups, if
+        applicable.

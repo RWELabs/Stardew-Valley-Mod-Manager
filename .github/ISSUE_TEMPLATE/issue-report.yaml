@@ -1,0 +1,72 @@
+name: 🐛 Report a Bug/Issue
+description: Report a bug or issue you've found in Stardew Valley Mod Manager.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug report! This issue tracker is for [Stardew Valley Mod Manager](https://github.com/RWELabs/Stardew-Valley-Mod-Manager). Please search the issue tracker to see if there is an existing issue for the problem you are experiencing. If you are experiencing an issue with SMAPI, please report bugs for SMAPI [in its repository](https://github.com/Pathoschild/SMAPI/issues). If you are experiencing issues with Stardew Valley itself, [contact Stardew Valley Support](https://www.stardewvalley.net/contact/).
+  - type: textarea
+    id: the-problem
+    attributes:
+      label: The Issue or Bug
+      description:
+        Describe the issue you are experiencing with Stardew Valley Mod Manager. 
+        Provide a clear and concise description of what you were trying to 
+        do and what happened, along with any error messages you encountered.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description:
+        You can find the version number in the bottom left hand corner of the
+        splash screen and dashboard of the application.
+    validations:
+      required: true
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating System
+      description:
+        'Enter the specific operating system version you are running (example:
+        Windows 10)'
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce the behavior
+      description: Provide steps to reproduce the problem you are experiencing.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log Files
+      description:
+        If Stardew Valley Mod Manager presented you with a log file, please paste the contents or upload it below.
+      placeholder:
+        You can attach log files by clicking this area to highlight it and then
+        dragging the files in, or simply copy and paste the log file text.
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add screenshots to help explain your problem, if applicable.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description:
+        Add any other context about the problem you are experiencing here.
+  - type: textarea
+    id: suggested-resolution
+    attributes:
+      label: Suggested Resolution
+      description:
+        If you're a developer and have a suggestion for resolving this issue that may help us resolve it faster,
+        please let us know here.
