@@ -21,8 +21,8 @@ body:
       label: Is this related to an issue or bug?
       description: Is this feature request related to a problem or bug that you've experienced?
       options:
-        - Yes
-        - No
+        - 'Yes'
+        - 'No'
     validations:
       required: true
   - type: textarea
