@@ -3,9 +3,14 @@
 ## Supported Versions
 The following versions of the Stardew Valley Modded Framework (which includes the Stardew Valley Mod Manager) are currently covered by security updates:
 
-| Version | Supported          | Includes |
+| Version | Supported          | Notes |
 | ------- | ------------------ | -------- |
-| v22x     | :white_check_mark: | v2202x, v2203x |
+| v2207x     | ✅ | Supported |
+| v2206x     | ✅ | Supported until November 1 2022 |
+| v2205x     | ✅ | Supported until August 1 2022 |
+| v2204x     | ❌ | Support ended July 10 2022 |
+| v2203x     | ❌ | Support ended June 25 2022 |
+| v2202x     | ❌ | Support ended June 25 2022 |
 
 You can always get the latest security and feature updates by downloading the [latest release](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases/latest/).
 
