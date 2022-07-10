@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Stardew Valley Mod Manager"
-#define MyAppVersion "220702"
+#define MyAppVersion "220703"
 #define MyAppPublisher "RWE Labs"
 #define MyAppURL "https://rwe.app/labs/sdvmm"
 #define RWELabsURL "https://rwelabs.github.io/"
@@ -31,7 +31,7 @@ DefaultGroupName=Stardew Valley Mod Manager
 DisableProgramGroupPage=yes
 OutputDir=C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\version\Latest\
 OutputBaseFilename=StardewModManagerSetup
-SetupIconFile=CC:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
+SetupIconFile=C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager\Stardew Mod Manager\Resources\defaultsdvicon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
