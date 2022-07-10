@@ -17,4 +17,4 @@ You can always get the latest security and feature updates by downloading the [l
 ## Reporting a Vulnerability
 If you've found a security vulnerability within the application, please report an issue and select "Security Vulnerability Report" from the list of templates and follow the prompts in the template. We appreciate your good samaritancy in reporting security vulnerabilities rather than exploiting them.
 
-[Report a Vulnerability](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/issues/new/choose)
+[Report a Vulnerability](mailto:feedback@labs.ryanwalpole.com)
