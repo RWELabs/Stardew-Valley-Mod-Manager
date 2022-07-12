@@ -38,7 +38,15 @@ namespace Stardew_Mod_Manager
             MainTabs.TabPages.Remove(Tab_InstallOptions);
             MainTabs.TabPages.Remove(Tab_Feedback);
 
-            StartSMAPIUpdateCheck.Start();
+            if(Properties.Settings.Default.CheckSMAPIUpdateOnStartup == "TRUE")
+            {
+                //SMAPI selected to update on startup.
+                StartSMAPIUpdateCheck.Start();
+            }
+            else
+            {
+                //Do not update SMAPI
+            }
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
@@ -405,7 +413,8 @@ namespace Stardew_Mod_Manager
             FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
             FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
             FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
-            FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
+            FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset + Environment.NewLine);
+            FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup);
             FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
 
             Application.Exit();
@@ -811,6 +820,15 @@ namespace Stardew_Mod_Manager
                 {
                     CheckForUpdatesOnStartup.Checked = false;
                 }
+
+                if (Properties.Settings.Default.CheckSMAPIUpdateOnStartup == "TRUE")
+                {
+                    CheckSMAPIUpdatesOnStart.Checked = true;
+                }
+                else if(Properties.Settings.Default.CheckSMAPIUpdateOnStartup == "FALSE")
+                {
+                    CheckSMAPIUpdatesOnStart.Checked = false;
+                }
             }
 
             if(MainTabs.SelectedTab == Tab_InstallOptions)
@@ -907,6 +925,20 @@ namespace Stardew_Mod_Manager
             if (CheckForUpdatesOnStartup.Checked == false)
             {
                 Properties.Settings.Default.CheckUpdateOnStartup = "FALSE";
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void CheckSMAPIForUpdatesOnStartup_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (CheckSMAPIUpdatesOnStart.Checked == true)
+            {
+                Properties.Settings.Default.CheckSMAPIUpdateOnStartup = "TRUE";
+                Properties.Settings.Default.Save();
+            }
+            if (CheckSMAPIUpdatesOnStart.Checked == false)
+            {
+                Properties.Settings.Default.CheckSMAPIUpdateOnStartup = "FALSE";
                 Properties.Settings.Default.Save();
             }
         }
@@ -1195,6 +1227,7 @@ namespace Stardew_Mod_Manager
         private void StartSMAPIUpdateCheck_Tick(object sender, EventArgs e)
         {
             StartSMAPIUpdateCheck.Stop();
+            Icon_SMAPIUpToDate.Image = Properties.Resources.sdvConnecting;
             SMAPIValidationWorker.RunWorkerAsync();
         }
     }

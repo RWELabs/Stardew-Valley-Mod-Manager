@@ -23,8 +23,8 @@
     <Setting Name="SMAPI_UpdateVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="TMP_Name" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="CheckSMAPIUpdateOnStartup" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FALSE</Value>
     </Setting>
     <Setting Name="SMAPI_InstalledVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">220702</Value>
+      <Value Profile="(Default)">220703</Value>
     </Setting>
     <Setting Name="CheckUpdateOnStartup" Type="System.String" Scope="User">
       <Value Profile="(Default)">TRUE</Value>
