@@ -1,6 +1,6 @@
 name: 🐛 Report a Bug/Issue
 description: Report a bug or issue you've found in Stardew Valley Mod Manager.
-title: [Issue]: 
+title: '[Issue]: '
 body:
   - type: markdown
     attributes:
