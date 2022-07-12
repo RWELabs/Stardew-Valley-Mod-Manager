@@ -56,7 +56,6 @@ C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod 
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.FirstRunSetup.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.MainPage.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.ModUpdateCheck.resources
-C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Properties.PackInstaller.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.UpdateDownload.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Properties.Resources.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Settings.resources
