@@ -125,41 +125,54 @@ namespace Stardew_Mod_Manager
 
         private void CompareVersions()
         {
+            string SMAPIVERNUM = SMAPIVer.Text;
+            string SMAPIVersionWithoutTrailings = SMAPIVer.Text.Remove(SMAPIVERNUM.Length - 2);
+
             if (SMAPIUpdateVer.Text != SMAPIVer.Text.Replace("SMAPI v", null))
             {
-                DialogResult dr = MessageBox.Show("SMAPI is out of date. Would you like to download the latest version now?", "SMAPI Updates Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvError;
-                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is out of date. Click for more information.");
-                HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is out of date. Click for more information.");
-
-                if (dr == DialogResult.Yes)
+                if (SMAPIUpdateVer.Text != SMAPIVersionWithoutTrailings.Replace("SMAPI v",null))
                 {
-                    string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                    string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\";
-                    string LINK = SDVAppData + @"link.txt";
+                    //MessageBox.Show("SMAPI CURRENT VERSION" + SMAPIVersionWithoutTrailings.Replace("SMAPI v", null));
+                    DialogResult dr = MessageBox.Show("SMAPI is out of date. Would you like to download the latest version now?", "SMAPI Updates Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    Icon_SMAPIUpToDate.Image = Properties.Resources.sdvError;
+                    HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is out of date. Click for more information.");
+                    HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is out of date. Click for more information.");
 
-                    string ExePath = Path.GetDirectoryName(Application.ExecutablePath);
-                    string SMAPIManager = ExePath + @"\smapiupdate.exe";
-
-                    if(SMAPIUpdateVer.Text == null)
+                    if (dr == DialogResult.Yes)
                     {
-                        Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
-                        HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
-                        HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
-                    }
-                    else
-                    {
-                        string UpdateURL = "https://github.com/Pathoschild/SMAPI/releases/download/" + SMAPIUpdateVer.Text + "/SMAPI-" + SMAPIUpdateVer.Text + "-installer.zip";
-                        Properties.Settings.Default.SMAPI_UpdateURL = UpdateURL;
-                        Properties.Settings.Default.SMAPI_UpdateVersion = SMAPIUpdateVer.Text;
-                        Properties.Settings.Default.Save();
+                        string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                        string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\";
+                        string LINK = SDVAppData + @"link.txt";
 
-                        //this.Hide();
-                        SMAPI_Updater su = new SMAPI_Updater();
-                        su.ShowDialog();
+                        string ExePath = Path.GetDirectoryName(Application.ExecutablePath);
+                        string SMAPIManager = ExePath + @"\smapiupdate.exe";
+
+                        if (SMAPIUpdateVer.Text == null)
+                        {
+                            Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
+                            HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                            HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                        }
+                        else
+                        {
+                            string UpdateURL = "https://github.com/Pathoschild/SMAPI/releases/download/" + SMAPIUpdateVer.Text + "/SMAPI-" + SMAPIUpdateVer.Text + "-installer.zip";
+                            Properties.Settings.Default.SMAPI_UpdateURL = UpdateURL;
+                            Properties.Settings.Default.SMAPI_UpdateVersion = SMAPIUpdateVer.Text;
+                            Properties.Settings.Default.Save();
+
+                            //this.Hide();
+                            SMAPI_Updater su = new SMAPI_Updater();
+                            su.ShowDialog();
+                        }
                     }
                 }
-            
+
+                else if (SMAPIUpdateVer.Text == SMAPIVersionWithoutTrailings.Replace("SMAPI v", null))
+                {
+                    Icon_SMAPIUpToDate.Image = Properties.Resources.sdvvalidated;
+                    HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is up to date!");
+                    HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is up to date!");
+                }
             }
             else
             {
