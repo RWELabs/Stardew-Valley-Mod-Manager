@@ -109,13 +109,13 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TMP_Name {
+        [global::System.Configuration.DefaultSettingValueAttribute("FALSE")]
+        public string CheckSMAPIUpdateOnStartup {
             get {
-                return ((string)(this["TMP_Name"]));
+                return ((string)(this["CheckSMAPIUpdateOnStartup"]));
             }
             set {
-                this["TMP_Name"] = value;
+                this["CheckSMAPIUpdateOnStartup"] = value;
             }
         }
         
@@ -145,7 +145,7 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("220702")]
+        [global::System.Configuration.DefaultSettingValueAttribute("220703")]
         public string Version {
             get {
                 return ((string)(this["Version"]));

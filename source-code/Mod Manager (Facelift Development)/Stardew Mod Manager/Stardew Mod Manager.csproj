@@ -187,9 +187,6 @@
     <EmbeddedResource Include="Forms\MPOpen.resx">
       <DependentUpon>MPOpen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PackInstaller.resx">
-      <DependentUpon>PackInstaller.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SMAPI-Updater.resx">
       <DependentUpon>SMAPI-Updater.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,12 +198,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Forms\PackInstaller.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PackInstaller.Designer.cs">
-      <DependentUpon>PackInstaller.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>

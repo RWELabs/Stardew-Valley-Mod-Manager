@@ -102,34 +102,63 @@ namespace Stardew_Mod_Manager.Forms
         {
             DownloadButton.Visible = false;
             CancelButton.Visible = false;
-
             ProgressBar1.Visible = true;
 
             try
             {
-                using (WebClient wc = new WebClient())
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Properties.Settings.Default.SMAPI_UpdateURL);
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
-                    string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                    string updatelocation = Path.Combine(dataPath, "smapiupdate.zip");
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        //MessageBox.Show("Site Exists");
+                        DoDownload();
+                     }
 
-                    wc.DownloadProgressChanged += wc_DownloadProgressChanged;
-                    wc.DownloadFileCompleted += wc_DownloadFileCompleted;
-
-                    wc.DownloadFileAsync(
-                        // Param1 = Link of file
-                        new System.Uri(Properties.Settings.Default.SMAPI_UpdateURL),
-                        // Param2 = Path to save
-                        updatelocation
-                    );
-
-                    this.BringToFront();
+                    else
+                    {
+                        //
+                    }
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //Do whatever
+                DialogResult dr = MessageBox.Show("We found an update on NexusMods, but we couldn't initiate the download. This usually means the developer forgot to upload the release to GitHub. For this update, you'll need to download the file updates manually from NexusMods." + Environment.NewLine + Environment.NewLine + "Please note: You may need to create a NexusMods account and log in to download this update." + Environment.NewLine + Environment.NewLine + "Would you like to download this update manually?", "SMAPI Update Utility", MessageBoxButtons.YesNo ,MessageBoxIcon.Information);
+                if(dr == DialogResult.Yes)
+                {
+                    Process.Start("https://www.nexusmods.com/stardewvalley/mods/2400?tab=files");
+                    Application.Exit();
+                }
+                else
+                {
+                    this.Close();
+                }
             }
+            
+        }
+
+        private void DoDownload()
+        {
+            using (WebClient wc = new WebClient())
+            {
+                string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+                string updatelocation = Path.Combine(dataPath, "smapiupdate.zip");
+
+                wc.DownloadProgressChanged += wc_DownloadProgressChanged;
+                wc.DownloadFileCompleted += wc_DownloadFileCompleted;
+
+                wc.DownloadFileAsync(
+                    // Param1 = Link of file
+                    new System.Uri(Properties.Settings.Default.SMAPI_UpdateURL),
+                    // Param2 = Path to save
+                    updatelocation
+                );
+
+                this.BringToFront();
+            }
+
         }
 
         void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

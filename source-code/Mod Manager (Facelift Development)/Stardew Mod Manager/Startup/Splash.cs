@@ -115,6 +115,7 @@ namespace Stardew_Mod_Manager.Startup
                      FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
                      FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
                      FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
+                     FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + Environment.NewLine);
                      FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
                      FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
                  }));

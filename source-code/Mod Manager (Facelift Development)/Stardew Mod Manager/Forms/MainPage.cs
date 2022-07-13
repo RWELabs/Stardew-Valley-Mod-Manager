@@ -38,7 +38,15 @@ namespace Stardew_Mod_Manager
             MainTabs.TabPages.Remove(Tab_InstallOptions);
             MainTabs.TabPages.Remove(Tab_Feedback);
 
-            StartSMAPIUpdateCheck.Start();
+            if(Properties.Settings.Default.CheckSMAPIUpdateOnStartup == "TRUE")
+            {
+                //SMAPI selected to update on startup.
+                StartSMAPIUpdateCheck.Start();
+            }
+            else
+            {
+                //Do not update SMAPI
+            }
 
             SoftVer.Text = "v" + Properties.Settings.Default.Version;
 
@@ -95,63 +103,56 @@ namespace Stardew_Mod_Manager
             }
         }
 
-
-        /// <summary>
-        /// For avoid flickering Form
-        /// </summary>
-
-        internal static class NativeWinAPI
-        {
-
-            internal static readonly int GWL_EXSTYLE = -20;
-
-            internal static readonly int WS_EX_COMPOSITED = 0x02000000;
-
-            [DllImport("user32")]
-            internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-
-            [DllImport("user32")]
-            internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
-        }
-
         private void CompareVersions()
         {
+            string SMAPIVERNUM = SMAPIVer.Text;
+            string SMAPIVersionWithoutTrailings = SMAPIVer.Text.Remove(SMAPIVERNUM.Length - 2);
+
             if (SMAPIUpdateVer.Text != SMAPIVer.Text.Replace("SMAPI v", null))
             {
-                DialogResult dr = MessageBox.Show("SMAPI is out of date. Would you like to download the latest version now?", "SMAPI Updates Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                Icon_SMAPIUpToDate.Image = Properties.Resources.sdvError;
-                HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is out of date. Click for more information.");
-                HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is out of date. Click for more information.");
-
-                if (dr == DialogResult.Yes)
+                if (SMAPIUpdateVer.Text != SMAPIVersionWithoutTrailings.Replace("SMAPI v",null))
                 {
-                    string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                    string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\";
-                    string LINK = SDVAppData + @"link.txt";
+                    //MessageBox.Show("SMAPI CURRENT VERSION" + SMAPIVersionWithoutTrailings.Replace("SMAPI v", null));
+                    DialogResult dr = MessageBox.Show("SMAPI is out of date. Would you like to download the latest version now?", "SMAPI Updates Available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    Icon_SMAPIUpToDate.Image = Properties.Resources.sdvError;
+                    HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is out of date. Click for more information.");
+                    HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is out of date. Click for more information.");
 
-                    string ExePath = Path.GetDirectoryName(Application.ExecutablePath);
-                    string SMAPIManager = ExePath + @"\smapiupdate.exe";
-
-                    if(SMAPIUpdateVer.Text == null)
+                    if (dr == DialogResult.Yes)
                     {
-                        Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
-                        HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
-                        HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
-                    }
-                    else
-                    {
-                        string UpdateURL = "https://github.com/Pathoschild/SMAPI/releases/download/" + SMAPIUpdateVer.Text + "/SMAPI-" + SMAPIUpdateVer.Text + "-installer.zip";
-                        Properties.Settings.Default.SMAPI_UpdateURL = UpdateURL;
-                        Properties.Settings.Default.SMAPI_UpdateVersion = SMAPIUpdateVer.Text;
-                        Properties.Settings.Default.Save();
+                        string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                        string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\";
+                        string LINK = SDVAppData + @"link.txt";
 
-                        //this.Hide();
-                        SMAPI_Updater su = new SMAPI_Updater();
-                        su.ShowDialog();
+                        string ExePath = Path.GetDirectoryName(Application.ExecutablePath);
+                        string SMAPIManager = ExePath + @"\smapiupdate.exe";
+
+                        if (SMAPIUpdateVer.Text == null)
+                        {
+                            Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
+                            HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                            HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
+                        }
+                        else
+                        {
+                            string UpdateURL = "https://github.com/Pathoschild/SMAPI/releases/download/" + SMAPIUpdateVer.Text + "/SMAPI-" + SMAPIUpdateVer.Text + "-installer.zip";
+                            Properties.Settings.Default.SMAPI_UpdateURL = UpdateURL;
+                            Properties.Settings.Default.SMAPI_UpdateVersion = SMAPIUpdateVer.Text;
+                            Properties.Settings.Default.Save();
+
+                            //this.Hide();
+                            SMAPI_Updater su = new SMAPI_Updater();
+                            su.ShowDialog();
+                        }
                     }
                 }
-            
+
+                else if (SMAPIUpdateVer.Text == SMAPIVersionWithoutTrailings.Replace("SMAPI v", null))
+                {
+                    Icon_SMAPIUpToDate.Image = Properties.Resources.sdvvalidated;
+                    HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "SMAPI is up to date!");
+                    HelpTooltip.SetToolTip(SMAPIVer, "SMAPI is up to date!");
+                }
             }
             else
             {
@@ -405,7 +406,8 @@ namespace Stardew_Mod_Manager
             FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
             FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
             FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
-            FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
+            FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset + Environment.NewLine);
+            FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup);
             FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
 
             Application.Exit();
@@ -811,6 +813,15 @@ namespace Stardew_Mod_Manager
                 {
                     CheckForUpdatesOnStartup.Checked = false;
                 }
+
+                if (Properties.Settings.Default.CheckSMAPIUpdateOnStartup == "TRUE")
+                {
+                    CheckSMAPIUpdatesOnStart.Checked = true;
+                }
+                else if(Properties.Settings.Default.CheckSMAPIUpdateOnStartup == "FALSE")
+                {
+                    CheckSMAPIUpdatesOnStart.Checked = false;
+                }
             }
 
             if(MainTabs.SelectedTab == Tab_InstallOptions)
@@ -907,6 +918,20 @@ namespace Stardew_Mod_Manager
             if (CheckForUpdatesOnStartup.Checked == false)
             {
                 Properties.Settings.Default.CheckUpdateOnStartup = "FALSE";
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void CheckSMAPIForUpdatesOnStartup_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (CheckSMAPIUpdatesOnStart.Checked == true)
+            {
+                Properties.Settings.Default.CheckSMAPIUpdateOnStartup = "TRUE";
+                Properties.Settings.Default.Save();
+            }
+            if (CheckSMAPIUpdatesOnStart.Checked == false)
+            {
+                Properties.Settings.Default.CheckSMAPIUpdateOnStartup = "FALSE";
                 Properties.Settings.Default.Save();
             }
         }
@@ -1195,6 +1220,7 @@ namespace Stardew_Mod_Manager
         private void StartSMAPIUpdateCheck_Tick(object sender, EventArgs e)
         {
             StartSMAPIUpdateCheck.Stop();
+            Icon_SMAPIUpToDate.Image = Properties.Resources.sdvConnecting;
             SMAPIValidationWorker.RunWorkerAsync();
         }
     }
