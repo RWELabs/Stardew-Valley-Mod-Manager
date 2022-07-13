@@ -1,6 +1,6 @@
 name: ⭐ Request a Feature
 description: Send us a request for a feature you'd like to see in the Stardew Valley Mod Manager.
-title: '[Feature]: '
+title: '[Feature] '
 body:
   - type: markdown
     attributes:
