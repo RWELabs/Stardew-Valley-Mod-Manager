@@ -10,15 +10,22 @@ To begin, you'll need to download the latest version available of the Stardew Va
 
 1. Open the Stardew Valley Mod Manager.
 2. When prompted to update, click yes.
-3. Install the update and follow the prompts.
-4. When finished, open the Mod Manager and wait for the update window to finish migrating your preferences and applying the update.
+
+![image](https://user-images.githubusercontent.com/69621127/178648792-23e8f77b-400f-4e71-83dc-1704300354f9.png)
+
+4. Install the update and follow the prompts.
+5. When finished, open the Mod Manager and wait for the update window to finish migrating your preferences and applying the update.
 
 #### Update SMAPI
 To update SMAPI, you'll notice the SMAPI version number in the bottom left hand corner of the window, alongside the mod manager version. There should be a question mark icon next to the SMAPI version number.
 
 1. Click on the question mark icon next to the version number.
 2. If there is a SMAPI update available, you will be asked if you wish to update. Click yes.
-3. Follow the prompts to install the latest SMAPI.
+3. The program will now download the latest SMAPI update, before closing.
+
+![image](https://user-images.githubusercontent.com/69621127/178648942-d7f4e70c-bf2e-4dd9-b622-a37e5c8ce467.png)
+
+4. Follow the prompts to install the latest SMAPI.
 
 #### Download and Install the Modpack
 1. Download the modpack by [clicking here](https://github.com/RWELabs/Stardew-Valley-Mod-Manager/raw/release-stable/modpacks/The%20Potato%20Farm%20Modpack.sdvmp)
