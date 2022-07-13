@@ -101,7 +101,7 @@ namespace Stardew_Mod_Manager.Forms
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(287, 16);
             this.label1.TabIndex = 35;
-            this.label1.Text = "ryanwalpolenterprises.github.io";
+            this.label1.Text = "labs.ryanwalpole.com";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PercentText
