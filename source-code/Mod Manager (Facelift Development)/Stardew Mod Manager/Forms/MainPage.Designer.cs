@@ -47,7 +47,7 @@ namespace Stardew_Mod_Manager
             this.CheckForUpdatesOnStartup = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.SettingsIconImage = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.FileExplorerOpen = new Syncfusion.WinForms.Controls.SfButton();
             this.CopyPath = new Syncfusion.WinForms.Controls.SfButton();
@@ -136,7 +136,7 @@ namespace Stardew_Mod_Manager
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsIconImage)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ValidDirectory)).BeginInit();
             this.EnableDisableMods.SuspendLayout();
@@ -354,15 +354,16 @@ namespace Stardew_Mod_Manager
             this.label7.Text = resources.GetString("label7.Text");
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox5
+            // SettingsIconImage
             // 
-            this.pictureBox5.Image = global::Stardew_Mod_Manager.Properties.Resources.sdv_settings;
-            this.pictureBox5.Location = new System.Drawing.Point(32, 31);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 30;
-            this.pictureBox5.TabStop = false;
+            this.SettingsIconImage.Image = global::Stardew_Mod_Manager.Properties.Resources.sdv_settings;
+            this.SettingsIconImage.Location = new System.Drawing.Point(32, 31);
+            this.SettingsIconImage.Name = "SettingsIconImage";
+            this.SettingsIconImage.Size = new System.Drawing.Size(100, 100);
+            this.SettingsIconImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.SettingsIconImage.TabIndex = 30;
+            this.SettingsIconImage.TabStop = false;
+            this.SettingsIconImage.DoubleClick += new System.EventHandler(this.SettingsIconImage_DoubleClick);
             // 
             // groupBox4
             // 
@@ -601,7 +602,7 @@ namespace Stardew_Mod_Manager
             this.Tab_Settings.BackColor = System.Drawing.Color.White;
             this.Tab_Settings.Controls.Add(this.SettingsResetButton);
             this.Tab_Settings.Controls.Add(this.LegacySettings);
-            this.Tab_Settings.Controls.Add(this.pictureBox5);
+            this.Tab_Settings.Controls.Add(this.SettingsIconImage);
             this.Tab_Settings.Controls.Add(this.groupBox5);
             this.Tab_Settings.Controls.Add(this.groupBox4);
             this.Tab_Settings.Controls.Add(this.label7);
@@ -1428,7 +1429,7 @@ namespace Stardew_Mod_Manager
             ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsIconImage)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ValidDirectory)).EndInit();
@@ -1477,7 +1478,7 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox SettingsIconImage;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox SDVDir;
         private System.Windows.Forms.Label label8;
