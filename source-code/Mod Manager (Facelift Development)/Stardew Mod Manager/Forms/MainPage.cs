@@ -1223,5 +1223,11 @@ namespace Stardew_Mod_Manager
             Icon_SMAPIUpToDate.Image = Properties.Resources.sdvConnecting;
             SMAPIValidationWorker.RunWorkerAsync();
         }
+
+        private void SettingsIconImage_DoubleClick(object sender, EventArgs e)
+        {
+            HiddenForm hf = new HiddenForm();
+            hf.ShowDialog();
+        }
     }
 }
