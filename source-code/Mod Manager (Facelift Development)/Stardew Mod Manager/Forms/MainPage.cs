@@ -237,6 +237,8 @@ namespace Stardew_Mod_Manager
                 else
                 {
                     MessageBox.Show("There was an issue disabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    CreateErrorLog("There was an issue disabling a mod: " + ex.Message);
                 }
             }
             
@@ -290,6 +292,7 @@ namespace Stardew_Mod_Manager
                 else
                 {
                     MessageBox.Show("There was an issue enabling this mod:" + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CreateErrorLog("There was a problem enabling a mod. Error Message:" + ex.Message);
                 }
             }
             
@@ -383,6 +386,7 @@ namespace Stardew_Mod_Manager
         {
             string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             string updatelocation = Path.Combine(dataPath, "SDVMMlatest.exe");
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
             if (File.Exists(updatelocation))
             {
@@ -483,6 +487,7 @@ namespace Stardew_Mod_Manager
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CreateErrorLog("There was a problem loading a preset. Error Message:" + ex.Message);
                 }
             }
         }
@@ -508,6 +513,7 @@ namespace Stardew_Mod_Manager
                         catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message);
+                            CreateErrorLog("There was a problem deleting a mod. Error Message:" + ex.Message);
                         }
                     }
                     else if (dr == DialogResult.No)
@@ -524,6 +530,7 @@ namespace Stardew_Mod_Manager
             catch (Exception ex)
             {
                 MessageBox.Show("If you're attempting to delete a mod, please make sure to disable it before attempting to delete it." + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("There was a problem deleting a mod. Error Message:" + ex.Message);
             }
         }
 
@@ -572,6 +579,7 @@ namespace Stardew_Mod_Manager
                 catch (Exception ex)
                 {
                     MessageBox.Show("There was a problem installing your mod: " + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CreateErrorLog("There was a problem installing a mod. Error Message:" + ex.Message);
                 }
             }
         }
@@ -659,6 +667,7 @@ namespace Stardew_Mod_Manager
                 //Error fetching update information.
                 MessageBox.Show("There was an issue checking for updates:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UpdateCheckLabel.Text = "Connection Error";
+                CreateErrorLog("There was a problem checking for updates. Error Message:" + ex.Message);
             }
         }
 
@@ -702,6 +711,7 @@ namespace Stardew_Mod_Manager
                 catch (Exception ex)
                 {
                     MessageBox.Show("There was an issue backing up this save file:" + Environment.NewLine + Environment.NewLine + ex.Message, "Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CreateErrorLog("There was a problem backing up a save file. Error Message:" + ex.Message);
                 }
             }
         }
@@ -782,6 +792,7 @@ namespace Stardew_Mod_Manager
                 catch(Exception ex)
                 {
                     MessageBox.Show("The SMAPI Game Backups Folder does not exist. Are you sure you've played Stardew Valley with default SMAPI mods enabled?", "Game Save Management | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CreateErrorLog("There was a problem opening SMAPI backups. Error Message:" + ex.Message);
                 }
             }
         }
@@ -885,7 +896,7 @@ namespace Stardew_Mod_Manager
             catch (Exception ex)
             {
                 MessageBox.Show("There was an issue performing this action:" + Environment.NewLine + Environment.NewLine + ex.Message.ToString(), "Settings | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                CreateErrorLog("There was a problem opening file explorer. Error Message:" + ex.Message);
             }
         }
 
@@ -976,6 +987,7 @@ namespace Stardew_Mod_Manager
             catch (Exception ex)
             {
                 MessageBox.Show("There was a problem installing your mod: " + Environment.NewLine + ex.Message, "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("There was a problem installing a mod. Error Message:" + ex.Message);
             }
         }
 
@@ -1032,10 +1044,12 @@ namespace Stardew_Mod_Manager
                         {
                             string SDV = Properties.Settings.Default.StardewDir + @"\Stardew Valley.exe";
                             Process.Start(Path.GetFullPath(SDV));
+                            CreateErrorLog("An error occured whilst trying to find a modded Stardew Valley installation. Error Message: " + ex.Message);
                         }
-                        catch(Exception ex2)
+                        catch (Exception ex2)
                         {
                             MessageBox.Show("The following error occured: " + Environment.NewLine + ex2.Message, "Stardew Valley", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            CreateErrorLog("An error occured whilst trying to find a modded Stardew Valley installation." + Environment.NewLine + "An error occured whilst trying to find a vanilla Stardew Valley installation. Error Message: " + ex.Message);
                         }
                     }
                 }
@@ -1057,6 +1071,7 @@ namespace Stardew_Mod_Manager
             catch (Exception ex)
             {
                 MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("An error occured whilst trying to open a documentation link. Error Message: " + ex.Message);
             }
         }
 
@@ -1092,6 +1107,7 @@ namespace Stardew_Mod_Manager
             catch(Exception ex)
             {
                 MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("An error occured whilst trying to open a bug report. Error Message: " + ex.Message);
             }
         }
 
@@ -1140,14 +1156,14 @@ namespace Stardew_Mod_Manager
                 Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
                 HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
                 HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
-                //MessageBox.Show(e.Error.Message);
+                CreateErrorLog("SDV Mod Manager was unable to determine if SMAPI was up to date." + "SMAPI Version: " + SMAPIVer.Text + "SMAPI Update Version:" + SMAPIUpdateVer.Text + Environment.NewLine + e.Error.Message);
             }
             else if (e.Error != null)
             {
                 Icon_SMAPIUpToDate.Image = Properties.Resources.sdvQuestion;
                 HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
                 HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
-                //MessageBox.Show(e.Error.Message);
+                CreateErrorLog("SDV Mod Manager was unable to determine if SMAPI was up to date." + "SMAPI Version: " + SMAPIVer.Text + "SMAPI Update Version:" + SMAPIUpdateVer.Text + Environment.NewLine + e.Error.Message);
             }
             else
             {
@@ -1193,6 +1209,7 @@ namespace Stardew_Mod_Manager
                 HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
                 HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
                 //MessageBox.Show(e.Error.Message);
+                CreateErrorLog("SDV Mod Manager was unable to determine if SMAPI was up to date." + "SMAPI Version: " + SMAPIVer.Text + "SMAPI Update Version:" + SMAPIUpdateVer.Text + Environment.NewLine + e.Error.Message);
             }
             else if (e.Error != null)
             {
@@ -1200,6 +1217,7 @@ namespace Stardew_Mod_Manager
                 HelpTooltip.SetToolTip(Icon_SMAPIUpToDate, "We couldn't determine if SMAPI was up to date. Click to retry.");
                 HelpTooltip.SetToolTip(SMAPIVer, "We couldn't determine if SMAPI was up to date. Click to retry.");
                 //MessageBox.Show(e.Error.Message);
+                CreateErrorLog("SDV Mod Manager was unable to determine if SMAPI was up to date." + "SMAPI Version: " + SMAPIVer.Text + "SMAPI Update Version:" + SMAPIUpdateVer.Text + Environment.NewLine + e.Error.Message);
             }
             else
             {
@@ -1228,6 +1246,37 @@ namespace Stardew_Mod_Manager
         {
             HiddenForm hf = new HiddenForm();
             hf.ShowDialog();
+        }
+
+        private void CreateErrorLog(string errorMessage)
+        {
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            string LogID = DateTime.Now.ToString("dd-mm-yyyy-hh-mm-ss");
+
+            //Check for Log Directory
+            string logsdir = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            if (!Directory.Exists(logsdir))
+            {
+                Directory.CreateDirectory(logsdir);
+            }
+            else
+            {
+                //Directory exists
+            }
+
+            ErrorLog.Clear();
+            ErrorLog.AppendText("Stardew Valley Mod Manager v" + Properties.Settings.Default.Version);
+            ErrorLog.AppendText(Environment.NewLine + "(C) RWE Labs, 2022" + Environment.NewLine);
+            ErrorLog.AppendText("-------------------- ERROR LOG --------------------" + Environment.NewLine);
+            ErrorLog.AppendText("This log was generated at: " + LogID + Environment.NewLine + "With Stardew Valley Mod Manager version " + Properties.Settings.Default.Version + Environment.NewLine);
+            ErrorLog.AppendText( Environment.NewLine + errorMessage);
+            ErrorLog.SaveFile(SDVAppData + "log_" + LogID + ".sdvmmerrorlog", RichTextBoxStreamType.PlainText);
+        }
+
+        private void debug_TestErrorLogs_Click(object sender, EventArgs e)
+        {
+            CreateErrorLog("This is a test. Line One." + Environment.NewLine + "handles second lines okay." + Environment.NewLine + Properties.Settings.Default.InactiveModsDir);
         }
     }
 }
