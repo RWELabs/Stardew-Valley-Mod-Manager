@@ -50,6 +50,7 @@
             this.Website_CA = new System.Windows.Forms.LinkLabel();
             this.label11 = new System.Windows.Forms.Label();
             this.HelpButton = new Syncfusion.WinForms.Controls.SfButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -71,6 +72,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Stardew_Mod_Manager.Properties.Resources.RWE_Labs_BG;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-5, 455);
             this.panel1.Name = "panel1";
@@ -80,7 +82,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Stardew_Mod_Manager.Properties.Resources.RWE_Labs_White;
-            this.pictureBox1.Location = new System.Drawing.Point(384, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(384, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -272,6 +274,17 @@
             this.HelpButton.Text = "Get In Touch";
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 7.25F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label12.Location = new System.Drawing.Point(12, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(366, 26);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "©️ Copyright 2022 - RWE Labs, Ryan Walpole Enterprises.\r\n©️ Stardew Valley and th" +
+    "e Chicken Icon are Copyright 2022 - ConcernedApe.";
+            // 
             // HiddenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +352,6 @@
         private System.Windows.Forms.LinkLabel Website_CA;
         private System.Windows.Forms.Label label11;
         private Syncfusion.WinForms.Controls.SfButton HelpButton;
+        private System.Windows.Forms.Label label12;
     }
 }
