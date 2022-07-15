@@ -115,6 +115,12 @@
     <Compile Include="Forms\First Run\UpdateVersion.Designer.cs">
       <DependentUpon>UpdateVersion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HiddenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HiddenForm.Designer.cs">
+      <DependentUpon>HiddenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\First Run\UpdateVersion.resx">
       <DependentUpon>UpdateVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HiddenForm.resx">
+      <DependentUpon>HiddenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
