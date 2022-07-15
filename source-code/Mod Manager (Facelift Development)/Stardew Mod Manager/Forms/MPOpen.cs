@@ -20,6 +20,12 @@ namespace Stardew_Mod_Manager.Forms
             Continue.Enabled = false;
             ExtractProgress.Visible = false;
 
+            var diInactiveMods = new DirectoryInfo(Properties.Settings.Default.InactiveModsDir);
+            diInactiveMods.Attributes &= ~FileAttributes.ReadOnly;
+
+            var diMods = new DirectoryInfo(Properties.Settings.Default.ModsDir);
+            diMods.Attributes &= ~FileAttributes.ReadOnly;
+
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
