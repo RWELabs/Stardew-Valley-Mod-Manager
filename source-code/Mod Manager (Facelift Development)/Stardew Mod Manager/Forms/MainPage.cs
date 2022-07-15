@@ -636,8 +636,8 @@ namespace Stardew_Mod_Manager
                         {
                             //Process.Start(LatestRelease);
                             UpdateDownload download = new UpdateDownload();
-                            download.Show();
-                            this.Hide();
+                            download.ShowDialog();
+                            //this.Hide();
 
                             UpdateCheckLabel.Enabled = true;
                             UpdateCheckLabel.Text = "Updates available";
