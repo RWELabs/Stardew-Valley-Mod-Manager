@@ -97,6 +97,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Error Log Viewer\ELViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Error Log Viewer\ELViewer.Designer.cs">
+      <DependentUpon>ELViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\First Run\FirstRunSetup-Complete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     <Compile Include="Startup\Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Error Log Viewer\ELViewer.resx">
+      <DependentUpon>ELViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\First Run\FirstRunSetup-Complete.resx">
       <DependentUpon>FirstRunSetup-Complete.cs</DependentUpon>
     </EmbeddedResource>
