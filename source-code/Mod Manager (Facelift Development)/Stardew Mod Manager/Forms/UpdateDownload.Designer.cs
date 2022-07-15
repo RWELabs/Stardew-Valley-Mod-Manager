@@ -32,7 +32,6 @@ namespace Stardew_Mod_Manager.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateDownload));
             this.Progress = new System.Windows.Forms.ProgressBar();
-            this.Cancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -40,6 +39,7 @@ namespace Stardew_Mod_Manager.Forms
             this.PercentText = new System.Windows.Forms.Label();
             this.StartExecute = new System.Windows.Forms.Timer(this.components);
             this.CancelCleanup = new System.Windows.Forms.Timer(this.components);
+            this.Cancel = new Syncfusion.WinForms.Controls.SfButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,18 +47,8 @@ namespace Stardew_Mod_Manager.Forms
             // 
             this.Progress.Location = new System.Drawing.Point(14, 142);
             this.Progress.Name = "Progress";
-            this.Progress.Size = new System.Drawing.Size(292, 24);
+            this.Progress.Size = new System.Drawing.Size(278, 24);
             this.Progress.TabIndex = 0;
-            // 
-            // Cancel
-            // 
-            this.Cancel.Location = new System.Drawing.Point(312, 142);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(82, 24);
-            this.Cancel.TabIndex = 1;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = true;
-            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label6
             // 
@@ -122,17 +112,28 @@ namespace Stardew_Mod_Manager.Forms
             this.CancelCleanup.Interval = 4000;
             this.CancelCleanup.Tick += new System.EventHandler(this.CancelCleanup_Tick);
             // 
+            // Cancel
+            // 
+            this.Cancel.AccessibleName = "Button";
+            this.Cancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.Cancel.Location = new System.Drawing.Point(302, 142);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(97, 24);
+            this.Cancel.TabIndex = 37;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
             // UpdateDownload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 193);
             this.CloseButtonVisible = false;
+            this.Controls.Add(this.Cancel);
             this.Controls.Add(this.PercentText);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Progress);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -153,7 +154,6 @@ namespace Stardew_Mod_Manager.Forms
         #endregion
 
         private System.Windows.Forms.ProgressBar Progress;
-        private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -161,5 +161,6 @@ namespace Stardew_Mod_Manager.Forms
         private System.Windows.Forms.Label PercentText;
         private System.Windows.Forms.Timer StartExecute;
         private System.Windows.Forms.Timer CancelCleanup;
+        private Syncfusion.WinForms.Controls.SfButton Cancel;
     }
 }
