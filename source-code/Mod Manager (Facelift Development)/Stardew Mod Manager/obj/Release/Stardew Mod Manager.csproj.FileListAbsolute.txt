@@ -172,3 +172,4 @@ C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manag
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.SMAPI_Updater.resources
 C:\Users\ryanw\Documents\GitHub\Stardew-Valley-Mod-Manager\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.SMAPI_Updater.resources
 C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.HiddenForm.resources
+C:\Users\rwalpole\Documents\GitHub\Stardew-Valley-Mod-Framework\source-code\Mod Manager (Facelift Development)\Stardew Mod Manager\obj\Release\Stardew_Mod_Manager.Forms.Error_Log_Viewer.ELViewer.resources
