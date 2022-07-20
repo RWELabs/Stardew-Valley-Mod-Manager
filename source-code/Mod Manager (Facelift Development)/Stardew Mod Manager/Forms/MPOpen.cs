@@ -136,6 +136,7 @@ namespace Stardew_Mod_Manager.Forms
             catch(Exception ex)
             {
                 MessageBox.Show("There's an issue with your SDVMP file. It may be corrupted or incorrectly configured. Try re-downloading it or getting in touch with the modpack creator to solve this issue.", "Stardew Valley Mod Manager", MessageBoxButtons.OK);
+                CreateErrorLog("The modpack could not be read: " + ex.Message + Environment.NewLine + "There's an issue with your SDVMP file. It may be corrupted or incorrectly configured. Try re-downloading it or getting in touch with the modpack creator to solve this issue.");
                 Application.Exit();
             }
         }
@@ -146,11 +147,13 @@ namespace Stardew_Mod_Manager.Forms
             if (e.Cancelled == true)
             {
                 MessageBox.Show("The operation was cancelled by the user or the system.", "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CreateErrorLog("The operation was cancelled by the user or the system: " + e.Error.Message);
                 Application.Exit();
             }
             else if (e.Error != null)
             {
                 MessageBox.Show("The application experienced an issue whilst trying to install the modpack:" + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("The application experienced an issue whilst trying to install the modpack: " + e.Error.Message);
                 Application.Exit();
             }
             else
@@ -160,6 +163,32 @@ namespace Stardew_Mod_Manager.Forms
                 steptwo.Show();
                 steptwo.Activate();
             }
+        }
+
+        private void CreateErrorLog(string errorMessage)
+        {
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            string LogID = DateTime.Now.ToString("dd-mm-yyyy-hh-mm-ss");
+
+            //Check for Log Directory
+            string logsdir = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            if (!Directory.Exists(logsdir))
+            {
+                Directory.CreateDirectory(logsdir);
+            }
+            else
+            {
+                //Directory exists
+            }
+
+            ErrorLog.Clear();
+            ErrorLog.AppendText("Stardew Valley Mod Manager v" + Properties.Settings.Default.Version);
+            ErrorLog.AppendText(Environment.NewLine + "(C) RWE Labs, 2022" + Environment.NewLine);
+            ErrorLog.AppendText("-------------------- ERROR LOG --------------------" + Environment.NewLine);
+            ErrorLog.AppendText("This log was generated at: " + LogID + Environment.NewLine + "With Stardew Valley Mod Manager version " + Properties.Settings.Default.Version + Environment.NewLine);
+            ErrorLog.AppendText(Environment.NewLine + errorMessage);
+            ErrorLog.SaveFile(SDVAppData + "log_" + LogID + ".sdvmmerrorlog", RichTextBoxStreamType.PlainText);
         }
     }
 }
