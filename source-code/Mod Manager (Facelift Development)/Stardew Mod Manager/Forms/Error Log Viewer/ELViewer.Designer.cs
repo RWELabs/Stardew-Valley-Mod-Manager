@@ -34,7 +34,8 @@
             // 
             // ErrorLogContents
             // 
-            this.ErrorLogContents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.ErrorLogContents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ErrorLogContents.BackColor = System.Drawing.Color.Black;
             this.ErrorLogContents.BorderStyle = System.Windows.Forms.BorderStyle.None;
