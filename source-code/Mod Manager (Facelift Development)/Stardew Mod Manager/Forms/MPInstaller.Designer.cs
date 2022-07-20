@@ -43,6 +43,7 @@
             this.PresetGenerator = new System.Windows.Forms.RichTextBox();
             this.DoMovementOperation = new System.Windows.Forms.Timer(this.components);
             this.DoModDelete = new System.ComponentModel.BackgroundWorker();
+            this.ErrorLog = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,6 +162,15 @@
             this.DoModDelete.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.DoModDelete_ProgressChanged);
             this.DoModDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoModDelete_RunWorkerCompleted);
             // 
+            // ErrorLog
+            // 
+            this.ErrorLog.Location = new System.Drawing.Point(12, 12);
+            this.ErrorLog.Name = "ErrorLog";
+            this.ErrorLog.Size = new System.Drawing.Size(71, 70);
+            this.ErrorLog.TabIndex = 41;
+            this.ErrorLog.Text = "";
+            this.ErrorLog.Visible = false;
+            // 
             // MPInstaller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +187,7 @@
             this.Controls.Add(this.ModsToInstall);
             this.Controls.Add(this.ModsToDisable);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.ErrorLog);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(425, 467);
@@ -205,5 +216,6 @@
         private System.Windows.Forms.RichTextBox PresetGenerator;
         private System.Windows.Forms.Timer DoMovementOperation;
         private System.ComponentModel.BackgroundWorker DoModDelete;
+        private System.Windows.Forms.RichTextBox ErrorLog;
     }
 }
