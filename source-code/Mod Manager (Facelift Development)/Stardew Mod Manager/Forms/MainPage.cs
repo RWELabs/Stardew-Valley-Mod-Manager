@@ -52,17 +52,9 @@ namespace Stardew_Mod_Manager
 
             try
             {
-                //if(Properties.Settings.Default.SMAPI_InstalledVersion == String.Empty)
-                //{
-                    var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
-                    string SMAPIVersionText = "SMAPI " + "v" + SMAPIVersion.ProductVersion;
-                    SMAPIVer.Text = SMAPIVersionText;
-                //}
-                // else
-                //{
-                //    string SMAPIVersionText = "SMAPI " + "v" + Properties.Settings.Default.SMAPI_InstalledVersion;
-                //    SMAPIVer.Text = SMAPIVersionText;
-                //}
+                var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
+                string SMAPIVersionText = "SMAPI " + "v" + SMAPIVersion.ProductVersion;
+                SMAPIVer.Text = SMAPIVersionText;
 
                 if (!File.Exists(Properties.Settings.Default.PresetsDir + "SMAPI Default.txt"))
                 {
@@ -1276,7 +1268,43 @@ namespace Stardew_Mod_Manager
 
         private void debug_TestErrorLogs_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("DEBUG_TESTERRORLOGCREATED", "Debug Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CreateErrorLog("This is a test. Line One." + Environment.NewLine + "handles second lines okay." + Environment.NewLine + Properties.Settings.Default.InactiveModsDir);
+        }
+
+        private void ViewErrorLogs_Click(object sender, EventArgs e)
+        {
+            if(Directory.Exists(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\")))    
+            {
+                Process.Start(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"));
+            }
+            else if (!Directory.Exists(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\")))
+            {
+                Directory.CreateDirectory(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"));
+                Process.Start(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"));
+            }
+        }
+
+        private void ClearErrorLogs_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\")))
+            {
+                Directory.Delete(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"), true);
+            }
+        }
+
+        private void Debug_BackupMods_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("The application may hang and become unresponsive for a moment depending on the size of your disabled mods list.");
+            if (!File.Exists(Properties.Settings.Default.StardewDir + @"inactive-mods-backup.zip"))
+            {
+                ZipFile.CreateFromDirectory(Properties.Settings.Default.InactiveModsDir, Properties.Settings.Default.StardewDir + @"inactive-mods-backup.zip");
+                MessageBox.Show("DEBUG_OPERATIONCOMPLETED", "Debug Menu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("DEBUG_FILEEXISTS","Debug Menu",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
