@@ -116,7 +116,6 @@ namespace Stardew_Mod_Manager
             this.label12 = new System.Windows.Forms.Label();
             this.Tab_Feedback = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.BugReport = new Syncfusion.WinForms.Controls.SfButton();
-            this.FBView = new System.Windows.Forms.WebBrowser();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -140,6 +139,12 @@ namespace Stardew_Mod_Manager
             this.ViewErrorLogs = new Syncfusion.WinForms.Controls.SfButton();
             this.ClearErrorLogs = new Syncfusion.WinForms.Controls.SfButton();
             this.Debug_BackupMods = new System.Windows.Forms.Button();
+            this.Feedback_FeatureRequest = new Syncfusion.WinForms.Controls.SfButton();
+            this.Feedback_Feedback = new Syncfusion.WinForms.Controls.SfButton();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.Feedback_ViewBugTracker = new Syncfusion.WinForms.Controls.SfButton();
+            this.Feedback_ViewLogs = new Syncfusion.WinForms.Controls.SfButton();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -165,6 +170,8 @@ namespace Stardew_Mod_Manager
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // ModFolderPath
@@ -1246,8 +1253,8 @@ namespace Stardew_Mod_Manager
             // Tab_Feedback
             // 
             this.Tab_Feedback.BackColor = System.Drawing.Color.White;
-            this.Tab_Feedback.Controls.Add(this.BugReport);
-            this.Tab_Feedback.Controls.Add(this.FBView);
+            this.Tab_Feedback.Controls.Add(this.groupBox9);
+            this.Tab_Feedback.Controls.Add(this.groupBox8);
             this.Tab_Feedback.Controls.Add(this.pictureBox3);
             this.Tab_Feedback.Controls.Add(this.label15);
             this.Tab_Feedback.Controls.Add(this.label16);
@@ -1265,22 +1272,13 @@ namespace Stardew_Mod_Manager
             // BugReport
             // 
             this.BugReport.AccessibleName = "Button";
-            this.BugReport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.BugReport.Location = new System.Drawing.Point(449, 73);
+            this.BugReport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BugReport.Location = new System.Drawing.Point(159, 35);
             this.BugReport.Name = "BugReport";
             this.BugReport.Size = new System.Drawing.Size(137, 28);
             this.BugReport.TabIndex = 36;
-            this.BugReport.Text = "Report a Bug";
+            this.BugReport.Text = "Report a New Bug";
             this.BugReport.Click += new System.EventHandler(this.BugReport_Click);
-            // 
-            // FBView
-            // 
-            this.FBView.Location = new System.Drawing.Point(19, 146);
-            this.FBView.MinimumSize = new System.Drawing.Size(20, 20);
-            this.FBView.Name = "FBView";
-            this.FBView.ScriptErrorsSuppressed = true;
-            this.FBView.Size = new System.Drawing.Size(567, 333);
-            this.FBView.TabIndex = 35;
             // 
             // pictureBox3
             // 
@@ -1494,6 +1492,75 @@ namespace Stardew_Mod_Manager
             this.Debug_BackupMods.UseVisualStyleBackColor = true;
             this.Debug_BackupMods.Click += new System.EventHandler(this.Debug_BackupMods_Click);
             // 
+            // Feedback_FeatureRequest
+            // 
+            this.Feedback_FeatureRequest.AccessibleName = "Button";
+            this.Feedback_FeatureRequest.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Feedback_FeatureRequest.Location = new System.Drawing.Point(159, 35);
+            this.Feedback_FeatureRequest.Name = "Feedback_FeatureRequest";
+            this.Feedback_FeatureRequest.Size = new System.Drawing.Size(137, 28);
+            this.Feedback_FeatureRequest.TabIndex = 37;
+            this.Feedback_FeatureRequest.Text = "Request a Feature";
+            this.Feedback_FeatureRequest.Click += new System.EventHandler(this.Feedback_FeatureRequest_Click);
+            // 
+            // Feedback_Feedback
+            // 
+            this.Feedback_Feedback.AccessibleName = "Button";
+            this.Feedback_Feedback.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Feedback_Feedback.Location = new System.Drawing.Point(16, 35);
+            this.Feedback_Feedback.Name = "Feedback_Feedback";
+            this.Feedback_Feedback.Size = new System.Drawing.Size(137, 28);
+            this.Feedback_Feedback.TabIndex = 38;
+            this.Feedback_Feedback.Text = "Give Feedback";
+            this.Feedback_Feedback.Click += new System.EventHandler(this.Feedback_Feedback_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.Feedback_ViewLogs);
+            this.groupBox8.Controls.Add(this.Feedback_ViewBugTracker);
+            this.groupBox8.Controls.Add(this.BugReport);
+            this.groupBox8.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.groupBox8.Location = new System.Drawing.Point(32, 168);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(535, 84);
+            this.groupBox8.TabIndex = 39;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Bugs and Issues";
+            // 
+            // Feedback_ViewBugTracker
+            // 
+            this.Feedback_ViewBugTracker.AccessibleName = "Button";
+            this.Feedback_ViewBugTracker.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Feedback_ViewBugTracker.Location = new System.Drawing.Point(16, 35);
+            this.Feedback_ViewBugTracker.Name = "Feedback_ViewBugTracker";
+            this.Feedback_ViewBugTracker.Size = new System.Drawing.Size(137, 28);
+            this.Feedback_ViewBugTracker.TabIndex = 37;
+            this.Feedback_ViewBugTracker.Text = "View Bug Tracker";
+            this.Feedback_ViewBugTracker.Click += new System.EventHandler(this.Feedback_ViewBugTracker_Click);
+            // 
+            // Feedback_ViewLogs
+            // 
+            this.Feedback_ViewLogs.AccessibleName = "Button";
+            this.Feedback_ViewLogs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Feedback_ViewLogs.Location = new System.Drawing.Point(302, 35);
+            this.Feedback_ViewLogs.Name = "Feedback_ViewLogs";
+            this.Feedback_ViewLogs.Size = new System.Drawing.Size(137, 28);
+            this.Feedback_ViewLogs.TabIndex = 38;
+            this.Feedback_ViewLogs.Text = "View Error Logs";
+            this.Feedback_ViewLogs.Click += new System.EventHandler(this.Feedback_ViewLogs_Click);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.Feedback_Feedback);
+            this.groupBox9.Controls.Add(this.Feedback_FeatureRequest);
+            this.groupBox9.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.groupBox9.Location = new System.Drawing.Point(32, 277);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(535, 84);
+            this.groupBox9.TabIndex = 40;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Features and Feedback";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1560,6 +1627,8 @@ namespace Stardew_Mod_Manager
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1661,7 +1730,6 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.WebBrowser FBView;
         private Syncfusion.WinForms.Controls.SfButton BugReport;
         private System.ComponentModel.BackgroundWorker SMAPIValidationWorker;
         private System.ComponentModel.BackgroundWorker SMAPIValidationWorker2;
@@ -1675,5 +1743,11 @@ namespace Stardew_Mod_Manager
         private Syncfusion.WinForms.Controls.SfButton ViewErrorLogs;
         private System.Windows.Forms.CheckBox Setting_CreateErrorLogs;
         private System.Windows.Forms.Button Debug_BackupMods;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private Syncfusion.WinForms.Controls.SfButton Feedback_Feedback;
+        private Syncfusion.WinForms.Controls.SfButton Feedback_FeatureRequest;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private Syncfusion.WinForms.Controls.SfButton Feedback_ViewLogs;
+        private Syncfusion.WinForms.Controls.SfButton Feedback_ViewBugTracker;
     }
 }
