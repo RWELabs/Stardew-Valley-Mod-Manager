@@ -719,7 +719,7 @@ namespace Stardew_Mod_Manager
             this.BackupSelectedFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BackupSelectedFarm.Name = "BackupSelectedFarm";
             this.BackupSelectedFarm.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 58);
+            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 45);
             this.BackupSelectedFarm.Text = "Backup Selected";
             this.BackupSelectedFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BackupSelectedFarm.Click += new System.EventHandler(this.MakeBackupButton_Click);
@@ -730,7 +730,7 @@ namespace Stardew_Mod_Manager
             this.ViewBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ViewBackups.Name = "ViewBackups";
             this.ViewBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ViewBackups.Size = new System.Drawing.Size(88, 58);
+            this.ViewBackups.Size = new System.Drawing.Size(88, 45);
             this.ViewBackups.Text = "View Backups";
             this.ViewBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ViewBackups.Click += new System.EventHandler(this.ViewBackupsButton_Click);
@@ -741,7 +741,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSMAPIBackups.Name = "OpenSMAPIBackups";
             this.OpenSMAPIBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 58);
+            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 45);
             this.OpenSMAPIBackups.Text = "SMAPI Backups";
             this.OpenSMAPIBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSMAPIBackups.Click += new System.EventHandler(this.ViewSMAPIBackups_Click);
@@ -753,7 +753,7 @@ namespace Stardew_Mod_Manager
             this.DeleteFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteFarm.Name = "DeleteFarm";
             this.DeleteFarm.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.DeleteFarm.Size = new System.Drawing.Size(97, 58);
+            this.DeleteFarm.Size = new System.Drawing.Size(97, 45);
             this.DeleteFarm.Text = "Delete Selected";
             this.DeleteFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.DeleteFarm.Click += new System.EventHandler(this.DeleteFarmButton_Click);
@@ -764,7 +764,7 @@ namespace Stardew_Mod_Manager
             this.OpenSaves.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSaves.Name = "OpenSaves";
             this.OpenSaves.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSaves.Size = new System.Drawing.Size(114, 58);
+            this.OpenSaves.Size = new System.Drawing.Size(114, 45);
             this.OpenSaves.Text = "Open Saves Folder";
             this.OpenSaves.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSaves.Click += new System.EventHandler(this.OpenSavesButton_Click);
@@ -773,8 +773,6 @@ namespace Stardew_Mod_Manager
             // 
             this.Tab_Main.AutoSize = true;
             this.Tab_Main.BackColor = System.Drawing.Color.White;
-            this.Tab_Main.Controls.Add(this.Debug_BackupMods);
-            this.Tab_Main.Controls.Add(this.debug_TestErrorLogs);
             this.Tab_Main.Controls.Add(this.label2);
             this.Tab_Main.Controls.Add(this.label14);
             this.Tab_Main.Controls.Add(this.label1);
@@ -802,12 +800,13 @@ namespace Stardew_Mod_Manager
             // 
             // debug_TestErrorLogs
             // 
-            this.debug_TestErrorLogs.Location = new System.Drawing.Point(247, 89);
+            this.debug_TestErrorLogs.Location = new System.Drawing.Point(470, 95);
             this.debug_TestErrorLogs.Name = "debug_TestErrorLogs";
             this.debug_TestErrorLogs.Size = new System.Drawing.Size(119, 23);
             this.debug_TestErrorLogs.TabIndex = 48;
             this.debug_TestErrorLogs.Text = "debug_TestErrorLog";
             this.debug_TestErrorLogs.UseVisualStyleBackColor = true;
+            this.debug_TestErrorLogs.Visible = false;
             this.debug_TestErrorLogs.Click += new System.EventHandler(this.debug_TestErrorLogs_Click);
             // 
             // label2
@@ -1484,12 +1483,13 @@ namespace Stardew_Mod_Manager
             // 
             // Debug_BackupMods
             // 
-            this.Debug_BackupMods.Location = new System.Drawing.Point(197, 118);
+            this.Debug_BackupMods.Location = new System.Drawing.Point(405, 123);
             this.Debug_BackupMods.Name = "Debug_BackupMods";
             this.Debug_BackupMods.Size = new System.Drawing.Size(184, 23);
             this.Debug_BackupMods.TabIndex = 49;
             this.Debug_BackupMods.Text = "debug_BackupInactiveMods";
             this.Debug_BackupMods.UseVisualStyleBackColor = true;
+            this.Debug_BackupMods.Visible = false;
             this.Debug_BackupMods.Click += new System.EventHandler(this.Debug_BackupMods_Click);
             // 
             // Feedback_FeatureRequest
@@ -1566,8 +1566,10 @@ namespace Stardew_Mod_Manager
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 697);
-            this.Controls.Add(this.SDVPlay);
             this.Controls.Add(this.SMAPIWarning);
+            this.Controls.Add(this.Debug_BackupMods);
+            this.Controls.Add(this.debug_TestErrorLogs);
+            this.Controls.Add(this.SDVPlay);
             this.Controls.Add(this.MainTabs);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.ModFolderPath);
