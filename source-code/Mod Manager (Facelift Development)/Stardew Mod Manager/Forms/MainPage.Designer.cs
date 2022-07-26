@@ -974,7 +974,7 @@ namespace Stardew_Mod_Manager
             this.AddRemoveMods.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.AddRemoveMods.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.AddRemoveMods.ShowLauncher = false;
-            this.AddRemoveMods.Size = new System.Drawing.Size(180, 61);
+            this.AddRemoveMods.Size = new System.Drawing.Size(211, 61);
             this.AddRemoveMods.TabIndex = 42;
             this.AddRemoveMods.Text = "Add or Remove Mods";
             this.AddRemoveMods.ThemeName = "Metro";
