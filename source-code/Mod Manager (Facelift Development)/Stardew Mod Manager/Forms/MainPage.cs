@@ -486,6 +486,8 @@ namespace Stardew_Mod_Manager
 
         private void DeleteMod_Click(object sender, EventArgs e)
         {
+            ModsToMove.Clear();
+
             try
             {
                 foreach (string item in AvailableModsList.SelectedItems)
@@ -494,9 +496,18 @@ namespace Stardew_Mod_Manager
                     string DisabledModFolderName = AvailableModsList.SelectedItem.ToString();
                     string DisabledModsDir = Properties.Settings.Default.InactiveModsDir;
 
-                    DialogResult dr = MessageBox.Show("Are you sure you want to delete " + item + " from your mods folder? If you want to continue using this mod in the future, consider just disabling it instead.", "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    ModsToMove.AppendText("- " + item + Environment.NewLine);
+                }
 
-                    if (dr == DialogResult.Yes)
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete: " + Environment.NewLine + ModsToMove.Text + " from your mods folder? If you want to continue using this mod in the future, consider just disabling it instead.", "Mod Manager | Stardew Valley Modded Framework", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+    
+                if(dr == DialogResult.Yes)
+                {
+                    string ModDirectory = Properties.Settings.Default.ModsDir;
+                    string DisabledModFolderName = AvailableModsList.SelectedItem.ToString();
+                    string DisabledModsDir = Properties.Settings.Default.InactiveModsDir;
+
+                    foreach (string item in AvailableModsList.SelectedItems)
                     {
                         try
                         {
@@ -508,11 +519,12 @@ namespace Stardew_Mod_Manager
                             CreateErrorLog("There was a problem deleting a mod. Error Message:" + ex.Message);
                         }
                     }
-                    else if (dr == DialogResult.No)
-                    {
-                        //do nothing
-                        RefreshObjects();
-                    }
+                }
+                
+                else if (dr == DialogResult.No)
+                {
+                    //do nothing
+                    RefreshObjects();
                 }
 
                 RefreshObjects();
