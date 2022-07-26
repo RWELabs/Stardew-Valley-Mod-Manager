@@ -1078,7 +1078,7 @@ namespace Stardew_Mod_Manager
                 MainTabs.TabPages.Add(Tab_Feedback);
                 this.MainTabs.SelectedTab = Tab_Feedback;
                 GiveFeedbackLink.Enabled = false;
-                FBView.Url = new Uri("https://labs.ryanwalpole.com/feedback/sdvmm/");
+                //FBView.Url = new Uri("https://labs.ryanwalpole.com/feedback/sdvmm/");
             }
         }
 
@@ -1274,22 +1274,36 @@ namespace Stardew_Mod_Manager
 
         private void ViewErrorLogs_Click(object sender, EventArgs e)
         {
-            if(Directory.Exists(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\")))    
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            string LogID = DateTime.Now.ToString("dd-mm-yyyy-hh-mm-ss");
+
+            //Check for Log Directory
+            string logsdir = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+
+            if (Directory.Exists(logsdir))    
             {
-                Process.Start(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"));
+                Process.Start(logsdir);
             }
-            else if (!Directory.Exists(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\")))
+            else if (!Directory.Exists(logsdir))
             {
-                Directory.CreateDirectory(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"));
-                Process.Start(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"));
+                Directory.CreateDirectory(logsdir);
+                Process.Start(logsdir);
             }
         }
 
         private void ClearErrorLogs_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\")))
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            string LogID = DateTime.Now.ToString("dd-mm-yyyy-hh-mm-ss");
+
+            //Check for Log Directory
+            string logsdir = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+
+            if (Directory.Exists(logsdir))
             {
-                Directory.Delete(Path.Combine(Environment.SpecialFolder.ApplicationData + @"\RWE Labs\SDV Mod Manager\tmp\logs\"), true);
+                Directory.Delete(logsdir, true);
             }
         }
 
@@ -1304,6 +1318,76 @@ namespace Stardew_Mod_Manager
             else
             {
                 MessageBox.Show("DEBUG_FILEEXISTS","Debug Menu",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void Feedback_Feedback_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string FB = "https://forms.office.com/r/Uwe2984jT1";
+                Process.Start(FB);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("An error occured whilst trying to open a feedback report. Error Message: " + ex.Message);
+            }
+        }
+
+        private void Feedback_FeatureRequest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string FR = "https://github.com/RWELabs/Stardew-Valley-Mod-Manager/issues/new?assignees=&labels=&template=feature-request.yaml&title=%5BFeature%5D+";
+                Process.Start(FR);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("An error occured whilst trying to open a feature request. Error Message: " + ex.Message);
+            }
+        }
+
+        private void Feedback_ViewBugTracker_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string BT = "https://github.com/RWELabs/Stardew-Valley-Mod-Manager/issues";
+                Process.Start(BT);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("An error occured whilst trying to open the bug tracker. Error Message: " + ex.Message);
+            }
+        }
+
+        private void Feedback_ViewLogs_Click(object sender, EventArgs e)
+        {
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            string LogID = DateTime.Now.ToString("dd-mm-yyyy-hh-mm-ss");
+
+            //Check for Log Directory
+            string logsdir = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+
+            try
+            {
+                if (Directory.Exists(logsdir))
+                {
+                    Process.Start(logsdir);
+                }
+                else
+                {
+                    Directory.CreateDirectory(logsdir);
+                    Process.Start(logsdir);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("An error occured whilst trying to open the bug tracker. Error Message: " + ex.Message);
             }
         }
     }
