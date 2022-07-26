@@ -20,11 +20,20 @@ namespace Stardew_Mod_Manager.Forms
             Continue.Enabled = false;
             ExtractProgress.Visible = false;
 
-            var diInactiveMods = new DirectoryInfo(Properties.Settings.Default.InactiveModsDir);
-            diInactiveMods.Attributes &= ~FileAttributes.ReadOnly;
+            ShowWarning("Some users are experiencing a bug where modpacks will not install due to a file path issue. We are working on fixing this. If you experience this issue, you can provide assistance by reporting it to us along with your error logs. You can do this from the Feedback link on the main dashboard.");
 
-            var diMods = new DirectoryInfo(Properties.Settings.Default.ModsDir);
-            diMods.Attributes &= ~FileAttributes.ReadOnly;
+            try
+            {
+                var diInactiveMods = new DirectoryInfo(Properties.Settings.Default.InactiveModsDir);
+                diInactiveMods.Attributes &= ~FileAttributes.ReadOnly;
+
+                var diMods = new DirectoryInfo(Properties.Settings.Default.ModsDir);
+                diMods.Attributes &= ~FileAttributes.ReadOnly;
+            }
+            catch (Exception ex)
+            {
+                CreateErrorLog("Could not remove the read-only attribute on the enabled and disabled mods folder. Error Message: " + ex.Message);
+            }
 
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
@@ -89,6 +98,11 @@ namespace Stardew_Mod_Manager.Forms
                 Continue.Focus();
             }
 
+        }
+
+        private void ShowWarning(string WarningMessage)
+        {
+            MessageBox.Show(WarningMessage,"Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void MPOpen_FormClosed(object sender, FormClosedEventArgs e)
