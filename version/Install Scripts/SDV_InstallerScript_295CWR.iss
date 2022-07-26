@@ -10,7 +10,7 @@
 #define MyAppExeName "Stardew Mod Manager.exe"
 #define MyAppAssocName "Stardew Valley Modpack File"
 #define MyAppAssocExt ".sdvmp"
-#define MyAppAssocKey StringChange(MyAppAssocName2, " ", "") + MyAppAssocExt2
+#define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 #define MyAppAssocName2 "Stardew Valley Mod Manager Log"
 #define MyAppAssocExt2 ".sdvmmerrorlog"
 #define MyAppAssocKey2 StringChange(MyAppAssocName2, " ", "") + MyAppAssocExt2
