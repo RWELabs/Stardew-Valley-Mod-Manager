@@ -97,6 +97,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Error Log Viewer\ELViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Error Log Viewer\ELViewer.Designer.cs">
+      <DependentUpon>ELViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\First Run\FirstRunSetup-Complete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     </Compile>
     <Compile Include="Forms\First Run\UpdateVersion.Designer.cs">
       <DependentUpon>UpdateVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HiddenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HiddenForm.Designer.cs">
+      <DependentUpon>HiddenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainPage.cs">
       <SubType>Form</SubType>
@@ -166,6 +178,9 @@
     <Compile Include="Startup\Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Error Log Viewer\ELViewer.resx">
+      <DependentUpon>ELViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\First Run\FirstRunSetup-Complete.resx">
       <DependentUpon>FirstRunSetup-Complete.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\First Run\UpdateVersion.resx">
       <DependentUpon>UpdateVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HiddenForm.resx">
+      <DependentUpon>HiddenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,7 @@ namespace Stardew_Mod_Manager.Forms
 
                 ModsToInstall.Items.Add(Path.GetFileName(folder));
             }
+
         }
 
         private void MPInstaller_FormClosed(object sender, FormClosedEventArgs e)
@@ -66,14 +68,22 @@ namespace Stardew_Mod_Manager.Forms
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
+            string DeleteLocation = Properties.Settings.Default.StardewDir + @"\tmp\del";
             string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
             //string ModsOld = Properties.Settings.Default.StardewDir + @"\vdsk\";
+            string zipPath = UnpackLocation + LA.Replace(".sdvmp", ".zip");
+            string extractPath = Properties.Settings.Default.InactiveModsDir;
 
-            foreach (string folder in Directory.GetDirectories(UnpackLocation))
+            File.Move(Properties.Settings.Default.LaunchArguments, UnpackLocation + LA.Replace(".sdvmp", ".zip"));
+
+            using (ZipArchive archive = ZipFile.OpenRead(zipPath))
             {
-                if (Directory.Exists(Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder)))
+                foreach (ZipArchiveEntry entry in archive.Entries)
                 {
-                    Directory.Delete(Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder), true);
+                    if (Directory.Exists(Properties.Settings.Default.InactiveModsDir + entry.FullName))
+                    {
+                        Directory.Delete(Properties.Settings.Default.InactiveModsDir + entry.FullName, true);
+                    }
                 }
             }
         }
@@ -83,12 +93,14 @@ namespace Stardew_Mod_Manager.Forms
             if (e.Cancelled == true)
             {
                 MessageBox.Show("The operation was cancelled by the user or the system.", "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CreateErrorLog("The operation was cancelled by the user or the system: " + e.Error.Message);
                 Application.Exit();
             }
             else if (e.Error != null)
             {
                 //resultLabel.Text = "Error: " + e.Error.Message;
-                MessageBox.Show("The application experienced an issue whilst trying to install the modpack:" + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The application experienced an issue whilst trying to delete an old version of a mod: " + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("The application experienced an issue whilst trying to delete an old version of a mod: " + e.Error.Message);
                 Application.Exit();
             }
             else
@@ -110,10 +122,10 @@ namespace Stardew_Mod_Manager.Forms
             string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
             string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
 
-            foreach (string folder in Directory.GetDirectories(Path.GetFullPath(UnpackLocation)))
-            {
-                Directory.Move(folder, Properties.Settings.Default.InactiveModsDir + Path.GetFileName(folder));
-            }
+            string zipPath = UnpackLocation + LA.Replace(".sdvmp", ".zip");
+            string extractPath = Properties.Settings.Default.InactiveModsDir;
+
+            ZipFile.ExtractToDirectory(zipPath, extractPath);
         }
 
         private void DoModDelete_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -121,17 +133,25 @@ namespace Stardew_Mod_Manager.Forms
             if (e.Cancelled == true)
             {
                 MessageBox.Show("The operation was cancelled by the user or the system.", "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CreateErrorLog("Modpack installation was cancelled by the user or the system: " + e.Error.Message);
                 Application.Exit();
             }
             else if (e.Error != null)
             {
                 //resultLabel.Text = "Error: " + e.Error.Message;
-                MessageBox.Show("The application experienced an issue whilst trying to install the modpack:" + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The application experienced an issue whilst trying to install the modpack: " + Environment.NewLine + e.Error.Message, "Stardew Valley Modpack Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateErrorLog("The application experienced an issue whilst trying to install the modpack: " + e.Error.Message);
                 Application.Exit();
             }
             else
             {
                 string PresetName = Path.GetFileNameWithoutExtension(Properties.Settings.Default.LaunchArguments);
+                string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+                string UnpackLocation = Properties.Settings.Default.StardewDir + @"\tmp\unpack\";
+                string LA = Path.GetFileName(Properties.Settings.Default.LaunchArguments);
+
+                File.Move(UnpackLocation + LA.Replace(".sdvmp", ".zip"), Properties.Settings.Default.LaunchArguments);
 
                 foreach (string item in ModsToInstall.Items)
                 {
@@ -155,12 +175,33 @@ namespace Stardew_Mod_Manager.Forms
                     MainPage splash = new MainPage();
                     splash.Show();
                     splash.Activate();
+
+                    string DeleteLocation = Properties.Settings.Default.StardewDir + @"\tmp\";
+                    try
+                    {
+                        Directory.Delete(DeleteLocation, true);
+                    }
+                    catch (Exception ex) 
+                    {
+                        CreateErrorLog("Cleanup operations were unable to take place. Error Message: " + ex.Message);
+                    }
                 }
                 else
                 {
                     Properties.Settings.Default.LaunchArguments = null;
                     Properties.Settings.Default.Save();
                     Application.Exit();
+
+                    string DeleteLocation = Properties.Settings.Default.StardewDir + @"\tmp\";
+                    try
+                    {
+                        Directory.Delete(DeleteLocation, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show("Cleanup operations were unable to take place.");
+                        CreateErrorLog("Cleanup operations were unable to take place. Error Message: " + ex.Message);
+                    }
                 }
             }
         }
@@ -173,6 +214,32 @@ namespace Stardew_Mod_Manager.Forms
         private void DoModDelete_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             //ExtractProgress.Value = e.ProgressPercentage;
+        }
+
+        private void CreateErrorLog(string errorMessage)
+        {
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            string LogID = DateTime.Now.ToString("dd-mm-yyyy-hh-mm-ss");
+
+            //Check for Log Directory
+            string logsdir = AppData + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            if (!Directory.Exists(logsdir))
+            {
+                Directory.CreateDirectory(logsdir);
+            }
+            else
+            {
+                //Directory exists
+            }
+
+            ErrorLog.Clear();
+            ErrorLog.AppendText("Stardew Valley Mod Manager v" + Properties.Settings.Default.Version);
+            ErrorLog.AppendText(Environment.NewLine + "(C) RWE Labs, 2022" + Environment.NewLine);
+            ErrorLog.AppendText("-------------------- ERROR LOG --------------------" + Environment.NewLine);
+            ErrorLog.AppendText("This log was generated at: " + LogID + Environment.NewLine + "With Stardew Valley Mod Manager version " + Properties.Settings.Default.Version + Environment.NewLine);
+            ErrorLog.AppendText(Environment.NewLine + errorMessage);
+            ErrorLog.SaveFile(SDVAppData + "log_" + LogID + ".sdvmmerrorlog", RichTextBoxStreamType.PlainText);
         }
     }
 }

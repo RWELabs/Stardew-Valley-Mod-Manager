@@ -39,11 +39,12 @@
             this.DriveSpaceDestination = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.WarningText = new System.Windows.Forms.RichTextBox();
             this.Continue = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.Extract = new System.ComponentModel.BackgroundWorker();
             this.ExtractProgress = new System.Windows.Forms.ProgressBar();
-            this.WarningText = new System.Windows.Forms.RichTextBox();
+            this.ErrorLog = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IsValidSpace)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -147,6 +148,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Warnings";
             // 
+            // WarningText
+            // 
+            this.WarningText.BackColor = System.Drawing.Color.White;
+            this.WarningText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.WarningText.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.WarningText.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarningText.Location = new System.Drawing.Point(10, 21);
+            this.WarningText.Name = "WarningText";
+            this.WarningText.ReadOnly = true;
+            this.WarningText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.WarningText.Size = new System.Drawing.Size(368, 128);
+            this.WarningText.TabIndex = 0;
+            this.WarningText.Text = "By continuing to install this modpack, we will disable all currently enabled mods" +
+    ". You will have to re-enable them later.";
+            // 
             // Continue
             // 
             this.Continue.Location = new System.Drawing.Point(288, 384);
@@ -183,20 +199,14 @@
             this.ExtractProgress.TabIndex = 32;
             this.ExtractProgress.Value = 15;
             // 
-            // WarningText
+            // ErrorLog
             // 
-            this.WarningText.BackColor = System.Drawing.Color.White;
-            this.WarningText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WarningText.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.WarningText.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarningText.Location = new System.Drawing.Point(10, 21);
-            this.WarningText.Name = "WarningText";
-            this.WarningText.ReadOnly = true;
-            this.WarningText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.WarningText.Size = new System.Drawing.Size(368, 128);
-            this.WarningText.TabIndex = 0;
-            this.WarningText.Text = "By continuing to install this modpack, we will disable all currently enabled mods" +
-    ". You will have to re-enable them later.";
+            this.ErrorLog.Location = new System.Drawing.Point(12, 12);
+            this.ErrorLog.Name = "ErrorLog";
+            this.ErrorLog.Size = new System.Drawing.Size(71, 70);
+            this.ErrorLog.TabIndex = 33;
+            this.ErrorLog.Text = "";
+            this.ErrorLog.Visible = false;
             // 
             // MPOpen
             // 
@@ -217,6 +227,7 @@
             this.Controls.Add(this.DriveSpaceAvailable);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ErrorLog);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(425, 467);
@@ -250,5 +261,6 @@
         private System.ComponentModel.BackgroundWorker Extract;
         private System.Windows.Forms.ProgressBar ExtractProgress;
         private System.Windows.Forms.RichTextBox WarningText;
+        private System.Windows.Forms.RichTextBox ErrorLog;
     }
 }
