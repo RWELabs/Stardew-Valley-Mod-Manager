@@ -1,5 +1,6 @@
 ﻿using IWshRuntimeLibrary;
 using Stardew_Mod_Manager.Forms;
+using Stardew_Mod_Manager.Forms.Error_Log_Viewer;
 using Syncfusion.WinForms.Controls;
 using System;
 using System.Collections.Generic;
@@ -33,13 +34,33 @@ namespace Stardew_Mod_Manager.Startup
             else
             {
                 //Startup Arguments Found
-                //Launch Modpack Installer
 
-                Status.Text = "Doing Fun Things...";
-                ModpackStarter.Start();
+                //File is a modpack
+                if (Properties.Settings.Default.LaunchArguments.EndsWith(".sdvmp"))
+                {
+                    //Launch Modpack Installer
+                    Status.Text = "Doing Fun Things...";
+                    ModpackStarter.Start();
+                }
+
+                //File is an error log
+                else if (Properties.Settings.Default.LaunchArguments.EndsWith(".sdvmmerrorlog"))
+                {
+                    //Launch error log viewer
+                    Status.Text = "Decompiling logs...";
+                    LogTimer.Start();
+                }
+
             }
         }
 
+        private void LogTimer_Tick(object sender, EventArgs e)
+        {
+            LogTimer.Stop();
+            ELViewer errorlogviewer = new ELViewer();
+            errorlogviewer.Show();
+            this.Hide();
+        }
 
         private void StartupTimer_Tick(object sender, EventArgs e)
         {
@@ -85,6 +106,13 @@ namespace Stardew_Mod_Manager.Startup
             if (!Directory.Exists(backupsdir))
             {
                 Directory.CreateDirectory(backupsdir);
+            }
+
+            //Check for Log Directory
+            string logsdir = appdata + @"\RWE Labs\SDV Mod Manager\tmp\logs\";
+            if (!Directory.Exists(logsdir))
+            {
+                Directory.CreateDirectory(logsdir);
             }
         }
 
@@ -252,5 +280,6 @@ namespace Stardew_Mod_Manager.Startup
             Cleanup.Stop();
             LaunchApplicationNow();
         }
+
     }
 }

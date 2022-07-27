@@ -1,5 +1,6 @@
 name: 🐛 Report a Bug/Issue
 description: Report a bug or issue you've found in Stardew Valley Mod Manager.
+title: '[Issue]: '
 body:
   - type: markdown
     attributes:
@@ -24,13 +25,19 @@ body:
         splash screen and dashboard of the application.
     validations:
       required: true
-  - type: input
+  - type: dropdown
     id: operating-system
     attributes:
       label: Operating System
       description:
-        'Enter the specific operating system version you are running (example:
-        Windows 10)'
+        'Enter the specific operating system version you are running. If not listed, please select other and provide us your operating system details in the additional context text field.'
+      options:
+        - 'Windows 11'
+        - 'Windows 10'
+        - 'Windows 8/8.1'
+        - 'Windows 7'
+        - 'Windows Vista'
+        - 'Other'
     validations:
       required: true
   - type: textarea

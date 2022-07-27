@@ -45,6 +45,7 @@ namespace Stardew_Mod_Manager.Startup
             this.ValidateDirectories = new System.ComponentModel.BackgroundWorker();
             this.CheckForUpdates = new System.ComponentModel.BackgroundWorker();
             this.MigrateSettings = new System.ComponentModel.BackgroundWorker();
+            this.LogTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -168,6 +169,11 @@ namespace Stardew_Mod_Manager.Startup
             this.MigrateSettings.DoWork += new System.ComponentModel.DoWorkEventHandler(this.MigrateSettings_DoWork);
             this.MigrateSettings.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.MigrateSettings_RunWorkerCompleted);
             // 
+            // LogTimer
+            // 
+            this.LogTimer.Interval = 6000;
+            this.LogTimer.Tick += new System.EventHandler(this.LogTimer_Tick);
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,5 +220,6 @@ namespace Stardew_Mod_Manager.Startup
         private System.ComponentModel.BackgroundWorker ValidateDirectories;
         private System.ComponentModel.BackgroundWorker CheckForUpdates;
         private System.ComponentModel.BackgroundWorker MigrateSettings;
+        private System.Windows.Forms.Timer LogTimer;
     }
 }
