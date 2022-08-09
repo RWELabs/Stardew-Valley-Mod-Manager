@@ -20,6 +20,17 @@ namespace Stardew_Mod_Manager.Startup
 {
     public partial class Splash : Form
     {
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
         public Splash()
         {
             InitializeComponent();
