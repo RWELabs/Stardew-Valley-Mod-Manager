@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">220704</Value>
+      <Value Profile="(Default)">220801</Value>
     </Setting>
     <Setting Name="CheckUpdateOnStartup" Type="System.String" Scope="User">
       <Value Profile="(Default)">TRUE</Value>
@@ -52,6 +52,9 @@
     </Setting>
     <Setting Name="LaunchArguments" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ColorProfile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PINK</Value>
     </Setting>
   </Settings>
 </SettingsFile>
