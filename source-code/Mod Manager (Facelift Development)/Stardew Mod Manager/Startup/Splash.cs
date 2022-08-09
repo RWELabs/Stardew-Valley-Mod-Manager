@@ -156,6 +156,7 @@ namespace Stardew_Mod_Manager.Startup
                      FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
                      FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + Environment.NewLine);
                      FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset);
+                     FileWrite.AppendText("$ColorProfile=" + Properties.Settings.Default.ColorProfile);
                      FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
                  }));
             }
