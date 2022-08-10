@@ -181,6 +181,9 @@
   <data name="sdvicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MainBG_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainBG_Blue2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SDVMPIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SDVMPIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,6 +192,9 @@
   </data>
   <data name="RWE_Labs_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RWE_Labs_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainBG_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainBG_Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvView" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,11 +208,14 @@
   <data name="SdvSavePreset" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SdvSavePreset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SDVplay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="SDVPlay_Pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SDVplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stardew Mod Manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stardew Mod Manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sdvConnecting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sdvConnecting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -219,6 +228,9 @@
   </data>
   <data name="sdvOpenPreset" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvOpenPreset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainBG_Pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainBG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sdvQuestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvQuestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,7 +256,10 @@
   <data name="sdvvalidated" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sdvvalidated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sdvConnecting" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sdvConnecting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SDVPlay_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SDVPlay_Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SDVPlay_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SDVPlay_Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
