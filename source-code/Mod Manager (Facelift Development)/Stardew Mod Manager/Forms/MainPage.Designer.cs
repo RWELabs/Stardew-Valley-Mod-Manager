@@ -644,7 +644,7 @@ namespace Stardew_Mod_Manager
             // Tab_Settings
             // 
             this.Tab_Settings.AutoScroll = true;
-            this.Tab_Settings.AutoScrollMargin = new System.Drawing.Size(0, 50);
+            this.Tab_Settings.AutoScrollMargin = new System.Drawing.Size(0, 15);
             this.Tab_Settings.BackColor = System.Drawing.Color.White;
             this.Tab_Settings.Controls.Add(this.groupBox7);
             this.Tab_Settings.Controls.Add(this.SettingsResetButton);
