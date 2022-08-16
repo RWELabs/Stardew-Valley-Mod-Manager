@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
+
 
 namespace SDVMP_Generator
 {
@@ -96,8 +99,17 @@ namespace SDVMP_Generator
             }
             else if(folderlist.Items.Count >= 2)
             {
-                Operation1.RunWorkerAsync();
-                ProgressWorker.Visible = true;
+                if(TargetSMAPIVersion.Text == null)
+                {
+                    MessageBox.Show("Please add a target SMAPI version. This is the version of SMAPI your modpack is designed to run with.");
+                }
+                else
+                {
+                    Operation1.RunWorkerAsync();
+                    ProgressWorker.Visible = true;
+                    Create.Enabled = false;
+                    Cancelquit.Enabled = false;
+                }
             }
         }
 
@@ -162,6 +174,8 @@ namespace SDVMP_Generator
         {
             string AppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string tmp = AppDataFolder + @"\RWE Labs\SDV Mod Manager\tmp\pack\";
+            IniWrite.AppendText("$TARGETSMAPI=" + TargetSMAPIVersion);
+            IniWrite.SaveFile(tmp + "meta.ini", RichTextBoxStreamType.PlainText);
 
             ZipFile.CreateFromDirectory(tmp, Properties.Settings.Default.tmpFN);
         }
@@ -173,6 +187,8 @@ namespace SDVMP_Generator
 
             MessageBox.Show("Modpack has been successfully created!", "SDVMP Generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
             folderlist.Items.Clear();
+            Create.Enabled = true;
+            Cancelquit.Enabled = true;
 
             if (Directory.Exists(tmp))
             {
