@@ -46,11 +46,6 @@ namespace Stardew_Mod_Manager.Forms.First_Run
 
         private void ReadSettings()
         {
-            string StardewDirRegex = "$StardewDir=";
-            string ModsDirRegex = "$ModsDir=";
-            string InactiveModsDirRegex = "$InactiveModsDir=";
-            string PresetsDirRegex = "$PresetsDir=";
-            string CheckUpdateOnStartupRegex = "$CheckUpdateOnStartup=";
             string IsManuallyResetRegex = "$IsManuallyReset=";
 
             foreach (string line in FileRead.Lines)
@@ -87,8 +82,8 @@ namespace Stardew_Mod_Manager.Forms.First_Run
             string InactiveModsDirRegex = "$InactiveModsDir=";
             string PresetsDirRegex = "$PresetsDir=";
             string CheckUpdateOnStartupRegex = "$CheckUpdateOnStartup=";
-            string IsManuallyResetRegex = "$IsManuallyReset=";
             string IsCheckSMAPIUpdatesOnStartupRegex = "$CheckSMAPIUpdateOnStartup";
+            string ColorProfileRegex = "$ColorProfile";
 
             foreach (string line in FileRead.Lines)
             {
@@ -98,6 +93,7 @@ namespace Stardew_Mod_Manager.Forms.First_Run
                 if (line.Contains(PresetsDirRegex)) { string PresetsDir = line.Replace(PresetsDirRegex, null); Properties.Settings.Default.PresetsDir = PresetsDir; }
                 if (line.Contains(CheckUpdateOnStartupRegex)) { string CheckUpdateOnStartup = line.Replace(CheckUpdateOnStartupRegex, null); Properties.Settings.Default.CheckUpdateOnStartup = CheckUpdateOnStartup; }
                 if (line.Contains(IsCheckSMAPIUpdatesOnStartupRegex)) { string CheckSMAPIUpdatesOnStartup = line.Replace(IsCheckSMAPIUpdatesOnStartupRegex, null); Properties.Settings.Default.CheckSMAPIUpdateOnStartup = CheckSMAPIUpdatesOnStartup; }
+                if (line.Contains(ColorProfileRegex)) { string ColorProfile = line.Replace(ColorProfileRegex, null); Properties.Settings.Default.ColorProfile = ColorProfile; }
             }
 
             Properties.Settings.Default.IsManuallyReset = "FALSE";

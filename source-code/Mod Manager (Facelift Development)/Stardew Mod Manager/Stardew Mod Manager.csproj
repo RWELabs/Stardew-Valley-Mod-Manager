@@ -287,6 +287,14 @@
     <None Include="Resources\sdvFeedback.png" />
     <None Include="Resources\sdvQuestion.png" />
     <None Include="Resources\sdvConnecting.png" />
+    <None Include="Resources\MainBG.png" />
+    <None Include="Resources\MainBG1.png" />
+    <None Include="Resources\MainBG_Blue.png" />
+    <None Include="Resources\MainBG_Blue1.png" />
+    <None Include="Resources\MainBG_Blue2.png" />
+    <None Include="Resources\MainBG_Green.png" />
+    <None Include="Resources\SDVPlay_Green.png" />
+    <None Include="Resources\SDVPlay_Blue.png" />
     <Content Include="sdvicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -302,6 +310,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

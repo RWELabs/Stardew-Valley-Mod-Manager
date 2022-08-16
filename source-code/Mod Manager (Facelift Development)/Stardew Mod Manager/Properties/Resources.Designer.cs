@@ -103,6 +103,36 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MainBG_Blue {
+            get {
+                object obj = ResourceManager.GetObject("MainBG_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainBG_Green {
+            get {
+                object obj = ResourceManager.GetObject("MainBG_Green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainBG_Pink {
+            get {
+                object obj = ResourceManager.GetObject("MainBG_Pink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ModpackInstall {
             get {
                 object obj = ResourceManager.GetObject("ModpackInstall", resourceCulture);
@@ -363,9 +393,29 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SDVplay {
+        internal static System.Drawing.Bitmap SDVPlay_Blue {
             get {
-                object obj = ResourceManager.GetObject("SDVplay", resourceCulture);
+                object obj = ResourceManager.GetObject("SDVPlay_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SDVPlay_Green {
+            get {
+                object obj = ResourceManager.GetObject("SDVPlay_Green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SDVPlay_Pink {
+            get {
+                object obj = ResourceManager.GetObject("SDVPlay_Pink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
