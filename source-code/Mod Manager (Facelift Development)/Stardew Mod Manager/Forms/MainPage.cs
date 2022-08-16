@@ -27,11 +27,22 @@ namespace Stardew_Mod_Manager
     public partial class MainPage : Form
     {
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
         public MainPage()
         {
             InitializeComponent();
             CheckIfGameRunning();
             CheckSDV.Start();
+            GetColorProfile();
 
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
@@ -69,6 +80,45 @@ namespace Stardew_Mod_Manager
             }
         }
 
+        private void GetColorProfile()
+        {
+            //MainTabs.ActiveTabColor
+            //Pink - 227, 116, 137
+            //Blue - 0, 169, 202
+
+            switch (Properties.Settings.Default.ColorProfile.ToString().ToUpper())
+            {
+                case "BLUE":
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 0, 169, 202);
+                    Tab_Main.BackgroundImage = Resources.MainBG_Blue;
+                    Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
+                    Tab_GameMan.BackgroundImage = Resources.MainBG_Blue;
+                    Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
+                    ThemeColor.SelectedItem = "Colorful - Blue";
+                    SDVPlay.Image = Resources.SDVPlay_Blue;
+                    break;
+                case "PINK":
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 227, 116, 137);
+                    Tab_Main.BackgroundImage = Resources.MainBG_Pink;
+                    Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
+                    Tab_GameMan.BackgroundImage = Resources.MainBG_Pink;
+                    Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
+                    ThemeColor.SelectedItem = "Colorful - Pink";
+                    SDVPlay.Image = Resources.SDVPlay_Pink;
+                    break;
+                case "GREEN":
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 100, 148, 90);
+                    Tab_Main.BackgroundImage = Resources.MainBG_Green;
+                    Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
+                    Tab_GameMan.BackgroundImage = Resources.MainBG_Green;
+                    Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
+                    ThemeColor.SelectedItem = "Colorful - Green";
+                    SDVPlay.Image = Resources.SDVPlay_Green;
+                    break;
+            }
+
+        }
+
         private void CheckIfGameRunning()
         {
             int counter = 0;
@@ -91,7 +141,19 @@ namespace Stardew_Mod_Manager
             {
                 SDVPlay.Enabled = true;
                 SDVPlay.Text = "Launch Game";
-                SDVPlay.Image = Properties.Resources.SDVplay;
+                switch (Properties.Settings.Default.ColorProfile.ToString().ToUpper())
+                {
+                    case "BLUE":
+                        SDVPlay.Image = Properties.Resources.SDVPlay_Blue;
+                        break;
+                    case "PINK":
+                        SDVPlay.Image = Properties.Resources.SDVPlay_Pink;
+                        break;
+                    case "GREEN":
+                        SDVPlay.Image = Properties.Resources.SDVPlay_Green;
+                        break;
+                }
+                
             }
         }
 
@@ -404,6 +466,7 @@ namespace Stardew_Mod_Manager
             FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
             FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset + Environment.NewLine);
             FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup);
+            FileWrite.AppendText("$ColorProfile=" + Properties.Settings.Default.ColorProfile);
             FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
 
             Application.Exit();
@@ -419,7 +482,7 @@ namespace Stardew_Mod_Manager
             }
 
             string UserAnswer = Microsoft.VisualBasic.Interaction.InputBox("Please give this mod preset a name ", "Save Preset", "Untitled Preset");
-
+            
             if(UserAnswer.Length > 0)
             {
                 richTextBox1.SaveFile(Properties.Settings.Default.PresetsDir + UserAnswer + ".txt", RichTextBoxStreamType.PlainText);
@@ -1401,6 +1464,27 @@ namespace Stardew_Mod_Manager
                 MessageBox.Show("The following error occured: " + Environment.NewLine + ex.Message, "Stardew Valley Mod Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CreateErrorLog("An error occured whilst trying to open the bug tracker. Error Message: " + ex.Message);
             }
+        }
+
+        private void ThemeColor_SelectedValueChanged(object sender, EventArgs e)
+        {
+            switch (ThemeColor.SelectedItem.ToString()) 
+            {
+                case "Colorful - Pink":
+                    Properties.Settings.Default.ColorProfile = "PINK";
+                    Properties.Settings.Default.Save();
+                    break;
+                case "Colorful - Blue":
+                    Properties.Settings.Default.ColorProfile = "BLUE";
+                    Properties.Settings.Default.Save();
+                    break;
+                case "Colorful - Green":
+                    Properties.Settings.Default.ColorProfile = "GREEN";
+                    Properties.Settings.Default.Save();
+                    break;
+            }
+
+            GetColorProfile();
         }
     }
 }

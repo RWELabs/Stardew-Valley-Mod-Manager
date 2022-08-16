@@ -145,7 +145,7 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("220704")]
+        [global::System.Configuration.DefaultSettingValueAttribute("220801")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -224,6 +224,18 @@ namespace Stardew_Mod_Manager.Properties {
             }
             set {
                 this["LaunchArguments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PINK")]
+        public string ColorProfile {
+            get {
+                return ((string)(this["ColorProfile"]));
+            }
+            set {
+                this["ColorProfile"] = value;
             }
         }
     }
