@@ -174,7 +174,7 @@ namespace SDVMP_Generator
         {
             string AppDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string tmp = AppDataFolder + @"\RWE Labs\SDV Mod Manager\tmp\pack\";
-            IniWrite.AppendText("$TARGETSMAPI=" + TargetSMAPIVersion);
+            IniWrite.AppendText("$TARGETSMAPI=" + TargetSMAPIVersion.Text);
             IniWrite.SaveFile(tmp + "meta.ini", RichTextBoxStreamType.PlainText);
 
             ZipFile.CreateFromDirectory(tmp, Properties.Settings.Default.tmpFN);
