@@ -748,6 +748,19 @@ namespace Stardew_Mod_Manager
         private void AvailableModsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(this.AvailableModsList.SelectedIndex.ToString());
+            if (AvailableModsList.SelectedIndex < 0)
+            {
+                //InstalledModsList.SelectedItem = null;
+                //InstalledModsList.SelectedIndex = -1;
+            }
+            else
+            {
+                InstalledModsList.SelectedItem = null;
+                InstalledModsList.SelectedIndex = -1;
+                DeleteMod.Enabled = true;
+                EnableModButton.Enabled = true;
+                DisableModButton.Enabled = false;
+            }
         }
 
         private void MakeBackupButton_Click(object sender, EventArgs e)
@@ -1485,6 +1498,23 @@ namespace Stardew_Mod_Manager
             }
 
             GetColorProfile();
+        }
+
+        private void InstalledModsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (InstalledModsList.SelectedIndex < 0)
+            {
+                //AvailableModsList.SelectedItem = null;
+                //AvailableModsList.SelectedIndex = -1;
+            }
+            else
+            {
+                AvailableModsList.SelectedItem = null;
+                AvailableModsList.SelectedIndex = -1;
+                DeleteMod.Enabled = false;
+                EnableModButton.Enabled = false;
+                DisableModButton.Enabled = true;
+            }
         }
     }
 }
