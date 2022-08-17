@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 
 namespace Stardew_Mod_Manager.Forms
 {
@@ -19,6 +21,12 @@ namespace Stardew_Mod_Manager.Forms
             InitializeComponent();
             Continue.Enabled = false;
             ExtractProgress.Visible = false;
+
+            //string filePath = Properties.Settings.Default.LaunchArguments;
+            //var file = ShellFile.FromFilePath(filePath);
+            //string smapiVer = file.Properties.System.Title.ToString();
+            //RequiredSMAPIVersion.Text = smapiVer;
+            //MessageBox.Show(smapiVer);
 
             ShowWarning("Some users are experiencing a bug where modpacks will not install due to a file path issue. We are working on fixing this. If you experience this issue, you can provide assistance by reporting it to us along with your error logs. You can do this from the Feedback link on the main dashboard.");
 
