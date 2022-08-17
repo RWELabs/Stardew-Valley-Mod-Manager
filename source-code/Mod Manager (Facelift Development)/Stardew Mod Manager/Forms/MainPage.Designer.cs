@@ -343,7 +343,10 @@ namespace Stardew_Mod_Manager
             this.ThemeColor.Items.AddRange(new object[] {
             "Colorful - Pink",
             "Colorful - Blue",
-            "Colorful - Green"});
+            "Colorful - Green",
+            "Special - Birb",
+            "Special - Victoria",
+            "Special - Lyle"});
             this.ThemeColor.Location = new System.Drawing.Point(135, 31);
             this.ThemeColor.Name = "ThemeColor";
             this.ThemeColor.Size = new System.Drawing.Size(223, 21);
