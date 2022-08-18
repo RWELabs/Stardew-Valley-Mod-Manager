@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -18,6 +19,10 @@ namespace Stardew_Mod_Manager.Forms
         public MPInstaller()
         {
             InitializeComponent();
+
+            var SMAPIVersion = FileVersionInfo.GetVersionInfo(Properties.Settings.Default.StardewDir + @"\StardewModdingAPI.exe");
+            string SMAPIVersionText = "SMAPI " + "v" + SMAPIVersion.ProductVersion;
+            SMAPIVersionInfo.Text = SMAPIVersionText;
 
             foreach (string folder in Directory.GetDirectories(Properties.Settings.Default.ModsDir))
             {
@@ -43,6 +48,19 @@ namespace Stardew_Mod_Manager.Forms
                 }
 
                 ModsToInstall.Items.Add(Path.GetFileName(folder));
+            }
+
+            try
+            {
+                MetaInfRead.LoadFile(UnpackLocation + @"meta.ini", RichTextBoxStreamType.PlainText);
+                foreach(string line in MetaInfRead.Lines)
+                {
+                    if (line.Contains("$TARGETSMAPI=")){ SMAPITarget.Text = "SMAPI v" + line.Replace("$TARGETSMAPI=", "").ToString(); }
+                }
+            }
+            catch
+            {
+                SMAPITarget.Text = "Could not determine SMAPI target.";
             }
 
         }
@@ -85,6 +103,15 @@ namespace Stardew_Mod_Manager.Forms
                         Directory.Delete(Properties.Settings.Default.InactiveModsDir + entry.FullName, true);
                     }
                 }
+            }
+
+            if(File.Exists(Properties.Settings.Default.ModsDir + @"\meta.ini"))
+            {
+                File.Delete(Properties.Settings.Default.ModsDir + @"\meta.ini");
+            }
+            if (File.Exists(Properties.Settings.Default.InactiveModsDir + @"\meta.ini"))
+            {
+                File.Delete(Properties.Settings.Default.InactiveModsDir + @"\meta.ini");
             }
         }
 
