@@ -125,7 +125,7 @@ namespace Stardew_Mod_Manager
                     SDVPlay.Image = Resources.SDVPlay_Purple;
                     break;
                 case "VICTORIA":
-                    MainTabs.ActiveTabColor = Color.FromArgb(255, 84, 130, 53);
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 0, 112, 192);
                     Tab_Main.BackgroundImage = Resources.MainBG_Victoria;
                     Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
                     Tab_GameMan.BackgroundImage = Resources.MainBG_Victoria;
@@ -134,13 +134,13 @@ namespace Stardew_Mod_Manager
                     SDVPlay.Image = Resources.SDVPlay_Blue;
                     break;
                 case "LYLE":
-                    //MainTabs.ActiveTabColor = Color.FromArgb(255, 84, 130, 53);
-                    //Tab_Main.BackgroundImage = Resources.MainBG_Victoria;
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 74, 130, 53);
+                    Tab_Main.BackgroundImage = Resources.MainBG_Lyle;
                     Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
-                    //Tab_GameMan.BackgroundImage = Resources.MainBG_Victoria;
+                    Tab_GameMan.BackgroundImage = Resources.MainBG_Lyle;
                     Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
                     ThemeColor.SelectedItem = "Special - Lyle";
-                    //SDVPlay.Image = Resources.SDVPlay_Blue;
+                    SDVPlay.Image = Resources.SDVPlay_Green;
                     break;
             }
 
@@ -184,6 +184,9 @@ namespace Stardew_Mod_Manager
                         break;
                     case "VICTORIA":
                         SDVPlay.Image = Properties.Resources.SDVPlay_Blue;
+                        break;
+                    case "LYLE":
+                        SDVPlay.Image = Properties.Resources.SDVPlay_Green;
                         break;
                 }
                 
@@ -1536,7 +1539,7 @@ namespace Stardew_Mod_Manager
                     Properties.Settings.Default.ColorProfile = "VICTORIA";
                     Properties.Settings.Default.Save();
                     break;
-                case "Special - LYLE":
+                case "Special - Lyle":
                     Properties.Settings.Default.ColorProfile = "LYLE";
                     Properties.Settings.Default.Save();
                     break;
