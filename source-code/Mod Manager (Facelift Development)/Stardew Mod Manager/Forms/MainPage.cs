@@ -115,6 +115,33 @@ namespace Stardew_Mod_Manager
                     ThemeColor.SelectedItem = "Colorful - Green";
                     SDVPlay.Image = Resources.SDVPlay_Green;
                     break;
+                case "BIRB":
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 112, 48, 160);
+                    Tab_Main.BackgroundImage = Resources.MainBG_Birb;
+                    Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
+                    Tab_GameMan.BackgroundImage = Resources.MainBG_Birb;
+                    Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
+                    ThemeColor.SelectedItem = "Special - Birb";
+                    SDVPlay.Image = Resources.SDVPlay_Purple;
+                    break;
+                case "VICTORIA":
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 0, 112, 192);
+                    Tab_Main.BackgroundImage = Resources.MainBG_Victoria;
+                    Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
+                    Tab_GameMan.BackgroundImage = Resources.MainBG_Victoria;
+                    Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
+                    ThemeColor.SelectedItem = "Special - Victoria";
+                    SDVPlay.Image = Resources.SDVPlay_Blue;
+                    break;
+                case "LYLE":
+                    MainTabs.ActiveTabColor = Color.FromArgb(255, 74, 130, 53);
+                    Tab_Main.BackgroundImage = Resources.MainBG_Lyle;
+                    Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
+                    Tab_GameMan.BackgroundImage = Resources.MainBG_Lyle;
+                    Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
+                    ThemeColor.SelectedItem = "Special - Lyle";
+                    SDVPlay.Image = Resources.SDVPlay_Green;
+                    break;
             }
 
         }
@@ -150,6 +177,15 @@ namespace Stardew_Mod_Manager
                         SDVPlay.Image = Properties.Resources.SDVPlay_Pink;
                         break;
                     case "GREEN":
+                        SDVPlay.Image = Properties.Resources.SDVPlay_Green;
+                        break;
+                    case "BIRB":
+                        SDVPlay.Image = Properties.Resources.SDVPlay_Purple;
+                        break;
+                    case "VICTORIA":
+                        SDVPlay.Image = Properties.Resources.SDVPlay_Blue;
+                        break;
+                    case "LYLE":
                         SDVPlay.Image = Properties.Resources.SDVPlay_Green;
                         break;
                 }
@@ -748,6 +784,19 @@ namespace Stardew_Mod_Manager
         private void AvailableModsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(this.AvailableModsList.SelectedIndex.ToString());
+            if (AvailableModsList.SelectedIndex < 0)
+            {
+                //InstalledModsList.SelectedItem = null;
+                //InstalledModsList.SelectedIndex = -1;
+            }
+            else
+            {
+                InstalledModsList.SelectedItem = null;
+                InstalledModsList.SelectedIndex = -1;
+                DeleteMod.Enabled = true;
+                EnableModButton.Enabled = true;
+                DisableModButton.Enabled = false;
+            }
         }
 
         private void MakeBackupButton_Click(object sender, EventArgs e)
@@ -1482,9 +1531,38 @@ namespace Stardew_Mod_Manager
                     Properties.Settings.Default.ColorProfile = "GREEN";
                     Properties.Settings.Default.Save();
                     break;
+                case "Special - Birb":
+                    Properties.Settings.Default.ColorProfile = "BIRB";
+                    Properties.Settings.Default.Save();
+                    break;
+                case "Special - Victoria":
+                    Properties.Settings.Default.ColorProfile = "VICTORIA";
+                    Properties.Settings.Default.Save();
+                    break;
+                case "Special - Lyle":
+                    Properties.Settings.Default.ColorProfile = "LYLE";
+                    Properties.Settings.Default.Save();
+                    break;
             }
 
             GetColorProfile();
+        }
+
+        private void InstalledModsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (InstalledModsList.SelectedIndex < 0)
+            {
+                //AvailableModsList.SelectedItem = null;
+                //AvailableModsList.SelectedIndex = -1;
+            }
+            else
+            {
+                AvailableModsList.SelectedItem = null;
+                AvailableModsList.SelectedIndex = -1;
+                DeleteMod.Enabled = false;
+                EnableModButton.Enabled = false;
+                DisableModButton.Enabled = true;
+            }
         }
     }
 }

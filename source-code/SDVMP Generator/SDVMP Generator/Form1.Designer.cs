@@ -45,6 +45,10 @@ namespace SDVMP_Generator
             this.Operation2 = new System.ComponentModel.BackgroundWorker();
             this.ProgressWorker = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.IniWrite = new System.Windows.Forms.RichTextBox();
+            this.TargetSMAPIVersion = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +76,7 @@ namespace SDVMP_Generator
             // Create
             // 
             this.Create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Create.Location = new System.Drawing.Point(376, 406);
+            this.Create.Location = new System.Drawing.Point(376, 483);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(111, 30);
             this.Create.TabIndex = 6;
@@ -109,17 +113,17 @@ namespace SDVMP_Generator
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.Location = new System.Drawing.Point(16, 415);
+            this.label11.Location = new System.Drawing.Point(16, 492);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 13);
             this.label11.TabIndex = 17;
-            this.label11.Text = "Version 220601 (Beta)";
+            this.label11.Text = "Version 220801 (Beta)";
             // 
             // Cancelquit
             // 
             this.Cancelquit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancelquit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancelquit.Location = new System.Drawing.Point(259, 406);
+            this.Cancelquit.Location = new System.Drawing.Point(259, 483);
             this.Cancelquit.Name = "Cancelquit";
             this.Cancelquit.Size = new System.Drawing.Size(111, 30);
             this.Cancelquit.TabIndex = 5;
@@ -135,7 +139,7 @@ namespace SDVMP_Generator
             this.folderlist.FormattingEnabled = true;
             this.folderlist.Location = new System.Drawing.Point(17, 183);
             this.folderlist.Name = "folderlist";
-            this.folderlist.Size = new System.Drawing.Size(470, 212);
+            this.folderlist.Size = new System.Drawing.Size(470, 199);
             this.folderlist.TabIndex = 18;
             this.folderlist.SelectedIndexChanged += new System.EventHandler(this.folderlist_SelectedIndexChanged);
             // 
@@ -188,9 +192,9 @@ namespace SDVMP_Generator
             // 
             // ProgressWorker
             // 
-            this.ProgressWorker.Location = new System.Drawing.Point(17, 311);
+            this.ProgressWorker.Location = new System.Drawing.Point(12, 482);
             this.ProgressWorker.Name = "ProgressWorker";
-            this.ProgressWorker.Size = new System.Drawing.Size(385, 10);
+            this.ProgressWorker.Size = new System.Drawing.Size(475, 30);
             this.ProgressWorker.Step = 50;
             this.ProgressWorker.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.ProgressWorker.TabIndex = 20;
@@ -208,6 +212,41 @@ namespace SDVMP_Generator
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // IniWrite
+            // 
+            this.IniWrite.Location = new System.Drawing.Point(387, 183);
+            this.IniWrite.Name = "IniWrite";
+            this.IniWrite.Size = new System.Drawing.Size(100, 84);
+            this.IniWrite.TabIndex = 22;
+            this.IniWrite.Text = "";
+            this.IniWrite.Visible = false;
+            // 
+            // TargetSMAPIVersion
+            // 
+            this.TargetSMAPIVersion.Location = new System.Drawing.Point(143, 437);
+            this.TargetSMAPIVersion.Name = "TargetSMAPIVersion";
+            this.TargetSMAPIVersion.Size = new System.Drawing.Size(146, 20);
+            this.TargetSMAPIVersion.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 405);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 21);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "SMAPI";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.75F);
+            this.label4.Location = new System.Drawing.Point(14, 439);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 17);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Target SMAPI Version";
+            // 
             // Form1
             // 
             this.AcceptButton = this.Create;
@@ -215,8 +254,12 @@ namespace SDVMP_Generator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.Cancelquit;
-            this.ClientSize = new System.Drawing.Size(504, 446);
+            this.ClientSize = new System.Drawing.Size(504, 544);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TargetSMAPIVersion);
+            this.Controls.Add(this.IniWrite);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.folderlist);
             this.Controls.Add(this.ProgressWorker);
@@ -259,6 +302,10 @@ namespace SDVMP_Generator
         private System.ComponentModel.BackgroundWorker Operation2;
         private System.Windows.Forms.ProgressBar ProgressWorker;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox IniWrite;
+        private System.Windows.Forms.TextBox TargetSMAPIVersion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

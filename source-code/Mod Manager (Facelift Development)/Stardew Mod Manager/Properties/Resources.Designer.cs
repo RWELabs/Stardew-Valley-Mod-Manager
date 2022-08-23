@@ -103,6 +103,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MainBG_Birb {
+            get {
+                object obj = ResourceManager.GetObject("MainBG_Birb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MainBG_Blue {
             get {
                 object obj = ResourceManager.GetObject("MainBG_Blue", resourceCulture);
@@ -123,9 +133,29 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MainBG_Lyle {
+            get {
+                object obj = ResourceManager.GetObject("MainBG_Lyle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MainBG_Pink {
             get {
                 object obj = ResourceManager.GetObject("MainBG_Pink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainBG_Victoria {
+            get {
+                object obj = ResourceManager.GetObject("MainBG_Victoria", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -416,6 +446,16 @@ namespace Stardew_Mod_Manager.Properties {
         internal static System.Drawing.Bitmap SDVPlay_Pink {
             get {
                 object obj = ResourceManager.GetObject("SDVPlay_Pink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SDVPlay_Purple {
+            get {
+                object obj = ResourceManager.GetObject("SDVPlay_Purple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
