@@ -9,7 +9,7 @@ The following versions of the Stardew Valley Modded Framework (which includes th
 | v2208x     | ✅ | Supported until January 1 2023 |
 | v2207x     | ✅ | Supported until December 1 2022 |
 | v2206x     | ✅ | Supported until November 1 2022 |
-| v2205x     | ✅ | Supported until August 1 2022 |
+| v2205x     | ❌ | Supported until August 1 2022 |
 | v2204x     | ❌ | Support ended July 10 2022 |
 | v2203x     | ❌ | Support ended June 25 2022 |
 | v2202x     | ❌ | Support ended June 25 2022 |
