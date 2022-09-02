@@ -21,6 +21,7 @@ using Syncfusion.Windows.Forms.Tools;
 using static Syncfusion.Windows.Forms.Tools.RibbonForm;
 using Syncfusion.WinForms.Controls;
 using System.Runtime.InteropServices;
+using Stardew_Mod_Manager.Forms.Webapp;
 
 namespace Stardew_Mod_Manager
 {
@@ -85,6 +86,7 @@ namespace Stardew_Mod_Manager
             //MainTabs.ActiveTabColor
             //Pink - 227, 116, 137
             //Blue - 0, 169, 202
+            //MessageBox.Show(Properties.Settings.Default.ColorProfile.ToString().ToUpper());
 
             switch (Properties.Settings.Default.ColorProfile.ToString().ToUpper())
             {
@@ -495,14 +497,16 @@ namespace Stardew_Mod_Manager
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string SettingsINI = SDVAppData + @"settings.ini";
 
+            FileWrite.Clear();
+
             FileWrite.AppendText("$StardewDir=" + Properties.Settings.Default.StardewDir + Environment.NewLine);
             FileWrite.AppendText("$ModsDir=" + Properties.Settings.Default.ModsDir + Environment.NewLine);
             FileWrite.AppendText("$InactiveModsDir=" + Properties.Settings.Default.InactiveModsDir + Environment.NewLine);
             FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
             FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
             FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset + Environment.NewLine);
-            FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup);
-            FileWrite.AppendText("$ColorProfile=" + Properties.Settings.Default.ColorProfile);
+            FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + Environment.NewLine);
+            FileWrite.AppendText("$ColorProfile=" + Properties.Settings.Default.ColorProfile + Environment.NewLine);
             FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
 
             Application.Exit();
@@ -1563,6 +1567,17 @@ namespace Stardew_Mod_Manager
                 EnableModButton.Enabled = false;
                 DisableModButton.Enabled = true;
             }
+        }
+
+        private void SoftVer_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void WebToolsButton_Click(object sender, EventArgs e)
+        {
+            WebToolsHome wth = new WebToolsHome();
+            wth.Show();
         }
     }
 }
