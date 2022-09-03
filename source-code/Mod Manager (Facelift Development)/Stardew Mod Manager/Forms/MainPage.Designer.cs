@@ -144,6 +144,8 @@ namespace Stardew_Mod_Manager
             this.SMAPIValidationWorker2 = new System.ComponentModel.BackgroundWorker();
             this.StartSMAPIUpdateCheck = new System.Windows.Forms.Timer(this.components);
             this.Debug_BackupMods = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.WebToolsButton = new Syncfusion.WinForms.Controls.SfButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -504,11 +506,11 @@ namespace Stardew_Mod_Manager
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(22, 23);
+            this.label5.Location = new System.Drawing.Point(17, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(557, 25);
             this.label5.TabIndex = 7;
-            this.label5.Text = "My Farms";
+            this.label5.Text = "Manage Game Saves";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GameSavesList
@@ -516,9 +518,9 @@ namespace Stardew_Mod_Manager
             this.GameSavesList.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.GameSavesList.FormattingEnabled = true;
             this.GameSavesList.ItemHeight = 17;
-            this.GameSavesList.Location = new System.Drawing.Point(25, 63);
+            this.GameSavesList.Location = new System.Drawing.Point(20, 143);
             this.GameSavesList.Name = "GameSavesList";
-            this.GameSavesList.Size = new System.Drawing.Size(554, 378);
+            this.GameSavesList.Size = new System.Drawing.Size(554, 293);
             this.GameSavesList.TabIndex = 0;
             this.GameSavesList.SelectedValueChanged += new System.EventHandler(this.GameSavesList_SelectedValueChanged);
             // 
@@ -598,7 +600,7 @@ namespace Stardew_Mod_Manager
             this.EnableModButton,
             this.DisableModButton,
             this.toolStripSeparator2});
-            this.EnableDisableMods.Location = new System.Drawing.Point(206, 451);
+            this.EnableDisableMods.Location = new System.Drawing.Point(206, 449);
             this.EnableDisableMods.Name = "EnableDisableMods";
             this.EnableDisableMods.Office12Mode = false;
             this.EnableDisableMods.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -745,6 +747,8 @@ namespace Stardew_Mod_Manager
             this.Tab_GameMan.BackColor = System.Drawing.Color.White;
             this.Tab_GameMan.BackgroundImage = global::Stardew_Mod_Manager.Properties.Resources.MainBG_Pink;
             this.Tab_GameMan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Tab_GameMan.Controls.Add(this.WebToolsButton);
+            this.Tab_GameMan.Controls.Add(this.label18);
             this.Tab_GameMan.Controls.Add(this.SaveBackups);
             this.Tab_GameMan.Controls.Add(this.label5);
             this.Tab_GameMan.Controls.Add(this.GameSavesList);
@@ -773,7 +777,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups,
             this.DeleteFarm,
             this.OpenSaves});
-            this.SaveBackups.Location = new System.Drawing.Point(42, 450);
+            this.SaveBackups.Location = new System.Drawing.Point(42, 448);
             this.SaveBackups.Name = "SaveBackups";
             this.SaveBackups.Office12Mode = false;
             this.SaveBackups.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -1024,7 +1028,7 @@ namespace Stardew_Mod_Manager
             this.PresetManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SavePresetButton,
             this.LoadPresetButton});
-            this.PresetManagement.Location = new System.Drawing.Point(420, 451);
+            this.PresetManagement.Location = new System.Drawing.Point(420, 449);
             this.PresetManagement.Name = "PresetManagement";
             this.PresetManagement.Office12Mode = false;
             this.PresetManagement.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -1080,7 +1084,7 @@ namespace Stardew_Mod_Manager
             this.CheckModUpdates,
             this.DeleteMod,
             this.toolStripSeparator1});
-            this.AddRemoveMods.Location = new System.Drawing.Point(21, 451);
+            this.AddRemoveMods.Location = new System.Drawing.Point(21, 449);
             this.AddRemoveMods.Name = "AddRemoveMods";
             this.AddRemoveMods.Office12Mode = false;
             this.AddRemoveMods.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -1582,6 +1586,32 @@ namespace Stardew_Mod_Manager
             this.Debug_BackupMods.Visible = false;
             this.Debug_BackupMods.Click += new System.EventHandler(this.Debug_BackupMods_Click);
             // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(17, 20);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(557, 25);
+            this.label18.TabIndex = 44;
+            this.label18.Text = "Enhance Your Gameplay";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // WebToolsButton
+            // 
+            this.WebToolsButton.AccessibleName = "Button";
+            this.WebToolsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.WebToolsButton.ForeColor = System.Drawing.Color.Gray;
+            this.WebToolsButton.Location = new System.Drawing.Point(237, 56);
+            this.WebToolsButton.Name = "WebToolsButton";
+            this.WebToolsButton.Size = new System.Drawing.Size(117, 28);
+            this.WebToolsButton.Style.BackColor = System.Drawing.Color.White;
+            this.WebToolsButton.Style.ForeColor = System.Drawing.Color.Gray;
+            this.WebToolsButton.TabIndex = 45;
+            this.WebToolsButton.Text = "Gameplay Tools";
+            this.WebToolsButton.Click += new System.EventHandler(this.WebToolsButton_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1767,5 +1797,7 @@ namespace Stardew_Mod_Manager
         private Syncfusion.WinForms.Controls.SfButton Feedback_ViewBugTracker;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox ThemeColor;
+        private Syncfusion.WinForms.Controls.SfButton WebToolsButton;
+        private System.Windows.Forms.Label label18;
     }
 }
