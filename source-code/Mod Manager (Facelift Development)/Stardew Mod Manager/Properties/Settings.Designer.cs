@@ -238,5 +238,53 @@ namespace Stardew_Mod_Manager.Properties {
                 this["ColorProfile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DoTelemetry {
+            get {
+                return ((string)(this["DoTelemetry"]));
+            }
+            set {
+                this["DoTelemetry"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NEVER")]
+        public string LastDataSend {
+            get {
+                return ((string)(this["LastDataSend"]));
+            }
+            set {
+                this["LastDataSend"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("x")]
+        public string TEL_TimesOpened {
+            get {
+                return ((string)(this["TEL_TimesOpened"]));
+            }
+            set {
+                this["TEL_TimesOpened"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("x")]
+        public string TEL_ModsInstalled {
+            get {
+                return ((string)(this["TEL_ModsInstalled"]));
+            }
+            set {
+                this["TEL_ModsInstalled"] = value;
+            }
+        }
     }
 }
