@@ -84,6 +84,7 @@ namespace Stardew_Mod_Manager.Forms.First_Run
             string CheckUpdateOnStartupRegex = "$CheckUpdateOnStartup=";
             string IsCheckSMAPIUpdatesOnStartupRegex = "$CheckSMAPIUpdateOnStartup";
             string ColorProfileRegex = "$ColorProfile";
+            string DoTelemetryRegex = "$DoTelemetry=";
 
             foreach (string line in FileRead.Lines)
             {
@@ -94,6 +95,7 @@ namespace Stardew_Mod_Manager.Forms.First_Run
                 if (line.Contains(CheckUpdateOnStartupRegex)) { string CheckUpdateOnStartup = line.Replace(CheckUpdateOnStartupRegex, null); Properties.Settings.Default.CheckUpdateOnStartup = CheckUpdateOnStartup; }
                 if (line.Contains(IsCheckSMAPIUpdatesOnStartupRegex)) { string CheckSMAPIUpdatesOnStartup = line.Replace(IsCheckSMAPIUpdatesOnStartupRegex, null); Properties.Settings.Default.CheckSMAPIUpdateOnStartup = CheckSMAPIUpdatesOnStartup; }
                 if (line.Contains(ColorProfileRegex)) { string ColorProfile = line.Replace(ColorProfileRegex, null); Properties.Settings.Default.ColorProfile = ColorProfile; }
+                if (line.Contains(DoTelemetryRegex)) { string DoTelemetry = line.Replace(DoTelemetryRegex, null); Properties.Settings.Default.DoTelemetry = DoTelemetry; }
             }
 
             Properties.Settings.Default.IsManuallyReset = "FALSE";
