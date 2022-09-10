@@ -79,6 +79,8 @@ namespace Stardew_Mod_Manager
             this.SettingsResetButton = new Syncfusion.WinForms.Controls.SfButton();
             this.LegacySettings = new Syncfusion.WinForms.Controls.SfButton();
             this.Tab_GameMan = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.WebToolsButton = new Syncfusion.WinForms.Controls.SfButton();
+            this.label18 = new System.Windows.Forms.Label();
             this.SaveBackups = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
             this.BackupSelectedFarm = new System.Windows.Forms.ToolStripButton();
             this.ViewBackups = new System.Windows.Forms.ToolStripButton();
@@ -144,8 +146,7 @@ namespace Stardew_Mod_Manager
             this.SMAPIValidationWorker2 = new System.ComponentModel.BackgroundWorker();
             this.StartSMAPIUpdateCheck = new System.Windows.Forms.Timer(this.components);
             this.Debug_BackupMods = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.WebToolsButton = new Syncfusion.WinForms.Controls.SfButton();
+            this.DoTelemetricChecks = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -762,6 +763,32 @@ namespace Stardew_Mod_Manager
             this.Tab_GameMan.Text = "Game Management";
             this.Tab_GameMan.ThemesEnabled = false;
             // 
+            // WebToolsButton
+            // 
+            this.WebToolsButton.AccessibleName = "Button";
+            this.WebToolsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.WebToolsButton.ForeColor = System.Drawing.Color.Gray;
+            this.WebToolsButton.Location = new System.Drawing.Point(237, 56);
+            this.WebToolsButton.Name = "WebToolsButton";
+            this.WebToolsButton.Size = new System.Drawing.Size(117, 28);
+            this.WebToolsButton.Style.BackColor = System.Drawing.Color.White;
+            this.WebToolsButton.Style.ForeColor = System.Drawing.Color.Gray;
+            this.WebToolsButton.TabIndex = 45;
+            this.WebToolsButton.Text = "Gameplay Tools";
+            this.WebToolsButton.Click += new System.EventHandler(this.WebToolsButton_Click);
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(17, 20);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(557, 25);
+            this.label18.TabIndex = 44;
+            this.label18.Text = "Enhance Your Gameplay";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SaveBackups
             // 
             this.SaveBackups.CaptionAlignment = Syncfusion.Windows.Forms.Tools.CaptionAlignment.Center;
@@ -796,7 +823,7 @@ namespace Stardew_Mod_Manager
             this.BackupSelectedFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BackupSelectedFarm.Name = "BackupSelectedFarm";
             this.BackupSelectedFarm.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 45);
+            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 58);
             this.BackupSelectedFarm.Text = "Backup Selected";
             this.BackupSelectedFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BackupSelectedFarm.Click += new System.EventHandler(this.MakeBackupButton_Click);
@@ -807,7 +834,7 @@ namespace Stardew_Mod_Manager
             this.ViewBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ViewBackups.Name = "ViewBackups";
             this.ViewBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ViewBackups.Size = new System.Drawing.Size(88, 45);
+            this.ViewBackups.Size = new System.Drawing.Size(88, 58);
             this.ViewBackups.Text = "View Backups";
             this.ViewBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ViewBackups.Click += new System.EventHandler(this.ViewBackupsButton_Click);
@@ -818,7 +845,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSMAPIBackups.Name = "OpenSMAPIBackups";
             this.OpenSMAPIBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 45);
+            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 58);
             this.OpenSMAPIBackups.Text = "SMAPI Backups";
             this.OpenSMAPIBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSMAPIBackups.Click += new System.EventHandler(this.ViewSMAPIBackups_Click);
@@ -830,7 +857,7 @@ namespace Stardew_Mod_Manager
             this.DeleteFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteFarm.Name = "DeleteFarm";
             this.DeleteFarm.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.DeleteFarm.Size = new System.Drawing.Size(97, 45);
+            this.DeleteFarm.Size = new System.Drawing.Size(97, 58);
             this.DeleteFarm.Text = "Delete Selected";
             this.DeleteFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.DeleteFarm.Click += new System.EventHandler(this.DeleteFarmButton_Click);
@@ -841,7 +868,7 @@ namespace Stardew_Mod_Manager
             this.OpenSaves.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSaves.Name = "OpenSaves";
             this.OpenSaves.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSaves.Size = new System.Drawing.Size(114, 45);
+            this.OpenSaves.Size = new System.Drawing.Size(114, 58);
             this.OpenSaves.Text = "Open Saves Folder";
             this.OpenSaves.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSaves.Click += new System.EventHandler(this.OpenSavesButton_Click);
@@ -1586,31 +1613,10 @@ namespace Stardew_Mod_Manager
             this.Debug_BackupMods.Visible = false;
             this.Debug_BackupMods.Click += new System.EventHandler(this.Debug_BackupMods_Click);
             // 
-            // label18
+            // DoTelemetricChecks
             // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(17, 20);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(557, 25);
-            this.label18.TabIndex = 44;
-            this.label18.Text = "Enhance Your Gameplay";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // WebToolsButton
-            // 
-            this.WebToolsButton.AccessibleName = "Button";
-            this.WebToolsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.WebToolsButton.ForeColor = System.Drawing.Color.Gray;
-            this.WebToolsButton.Location = new System.Drawing.Point(237, 56);
-            this.WebToolsButton.Name = "WebToolsButton";
-            this.WebToolsButton.Size = new System.Drawing.Size(117, 28);
-            this.WebToolsButton.Style.BackColor = System.Drawing.Color.White;
-            this.WebToolsButton.Style.ForeColor = System.Drawing.Color.Gray;
-            this.WebToolsButton.TabIndex = 45;
-            this.WebToolsButton.Text = "Gameplay Tools";
-            this.WebToolsButton.Click += new System.EventHandler(this.WebToolsButton_Click);
+            this.DoTelemetricChecks.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoTelemetricChecks_DoWork);
+            this.DoTelemetricChecks.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoTelemetricChecks_RunWorkerCompleted);
             // 
             // MainPage
             // 
@@ -1799,5 +1805,6 @@ namespace Stardew_Mod_Manager
         private System.Windows.Forms.ComboBox ThemeColor;
         private Syncfusion.WinForms.Controls.SfButton WebToolsButton;
         private System.Windows.Forms.Label label18;
+        private System.ComponentModel.BackgroundWorker DoTelemetricChecks;
     }
 }
