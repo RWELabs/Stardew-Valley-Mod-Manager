@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace Stardew_Mod_Manager.Forms.Webapp
             if(!Directory.Exists(@"C:\Program Files (x86)\Microsoft\EdgeWebView\Application"))
             {
                 //Alert and Install Options
+                DialogResult dr = MessageBox.Show("Stardew Valley WebTools requires an installation of Microsoft Edge WebView2 to function. We weren't able to find an installation on your machine. Would you like to install this now? Installation will require an active internet connection.","Install Required Component", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(dr == DialogResult.Yes) { try { Process.Start(@"C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\wv2setuputil.exe"); } catch {  } }
                 this.Close();
             }
             else
