@@ -1642,10 +1642,7 @@ namespace Stardew_Mod_Manager
                     string Telemetry = SDVAppData + @"telemetry.json";
 
                     //send data
-                    WebClient client = new WebClient();
-                    string fullUploadFilePath = SDVAppData;
-                    string uploadWebUrl = "http://labs.ryanwalpole.com/feedback/upload.aspx";
-                    client.UploadFile(uploadWebUrl, fullUploadFilePath);
+                    //FTP Upload using Properties.Telemetry.Default.FTPPassword and Properties.Telemetry.Default.FTPUsername
                 }
             }
             
