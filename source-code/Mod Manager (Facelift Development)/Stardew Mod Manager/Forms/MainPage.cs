@@ -44,6 +44,7 @@ namespace Stardew_Mod_Manager
             CheckIfGameRunning();
             CheckSDV.Start();
             GetColorProfile();
+            CheckDoTelemetry();
 
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
@@ -496,6 +497,7 @@ namespace Stardew_Mod_Manager
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string SettingsINI = SDVAppData + @"settings.ini";
+            string Telemetry = SDVAppData + @"telemetry.json";
 
             FileWrite.Clear();
 
@@ -507,7 +509,15 @@ namespace Stardew_Mod_Manager
             FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset + Environment.NewLine);
             FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + Environment.NewLine);
             FileWrite.AppendText("$ColorProfile=" + Properties.Settings.Default.ColorProfile + Environment.NewLine);
+            FileWrite.AppendText("$DoTelemetry=" + Properties.Settings.Default.DoTelemetry + Environment.NewLine);
             FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
+
+            FileWrite.Clear();
+
+            FileWrite.AppendText("Telemetric Data Report" + Environment.NewLine);
+            FileWrite.AppendText("{" + Environment.NewLine + "     TimesOpened: " + Properties.Settings.Default.TEL_TimesOpened + Environment.NewLine);
+            FileWrite.AppendText("     ModsInstalled: " + Properties.Settings.Default.TEL_ModsInstalled + Environment.NewLine + "}");
+            FileWrite.SaveFile(Telemetry, RichTextBoxStreamType.PlainText);
 
             Application.Exit();
         }
@@ -1578,6 +1588,85 @@ namespace Stardew_Mod_Manager
         {
             WebToolsHome wth = new WebToolsHome();
             wth.Show();
+        }
+
+        private void CheckDoTelemetry()
+        {
+            if(Properties.Settings.Default.DoTelemetry == null)
+            {
+                //Telemetry has not been set.
+                TelemetryOnboarding telemetry = new TelemetryOnboarding();
+                telemetry.ShowDialog();
+            }
+
+            else if(Properties.Settings.Default.DoTelemetry == "TRUE")
+            {
+                //Telemetry has been set to true
+                //Check and Send Data
+                DoTelemetricChecks.RunWorkerAsync();
+            }
+
+            else if (Properties.Settings.Default.DoTelemetry == "FALSE")
+            {
+                //Telemetry has been set to false
+                //Do not upload data.
+            }
+
+            else
+            {
+                //Telemetry has been set to true or false
+                //Allow user to change manually in settings.
+            }
+        }
+
+        private void DoTelemetricChecks_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if(Properties.Settings.Default.LastDataSend == "NEVER")
+            {
+
+            }
+            else
+            {
+                DateTime LastSend = Convert.ToDateTime(Properties.Settings.Default.LastDataSend);
+                var dateTime7 = DateTime.Now.AddDays(-7);
+
+                if (LastSend >= dateTime7)
+                {
+                    //don't send data
+                    MessageBox.Show("Hasn't been 7 days yet!");
+                }
+                else
+                {
+                    string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                    string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+                    string Telemetry = SDVAppData + @"telemetry.json";
+
+                    //send data
+                    WebClient client = new WebClient();
+                    string fullUploadFilePath = SDVAppData;
+                    string uploadWebUrl = "http://labs.ryanwalpole.com/feedback/upload.aspx";
+                    client.UploadFile(uploadWebUrl, fullUploadFilePath);
+                }
+            }
+            
+
+            
+        }
+
+        private void DoTelemetricChecks_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                CreateErrorLog("Telemetry upload was cancelled. " + e.Error.Message);
+            }
+            else if (e.Error != null)
+            {
+                CreateErrorLog("Telemetry upload encountered an error. " + e.Error.Message);
+            }
+            else
+            {
+                MessageBox.Show("Telemetry Data Uploaded Successfully.");
+            }
         }
     }
 }
