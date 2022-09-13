@@ -527,29 +527,29 @@ namespace Stardew_Mod_Manager
             FileWrite.AppendText("{" + Environment.NewLine);
             FileWrite.AppendText("  \"data\": [" + Environment.NewLine);
             FileWrite.AppendText("    {" + Environment.NewLine);
-            FileWrite.AppendText("      \"boolean\": \"" + Properties.Settings.Default.CheckUpdateOnStartup.ToLower() + "\",");
-            FileWrite.AppendText("      \"TelemetryData\": \"Check for Updates Enabled\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"bool\": \"" + Properties.Settings.Default.CheckUpdateOnStartup.ToLower() + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Check for Updates Enabled\"" + Environment.NewLine);
             FileWrite.AppendText("    }," + Environment.NewLine);
             FileWrite.AppendText("    {" + Environment.NewLine);
-            FileWrite.AppendText("      \"boolean\": \"" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup.ToLower() + "\",");
-            FileWrite.AppendText("      \"TelemetryData\": \"Check for SMAPI Updates Enabled\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"bool\": \"" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup.ToLower() + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Check for SMAPI Updates Enabled\"" + Environment.NewLine);
             FileWrite.AppendText("    }," + Environment.NewLine);
             FileWrite.AppendText("    {" + Environment.NewLine);
-            FileWrite.AppendText("      \"string\": \"" + Properties.Settings.Default.ColorProfile.ToLower() + "\",");
-            FileWrite.AppendText("      \"TelemetryData\": \"Color Profile Selected\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"string\": \"" + Properties.Settings.Default.ColorProfile.ToLower() + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Color Profile Selected\"" + Environment.NewLine);
             FileWrite.AppendText("    }," + Environment.NewLine);
             FileWrite.AppendText("    {" + Environment.NewLine);
-            FileWrite.AppendText("      \"integer\": \"" + Properties.Telemetry.Default.ModsInstalled + "\",");
-            FileWrite.AppendText("      \"TelemetryData\": \"Mods Installed\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"int\": \"" + Properties.Telemetry.Default.ModsInstalled + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Mods Installed\"" + Environment.NewLine);
             FileWrite.AppendText("    }," + Environment.NewLine);
             FileWrite.AppendText("    {" + Environment.NewLine);
-            FileWrite.AppendText("      \"integer\": \"" + Properties.Telemetry.Default.ModsEnabled + "\",");
-            FileWrite.AppendText("      \"TelemetryData\": \"Mods Enabled\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"int\": \"" + Properties.Telemetry.Default.ModsEnabled + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Mods Enabled\"" + Environment.NewLine);
             FileWrite.AppendText("    }," + Environment.NewLine);
             FileWrite.AppendText("    {" + Environment.NewLine);
-            FileWrite.AppendText("      \"integer\": \"" + Properties.Telemetry.Default.ModsDisabled + "\",");
-            FileWrite.AppendText("      \"TelemetryData\": \"Mods Disabled\"," + Environment.NewLine);
-            FileWrite.AppendText("    }," + Environment.NewLine);
+            FileWrite.AppendText("      \"int\": \"" + Properties.Telemetry.Default.ModsDisabled + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Mods Disabled\"" + Environment.NewLine);
+            FileWrite.AppendText("    }" + Environment.NewLine);
             FileWrite.AppendText("  ]" + Environment.NewLine);
             FileWrite.AppendText("}" + Environment.NewLine);
             FileWrite.SaveFile(Telemetry, RichTextBoxStreamType.PlainText);
@@ -1638,7 +1638,24 @@ namespace Stardew_Mod_Manager
             {
                 //Telemetry has been set to true
                 //Check and Send Data
-                DoTelemetricChecks.RunWorkerAsync();
+                if (Properties.Settings.Default.LastDataSend == "NEVER")
+                {
+                    Properties.Settings.Default.LastDataSend = "1";
+                    Properties.Settings.Default.Save();
+                    //MessageBox.Show("Telemetry Data is at " + Properties.Settings.Default.LastDataSend);
+                }
+                else if (Int16.Parse(Properties.Settings.Default.LastDataSend) < 7)
+                {
+                    int CurrentDays = Int16.Parse(Properties.Settings.Default.LastDataSend);
+                    int SetDays = CurrentDays + 1;
+                    Properties.Settings.Default.LastDataSend = SetDays.ToString();
+                    Properties.Settings.Default.Save();
+                    //MessageBox.Show("Telemetry Data is at " + Properties.Settings.Default.LastDataSend);
+                }
+                else if (Int16.Parse(Properties.Settings.Default.LastDataSend) >= 7)
+                {
+                    DoTelemetricChecks.RunWorkerAsync();
+                }  
             }
 
             else if (Properties.Settings.Default.DoTelemetry == "FALSE")
@@ -1657,38 +1674,18 @@ namespace Stardew_Mod_Manager
 
         private void DoTelemetricChecks_DoWork(object sender, DoWorkEventArgs e)
         {
-            if(Properties.Settings.Default.LastDataSend == "NEVER")
-            {
-                Properties.Settings.Default.LastDataSend = "1";
-                Properties.Settings.Default.Save();
-                MessageBox.Show("Telemetry Data is at " + Properties.Settings.Default.LastDataSend);
-            }
-            else if (Int16.Parse(Properties.Settings.Default.LastDataSend) < 7)
-            {
-                int CurrentDays = Int16.Parse(Properties.Settings.Default.LastDataSend);
-                int SetDays = CurrentDays ++;
-                Properties.Settings.Default.LastDataSend = SetDays.ToString();
-                Properties.Settings.Default.Save();
-                MessageBox.Show("Telemetry Data is at " + Properties.Settings.Default.LastDataSend);
-            }
-            else if (Int16.Parse(Properties.Settings.Default.LastDataSend) >= 7)
-            {
-                Properties.Settings.Default.LastDataSend = "1";
-                Properties.Settings.Default.Save();
-
-                    string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                    string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
-                    string Telemetry = SDVAppData + @"telemetry.json";
+            
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+            string Telemetry = SDVAppData + @"telemetry.json";
 
                     //send data
                     //FTP Upload using Properties.Telemetry.Default.FTPPassword and Properties.Telemetry.Default.FTPUsername
 
-                    WebClient client = new WebClient();
-                    client.Credentials = new NetworkCredential(Properties.Telemetry.Default.FTPUsername, Properties.Telemetry.Default.FTPPassword);
-                    var url = Properties.Telemetry.Default.FTPDestination + DateTime.Now.ToString("dd-MM-yy-hh-mm-ss_telemetry.json");
-                    client.UploadFile(url, Telemetry);
-            }
-            
+            WebClient client = new WebClient();
+            client.Credentials = new NetworkCredential(Properties.Telemetry.Default.FTPUsername, Properties.Telemetry.Default.FTPPassword);
+            var url = Properties.Telemetry.Default.FTPDestination + DateTime.Now.ToString("dd-MM-yy-hh-mm-ss" + "_telemetry.json");
+            client.UploadFile(url, Telemetry);   
         }
 
         private void DoTelemetricChecks_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -1696,14 +1693,22 @@ namespace Stardew_Mod_Manager
             if (e.Cancelled == true)
             {
                 CreateErrorLog("Telemetry upload was cancelled. " + e.Error.Message);
+                Properties.Settings.Default.LastDataSend = "6";
+                Properties.Settings.Default.Save();
             }
             else if (e.Error != null)
             {
                 CreateErrorLog("Telemetry upload encountered an error. " + e.Error.Message);
+                CreateErrorLog("Telemetry upload was cancelled. " + e.Error.Message);
+                Properties.Settings.Default.LastDataSend = "6";
+                Properties.Settings.Default.Save();
+                //MessageBox.Show(e.Error.Message);
             }
             else
             {
-                MessageBox.Show("Telemetry Data Uploaded Successfully.");
+                //MessageBox.Show("Telemetry Data Uploaded Successfully.");
+                Properties.Settings.Default.LastDataSend = "1";
+                Properties.Settings.Default.Save();
             }
         }
     }
