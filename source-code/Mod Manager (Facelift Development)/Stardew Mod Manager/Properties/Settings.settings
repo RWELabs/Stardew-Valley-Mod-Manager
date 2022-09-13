@@ -62,11 +62,5 @@
     <Setting Name="LastDataSend" Type="System.String" Scope="User">
       <Value Profile="(Default)">NEVER</Value>
     </Setting>
-    <Setting Name="TEL_TimesOpened" Type="System.String" Scope="User">
-      <Value Profile="(Default)">x</Value>
-    </Setting>
-    <Setting Name="TEL_ModsInstalled" Type="System.String" Scope="User">
-      <Value Profile="(Default)">x</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
