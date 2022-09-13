@@ -36,6 +36,8 @@ namespace Stardew_Mod_Manager.Startup
             InitializeComponent();
             Version.Text = "v" + Properties.Settings.Default.Version;
             Status.Text = "Please Wait...";
+            Properties.Telemetry.Default.TimesOpenedApplication++;
+            Properties.Telemetry.Default.Save();
 
             if (Properties.Settings.Default.LaunchArguments == String.Empty)
             {
