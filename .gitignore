@@ -56,3 +56,5 @@ source-code/Mod Manager (Facelift Development)/Stardew Mod Manager/obj/Release/S
 source-code/Mod Manager (Facelift Development)/Stardew Mod Manager/obj/Release/Stardew_Mod_Manager.Properties.Resources.resources
 source-code/Mod Manager (Facelift Development)/Stardew Mod Manager/obj/Release/TempPE/Properties.Resources.Designer.cs.dll
 *.vsidx
+source-code/Mod Manager (Facelift Development)/Stardew Mod Manager/Properties/Telemetry.Designer.cs
+source-code/Mod Manager (Facelift Development)/Stardew Mod Manager/Properties/Telemetry.settings
