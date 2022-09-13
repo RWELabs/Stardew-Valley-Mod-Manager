@@ -19,7 +19,7 @@ If you are publishing the source code or a compiled version of the source code y
 
 - Ensure to the best of your ability that the modified version of the source code and compiled application maintain the functionality of the original application and that the application still operates and performs it’s meaningful purpose.
 
-- That the software and it’s source code explicitly credit the original creators, RWE Labs and Ryan Walpole Enterprises with a link to the original GitHub repository which can be referenced as: https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager 
+- That the software and it’s source code explicitly credit the original creators, RWE Labs and Ryan Walpole Enterprises with a link to the original GitHub repository which can be referenced as: https://github.com/RWELabs/Stardew-Valley-Mod-Manager
 
 - Any changes to the software and it’s source code come with the explicit instruction that the entity that makes the changes – whether published or not – are responsible for any outcomes of the changes. RWE Labs and Ryan Walpole Enterprises does not remain responsible for versions of the application that are modified from the original source code available on the RWE GitHub repository.
 
