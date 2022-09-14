@@ -7,9 +7,9 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {},
     ".NETCoreApp,Version=v5.0/win-x64": {
-      "SMAPI.Installer/3.15.0": {
+      "SMAPI.Installer/3.16.2": {
         "dependencies": {
-          "SMAPI.Toolkit": "3.15.0",
+          "SMAPI.Toolkit": "3.16.2",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "5.0.17"
         },
         "runtime": {
@@ -167,10 +167,6 @@
             "fileVersion": "5.0.1722.21314"
           },
           "System.Net.Sockets.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.1722.21314"
-          },
-          "System.Net.WebClient.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.1722.21314"
           },
@@ -598,14 +594,14 @@
           }
         }
       },
-      "Pathoschild.Http.FluentClient/4.1.0": {
+      "Pathoschild.Http.FluentClient/4.1.1": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "5.2.7"
         },
         "runtime": {
           "lib/netstandard2.0/Pathoschild.Http.Client.dll": {
-            "assemblyVersion": "4.1.0.0",
-            "fileVersion": "4.1.0.0"
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.1.1.0"
           }
         }
       },
@@ -1406,20 +1402,20 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "SMAPI.Toolkit/3.15.0": {
+      "SMAPI.Toolkit/3.16.2": {
         "dependencies": {
           "HtmlAgilityPack": "1.11.43",
           "Microsoft.Win32.Registry": "5.0.0",
           "Newtonsoft.Json": "13.0.1",
-          "Pathoschild.Http.FluentClient": "4.1.0",
-          "SMAPI.Toolkit.CoreInterfaces": "3.15.0",
+          "Pathoschild.Http.FluentClient": "4.1.1",
+          "SMAPI.Toolkit.CoreInterfaces": "3.16.2",
           "System.Management": "5.0.0"
         },
         "runtime": {
           "SMAPI.Toolkit.dll": {}
         }
       },
-      "SMAPI.Toolkit.CoreInterfaces/3.15.0": {
+      "SMAPI.Toolkit.CoreInterfaces/3.16.2": {
         "runtime": {
           "SMAPI.Toolkit.CoreInterfaces.dll": {}
         }
@@ -1427,7 +1423,7 @@
     }
   },
   "libraries": {
-    "SMAPI.Installer/3.15.0": {
+    "SMAPI.Installer/3.16.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1500,12 +1496,12 @@
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
     },
-    "Pathoschild.Http.FluentClient/4.1.0": {
+    "Pathoschild.Http.FluentClient/4.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Si+KZSAI4jnFdHLFBGDhKIzyxPTG99yb7zSReDsjWNlh1+1wJoQViZ3YTeEs2yQVBQh3OhtmETkEnkcaDIKVWg==",
-      "path": "pathoschild.http.fluentclient/4.1.0",
-      "hashPath": "pathoschild.http.fluentclient.4.1.0.nupkg.sha512"
+      "sha512": "sha512-/wmsh/wMJgKoZuu96iAToBsbW2xHjG2LEI9IdFAty6zI9Dvj1tkAkWFkDaPiPmaPMlBUaEEc4OwOJZ/UeulueA==",
+      "path": "pathoschild.http.fluentclient/4.1.1",
+      "hashPath": "pathoschild.http.fluentclient.4.1.1.nupkg.sha512"
     },
     "runtime.any.System.Collections/4.3.0": {
       "type": "package",
@@ -1944,7 +1940,7 @@
     "System.Net.NameResolution/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AFYl08R7MrsrEjqpQWTZWBadqXyTzNDaWpMqyxhb0d6sGhV6xMDKueuBXlLL30gz+DIRY6MpdgnHWlCh5wmq9w==",
+      "sha512": "sha512-/Lf44FzmFLJardddlhgDx8fJq/Dja7RfyPpDKEb6gi863NKML94mc/q0IWewNbpiSIEEx6rVIXoJ7ZrAeu4bdA==",
       "path": "system.net.nameresolution/4.3.0",
       "hashPath": "system.net.nameresolution.4.3.0.nupkg.sha512"
     },
@@ -2207,12 +2203,12 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "SMAPI.Toolkit/3.15.0": {
+    "SMAPI.Toolkit/3.16.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SMAPI.Toolkit.CoreInterfaces/3.15.0": {
+    "SMAPI.Toolkit.CoreInterfaces/3.16.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
