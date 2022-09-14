@@ -107,7 +107,7 @@
             this.AllowTelemetry.CanApplyTheme = false;
             this.AllowTelemetry.CanOverrideStyle = true;
             this.AllowTelemetry.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.AllowTelemetry.Location = new System.Drawing.Point(464, 448);
+            this.AllowTelemetry.Location = new System.Drawing.Point(464, 450);
             this.AllowTelemetry.Name = "AllowTelemetry";
             this.AllowTelemetry.Size = new System.Drawing.Size(117, 28);
             this.AllowTelemetry.Style.BackColor = System.Drawing.Color.RoyalBlue;
@@ -127,7 +127,7 @@
             // 
             this.DenyTelemetry.AccessibleName = "Button";
             this.DenyTelemetry.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.DenyTelemetry.Location = new System.Drawing.Point(341, 448);
+            this.DenyTelemetry.Location = new System.Drawing.Point(341, 450);
             this.DenyTelemetry.Name = "DenyTelemetry";
             this.DenyTelemetry.Size = new System.Drawing.Size(117, 28);
             this.DenyTelemetry.TabIndex = 7;
