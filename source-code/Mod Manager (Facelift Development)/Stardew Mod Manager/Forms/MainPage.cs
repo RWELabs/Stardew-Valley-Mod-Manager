@@ -998,6 +998,16 @@ namespace Stardew_Mod_Manager
                 {
                     CheckSMAPIUpdatesOnStart.Checked = false;
                 }
+                if (Properties.Settings.Default.DoTelemetry == "TRUE")
+                {
+                    TelemetryOptInOut.Text = "Opt-Out";
+                    TelemetrySettingStatus.Text = "You are currently sharing telemetry data with RWE Labs";
+                }
+                else if (Properties.Settings.Default.DoTelemetry == "FALSE")
+                {
+                    TelemetryOptInOut.Text = "Opt-In";
+                    TelemetrySettingStatus.Text = "You are not currently sharing telemetry data with RWE Labs";
+                }
             }
 
             if(MainTabs.SelectedTab == Tab_InstallOptions)
@@ -1710,6 +1720,18 @@ namespace Stardew_Mod_Manager
                 Properties.Settings.Default.LastDataSend = "1";
                 Properties.Settings.Default.Save();
             }
+        }
+
+        private void TelemetryOptInOut_Click(object sender, EventArgs e)
+        {
+            MainTabs.SelectedTab = Tab_Main;
+            TelemetryOnboarding tob = new TelemetryOnboarding();
+            tob.ShowDialog();
+        }
+
+        private void ViewTelemetryPolicy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://rwelabs.github.io/sdvmm/policies/#Telemetry");
         }
     }
 }
