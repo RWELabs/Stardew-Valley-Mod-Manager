@@ -72,6 +72,11 @@ namespace Stardew_Mod_Manager
             this.DisableModButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.Tab_Settings = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ViewTelemetryPolicy = new System.Windows.Forms.LinkLabel();
+            this.TelemetrySettingStatus = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.TelemetryOptInOut = new Syncfusion.WinForms.Controls.SfButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.ClearErrorLogs = new Syncfusion.WinForms.Controls.SfButton();
             this.ViewErrorLogs = new Syncfusion.WinForms.Controls.SfButton();
@@ -147,11 +152,6 @@ namespace Stardew_Mod_Manager
             this.StartSMAPIUpdateCheck = new System.Windows.Forms.Timer(this.components);
             this.Debug_BackupMods = new System.Windows.Forms.Button();
             this.DoTelemetricChecks = new System.ComponentModel.BackgroundWorker();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.TelemetryOptInOut = new Syncfusion.WinForms.Controls.SfButton();
-            this.label19 = new System.Windows.Forms.Label();
-            this.TelemetrySettingStatus = new System.Windows.Forms.Label();
-            this.ViewTelemetryPolicy = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -160,6 +160,7 @@ namespace Stardew_Mod_Manager
             ((System.ComponentModel.ISupportInitialize)(this.ValidDirectory)).BeginInit();
             this.EnableDisableMods.SuspendLayout();
             this.Tab_Settings.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.Tab_GameMan.SuspendLayout();
             this.SaveBackups.SuspendLayout();
@@ -178,7 +179,6 @@ namespace Stardew_Mod_Manager
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // ModFolderPath
@@ -390,7 +390,7 @@ namespace Stardew_Mod_Manager
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(137, 31);
+            this.label6.Location = new System.Drawing.Point(137, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(264, 23);
             this.label6.TabIndex = 29;
@@ -400,7 +400,7 @@ namespace Stardew_Mod_Manager
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.75F);
-            this.label7.Location = new System.Drawing.Point(138, 54);
+            this.label7.Location = new System.Drawing.Point(138, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(394, 77);
             this.label7.TabIndex = 31;
@@ -410,7 +410,7 @@ namespace Stardew_Mod_Manager
             // SettingsIconImage
             // 
             this.SettingsIconImage.Image = global::Stardew_Mod_Manager.Properties.Resources.sdv_settings;
-            this.SettingsIconImage.Location = new System.Drawing.Point(21, 31);
+            this.SettingsIconImage.Location = new System.Drawing.Point(21, 23);
             this.SettingsIconImage.Name = "SettingsIconImage";
             this.SettingsIconImage.Size = new System.Drawing.Size(100, 100);
             this.SettingsIconImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -678,6 +678,62 @@ namespace Stardew_Mod_Manager
             this.Tab_Settings.Text = "Settings";
             this.Tab_Settings.ThemesEnabled = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.ViewTelemetryPolicy);
+            this.groupBox3.Controls.Add(this.TelemetrySettingStatus);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.TelemetryOptInOut);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.groupBox3.Location = new System.Drawing.Point(21, 587);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(539, 101);
+            this.groupBox3.TabIndex = 39;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Telemetry";
+            // 
+            // ViewTelemetryPolicy
+            // 
+            this.ViewTelemetryPolicy.AutoSize = true;
+            this.ViewTelemetryPolicy.Location = new System.Drawing.Point(410, 74);
+            this.ViewTelemetryPolicy.Name = "ViewTelemetryPolicy";
+            this.ViewTelemetryPolicy.Size = new System.Drawing.Size(115, 13);
+            this.ViewTelemetryPolicy.TabIndex = 42;
+            this.ViewTelemetryPolicy.TabStop = true;
+            this.ViewTelemetryPolicy.Text = "View Telemetry Policy";
+            this.ViewTelemetryPolicy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ViewTelemetryPolicy_LinkClicked);
+            // 
+            // TelemetrySettingStatus
+            // 
+            this.TelemetrySettingStatus.AutoSize = true;
+            this.TelemetrySettingStatus.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.TelemetrySettingStatus.Location = new System.Drawing.Point(68, 27);
+            this.TelemetrySettingStatus.Name = "TelemetrySettingStatus";
+            this.TelemetrySettingStatus.Size = new System.Drawing.Size(246, 17);
+            this.TelemetrySettingStatus.TabIndex = 41;
+            this.TelemetrySettingStatus.Text = "You are sharing telemetry with RWE Labs";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9.25F);
+            this.label19.Location = new System.Drawing.Point(16, 27);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(46, 17);
+            this.label19.TabIndex = 40;
+            this.label19.Text = "Status";
+            // 
+            // TelemetryOptInOut
+            // 
+            this.TelemetryOptInOut.AccessibleName = "Button";
+            this.TelemetryOptInOut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TelemetryOptInOut.Location = new System.Drawing.Point(19, 59);
+            this.TelemetryOptInOut.Name = "TelemetryOptInOut";
+            this.TelemetryOptInOut.Size = new System.Drawing.Size(295, 28);
+            this.TelemetryOptInOut.TabIndex = 39;
+            this.TelemetryOptInOut.Text = "OptInOut";
+            this.TelemetryOptInOut.Click += new System.EventHandler(this.TelemetryOptInOut_Click);
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.ClearErrorLogs);
@@ -830,7 +886,7 @@ namespace Stardew_Mod_Manager
             this.BackupSelectedFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BackupSelectedFarm.Name = "BackupSelectedFarm";
             this.BackupSelectedFarm.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 58);
+            this.BackupSelectedFarm.Size = new System.Drawing.Size(101, 45);
             this.BackupSelectedFarm.Text = "Backup Selected";
             this.BackupSelectedFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BackupSelectedFarm.Click += new System.EventHandler(this.MakeBackupButton_Click);
@@ -841,7 +897,7 @@ namespace Stardew_Mod_Manager
             this.ViewBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ViewBackups.Name = "ViewBackups";
             this.ViewBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.ViewBackups.Size = new System.Drawing.Size(88, 58);
+            this.ViewBackups.Size = new System.Drawing.Size(88, 45);
             this.ViewBackups.Text = "View Backups";
             this.ViewBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ViewBackups.Click += new System.EventHandler(this.ViewBackupsButton_Click);
@@ -852,7 +908,7 @@ namespace Stardew_Mod_Manager
             this.OpenSMAPIBackups.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSMAPIBackups.Name = "OpenSMAPIBackups";
             this.OpenSMAPIBackups.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 58);
+            this.OpenSMAPIBackups.Size = new System.Drawing.Size(95, 45);
             this.OpenSMAPIBackups.Text = "SMAPI Backups";
             this.OpenSMAPIBackups.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSMAPIBackups.Click += new System.EventHandler(this.ViewSMAPIBackups_Click);
@@ -864,7 +920,7 @@ namespace Stardew_Mod_Manager
             this.DeleteFarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteFarm.Name = "DeleteFarm";
             this.DeleteFarm.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.DeleteFarm.Size = new System.Drawing.Size(97, 58);
+            this.DeleteFarm.Size = new System.Drawing.Size(97, 45);
             this.DeleteFarm.Text = "Delete Selected";
             this.DeleteFarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.DeleteFarm.Click += new System.EventHandler(this.DeleteFarmButton_Click);
@@ -875,7 +931,7 @@ namespace Stardew_Mod_Manager
             this.OpenSaves.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenSaves.Name = "OpenSaves";
             this.OpenSaves.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.OpenSaves.Size = new System.Drawing.Size(114, 58);
+            this.OpenSaves.Size = new System.Drawing.Size(114, 45);
             this.OpenSaves.Text = "Open Saves Folder";
             this.OpenSaves.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenSaves.Click += new System.EventHandler(this.OpenSavesButton_Click);
@@ -1625,62 +1681,6 @@ namespace Stardew_Mod_Manager
             this.DoTelemetricChecks.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoTelemetricChecks_DoWork);
             this.DoTelemetricChecks.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoTelemetricChecks_RunWorkerCompleted);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.ViewTelemetryPolicy);
-            this.groupBox3.Controls.Add(this.TelemetrySettingStatus);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.TelemetryOptInOut);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.groupBox3.Location = new System.Drawing.Point(21, 587);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(539, 101);
-            this.groupBox3.TabIndex = 39;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Telemetry";
-            // 
-            // TelemetryOptInOut
-            // 
-            this.TelemetryOptInOut.AccessibleName = "Button";
-            this.TelemetryOptInOut.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TelemetryOptInOut.Location = new System.Drawing.Point(19, 59);
-            this.TelemetryOptInOut.Name = "TelemetryOptInOut";
-            this.TelemetryOptInOut.Size = new System.Drawing.Size(295, 28);
-            this.TelemetryOptInOut.TabIndex = 39;
-            this.TelemetryOptInOut.Text = "OptInOut";
-            this.TelemetryOptInOut.Click += new System.EventHandler(this.TelemetryOptInOut_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9.25F);
-            this.label19.Location = new System.Drawing.Point(16, 27);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(46, 17);
-            this.label19.TabIndex = 40;
-            this.label19.Text = "Status";
-            // 
-            // TelemetrySettingStatus
-            // 
-            this.TelemetrySettingStatus.AutoSize = true;
-            this.TelemetrySettingStatus.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.TelemetrySettingStatus.Location = new System.Drawing.Point(68, 27);
-            this.TelemetrySettingStatus.Name = "TelemetrySettingStatus";
-            this.TelemetrySettingStatus.Size = new System.Drawing.Size(246, 17);
-            this.TelemetrySettingStatus.TabIndex = 41;
-            this.TelemetrySettingStatus.Text = "You are sharing telemetry with RWE Labs";
-            // 
-            // ViewTelemetryPolicy
-            // 
-            this.ViewTelemetryPolicy.AutoSize = true;
-            this.ViewTelemetryPolicy.Location = new System.Drawing.Point(410, 74);
-            this.ViewTelemetryPolicy.Name = "ViewTelemetryPolicy";
-            this.ViewTelemetryPolicy.Size = new System.Drawing.Size(115, 13);
-            this.ViewTelemetryPolicy.TabIndex = 42;
-            this.ViewTelemetryPolicy.TabStop = true;
-            this.ViewTelemetryPolicy.Text = "View Telemetry Policy";
-            this.ViewTelemetryPolicy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ViewTelemetryPolicy_LinkClicked);
-            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1720,6 +1720,8 @@ namespace Stardew_Mod_Manager
             this.EnableDisableMods.PerformLayout();
             this.Tab_Settings.ResumeLayout(false);
             this.Tab_Settings.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.Tab_GameMan.ResumeLayout(false);
@@ -1747,8 +1749,6 @@ namespace Stardew_Mod_Manager
             this.groupBox9.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
