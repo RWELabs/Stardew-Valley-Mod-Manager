@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Stardew Valley Mod Manager"
-#define MyAppVersion "220901"
+#define MyAppVersion "220902"
 #define MyAppPublisher "RWE Labs"
 #define MyAppURL "https://rwe.app/labs/sdvmm"
 #define RWELabsURL "https://rwelabs.github.io/"
@@ -40,6 +40,7 @@ SolidCompression=yes
 WizardStyle=modern
 UninstallDisplayIcon={app}\{#MyAppExeName}
 UninstallDisplayName=Stardew Valley Mod Manager
+AppModifyPath="C:\Program Files (x86)\RWE Labs\Stardew Valley Mod Manager\sdvrepair.exe" /modify=1
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
