@@ -262,5 +262,29 @@ namespace Stardew_Mod_Manager.Properties {
                 this["LastDataSend"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int RepairFlags {
+            get {
+                return ((int)(this["RepairFlags"]));
+            }
+            set {
+                this["RepairFlags"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RepairActive {
+            get {
+                return ((string)(this["RepairActive"]));
+            }
+            set {
+                this["RepairActive"] = value;
+            }
+        }
     }
 }
