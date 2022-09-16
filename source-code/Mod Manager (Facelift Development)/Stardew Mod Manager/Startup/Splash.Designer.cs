@@ -46,6 +46,7 @@ namespace Stardew_Mod_Manager.Startup
             this.CheckForUpdates = new System.ComponentModel.BackgroundWorker();
             this.MigrateSettings = new System.ComponentModel.BackgroundWorker();
             this.LogTimer = new System.Windows.Forms.Timer(this.components);
+            this.RepairTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -174,6 +175,11 @@ namespace Stardew_Mod_Manager.Startup
             this.LogTimer.Interval = 6000;
             this.LogTimer.Tick += new System.EventHandler(this.LogTimer_Tick);
             // 
+            // RepairTimer
+            // 
+            this.RepairTimer.Interval = 25600;
+            this.RepairTimer.Tick += new System.EventHandler(this.RepairTimer_Tick);
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,5 +227,6 @@ namespace Stardew_Mod_Manager.Startup
         private System.ComponentModel.BackgroundWorker CheckForUpdates;
         private System.ComponentModel.BackgroundWorker MigrateSettings;
         private System.Windows.Forms.Timer LogTimer;
+        private System.Windows.Forms.Timer RepairTimer;
     }
 }
