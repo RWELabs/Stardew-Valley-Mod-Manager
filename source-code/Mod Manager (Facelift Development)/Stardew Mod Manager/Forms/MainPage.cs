@@ -22,6 +22,7 @@ using static Syncfusion.Windows.Forms.Tools.RibbonForm;
 using Syncfusion.WinForms.Controls;
 using System.Runtime.InteropServices;
 using Stardew_Mod_Manager.Forms.Webapp;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Stardew_Mod_Manager
 {
@@ -491,12 +492,26 @@ namespace Stardew_Mod_Manager
 
             Properties.Settings.Default.IsUpdateModInactive = false;
 
-            DoApplicationSettingSave();
-            //Application.Exit();
+            if(Properties.Settings.Default.RepairActive == "Yes")
+            {
+                this.Hide();
+
+            }
+            else if(Properties.Settings.Default.RepairActive == "No")
+            {
+                DoApplicationSettingSave();
+            }
+        }
+
+        private void DoApplicationSettingSaveWithoutClose()
+        {
+            
         }
 
         private void DoApplicationSettingSave()
         {
+            this.Hide();
+
             int disabledmodsnumber = AvailableModsList.Items.Count;
             int enabledmodsnumber = InstalledModsList.Items.Count;
             Properties.Telemetry.Default.ModsEnabled = enabledmodsnumber;
@@ -1684,7 +1699,7 @@ namespace Stardew_Mod_Manager
 
         private void DoTelemetricChecks_DoWork(object sender, DoWorkEventArgs e)
         {
-            
+            //this.ControlBox = false;
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string Telemetry = SDVAppData + @"telemetry.json";
@@ -1694,7 +1709,7 @@ namespace Stardew_Mod_Manager
 
             WebClient client = new WebClient();
             client.Credentials = new NetworkCredential(Properties.Telemetry.Default.FTPUsername, Properties.Telemetry.Default.FTPPassword);
-            var url = Properties.Telemetry.Default.FTPDestination + DateTime.Now.ToString("dd-MM-yy-hh-mm-ss" + "_telemetry.json");
+            var url = Properties.Telemetry.Default.FTPDestination + DateTime.Now.ToString("dd-MM-yy-hh-mm-ss") + "_telemetry.json";
             client.UploadFile(url, Telemetry);   
         }
 
@@ -1705,6 +1720,7 @@ namespace Stardew_Mod_Manager
                 CreateErrorLog("Telemetry upload was cancelled. " + e.Error.Message);
                 Properties.Settings.Default.LastDataSend = "6";
                 Properties.Settings.Default.Save();
+                //this.ControlBox = true;
             }
             else if (e.Error != null)
             {
@@ -1713,12 +1729,14 @@ namespace Stardew_Mod_Manager
                 Properties.Settings.Default.LastDataSend = "6";
                 Properties.Settings.Default.Save();
                 //MessageBox.Show(e.Error.Message);
+                //this.ControlBox = true;
             }
             else
             {
                 //MessageBox.Show("Telemetry Data Uploaded Successfully.");
                 Properties.Settings.Default.LastDataSend = "1";
                 Properties.Settings.Default.Save();
+                //this.ControlBox = true;
             }
         }
 
