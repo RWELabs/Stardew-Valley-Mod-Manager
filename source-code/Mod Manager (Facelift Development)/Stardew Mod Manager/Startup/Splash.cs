@@ -1,6 +1,7 @@
 ﻿using IWshRuntimeLibrary;
 using Stardew_Mod_Manager.Forms;
 using Stardew_Mod_Manager.Forms.Error_Log_Viewer;
+using Stardew_Mod_Manager.Forms.Repair;
 using Syncfusion.WinForms.Controls;
 using System;
 using System.Collections.Generic;
@@ -42,11 +43,17 @@ namespace Stardew_Mod_Manager.Startup
             if (Properties.Settings.Default.LaunchArguments == String.Empty)
             {
                 //No Startup Arguments
+                Properties.Settings.Default.RepairActive = "No";
+                Properties.Settings.Default.Save();
                 StartupTimer.Start();
             }
             else
             {
                 //Startup Arguments Found
+
+                //Debug
+                //Show MessageBox to Verify Arguments
+                //MessageBox.Show(Properties.Settings.Default.LaunchArguments);
 
                 //File is a modpack
                 if (Properties.Settings.Default.LaunchArguments.EndsWith(".sdvmp"))
@@ -62,6 +69,16 @@ namespace Stardew_Mod_Manager.Startup
                     //Launch error log viewer
                     Status.Text = "Decompiling logs...";
                     LogTimer.Start();
+                }
+
+                //File is a modpack
+                if (Properties.Settings.Default.LaunchArguments.EndsWith("repair"))
+                {
+                    //Launch Modpack Installer
+                    Status.Text = "Please wait...";
+                    RepairTimer.Start();
+                    Properties.Settings.Default.RepairActive = "Yes";
+                    Properties.Settings.Default.Save();
                 }
 
             }
@@ -144,10 +161,12 @@ namespace Stardew_Mod_Manager.Startup
 
             if (System.IO.File.Exists(SettingsINI))
             {
-                Cleanup.Start();
+                //LaunchApplicationNow();
+                //MessageBox.Show("File Exists");
             }
             else if (!System.IO.File.Exists(SettingsINI))
             {
+                //MessageBox.Show("File Does Not Exist");
                 Directory.CreateDirectory(SDVAppData);
                 FileWrite.Invoke(new MethodInvoker(delegate
                  {
@@ -162,6 +181,8 @@ namespace Stardew_Mod_Manager.Startup
                      FileWrite.AppendText("$$DoTelemetry=" + Properties.Settings.Default.DoTelemetry + Environment.NewLine);
                      FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
                  }));
+
+                //Cleanup.Start();
             }
 
         }
@@ -296,5 +317,13 @@ namespace Stardew_Mod_Manager.Startup
             LaunchApplicationNow();
         }
 
+        private void RepairTimer_Tick(object sender, EventArgs e)
+        {
+            RepairTimer.Stop();
+            //Launch Repair
+            RepairApplication ra = new RepairApplication();
+            ra.Show();
+            this.Hide();
+        }
     }
 }
