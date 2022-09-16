@@ -223,6 +223,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RWESoftwareRepair {
+            get {
+                object obj = ResourceManager.GetObject("RWESoftwareRepair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdv_add {
             get {
                 object obj = ResourceManager.GetObject("sdv_add", resourceCulture);
