@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">220801</Value>
+      <Value Profile="(Default)">220902</Value>
     </Setting>
     <Setting Name="CheckUpdateOnStartup" Type="System.String" Scope="User">
       <Value Profile="(Default)">TRUE</Value>
@@ -55,6 +55,18 @@
     </Setting>
     <Setting Name="ColorProfile" Type="System.String" Scope="User">
       <Value Profile="(Default)">PINK</Value>
+    </Setting>
+    <Setting Name="DoTelemetry" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastDataSend" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NEVER</Value>
+    </Setting>
+    <Setting Name="RepairFlags" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RepairActive" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

@@ -44,6 +44,11 @@
             this.DoMovementOperation = new System.Windows.Forms.Timer(this.components);
             this.DoModDelete = new System.ComponentModel.BackgroundWorker();
             this.ErrorLog = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SMAPITarget = new System.Windows.Forms.TextBox();
+            this.MetaInfRead = new System.Windows.Forms.RichTextBox();
+            this.SMAPIVersionInfo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +56,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label4.Location = new System.Drawing.Point(12, 99);
+            this.label4.Location = new System.Drawing.Point(12, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(197, 13);
             this.label4.TabIndex = 31;
@@ -79,7 +84,7 @@
             // 
             this.ModsToInstall.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ModsToInstall.FormattingEnabled = true;
-            this.ModsToInstall.Location = new System.Drawing.Point(11, 122);
+            this.ModsToInstall.Location = new System.Drawing.Point(11, 186);
             this.ModsToInstall.Name = "ModsToInstall";
             this.ModsToInstall.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.ModsToInstall.Size = new System.Drawing.Size(384, 95);
@@ -89,7 +94,7 @@
             // 
             this.OverwriteMods.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.OverwriteMods.FormattingEnabled = true;
-            this.OverwriteMods.Location = new System.Drawing.Point(11, 267);
+            this.OverwriteMods.Location = new System.Drawing.Point(11, 331);
             this.OverwriteMods.Name = "OverwriteMods";
             this.OverwriteMods.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.OverwriteMods.Size = new System.Drawing.Size(384, 95);
@@ -98,7 +103,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label2.Location = new System.Drawing.Point(12, 228);
+            this.label2.Location = new System.Drawing.Point(12, 292);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(381, 36);
             this.label2.TabIndex = 30;
@@ -107,7 +112,7 @@
             // 
             // ExtractProgress
             // 
-            this.ExtractProgress.Location = new System.Drawing.Point(11, 381);
+            this.ExtractProgress.Location = new System.Drawing.Point(11, 446);
             this.ExtractProgress.Name = "ExtractProgress";
             this.ExtractProgress.Size = new System.Drawing.Size(384, 23);
             this.ExtractProgress.Step = 50;
@@ -117,7 +122,7 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(208, 381);
+            this.Cancel.Location = new System.Drawing.Point(208, 446);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(73, 23);
             this.Cancel.TabIndex = 38;
@@ -127,7 +132,7 @@
             // 
             // Continue
             // 
-            this.Continue.Location = new System.Drawing.Point(287, 381);
+            this.Continue.Location = new System.Drawing.Point(287, 446);
             this.Continue.Name = "Continue";
             this.Continue.Size = new System.Drawing.Size(108, 23);
             this.Continue.TabIndex = 37;
@@ -171,12 +176,61 @@
             this.ErrorLog.Text = "";
             this.ErrorLog.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label1.Location = new System.Drawing.Point(12, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 13);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "This modpack was designed for:";
+            // 
+            // SMAPITarget
+            // 
+            this.SMAPITarget.Enabled = false;
+            this.SMAPITarget.Location = new System.Drawing.Point(11, 128);
+            this.SMAPITarget.Name = "SMAPITarget";
+            this.SMAPITarget.Size = new System.Drawing.Size(182, 20);
+            this.SMAPITarget.TabIndex = 43;
+            // 
+            // MetaInfRead
+            // 
+            this.MetaInfRead.Location = new System.Drawing.Point(277, 26);
+            this.MetaInfRead.Name = "MetaInfRead";
+            this.MetaInfRead.Size = new System.Drawing.Size(100, 38);
+            this.MetaInfRead.TabIndex = 44;
+            this.MetaInfRead.Text = "";
+            this.MetaInfRead.Visible = false;
+            // 
+            // SMAPIVersionInfo
+            // 
+            this.SMAPIVersionInfo.Enabled = false;
+            this.SMAPIVersionInfo.Location = new System.Drawing.Point(213, 128);
+            this.SMAPIVersionInfo.Name = "SMAPIVersionInfo";
+            this.SMAPIVersionInfo.Size = new System.Drawing.Size(180, 20);
+            this.SMAPIVersionInfo.TabIndex = 45;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label3.Location = new System.Drawing.Point(210, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 13);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "You are currently running:";
+            // 
             // MPInstaller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(409, 428);
+            this.ClientSize = new System.Drawing.Size(409, 486);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.MetaInfRead);
+            this.Controls.Add(this.SMAPITarget);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PresetGenerator);
             this.Controls.Add(this.ExtractProgress);
@@ -188,10 +242,10 @@
             this.Controls.Add(this.ModsToDisable);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ErrorLog);
+            this.Controls.Add(this.SMAPIVersionInfo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(425, 467);
-            this.MinimumSize = new System.Drawing.Size(425, 467);
             this.Name = "MPInstaller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Install Modpack - Stardew Valley Mod Manager";
@@ -217,5 +271,10 @@
         private System.Windows.Forms.Timer DoMovementOperation;
         private System.ComponentModel.BackgroundWorker DoModDelete;
         private System.Windows.Forms.RichTextBox ErrorLog;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox SMAPITarget;
+        private System.Windows.Forms.RichTextBox MetaInfRead;
+        private System.Windows.Forms.TextBox SMAPIVersionInfo;
+        private System.Windows.Forms.Label label3;
     }
 }

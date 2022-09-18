@@ -101,7 +101,7 @@
             // IsValidSpace
             // 
             this.IsValidSpace.Image = global::Stardew_Mod_Manager.Properties.Resources.sdvError;
-            this.IsValidSpace.Location = new System.Drawing.Point(14, 157);
+            this.IsValidSpace.Location = new System.Drawing.Point(14, 171);
             this.IsValidSpace.Name = "IsValidSpace";
             this.IsValidSpace.Size = new System.Drawing.Size(21, 23);
             this.IsValidSpace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,7 +112,7 @@
             // 
             this.IsValidSpaceText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsValidSpaceText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.IsValidSpaceText.Location = new System.Drawing.Point(37, 162);
+            this.IsValidSpaceText.Location = new System.Drawing.Point(37, 176);
             this.IsValidSpaceText.Name = "IsValidSpaceText";
             this.IsValidSpaceText.Size = new System.Drawing.Size(359, 40);
             this.IsValidSpaceText.TabIndex = 25;
@@ -141,7 +141,7 @@
             // 
             this.groupBox1.Controls.Add(this.WarningText);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 209);
+            this.groupBox1.Location = new System.Drawing.Point(12, 215);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(384, 155);
             this.groupBox1.TabIndex = 29;
@@ -165,7 +165,7 @@
             // 
             // Continue
             // 
-            this.Continue.Location = new System.Drawing.Point(288, 384);
+            this.Continue.Location = new System.Drawing.Point(288, 391);
             this.Continue.Name = "Continue";
             this.Continue.Size = new System.Drawing.Size(108, 23);
             this.Continue.TabIndex = 30;
@@ -175,7 +175,7 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(209, 384);
+            this.Cancel.Location = new System.Drawing.Point(209, 391);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(73, 23);
             this.Cancel.TabIndex = 31;
@@ -192,7 +192,7 @@
             // 
             // ExtractProgress
             // 
-            this.ExtractProgress.Location = new System.Drawing.Point(12, 384);
+            this.ExtractProgress.Location = new System.Drawing.Point(12, 391);
             this.ExtractProgress.Name = "ExtractProgress";
             this.ExtractProgress.Size = new System.Drawing.Size(384, 23);
             this.ExtractProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
@@ -213,7 +213,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(409, 428);
+            this.ClientSize = new System.Drawing.Size(409, 442);
             this.Controls.Add(this.ExtractProgress);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Continue);
@@ -228,10 +228,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ErrorLog);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(425, 467);
-            this.MinimumSize = new System.Drawing.Size(425, 467);
             this.Name = "MPOpen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Install Modpack - Stardew Valley Mod Manager";
