@@ -145,7 +145,7 @@ namespace Stardew_Mod_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("220901")]
+        [global::System.Configuration.DefaultSettingValueAttribute("220902")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -236,6 +236,54 @@ namespace Stardew_Mod_Manager.Properties {
             }
             set {
                 this["ColorProfile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DoTelemetry {
+            get {
+                return ((string)(this["DoTelemetry"]));
+            }
+            set {
+                this["DoTelemetry"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NEVER")]
+        public string LastDataSend {
+            get {
+                return ((string)(this["LastDataSend"]));
+            }
+            set {
+                this["LastDataSend"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int RepairFlags {
+            get {
+                return ((int)(this["RepairFlags"]));
+            }
+            set {
+                this["RepairFlags"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RepairActive {
+            get {
+                return ((string)(this["RepairActive"]));
+            }
+            set {
+                this["RepairActive"] = value;
             }
         }
     }

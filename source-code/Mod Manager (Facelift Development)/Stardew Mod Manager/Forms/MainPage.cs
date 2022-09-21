@@ -21,6 +21,8 @@ using Syncfusion.Windows.Forms.Tools;
 using static Syncfusion.Windows.Forms.Tools.RibbonForm;
 using Syncfusion.WinForms.Controls;
 using System.Runtime.InteropServices;
+using Stardew_Mod_Manager.Forms.Webapp;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Stardew_Mod_Manager
 {
@@ -43,6 +45,7 @@ namespace Stardew_Mod_Manager
             CheckIfGameRunning();
             CheckSDV.Start();
             GetColorProfile();
+            CheckDoTelemetry();
 
             MainTabs.TabPanelBackColor = System.Drawing.Color.White;
             MainTabs.TabPages.Remove(Tab_Settings);
@@ -85,6 +88,7 @@ namespace Stardew_Mod_Manager
             //MainTabs.ActiveTabColor
             //Pink - 227, 116, 137
             //Blue - 0, 169, 202
+            //MessageBox.Show(Properties.Settings.Default.ColorProfile.ToString().ToUpper());
 
             switch (Properties.Settings.Default.ColorProfile.ToString().ToUpper())
             {
@@ -294,6 +298,9 @@ namespace Stardew_Mod_Manager
             {
                 GameSavesList.Items.Add(Path.GetFileName(folder));
             }
+
+            Properties.Telemetry.Default.SavesPresent = GameSavesList.Items.Count;
+            Properties.Telemetry.Default.Save();
         }
 
         private void DisableMod_Click(object sender, EventArgs e)
@@ -485,15 +492,39 @@ namespace Stardew_Mod_Manager
 
             Properties.Settings.Default.IsUpdateModInactive = false;
 
-            DoApplicationSettingSave();
-            //Application.Exit();
+            if(Properties.Settings.Default.RepairActive == "Yes")
+            {
+                this.Hide();
+
+            }
+            else if(Properties.Settings.Default.RepairActive == "No")
+            {
+                DoApplicationSettingSave();
+            }
+        }
+
+        private void DoApplicationSettingSaveWithoutClose()
+        {
+            
         }
 
         private void DoApplicationSettingSave()
         {
+            this.Hide();
+
+            int disabledmodsnumber = AvailableModsList.Items.Count;
+            int enabledmodsnumber = InstalledModsList.Items.Count;
+            Properties.Telemetry.Default.ModsEnabled = enabledmodsnumber;
+            Properties.Telemetry.Default.ModsDisabled = disabledmodsnumber;
+            Properties.Telemetry.Default.ModsInstalled = disabledmodsnumber + enabledmodsnumber;
+            Properties.Telemetry.Default.Save();
+
             string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
             string SettingsINI = SDVAppData + @"settings.ini";
+            string Telemetry = SDVAppData + @"telemetry.json";
+
+            FileWrite.Clear();
 
             FileWrite.AppendText("$StardewDir=" + Properties.Settings.Default.StardewDir + Environment.NewLine);
             FileWrite.AppendText("$ModsDir=" + Properties.Settings.Default.ModsDir + Environment.NewLine);
@@ -501,9 +532,42 @@ namespace Stardew_Mod_Manager
             FileWrite.AppendText("$PresetsDir=" + Properties.Settings.Default.PresetsDir + Environment.NewLine);
             FileWrite.AppendText("$CheckUpdateOnStartup=" + Properties.Settings.Default.CheckUpdateOnStartup + Environment.NewLine);
             FileWrite.AppendText("$IsManuallyReset=" + Properties.Settings.Default.IsManuallyReset + Environment.NewLine);
-            FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup);
-            FileWrite.AppendText("$ColorProfile=" + Properties.Settings.Default.ColorProfile);
+            FileWrite.AppendText("$CheckSMAPIUpdateOnStartup=" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup + Environment.NewLine);
+            FileWrite.AppendText("$ColorProfile=" + Properties.Settings.Default.ColorProfile + Environment.NewLine);
+            FileWrite.AppendText("$DoTelemetry=" + Properties.Settings.Default.DoTelemetry + Environment.NewLine);
             FileWrite.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
+
+            FileWrite.Clear();
+
+            FileWrite.AppendText("{" + Environment.NewLine);
+            FileWrite.AppendText("  \"data\": [" + Environment.NewLine);
+            FileWrite.AppendText("    {" + Environment.NewLine);
+            FileWrite.AppendText("      \"bool\": \"" + Properties.Settings.Default.CheckUpdateOnStartup.ToLower() + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Check for Updates Enabled\"" + Environment.NewLine);
+            FileWrite.AppendText("    }," + Environment.NewLine);
+            FileWrite.AppendText("    {" + Environment.NewLine);
+            FileWrite.AppendText("      \"bool\": \"" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup.ToLower() + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Check for SMAPI Updates Enabled\"" + Environment.NewLine);
+            FileWrite.AppendText("    }," + Environment.NewLine);
+            FileWrite.AppendText("    {" + Environment.NewLine);
+            FileWrite.AppendText("      \"string\": \"" + Properties.Settings.Default.ColorProfile.ToLower() + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Color Profile Selected\"" + Environment.NewLine);
+            FileWrite.AppendText("    }," + Environment.NewLine);
+            FileWrite.AppendText("    {" + Environment.NewLine);
+            FileWrite.AppendText("      \"int\": \"" + Properties.Telemetry.Default.ModsInstalled + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Mods Installed\"" + Environment.NewLine);
+            FileWrite.AppendText("    }," + Environment.NewLine);
+            FileWrite.AppendText("    {" + Environment.NewLine);
+            FileWrite.AppendText("      \"int\": \"" + Properties.Telemetry.Default.ModsEnabled + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Mods Enabled\"" + Environment.NewLine);
+            FileWrite.AppendText("    }," + Environment.NewLine);
+            FileWrite.AppendText("    {" + Environment.NewLine);
+            FileWrite.AppendText("      \"int\": \"" + Properties.Telemetry.Default.ModsDisabled + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"Mods Disabled\"" + Environment.NewLine);
+            FileWrite.AppendText("    }" + Environment.NewLine);
+            FileWrite.AppendText("  ]" + Environment.NewLine);
+            FileWrite.AppendText("}" + Environment.NewLine);
+            FileWrite.SaveFile(Telemetry, RichTextBoxStreamType.PlainText);
 
             Application.Exit();
         }
@@ -948,6 +1012,16 @@ namespace Stardew_Mod_Manager
                 else if(Properties.Settings.Default.CheckSMAPIUpdateOnStartup == "FALSE")
                 {
                     CheckSMAPIUpdatesOnStart.Checked = false;
+                }
+                if (Properties.Settings.Default.DoTelemetry == "TRUE")
+                {
+                    TelemetryOptInOut.Text = "Opt-Out";
+                    TelemetrySettingStatus.Text = "You are currently sharing telemetry data with RWE Labs";
+                }
+                else if (Properties.Settings.Default.DoTelemetry == "FALSE")
+                {
+                    TelemetryOptInOut.Text = "Opt-In";
+                    TelemetrySettingStatus.Text = "You are not currently sharing telemetry data with RWE Labs";
                 }
             }
 
@@ -1563,6 +1637,119 @@ namespace Stardew_Mod_Manager
                 EnableModButton.Enabled = false;
                 DisableModButton.Enabled = true;
             }
+        }
+
+        private void SoftVer_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void WebToolsButton_Click(object sender, EventArgs e)
+        {
+            WebToolsHome wth = new WebToolsHome();
+            wth.Show();
+        }
+
+        private void CheckDoTelemetry()
+        {
+            if(Properties.Settings.Default.DoTelemetry == null)
+            {
+                //Telemetry has not been set.
+                TelemetryOnboarding telemetry = new TelemetryOnboarding();
+                telemetry.ShowDialog();
+            }
+
+            else if(Properties.Settings.Default.DoTelemetry == "TRUE")
+            {
+                //Telemetry has been set to true
+                //Check and Send Data
+                if (Properties.Settings.Default.LastDataSend == "NEVER")
+                {
+                    Properties.Settings.Default.LastDataSend = "1";
+                    Properties.Settings.Default.Save();
+                    //MessageBox.Show("Telemetry Data is at " + Properties.Settings.Default.LastDataSend);
+                }
+                else if (Int16.Parse(Properties.Settings.Default.LastDataSend) < 7)
+                {
+                    int CurrentDays = Int16.Parse(Properties.Settings.Default.LastDataSend);
+                    int SetDays = CurrentDays + 1;
+                    Properties.Settings.Default.LastDataSend = SetDays.ToString();
+                    Properties.Settings.Default.Save();
+                    //MessageBox.Show("Telemetry Data is at " + Properties.Settings.Default.LastDataSend);
+                }
+                else if (Int16.Parse(Properties.Settings.Default.LastDataSend) >= 7)
+                {
+                    DoTelemetricChecks.RunWorkerAsync();
+                }  
+            }
+
+            else if (Properties.Settings.Default.DoTelemetry == "FALSE")
+            {
+                //Telemetry has been set to false
+                //Do not upload data.
+            }
+
+            else
+            {
+                //Telemetry has not been set.
+                TelemetryOnboarding telemetry = new TelemetryOnboarding();
+                telemetry.ShowDialog();
+            }
+        }
+
+        private void DoTelemetricChecks_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //this.ControlBox = false;
+            string AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string SDVAppData = AppData + @"\RWE Labs\SDV Mod Manager\";
+            string Telemetry = SDVAppData + @"telemetry.json";
+
+                    //send data
+                    //FTP Upload using Properties.Telemetry.Default.FTPPassword and Properties.Telemetry.Default.FTPUsername
+
+            WebClient client = new WebClient();
+            client.Credentials = new NetworkCredential(Properties.Telemetry.Default.FTPUsername, Properties.Telemetry.Default.FTPPassword);
+            var url = Properties.Telemetry.Default.FTPDestination + DateTime.Now.ToString("dd-MM-yy-hh-mm-ss") + "_telemetry.json";
+            client.UploadFile(url, Telemetry);   
+        }
+
+        private void DoTelemetricChecks_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                CreateErrorLog("Telemetry upload was cancelled. " + e.Error.Message);
+                Properties.Settings.Default.LastDataSend = "6";
+                Properties.Settings.Default.Save();
+                //this.ControlBox = true;
+            }
+            else if (e.Error != null)
+            {
+                CreateErrorLog("Telemetry upload encountered an error. " + e.Error.Message);
+                CreateErrorLog("Telemetry upload was cancelled. " + e.Error.Message);
+                Properties.Settings.Default.LastDataSend = "6";
+                Properties.Settings.Default.Save();
+                //MessageBox.Show(e.Error.Message);
+                //this.ControlBox = true;
+            }
+            else
+            {
+                //MessageBox.Show("Telemetry Data Uploaded Successfully.");
+                Properties.Settings.Default.LastDataSend = "1";
+                Properties.Settings.Default.Save();
+                //this.ControlBox = true;
+            }
+        }
+
+        private void TelemetryOptInOut_Click(object sender, EventArgs e)
+        {
+            MainTabs.SelectedTab = Tab_Main;
+            TelemetryOnboarding tob = new TelemetryOnboarding();
+            tob.ShowDialog();
+        }
+
+        private void ViewTelemetryPolicy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://rwelabs.github.io/sdvmm/policies/#Telemetry");
         }
     }
 }

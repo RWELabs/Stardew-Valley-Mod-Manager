@@ -223,6 +223,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RWESoftwareRepair {
+            get {
+                object obj = ResourceManager.GetObject("RWESoftwareRepair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdv_add {
             get {
                 object obj = ResourceManager.GetObject("sdv_add", resourceCulture);
@@ -513,6 +523,16 @@ namespace Stardew_Mod_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SDVTelemetryTask {
+            get {
+                object obj = ResourceManager.GetObject("SDVTelemetryTask", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sdvvalidated {
             get {
                 object obj = ResourceManager.GetObject("sdvvalidated", resourceCulture);
@@ -568,6 +588,46 @@ namespace Stardew_Mod_Manager.Properties {
         internal static System.Drawing.Bitmap Stardew_Mod_Manager {
             get {
                 object obj = ResourceManager.GetObject("Stardew Mod Manager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WTBack {
+            get {
+                object obj = ResourceManager.GetObject("WTBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WTForward {
+            get {
+                object obj = ResourceManager.GetObject("WTForward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WTHome {
+            get {
+                object obj = ResourceManager.GetObject("WTHome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WTRefresh {
+            get {
+                object obj = ResourceManager.GetObject("WTRefresh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

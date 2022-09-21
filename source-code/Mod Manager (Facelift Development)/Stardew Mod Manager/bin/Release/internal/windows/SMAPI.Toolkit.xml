@@ -182,21 +182,18 @@
         <member name="T:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient">
             <summary>Provides methods for interacting with the SMAPI web API.</summary>
         </member>
-        <member name="F:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.BaseUrl">
-            <summary>The base URL for the web API.</summary>
-        </member>
         <member name="F:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.Version">
             <summary>The API version number.</summary>
         </member>
-        <member name="F:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.JsonSettings">
-            <summary>The JSON serializer settings to use.</summary>
+        <member name="F:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.Client">
+            <summary>The underlying HTTP client.</summary>
         </member>
         <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.#ctor(System.String,StardewModdingAPI.ISemanticVersion)">
             <summary>Construct an instance.</summary>
             <param name="baseUrl">The base URL for the web API.</param>
             <param name="version">The web API version.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.GetModInfo(StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModSearchEntryModel[],StardewModdingAPI.ISemanticVersion,StardewModdingAPI.ISemanticVersion,StardewModdingAPI.Toolkit.Utilities.Platform,System.Boolean)">
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.GetModInfoAsync(StardewModdingAPI.Toolkit.Framework.Clients.WebApi.ModSearchEntryModel[],StardewModdingAPI.ISemanticVersion,StardewModdingAPI.ISemanticVersion,StardewModdingAPI.Toolkit.Utilities.Platform,System.Boolean)">
             <summary>Get metadata about a set of mods from the web API.</summary>
             <param name="mods">The mod keys for which to fetch the latest version.</param>
             <param name="apiVersion">The SMAPI version installed by the player. If this is null, the API won't provide a recommended update.</param>
@@ -204,12 +201,8 @@
             <param name="platform">The OS on which the player plays.</param>
             <param name="includeExtendedMetadata">Whether to include extended metadata for each mod.</param>
         </member>
-        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.Post``2(System.String,``0)">
-            <summary>Fetch the response from the backend API.</summary>
-            <typeparam name="TBody">The body content type.</typeparam>
-            <typeparam name="TResult">The expected response type.</typeparam>
-            <param name="url">The request URL, optionally excluding the base URL.</param>
-            <param name="content">The body content to post.</param>
+        <member name="M:StardewModdingAPI.Toolkit.Framework.Clients.WebApi.WebApiClient.Dispose">
+            <inheritdoc />
         </member>
         <member name="T:StardewModdingAPI.Toolkit.Framework.Clients.Wiki.ChangeDescriptor">
             <summary>A set of changes which can be applied to a mod data field.</summary>
@@ -1441,6 +1434,9 @@
         </member>
         <member name="P:StardewModdingAPI.Toolkit.Serialization.JsonHelper.JsonSettings">
             <summary>The JSON settings to use when serializing and deserializing files.</summary>
+        </member>
+        <member name="M:StardewModdingAPI.Toolkit.Serialization.JsonHelper.CreateDefaultSettings">
+            <summary>Create an instance of the default JSON serializer settings.</summary>
         </member>
         <member name="M:StardewModdingAPI.Toolkit.Serialization.JsonHelper.ReadJsonFileIfExists``1(System.String,``0@)">
             <summary>Read a JSON file.</summary>
