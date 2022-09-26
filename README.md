@@ -42,7 +42,7 @@ Install entire modpacks with just a single file. Simply install a .sdvmp file an
 7. <b>Backup and Manage Game Saves</b>
 Create backups and delete any of your farms with built in Game Save Management tools.
 
-*Please note that for a mod to be compatible, it must be configured with NexusMod update keys among some other specific criteria. For more information, [click here](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/wiki/How-To:-Check-a-Mod-for-Updates-(Beta))
+*Please note that for a mod to be compatible, it must be configured with NexusMod update keys among some other specific criteria. For more information, [click here](https://rwe-labs.gitbook.io/sdvmm/developer/developing-for-stardew-valley-mod-manager)
 
 ## Documentation
 <b>Important:</b> Please note that due to changes in the application's user interface with version 220501, some of the screenshots used in the documentation may be out of date and may not accurately reflect the visual experience you may be having. We believe that despite this, the instructions are still relevant - the appearance and names of labels, windows and user interface may differ but should still adhere closely enough to the written instructions.
