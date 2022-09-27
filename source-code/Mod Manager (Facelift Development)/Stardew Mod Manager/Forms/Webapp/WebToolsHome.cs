@@ -36,10 +36,24 @@ namespace Stardew_Mod_Manager.Forms.Webapp
             if (webView.CanGoForward) { Forward.Enabled = true; } else if (!webView.CanGoForward) { Forward.Enabled = false; }
 
             string URL = webView.CoreWebView2.Source.ToString();
+            //MessageBox.Show(webView.CoreWebView2.Source.ToString());
+
             if (!URL.StartsWith("https://rwelabs.github.io/"))
             {
-                webView.CoreWebView2.ExecuteScriptAsync($"alert('{URL} is not a Stardew Valley Mod Manager WebTools URL. This website and it's safety cannot be verified by RWE Labs. Proceed using this resource with caution.')");
-            };
+                if (Properties.Settings.Default.IgnoreWebsiteWarning == "FALSE" )
+                {
+                    WarningPanel.Visible = true;
+                    StatusButton.Visible = true;
+                    Refresh.Enabled = false;
+                }
+                else if (Properties.Settings.Default.IgnoreWebsiteWarning == "TRUE")
+                {
+                    WarningPanel.Visible = false;
+                    StatusButton.Visible = true;
+                    Refresh.Enabled = true;
+                }
+            }
+            
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -49,17 +63,86 @@ namespace Stardew_Mod_Manager.Forms.Webapp
 
         private void Home_Click(object sender, EventArgs e)
         {
-            webView.NavigateToString("https://rwelabs.github.io/sdvmm/webtools/");
+            webView.CoreWebView2.Navigate("https://rwelabs.github.io/sdvmm/webtools/");
+            Debug.WriteLine("after Navigate");
         }
 
         private void Back_Click(object sender, EventArgs e)
         {
             webView.GoBack();
+            string URL = webView.CoreWebView2.Source.ToString();
+            //MessageBox.Show(webView.CoreWebView2.Source.ToString());
+
+            if (!URL.StartsWith("https://rwelabs.github.io/"))
+            {
+                StatusButton.Visible = false;
+                WarningPanel.Visible = false;
+            }
         }
 
         private void Forward_Click(object sender, EventArgs e)
         {
             webView.GoForward();
+            string URL = webView.CoreWebView2.Source.ToString();
+            //MessageBox.Show(webView.CoreWebView2.Source.ToString());
+
+            if (!URL.StartsWith("https://rwelabs.github.io/"))
+            {
+                StatusButton.Visible = false;
+                WarningPanel.Visible = false;
+            }
+        }
+
+        private async void WebToolsHome_Load(object sender, EventArgs e)
+        {
+            webView.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
+
+            Debug.WriteLine("before InitializeAsync");
+            await InitializeAsync();
+            Debug.WriteLine("after InitializeAsync");
+        }
+
+        private async Task InitializeAsync()
+        {
+            Debug.WriteLine("InitializeAsync");
+            await webView.EnsureCoreWebView2Async(null);
+            Debug.WriteLine("WebView2 Runtime version: " + webView.CoreWebView2.Environment.BrowserVersionString);
+
+            webView.CoreWebView2.Navigate("https://rwelabs.github.io/sdvmm/webtools/");
+            Debug.WriteLine("after Navigate");
+
+            if ((webView == null) || (webView.CoreWebView2 == null))
+            {
+                Debug.WriteLine("not ready");
+            }
+        }
+
+
+        private void WebView_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
+        {
+            Debug.WriteLine("WebView_CoreWebView2InitializationCompleted");
+        }
+
+        private void ContinueWarning_Click(object sender, EventArgs e)
+        {
+            WarningPanel.Visible = false;
+            Properties.Settings.Default.IgnoreWebsiteWarning = "TRUE";
+            Refresh.Enabled = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void WarningReturn_Click(object sender, EventArgs e)
+        {
+            webView.GoBack();
+            WarningPanel.Visible = false;
+            Refresh.Enabled = true;
+            Properties.Settings.Default.IgnoreWebsiteWarning = "FALSE";
+            Properties.Settings.Default.Save();
+        }
+
+        private void StatusButton_Click(object sender, EventArgs e)
+        {
+            WarningPanel.Visible = true;
         }
     }
 }

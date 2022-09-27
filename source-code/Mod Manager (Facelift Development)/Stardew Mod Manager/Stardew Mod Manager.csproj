@@ -336,6 +336,7 @@
     <None Include="Resources\WTHome.png" />
     <None Include="Resources\SDVTelemetryTask.gif" />
     <None Include="Resources\RWESoftwareRepair.png" />
+    <None Include="Resources\sdvWTWarning.png" />
     <Content Include="Windows Logo.png" />
     <None Include="Resources\sdvbg.png" />
     <None Include="Resources\sdvbg.jpg" />
