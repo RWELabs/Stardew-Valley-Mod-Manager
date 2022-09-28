@@ -128,7 +128,10 @@ namespace Stardew_Mod_Manager.Forms.Webapp
             WarningPanel.Visible = false;
             Properties.Settings.Default.IgnoreWebsiteWarning = "TRUE";
             Refresh.Enabled = true;
-            Properties.Settings.Default.Save();
+            if(IgnoreWarning.Checked == true)
+            {
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void WarningReturn_Click(object sender, EventArgs e)
