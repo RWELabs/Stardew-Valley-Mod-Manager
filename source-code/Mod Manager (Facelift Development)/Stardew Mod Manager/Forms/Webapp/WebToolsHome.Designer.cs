@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.WarningPanel = new System.Windows.Forms.Panel();
+            this.IgnoreWarning = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -156,6 +157,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.IgnoreWarning);
             this.panel1.Controls.Add(this.WarningReturn);
             this.panel1.Controls.Add(this.ContinueWarning);
             this.panel1.Controls.Add(this.label2);
@@ -164,7 +166,7 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Location = new System.Drawing.Point(11, 14);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(428, 314);
+            this.panel1.Size = new System.Drawing.Size(428, 339);
             this.panel1.TabIndex = 2;
             // 
             // WarningReturn
@@ -173,7 +175,7 @@
             this.WarningReturn.BackColor = System.Drawing.Color.Gainsboro;
             this.WarningReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.WarningReturn.ForeColor = System.Drawing.Color.Black;
-            this.WarningReturn.Location = new System.Drawing.Point(106, 250);
+            this.WarningReturn.Location = new System.Drawing.Point(106, 239);
             this.WarningReturn.Name = "WarningReturn";
             this.WarningReturn.Size = new System.Drawing.Size(134, 28);
             this.WarningReturn.Style.BackColor = System.Drawing.Color.Gainsboro;
@@ -189,7 +191,7 @@
             this.ContinueWarning.BackColor = System.Drawing.Color.Silver;
             this.ContinueWarning.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.ContinueWarning.ForeColor = System.Drawing.Color.Black;
-            this.ContinueWarning.Location = new System.Drawing.Point(246, 250);
+            this.ContinueWarning.Location = new System.Drawing.Point(246, 239);
             this.ContinueWarning.Name = "ContinueWarning";
             this.ContinueWarning.Size = new System.Drawing.Size(136, 28);
             this.ContinueWarning.Style.BackColor = System.Drawing.Color.Silver;
@@ -245,6 +247,16 @@
             this.WarningPanel.TabIndex = 3;
             this.WarningPanel.Visible = false;
             // 
+            // IgnoreWarning
+            // 
+            this.IgnoreWarning.AutoSize = true;
+            this.IgnoreWarning.Location = new System.Drawing.Point(106, 293);
+            this.IgnoreWarning.Name = "IgnoreWarning";
+            this.IgnoreWarning.Size = new System.Drawing.Size(181, 17);
+            this.IgnoreWarning.TabIndex = 5;
+            this.IgnoreWarning.Text = "Always ignore this safety warning";
+            this.IgnoreWarning.UseVisualStyleBackColor = true;
+            // 
             // WebToolsHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,5 +299,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Syncfusion.WinForms.Controls.SfButton WarningReturn;
+        private System.Windows.Forms.CheckBox IgnoreWarning;
     }
 }
