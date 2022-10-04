@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Stardew Valley Mod Manager"
-#define MyAppVersion "220902"
+#define MyAppVersion "221001"
 #define MyAppPublisher "RWE Labs"
 #define MyAppURL "https://rwe.app/labs/sdvmm"
 #define RWELabsURL "https://rwelabs.github.io/"

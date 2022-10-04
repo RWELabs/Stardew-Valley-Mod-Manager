@@ -124,10 +124,12 @@
       <HintPath>..\packages\Syncfusion.Tools.Windows.19.4.0.56\lib\net46\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -336,6 +338,7 @@
     <None Include="Resources\WTHome.png" />
     <None Include="Resources\SDVTelemetryTask.gif" />
     <None Include="Resources\RWESoftwareRepair.png" />
+    <None Include="Resources\sdvWTWarning.png" />
     <Content Include="Windows Logo.png" />
     <None Include="Resources\sdvbg.png" />
     <None Include="Resources\sdvbg.jpg" />

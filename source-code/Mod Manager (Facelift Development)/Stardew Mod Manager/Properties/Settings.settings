@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">220902</Value>
+      <Value Profile="(Default)">221001</Value>
     </Setting>
     <Setting Name="CheckUpdateOnStartup" Type="System.String" Scope="User">
       <Value Profile="(Default)">TRUE</Value>
@@ -67,6 +67,9 @@
     </Setting>
     <Setting Name="RepairActive" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IgnoreWebsiteWarning" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FALSE</Value>
     </Setting>
   </Settings>
 </SettingsFile>

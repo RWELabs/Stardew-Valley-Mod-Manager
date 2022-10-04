@@ -1023,6 +1023,14 @@ namespace Stardew_Mod_Manager
                     TelemetryOptInOut.Text = "Opt-In";
                     TelemetrySettingStatus.Text = "You are not currently sharing telemetry data with RWE Labs";
                 }
+                if (Properties.Settings.Default.IgnoreWebsiteWarning == "FALSE")
+                {
+                    WebToolsWarningEnabled.Checked = true;
+                }
+                else if (Properties.Settings.Default.IgnoreWebsiteWarning == "TRUE")
+                {
+                    WebToolsWarningEnabled.Checked = false;
+                }
             }
 
             if(MainTabs.SelectedTab == Tab_InstallOptions)
@@ -1750,6 +1758,18 @@ namespace Stardew_Mod_Manager
         private void ViewTelemetryPolicy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://rwelabs.github.io/sdvmm/policies/#Telemetry");
+        }
+
+        private void WebToolsWarningEnabled_CheckStateChanged(object sender, EventArgs e)
+        {
+            if(WebToolsWarningEnabled.Checked == true)
+            {
+                Properties.Settings.Default.IgnoreWebsiteWarning = "FALSE";
+            }
+            else if (WebToolsWarningEnabled.Checked == false)
+            {
+                Properties.Settings.Default.IgnoreWebsiteWarning = "TRUE";
+            }
         }
     }
 }
