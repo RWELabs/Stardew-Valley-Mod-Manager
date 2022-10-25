@@ -18,7 +18,7 @@ namespace Stardew_Mod_Manager.Forms.Webapp
     {
         public WebToolsHome()
         {
-            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\SDVMM\WV2\"))
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\SDV Mod Manager\WV2\"))
             {
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\SDVMM\WV2\");
             }
@@ -107,7 +107,7 @@ namespace Stardew_Mod_Manager.Forms.Webapp
         private async Task InitializeBrowser()
         {
             var userDataFolder =
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\SDVMM\WV2\";
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\SDV Mod Manager\WV2\";
             var env = await CoreWebView2Environment.CreateAsync(null, userDataFolder);
             await webView.EnsureCoreWebView2Async(env);
             webView.Source = new Uri("https://rwelabs.github.io/sdvmm/webtools");
