@@ -128,13 +128,13 @@ namespace Stardew_Mod_Manager
                     ThemeColor.SelectedItem = "Special - Birb";
                     SDVPlay.Image = Resources.SDVPlay_Purple;
                     break;
-                case "VICTORIA":
+                case "NATURE":
                     MainTabs.ActiveTabColor = Color.FromArgb(255, 0, 112, 192);
                     Tab_Main.BackgroundImage = Resources.MainBG_Victoria;
                     Tab_Main.BackgroundImageLayout = ImageLayout.Stretch;
                     Tab_GameMan.BackgroundImage = Resources.MainBG_Victoria;
                     Tab_GameMan.BackgroundImageLayout = ImageLayout.Stretch;
-                    ThemeColor.SelectedItem = "Special - Victoria";
+                    ThemeColor.SelectedItem = "Colorful - Nature";
                     SDVPlay.Image = Resources.SDVPlay_Blue;
                     break;
                 case "LYLE":
@@ -186,7 +186,7 @@ namespace Stardew_Mod_Manager
                     case "BIRB":
                         SDVPlay.Image = Properties.Resources.SDVPlay_Purple;
                         break;
-                    case "VICTORIA":
+                    case "NATURE":
                         SDVPlay.Image = Properties.Resources.SDVPlay_Blue;
                         break;
                     case "LYLE":
@@ -1617,8 +1617,8 @@ namespace Stardew_Mod_Manager
                     Properties.Settings.Default.ColorProfile = "BIRB";
                     Properties.Settings.Default.Save();
                     break;
-                case "Special - Victoria":
-                    Properties.Settings.Default.ColorProfile = "VICTORIA";
+                case "Colorful - Nature":
+                    Properties.Settings.Default.ColorProfile = "NATURE";
                     Properties.Settings.Default.Save();
                     break;
                 case "Special - Lyle":
