@@ -368,8 +368,8 @@ namespace Stardew_Mod_Manager
             "Colorful - Pink",
             "Colorful - Blue",
             "Colorful - Green",
+            "Colorful - Nature",
             "Special - Birb",
-            "Special - Victoria",
             "Special - Lyle"});
             this.ThemeColor.Location = new System.Drawing.Point(135, 31);
             this.ThemeColor.Name = "ThemeColor";
