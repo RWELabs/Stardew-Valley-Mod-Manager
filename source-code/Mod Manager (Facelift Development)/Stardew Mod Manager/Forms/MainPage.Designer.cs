@@ -43,6 +43,7 @@ namespace Stardew_Mod_Manager
             this.ChangelogLink = new System.Windows.Forms.LinkLabel();
             this.SettingsLink = new System.Windows.Forms.LinkLabel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.WebToolsWarningEnabled = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.ThemeColor = new System.Windows.Forms.ComboBox();
             this.CheckSMAPIUpdatesOnStart = new System.Windows.Forms.CheckBox();
@@ -152,7 +153,6 @@ namespace Stardew_Mod_Manager
             this.StartSMAPIUpdateCheck = new System.Windows.Forms.Timer(this.components);
             this.Debug_BackupMods = new System.Windows.Forms.Button();
             this.DoTelemetricChecks = new System.ComponentModel.BackgroundWorker();
-            this.WebToolsWarningEnabled = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_SMAPIUpToDate)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -338,6 +338,18 @@ namespace Stardew_Mod_Manager
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Application Settings";
             // 
+            // WebToolsWarningEnabled
+            // 
+            this.WebToolsWarningEnabled.AutoSize = true;
+            this.WebToolsWarningEnabled.Font = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.WebToolsWarningEnabled.Location = new System.Drawing.Point(11, 127);
+            this.WebToolsWarningEnabled.Name = "WebToolsWarningEnabled";
+            this.WebToolsWarningEnabled.Size = new System.Drawing.Size(336, 21);
+            this.WebToolsWarningEnabled.TabIndex = 38;
+            this.WebToolsWarningEnabled.Text = "Warn me when visiting external websites in WebTools";
+            this.WebToolsWarningEnabled.UseVisualStyleBackColor = true;
+            this.WebToolsWarningEnabled.CheckStateChanged += new System.EventHandler(this.WebToolsWarningEnabled_CheckStateChanged);
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -356,8 +368,8 @@ namespace Stardew_Mod_Manager
             "Colorful - Pink",
             "Colorful - Blue",
             "Colorful - Green",
+            "Colorful - Nature",
             "Special - Birb",
-            "Special - Victoria",
             "Special - Lyle"});
             this.ThemeColor.Location = new System.Drawing.Point(135, 31);
             this.ThemeColor.Name = "ThemeColor";
@@ -1682,18 +1694,6 @@ namespace Stardew_Mod_Manager
             // 
             this.DoTelemetricChecks.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoTelemetricChecks_DoWork);
             this.DoTelemetricChecks.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DoTelemetricChecks_RunWorkerCompleted);
-            // 
-            // WebToolsWarningEnabled
-            // 
-            this.WebToolsWarningEnabled.AutoSize = true;
-            this.WebToolsWarningEnabled.Font = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.WebToolsWarningEnabled.Location = new System.Drawing.Point(11, 127);
-            this.WebToolsWarningEnabled.Name = "WebToolsWarningEnabled";
-            this.WebToolsWarningEnabled.Size = new System.Drawing.Size(336, 21);
-            this.WebToolsWarningEnabled.TabIndex = 38;
-            this.WebToolsWarningEnabled.Text = "Warn me when visiting external websites in WebTools";
-            this.WebToolsWarningEnabled.UseVisualStyleBackColor = true;
-            this.WebToolsWarningEnabled.CheckStateChanged += new System.EventHandler(this.WebToolsWarningEnabled_CheckStateChanged);
             // 
             // MainPage
             // 
