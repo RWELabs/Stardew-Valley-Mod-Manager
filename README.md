@@ -76,6 +76,13 @@ If you're modifying and/or downloading the source code, however, your responsibi
 ### System Requirements
 <hr>
 
+#### Why does this application need administrative privileges?
+Stardew Valley Mod Manager (as of version 230301) requires administraive privileges in order to run. This may be alarming to some users, however, this is in response to some longstanding issues with the Mod Manager on machines where Stardew Valley is installed in the default directory.
+
+When Stardew Valley is installed in a folder that is child to the ``C:\Program Files\`` directory, the Stardew Valley Mod Manager is unable to move folders and files in and out of this directory, as it is protected by the system. For this reason, the application requires administrative privileges so that mods can be installed, enabled, disabled, uninstalled and deleted. It is easier for us to implement a program-wide enforcement of higher privileges than it is to redesign the program to only require priviliges when file transfers are taking place. This is something we are considering for the future however.
+
+As always, the code for the Stardew Valley Mod Manager is completely open source. There is no cause to be alarmed.
+
 #### Recommended Specifications
 <b>Operating System</b>
 - Designed for Windows 11
