@@ -74,6 +74,7 @@ namespace Stardew_Mod_Manager
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.Tab_Settings = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.VolunteerTelemetry = new Syncfusion.WinForms.Controls.SfButton();
             this.ViewTelemetryPolicy = new System.Windows.Forms.LinkLabel();
             this.TelemetrySettingStatus = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -694,6 +695,7 @@ namespace Stardew_Mod_Manager
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.VolunteerTelemetry);
             this.groupBox3.Controls.Add(this.ViewTelemetryPolicy);
             this.groupBox3.Controls.Add(this.TelemetrySettingStatus);
             this.groupBox3.Controls.Add(this.label19);
@@ -701,15 +703,26 @@ namespace Stardew_Mod_Manager
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.groupBox3.Location = new System.Drawing.Point(21, 616);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(539, 101);
+            this.groupBox3.Size = new System.Drawing.Size(539, 127);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Telemetry";
             // 
+            // VolunteerTelemetry
+            // 
+            this.VolunteerTelemetry.AccessibleName = "Button";
+            this.VolunteerTelemetry.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.VolunteerTelemetry.Location = new System.Drawing.Point(272, 59);
+            this.VolunteerTelemetry.Name = "VolunteerTelemetry";
+            this.VolunteerTelemetry.Size = new System.Drawing.Size(238, 28);
+            this.VolunteerTelemetry.TabIndex = 43;
+            this.VolunteerTelemetry.Text = "Volunteer Single Time Telemetry";
+            this.VolunteerTelemetry.Click += new System.EventHandler(this.VolunteerTelemetry_Click);
+            // 
             // ViewTelemetryPolicy
             // 
             this.ViewTelemetryPolicy.AutoSize = true;
-            this.ViewTelemetryPolicy.Location = new System.Drawing.Point(410, 74);
+            this.ViewTelemetryPolicy.Location = new System.Drawing.Point(18, 96);
             this.ViewTelemetryPolicy.Name = "ViewTelemetryPolicy";
             this.ViewTelemetryPolicy.Size = new System.Drawing.Size(115, 13);
             this.ViewTelemetryPolicy.TabIndex = 42;
@@ -743,7 +756,7 @@ namespace Stardew_Mod_Manager
             this.TelemetryOptInOut.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TelemetryOptInOut.Location = new System.Drawing.Point(19, 59);
             this.TelemetryOptInOut.Name = "TelemetryOptInOut";
-            this.TelemetryOptInOut.Size = new System.Drawing.Size(295, 28);
+            this.TelemetryOptInOut.Size = new System.Drawing.Size(238, 28);
             this.TelemetryOptInOut.TabIndex = 39;
             this.TelemetryOptInOut.Text = "OptInOut";
             this.TelemetryOptInOut.Click += new System.EventHandler(this.TelemetryOptInOut_Click);
@@ -801,7 +814,7 @@ namespace Stardew_Mod_Manager
             // 
             this.SettingsResetButton.AccessibleName = "Button";
             this.SettingsResetButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SettingsResetButton.Location = new System.Drawing.Point(261, 736);
+            this.SettingsResetButton.Location = new System.Drawing.Point(261, 757);
             this.SettingsResetButton.Name = "SettingsResetButton";
             this.SettingsResetButton.Size = new System.Drawing.Size(233, 28);
             this.SettingsResetButton.TabIndex = 38;
@@ -812,7 +825,7 @@ namespace Stardew_Mod_Manager
             // 
             this.LegacySettings.AccessibleName = "Button";
             this.LegacySettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LegacySettings.Location = new System.Drawing.Point(19, 736);
+            this.LegacySettings.Location = new System.Drawing.Point(19, 757);
             this.LegacySettings.Name = "LegacySettings";
             this.LegacySettings.Size = new System.Drawing.Size(236, 28);
             this.LegacySettings.TabIndex = 37;
@@ -1891,5 +1904,6 @@ namespace Stardew_Mod_Manager
         private Syncfusion.WinForms.Controls.SfButton TelemetryOptInOut;
         private System.Windows.Forms.LinkLabel ViewTelemetryPolicy;
         private System.Windows.Forms.CheckBox WebToolsWarningEnabled;
+        private Syncfusion.WinForms.Controls.SfButton VolunteerTelemetry;
     }
 }

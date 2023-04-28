@@ -546,6 +546,10 @@ namespace Stardew_Mod_Manager
             FileWrite.AppendText("      \"TelemetryData\": \"Check for Updates Enabled\"" + Environment.NewLine);
             FileWrite.AppendText("    }," + Environment.NewLine);
             FileWrite.AppendText("    {" + Environment.NewLine);
+            FileWrite.AppendText("      \"string\": \"" + Properties.Settings.Default.Version.ToLower() + "\"," + Environment.NewLine);
+            FileWrite.AppendText("      \"TelemetryData\": \"SDV Mod Manager Version\"" + Environment.NewLine);
+            FileWrite.AppendText("    }," + Environment.NewLine);
+            FileWrite.AppendText("    {" + Environment.NewLine);
             FileWrite.AppendText("      \"bool\": \"" + Properties.Settings.Default.CheckSMAPIUpdateOnStartup.ToLower() + "\"," + Environment.NewLine);
             FileWrite.AppendText("      \"TelemetryData\": \"Check for SMAPI Updates Enabled\"" + Environment.NewLine);
             FileWrite.AppendText("    }," + Environment.NewLine);
@@ -1017,11 +1021,13 @@ namespace Stardew_Mod_Manager
                 {
                     TelemetryOptInOut.Text = "Opt-Out";
                     TelemetrySettingStatus.Text = "You are currently sharing telemetry data with RWE Labs";
+                    VolunteerTelemetry.Enabled = true;
                 }
                 else if (Properties.Settings.Default.DoTelemetry == "FALSE")
                 {
                     TelemetryOptInOut.Text = "Opt-In";
                     TelemetrySettingStatus.Text = "You are not currently sharing telemetry data with RWE Labs";
+                    VolunteerTelemetry.Enabled = false;
                 }
                 if (Properties.Settings.Default.IgnoreWebsiteWarning == "FALSE")
                 {
@@ -1284,7 +1290,7 @@ namespace Stardew_Mod_Manager
                 MainTabs.TabPages.Add(Tab_Feedback);
                 this.MainTabs.SelectedTab = Tab_Feedback;
                 GiveFeedbackLink.Enabled = false;
-                //FBView.Url = new Uri("https://labs.ryanwalpole.com/feedback/sdvmm/");
+                //FBView.Url = new Uri("https://rwelabs.github.io/sdvmm/feedback.html");
             }
         }
 
@@ -1769,6 +1775,27 @@ namespace Stardew_Mod_Manager
             else if (WebToolsWarningEnabled.Checked == false)
             {
                 Properties.Settings.Default.IgnoreWebsiteWarning = "TRUE";
+            }
+        }
+
+        private void VolunteerTelemetry_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult DR = MessageBox.Show("Are you sure you'd like to voluntarily submit your telemetry file? You should only do this if you've been instructed to by RWE Labs or a representative from RWE Labs.","Voluntary Submission | RWE Labs Telemetry",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if(DR == DialogResult.Yes)
+                {
+                    DoTelemetricChecks.RunWorkerAsync();
+                    MessageBox.Show("Thank you for sending your data. We encourage you to not use this voluntary submission for the next 7 days unless otherwise instructed.","Voluntary Submission | RWE Labs Telemetry");
+                }
+                else
+                {
+                    //do nothing
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("We ran into an issue sending your telemetry data to RWE Labs.", "Voluntary Submission | RWE Labs Telemetry");
             }
         }
     }

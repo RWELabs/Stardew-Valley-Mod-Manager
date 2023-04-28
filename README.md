@@ -114,7 +114,7 @@ Download the most recent version of Stardew Valley Mod Manager by visiting our r
 - [View All Releases](https://github.com/RyanWalpoleEnterprises/Stardew-Valley-Mod-Manager/releases)
 
 #### Need Help?
-If you're running into any issues with downloading or installing the application, see [download and installation help](#download-and-install.)
+If you're running into any issues with downloading or installing the application, see [download and installation help](https://rwe-labs.gitbook.io/sdvmm/getting-started/setup-and-configuration/downloading-the-application)
 
 ## Branches
 
